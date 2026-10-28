@@ -1,0 +1,93 @@
+"use client";
+
+import { useEffect, useId, useRef, useState, type FormEvent } from "react";
+import { MAX_ASSISTANT_LENGTH, MAX_HISTORY_MESSAGES, MAX_INPUT_LENGTH, type ChatMessage } from "@/lib/chat";
+import "./ChatPanel.css";
+
+type DisplayMessage = ChatMessage & { truncated?: boolean };
+const SUGGESTIONS = ["什么是冬至？", "清明有什么习俗？", "夏至为什么不一定最热？"];
+
+export default function ChatPanel() {
+  const [messages, setMessages] = useState<DisplayMessage[]>([]);
+  const [input, setInput] = useState("");
+  const [pending, setPending] = useState<string | null>(null);
+  const [error, setError] = useState("");
+  const [historyTrimmed, setHistoryTrimmed] = useState(false);
+  const controllerRef = useRef<AbortController | null>(null);
+  const transcriptRef = useRef<HTMLDivElement>(null);
+  const inputRef = useRef<HTMLTextAreaElement>(null);
+  const inputId = useId();
+  const busy = pending !== null;
+
+  useEffect(() => () => controllerRef.current?.abort(), []);
+  useEffect(() => {
+    const transcript = transcriptRef.current;
+    if (transcript) transcript.scrollTop = transcript.scrollHeight;
+  }, [messages, pending, error]);
+
+  async function send(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    if (controllerRef.current) return;
+    const question = input.trim();
+    if (!question || input.length > MAX_INPUT_LENGTH) {
+      setError(`请输入 1–${MAX_INPUT_LENGTH} 字符的问题。`);
+      return;
+    }
+    const controller = new AbortController();
+    controllerRef.current = controller;
+    setPending(question);
+    setError("");
+    let timedOut = false;
+    const timeout = setTimeout(() => { timedOut = true; controller.abort(); }, 135_000);
+    try {
+      const history: ChatMessage[] = messages.slice(-MAX_HISTORY_MESSAGES).map(({ role, content }) => ({ role, content }));
+      const response = await fetch("/api/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ messages: [...history, { role: "user", content: question }] }),
+        signal: controller.signal,
+      });
+      let data;
+      try { data = await response.json(); }
+      catch { throw new Error("聊天服务返回了异常响应，请稍后重试。"); }
+      if (!response.ok) throw new Error(typeof data?.error?.message === "string" ? data.error.message : "请求失败，请稍后重试。");
+      if (typeof data?.answer !== "string" || !data.answer.trim() || data.answer.length > MAX_ASSISTANT_LENGTH) throw new Error("未收到有效回答，请重试。");
+      const updated: DisplayMessage[] = [...messages, { role: "user", content: question }, { role: "assistant", content: data.answer, truncated: data.truncated === true }];
+      if (updated.length > MAX_HISTORY_MESSAGES) setHistoryTrimmed(true);
+      setMessages(updated.slice(-MAX_HISTORY_MESSAGES));
+      setInput("");
+    } catch (failure) {
+      if (controller.signal.aborted) setError(timedOut ? "等待回答超时，请重试。问题已保留。" : "已停止等待，问题已保留，可重新发送。");
+      else setError(failure instanceof TypeError ? "网络连接异常，请检查网络后重试。问题已保留。" : failure instanceof Error ? failure.message : "发送失败，请稍后重试。");
+    } finally {
+      clearTimeout(timeout);
+      controllerRef.current = null;
+      setPending(null);
+    }
+  }
+
+  return (
+    <section className="chat-panel" aria-labelledby={`${inputId}-heading`}>
+      <header className="chat-heading">
+        <div><p className="eyebrow">问四时 · 知所以</p><h2 id={`${inputId}-heading`}>AI 文化讲解员</h2></div>
+        <span className="chat-provider">DeepSeek AI</span>
+      </header>
+      <p className="chat-intro">从一个问题开始，聊聊节气里的天文与生活。</p>
+      <div className="chat-transcript" ref={transcriptRef} role="log" aria-label="节气聊天记录" aria-live="polite" aria-relevant="additions text" tabIndex={0}>
+        {messages.length === 0 && !busy && <div className="chat-empty"><span aria-hidden="true">问</span><h3>四时流转，皆可问。</h3><p>试着问“什么是冬至？”，<br />再追问“它和夏至有什么区别？”</p><p className="chat-small">发送后由 DeepSeek 生成回答。</p></div>}
+        {historyTrimmed && <p className="chat-small">更早的对话已移出，仅保留最近 5 轮。</p>}
+        {messages.map((message, index) => <article className={`chat-message chat-${message.role}`} key={index}><p className="chat-speaker">{message.role === "user" ? "你" : "DeepSeek · 节气讲解"}</p><div className="chat-message-text">{message.content}</div>{message.truncated && <p className="chat-small">回答已达到长度上限，可追问“请继续”。</p>}</article>)}
+        {busy && <><article className="chat-message chat-user"><p className="chat-speaker">你</p><div className="chat-message-text">{pending}</div></article><p className="chat-loading" role="status">正在等待 DeepSeek 回答…</p></>}
+      </div>
+      {error && <p className="chat-error" role="alert">{error}</p>}
+      <div className="chat-suggestions" aria-label="推荐问题">{SUGGESTIONS.map((suggestion) => <button type="button" key={suggestion} disabled={busy} onClick={() => { setInput(suggestion); setError(""); inputRef.current?.focus(); }}>{suggestion}</button>)}</div>
+      <form className="chat-form" onSubmit={send}>
+        <label htmlFor={inputId}>想了解哪个节气？</label>
+        <textarea ref={inputRef} id={inputId} value={input} onChange={(event) => setInput(event.target.value)} maxLength={MAX_INPUT_LENGTH} disabled={busy} rows={3} placeholder="输入你的问题，也可以接着追问…" aria-describedby={`${inputId}-help`} onKeyDown={(event) => { if (event.key === "Enter" && !event.shiftKey && !event.nativeEvent.isComposing && event.keyCode !== 229) { event.preventDefault(); event.currentTarget.form?.requestSubmit(); } }} />
+        <div className="chat-form-meta"><span>{input.length} / {MAX_INPUT_LENGTH}</span><span>Enter 发送 · Shift+Enter 换行</span></div>
+        <div className="chat-actions"><button type="button" className="chat-clear" disabled={busy || (messages.length === 0 && !error)} onClick={() => { setMessages([]); setError(""); setHistoryTrimmed(false); }}>清空对话</button>{busy ? <button type="button" className="chat-send" onClick={() => controllerRef.current?.abort()}>停止等待</button> : <button type="submit" className="chat-send" disabled={!input.trim()}>发送问题 <span aria-hidden="true">↗</span></button>}</div>
+        <p id={`${inputId}-help`} className="chat-small">对话仅保留在当前页面内存中，最多最近 5 轮，刷新即清空。AI 回答可能有误，请结合可靠资料判断。</p>
+      </form>
+    </section>
+  );
+}
