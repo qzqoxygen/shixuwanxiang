@@ -56,10 +56,18 @@ p { line-height: 1.9; }
 .card-bottom { display: flex; align-items: center; justify-content: space-between; gap: 8px; border-top: 1px solid var(--line); margin-top: 28px; padding-top: 16px; color: var(--season-color); }
 .card-bottom small { font-size: 11px; }
 .page-note { font-size: 12px; color: var(--muted); margin: 28px 0 0; }
-.explore-grid { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); align-items: start; gap: 28px; }
-.map-placeholder { min-height: 520px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 50px; border-style: dashed; }
-.map-placeholder p { max-width: 360px; font-size: 14px; }
-.placeholder-mark { font-family: SimSun, serif; font-size: 64px; color: #9aa89b; padding: 34px 0 28px; }
+.explore-intro { padding: 32px 0 26px; }
+.explore-intro .eyebrow { margin-bottom: 10px; }
+.explore-intro h1 { margin-bottom: 10px; font-size: 36px; }
+.explore-grid { display: grid; grid-template-columns: minmax(310px, 1fr) minmax(0, 2fr); align-items: stretch; gap: 24px; }
+.explore-grid > .chat-panel { display: flex; flex-direction: column; padding: 24px; }
+.explore-grid .chat-heading { align-items: flex-start; flex-wrap: wrap; }
+.explore-grid .chat-heading h2 { font-size: 24px; }
+.explore-grid .chat-provider { padding: 4px 7px; font-size: 10px; }
+.explore-grid .chat-transcript { height: 280px; min-height: 240px; flex: 1; }
+.explore-grid .chat-empty { padding-top: 38px; }
+.explore-grid .chat-suggestions { padding: 14px 0; }
+.explore-grid .chat-form textarea { min-height: 88px; }
 .studio-intro { max-width: 850px; margin-bottom: 28px; }
 .studio-intro h2 { margin-top: 24px; }
 .studio-intro p { font-size: 14px; color: var(--muted); }
@@ -96,7 +104,7 @@ p { line-height: 1.9; }
   .terms-layout { grid-template-columns: 1fr; }
   .term-detail { position: static; }
   .explore-grid { grid-template-columns: 1fr; }
-  .map-placeholder { min-height: 350px; }
+  .explore-grid .chat-transcript { flex: none; height: 320px; }
 }
 @media (max-width: 640px) {
   .page-shell { padding: 0 16px; }
@@ -114,7 +122,8 @@ p { line-height: 1.9; }
   .paper-card { padding: 24px; }
   .season-group { padding: 18px; }
   .term-grid { grid-template-columns: repeat(3,minmax(0,1fr)); gap: 10px; }
-  .map-placeholder { padding: 30px; }
+  .explore-intro h1 { font-size: 30px; }
+  .explore-grid > .chat-panel { padding: 22px 20px; }
   .site-footer { margin-top: 36px; }
 }
 

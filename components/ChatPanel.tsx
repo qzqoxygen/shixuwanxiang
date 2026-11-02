@@ -70,9 +70,9 @@ export default function ChatPanel() {
     <section className="chat-panel" aria-labelledby={`${inputId}-heading`}>
       <header className="chat-heading">
         <div><p className="eyebrow">问四时 · 知所以</p><h2 id={`${inputId}-heading`}>AI 文化讲解员</h2></div>
-        <span className="chat-provider">DeepSeek AI</span>
+        <span className="chat-seal" aria-hidden="true">四时<br />问答</span>
       </header>
-      <p className="chat-intro">从一个问题开始，聊聊节气里的天文与生活。</p>
+      <p className="chat-intro"><span className="chat-provider">DeepSeek AI</span> · 聊聊节气里的天文与生活</p>
       <div className="chat-transcript" ref={transcriptRef} role="log" aria-label="节气聊天记录" aria-live="polite" aria-relevant="additions text" tabIndex={0}>
         {messages.length === 0 && !busy && <div className="chat-empty"><span aria-hidden="true">问</span><h3>四时流转，皆可问。</h3><p>试着问“什么是冬至？”，<br />再追问“它和夏至有什么区别？”</p><p className="chat-small">发送后由 DeepSeek 生成回答。</p></div>}
         {historyTrimmed && <p className="chat-small">更早的对话已移出，仅保留最近 5 轮。</p>}
@@ -82,10 +82,15 @@ export default function ChatPanel() {
       {error && <p className="chat-error" role="alert">{error}</p>}
       <div className="chat-suggestions" aria-label="推荐问题">{SUGGESTIONS.map((suggestion) => <button type="button" key={suggestion} disabled={busy} onClick={() => { setInput(suggestion); setError(""); inputRef.current?.focus(); }}>{suggestion}</button>)}</div>
       <form className="chat-form" onSubmit={send}>
-        <label htmlFor={inputId}>想了解哪个节气？</label>
-        <textarea ref={inputRef} id={inputId} value={input} onChange={(event) => setInput(event.target.value)} maxLength={MAX_INPUT_LENGTH} disabled={busy} rows={3} placeholder="输入你的问题，也可以接着追问…" aria-describedby={`${inputId}-help`} onKeyDown={(event) => { if (event.key === "Enter" && !event.shiftKey && !event.nativeEvent.isComposing && event.keyCode !== 229) { event.preventDefault(); event.currentTarget.form?.requestSubmit(); } }} />
-        <div className="chat-form-meta"><span>{input.length} / {MAX_INPUT_LENGTH}</span><span>Enter 发送 · Shift+Enter 换行</span></div>
-        <div className="chat-actions"><button type="button" className="chat-clear" disabled={busy || (messages.length === 0 && !error)} onClick={() => { setMessages([]); setError(""); setHistoryTrimmed(false); }}>清空对话</button>{busy ? <button type="button" className="chat-send" onClick={() => controllerRef.current?.abort()}>停止等待</button> : <button type="submit" className="chat-send" disabled={!input.trim()}>发送问题 <span aria-hidden="true">↗</span></button>}</div>
+        <label htmlFor={inputId}>落笔，问四时。</label>
+        <div className="chat-composer">
+          <div className="chat-input-sheet">
+            <textarea ref={inputRef} id={inputId} value={input} onChange={(event) => setInput(event.target.value)} maxLength={MAX_INPUT_LENGTH} disabled={busy} rows={2} placeholder="写下你的节气疑问…" aria-describedby={`${inputId}-help ${inputId}-count`} onKeyDown={(event) => { if (event.key === "Enter" && !event.shiftKey && !event.nativeEvent.isComposing && event.keyCode !== 229) { event.preventDefault(); event.currentTarget.form?.requestSubmit(); } }} />
+            <span id={`${inputId}-count`} className="chat-count">{input.length} / {MAX_INPUT_LENGTH}</span>
+          </div>
+          {busy ? <button type="button" className="chat-send" onClick={() => controllerRef.current?.abort()}>停止<br />等待</button> : <button type="submit" className="chat-send" disabled={!input.trim()}>发送</button>}
+        </div>
+        <div className="chat-actions"><span className="chat-form-meta">Enter 发送 · Shift+Enter 换行</span><button type="button" className="chat-clear" disabled={busy || (messages.length === 0 && !error)} onClick={() => { setMessages([]); setError(""); setHistoryTrimmed(false); }}>清空对话</button></div>
         <p id={`${inputId}-help`} className="chat-small">对话仅保留在当前页面内存中，最多最近 5 轮，刷新即清空。AI 回答可能有误，请结合可靠资料判断。</p>
       </form>
     </section>

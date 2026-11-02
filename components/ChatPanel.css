@@ -1,33 +1,66 @@
-.chat-panel { min-width: 0; border: 1px solid #d9d8cd; background: var(--paper); border-radius: 8px; padding: 28px; }
-.chat-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
-.chat-heading .eyebrow { font-size: 11px; margin: 0 0 10px; }
-.chat-heading h2 { font-family: "Songti SC", SimSun, serif; font-size: clamp(21px, 2.3vw, 28px); font-weight: 500; margin: 0; }
-.chat-provider { font-size: 11px; color: var(--stone); background: #e9eeea; border: 1px solid #d8e1da; padding: 6px 9px; border-radius: 4px; white-space: nowrap; }
-.chat-intro { color: #626963; font-size: 13px; line-height: 1.8; margin: 16px 0; }
-.chat-transcript { height: 470px; overflow-y: auto; overscroll-behavior: contain; padding: 16px 4px; border-top: 1px solid #e1e0d6; border-bottom: 1px solid #e1e0d6; scrollbar-width: thin; scrollbar-color: #b8c9bf transparent; }
-.chat-empty { text-align: center; padding: 66px 0 32px; color: #657570; }
-.chat-empty > span { display: inline-grid; place-items: center; height: 48px; width: 48px; border: 1px solid #aebfb6; border-radius: 50%; font-family: "Songti SC", SimSun, serif; font-size: 24px; }
-.chat-empty h3 { font-size: 22px; font-family: "Songti SC", SimSun, serif; font-weight: 400; margin: 22px 0 14px; }
-.chat-empty p { font-size: 13px; line-height: 1.9; }
-.chat-message { margin: 0 0 18px; padding: 14px 16px; border-radius: 5px; }
-.chat-user { background: #eaf0e9; margin-left: 24px; }
-.chat-assistant { border: 1px solid #e1e0d6; background: #f8f7f1; margin-right: 12px; }
-.chat-speaker { color: var(--stone); font-size: 11px; margin: 0 0 8px; }
-.chat-message-text { font-size: 14px; line-height: 1.9; white-space: pre-wrap; overflow-wrap: anywhere; }
-.chat-loading { color: var(--stone); font-size: 13px; padding: 8px; }
-.chat-error { color: var(--cinnabar); background: #faeee5; border: 1px solid #e8cabc; border-radius: 4px; padding: 12px; font-size: 13px; line-height: 1.7; overflow-wrap: anywhere; }
-.chat-suggestions { display: flex; flex-wrap: wrap; gap: 8px; padding: 18px 0; }
-.chat-suggestions button { color: #53666a; background: transparent; border: 1px solid #d6d9d2; padding: 7px 9px; border-radius: 4px; font-size: 11px; text-align: left; }
-.chat-form label { display: block; font-size: 13px; margin-bottom: 10px; color: #3e5756; }
-.chat-form textarea { display: block; width: 100%; resize: vertical; min-height: 100px; max-height: 250px; border: 1px solid #c8d0c7; border-radius: 5px; background: #fffdf7; color: var(--foreground); padding: 12px; font: inherit; font-size: 14px; line-height: 1.7; }
-.chat-form-meta { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 6px; font-size: 10px; color: #626963; margin-top: 8px; }
-.chat-actions { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin: 18px 0; }
-.chat-actions button { padding: 10px 18px; border-radius: 4px; font-size: 13px; }
-.chat-send { border: 1px solid var(--stone); background: var(--stone); color: #fffdf5; }
-.chat-clear { border: 1px solid #d6d9d2; background: transparent; color: #626963; }
+/* A light paper letter with azurite, tea-brown ink and restrained gold. */
+.explore-grid > .chat-panel {
+  position: relative;
+  isolation: isolate;
+  min-width: 0;
+  margin-top: 14px;
+  padding: 26px 20px 20px;
+  color: #303b38;
+  background: linear-gradient(160deg, #e3eee7eb, #faf9f2ed 38%, #f8f6efe8), url("/images/xuan-paper.webp") center / cover;
+  border: 0;
+  border-radius: 3px 7px 4px 9px / 8px 3px 10px 4px;
+  box-shadow: inset 0 0 32px #467a8306, 0 5px 20px #305f6509;
+}
+.chat-panel::before {
+  content: "";
+  position: absolute;
+  inset: 9px 7px;
+  z-index: -1;
+  border-left: 1px solid #b69a5c35;
+  border-right: 1px solid #b69a5c24;
+  border-radius: 48% 3% 35% 4% / 6px 10px 8px 12px;
+  pointer-events: none;
+}
+.chat-panel::after { content: ""; position: absolute; top: 100px; right: 6px; width: 140px; height: 55px; background: url("/images/azure-cloud-ribbon.svg") center / contain no-repeat; opacity: .55; pointer-events: none; z-index: -1; }
+.chat-panel .chat-heading { display: flex; flex-wrap: nowrap; align-items: center; justify-content: space-between; gap: 10px; }
+.chat-panel .chat-heading .eyebrow { font-family: KaiTi, "STKaiti", SimSun, serif; font-size: 12px; color: #79604c; margin: 0 0 10px; letter-spacing: .18em; }
+.chat-panel .chat-heading h2 { font-family: KaiTi, "STKaiti", SimSun, serif; font-size: clamp(22px, 1.8vw, 27px); font-weight: 500; margin: 0; color: #305f65; }
+.chat-seal { flex: none; padding: 3px 4px; border: 3px double #985c4a; border-radius: 5px 2px 6px 3px; color: #98503e; font: 15px/1.15 KaiTi, "STKaiti", SimSun, serif; letter-spacing: .05em; transform: rotate(4deg); }
+.chat-panel .chat-intro { font-size: 11px; color: #626f68; margin: 14px 0 8px; line-height: 1.9; }
+.chat-panel .chat-provider { padding: 0; border: 0; background: none; font-size: 10px; letter-spacing: .02em; white-space: nowrap; }
+.chat-panel .chat-transcript { flex: none; height: 310px; min-height: 240px; overflow-y: auto; overscroll-behavior: contain; padding: 18px 2px; border: 0; scrollbar-width: thin; scrollbar-color: #91b2ad transparent; }
+.chat-panel .chat-empty { padding: 26px 4px 20px; text-align: center; color: #4b6866; }
+.chat-panel .chat-empty > span { position: relative; display: inline-grid; place-items: center; height: 68px; width: 68px; border: 1.5px solid #b69a5c; border-radius: 48% 45% 51% 46%; font: 40px/1 "Shixu Brush", KaiTi, serif; color: #467a83; transform: rotate(-8deg); }
+.chat-panel .chat-empty > span::after { content: ""; position: absolute; inset: 3px -3px -2px 2px; border: 1px solid #b69a5c55; border-radius: 47% 52% 45% 50%; }
+.chat-panel .chat-empty h3 { font: 24px/1.6 KaiTi, "STKaiti", SimSun, serif; margin: 22px 0 10px; }
+.chat-panel .chat-empty p { font-size: 12px; line-height: 1.9; }
+.chat-panel .chat-message { margin: 0 0 20px; padding: 12px 10px; border-radius: 2px 8px 3px 6px; }
+.chat-panel .chat-user { margin-left: 18px; border: 1px solid #87aaa52b; background: #dde8dc9c; }
+.chat-panel .chat-assistant { margin-right: 8px; border: 0; border-left: 2px solid #b69a5c88; background: #ffffff60; }
+.chat-panel .chat-speaker { color: #79604c; font: 12px/1.6 KaiTi, "STKaiti", SimSun, serif; margin: 0 0 8px; }
+.chat-message-text { font-size: 14px; line-height: 1.95; white-space: pre-wrap; overflow-wrap: anywhere; }
+.chat-loading { color: #467a83; font-size: 13px; padding: 8px; }
+.chat-error { color: #873d2d; background: #faeee5; border: 1px solid #b88066; border-radius: 3px; padding: 12px; font-size: 13px; line-height: 1.7; overflow-wrap: anywhere; }
+.chat-panel .chat-suggestions { display: flex; flex-wrap: wrap; gap: 7px 12px; padding: 10px 0 20px; }
+.chat-panel .chat-suggestions button { text-align: left; padding: 2px 0 4px; border: 0; border-bottom: 1px dashed #b69a5c80; border-radius: 0; background: none; color: #3f7076; font: 12px/1.7 KaiTi, "STKaiti", SimSun, serif; }
+.chat-panel .chat-form label { display: block; color: #79604c; font: 13px/1.7 KaiTi, "STKaiti", SimSun, serif; margin-bottom: 10px; }
+.chat-composer { display: grid; grid-template-columns: minmax(0, 1fr) 58px; align-items: stretch; gap: 0; }
+.chat-input-sheet { min-width: 0; display: flex; flex-direction: column; border: 1.5px solid #79604ca6; border-right: 0; border-radius: 3px 0 0 2px / 7px 0 0 5px; background: #fffefa65; box-shadow: inset 1px 1px 0 #79604c14, -1px 1px 0 #79604c24; }
+.chat-input-sheet:focus-within { outline: 2px solid #467a83; outline-offset: 3px; }
+.chat-panel .chat-form textarea { display: block; width: 100%; min-height: 64px; max-height: 200px; resize: vertical; padding: 10px 9px 4px; border: 0; border-radius: 0; background: transparent; color: #303b38; font: 16px/1.65 KaiTi, "STKaiti", SimSun, serif; }
+.chat-panel .chat-form textarea:focus-visible { outline: none; }
+.chat-panel .chat-form textarea::placeholder { color: #6d796f; opacity: 1; }
+.chat-count { align-self: flex-end; padding: 2px 8px 5px; color: #626f68; font-size: 10px; font-variant-numeric: tabular-nums; }
+.chat-panel .chat-send { border: 1px solid #b69a5c; border-radius: 3px 2px 4px 1px / 6px 3px 7px 3px; padding: 8px 6px; background: linear-gradient(120deg, #467a83f5, #315f68f5), url("/images/xuan-paper.webp") center / cover; box-shadow: 1px 1px 0 #305f6533, inset 0 0 0 2px #d8c79724; color: #fffaf0; font: 21px/1.4 KaiTi, "STKaiti", SimSun, serif; letter-spacing: .08em; }
+.chat-panel .chat-send { white-space: nowrap; font-size: 20px; letter-spacing: .04em; }
+.chat-panel .chat-send:disabled { opacity: .64; }
+.chat-panel .chat-actions { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; margin: 12px 0; }
+.chat-panel .chat-form-meta { color: #626f68; font-size: 10px; }
+.chat-panel .chat-clear { padding: 3px 0; border: 0; background: transparent; color: #79604c; font: 12px/1.6 KaiTi, "STKaiti", SimSun, serif; text-decoration: underline; text-underline-offset: 4px; }
 .chat-panel button { cursor: pointer; }
 .chat-panel button:disabled { opacity: .5; cursor: not-allowed; }
-.chat-panel button:hover:not(:disabled) { filter: brightness(.92); }
-.chat-panel :focus-visible { outline: 2px solid var(--stone); outline-offset: 3px; }
-.chat-small { font-size: 11px; color: #626963; line-height: 1.8; margin: 10px 0 0; }
-@media (max-width: 640px) { .chat-panel { padding: 22px 20px; } .chat-transcript { height: 360px; } .chat-provider { font-size: 10px; } }
+.chat-panel button:hover:not(:disabled) { filter: brightness(.87); }
+.chat-panel :focus-visible { outline: 2px solid #467a83; outline-offset: 3px; }
+.chat-panel .chat-small { font-size: 10px; color: #626f68; line-height: 1.9; margin: 10px 0 0; }
+@media (max-width: 1000px) { .explore-grid > .chat-panel { margin-top: 0; } }
+@media (max-width: 640px) { .explore-grid > .chat-panel { padding: 24px 18px 18px; } .chat-panel .chat-transcript { height: 300px; } }

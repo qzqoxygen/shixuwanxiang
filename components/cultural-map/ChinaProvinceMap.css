@@ -1,0 +1,86 @@
+.culture-map-panel { min-width: 0; display: flex; flex-direction: column; padding: 4px 0 20px; }
+.culture-map-header { position: relative; display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 0 14px 12px; }
+.culture-map-header::after { content: ""; position: absolute; width: 180px; height: 60px; right: 150px; bottom: 0; background: url("/images/azure-cloud-ribbon.svg") center / contain no-repeat; opacity: .65; pointer-events: none; }
+.culture-map-eyebrow { color: var(--muted); font-size: 11px; letter-spacing: .12em; margin: 0 0 8px; }
+.culture-map-header h2 { margin: 0; font-size: 43px; letter-spacing: .08em; line-height: 1.3; color: #305f65; font-family: "Shixu Brush", KaiTi, SimSun, serif; }
+.culture-map-headingAside { display: flex; align-items: center; gap: 14px; }
+.culture-map-badge { color: #467a83; font-size: 11px; letter-spacing: .08em; }
+.culture-map-seal { display: grid; place-items: center; padding: 7px 5px; writing-mode: vertical-rl; border: 1px solid #a7604d; border-radius: 45% 30% 38% 27%; color: #a14e3b; font-family: SimSun, serif; font-size: 15px; letter-spacing: .15em; transform: rotate(4deg); }
+.culture-map-figure { margin: 0; min-width: 0; }
+.culture-map-map { width: 100%; height: auto; display: block; overflow: hidden; }
+.culture-map-toolbar { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 0 14px; margin-bottom: 5px; font-size: 11px; color: var(--muted); }
+.culture-map-toolbar button { display: flex; align-items: center; gap: 14px; border: 1px solid #b69a5c88; background: #f8f6ef80; color: #366c75; padding: 6px 12px; border-radius: 16px 3px 16px 3px; cursor: pointer; }
+.culture-map-toolbar button:hover { background: #dde8dc; }
+.culture-map-toolbar button span { font-size: 16px; line-height: 1; }
+.culture-map-viewport { min-width: 0; overflow: auto; background: linear-gradient(#f8f6efe3, #f8f6efe3), url("/images/xuan-paper.webp") center / cover; border-radius: 3px 15px 5px 20px; scrollbar-width: thin; scrollbar-color: #91b2ad transparent; }
+.culture-map-viewport[data-enlarged="true"] { max-height: 650px; }
+.culture-map-viewport[data-enlarged="true"] .culture-map-canvas { width: max(120%, 1200px); }
+.culture-map-boundaries { stroke-linejoin: round; stroke-linecap: round; }
+.culture-map-province { fill: url(#china-xuan-paper); stroke: #64817b; stroke-width: .85; }
+.culture-map-maritime { fill: #64817b; stroke: #64817b; stroke-width: .5; }
+.culture-map-labels { pointer-events: none; }
+.culture-map-labels text { fill: #303b38; font-size: 14px; font-family: "Songti SC", SimSun, serif; font-weight: 600; paint-order: stroke; stroke: #f8f6ef; stroke-width: 2.6px; stroke-linejoin: round; }
+.culture-map-leader { fill: none; stroke: #8aa29a; stroke-width: .7; }
+.culture-map-compass { fill: var(--stone); stroke: var(--stone); stroke-width: 1; }
+.culture-map-compass text { font-size: 12px; stroke: none; }
+.culture-map-insetBackground { fill: url(#china-xuan-paper); stroke: #b69a5c99; stroke-width: .7; }
+.culture-map-insetLabel { font-size: 12px; fill: #4b6866; }
+.culture-map-seaLabel { fill: #6b8d8c; font-size: 12px; letter-spacing: .25em; }
+.culture-map-caption { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding: 10px 14px; font-size: 11px; color: var(--muted); }
+.culture-map-caption > span:first-child { display: flex; align-items: center; gap: 8px; }
+.culture-map-caption i { width: 15px; height: 10px; background: #dde8dc; border: 1px solid #64817b; border-radius: 1px; }
+.culture-map-note { position: relative; padding: 24px 14px 0; display: flex; align-items: center; gap: 16px; }
+.culture-map-note::after { content: ""; width: 140px; height: 47px; margin-left: auto; background: url("/images/azure-cloud-ribbon.svg") center / contain no-repeat; opacity: .55; }
+.culture-map-noteMark { flex-shrink: 0; width: 36px; height: 40px; display: grid; place-items: center; font-family: "Shixu Brush", SimSun, serif; font-size: 24px; color: #f8f1df; border-radius: 40% 25% 34% 23%; background: #9d5948; transform: rotate(-4deg); }
+.culture-map-note h3 { font-size: 22px; margin: 0 0 4px; font-family: KaiTi, SimSun, serif; }
+.culture-map-note p { font-size: 12px; color: var(--muted); margin: 0; }
+.culture-map-source { color: var(--muted); font-size: 10px; padding: 0 14px; margin: 18px 0 0; }
+.culture-map-source a { text-decoration: underline; text-underline-offset: 3px; }
+.province-visual { transform: translateY(0); transition: transform 220ms ease; }
+.province-visual[data-raised="true"] { transform: translateY(-9px); }
+.province-paper { transition: filter 220ms ease; }
+.province-visual[data-raised="true"] .province-paper { filter: drop-shadow(0 9px 5px #305f6540); }
+.province-thickness { fill: #89aaa2; stroke: #648b83; stroke-width: .6; opacity: 0; transition: opacity 220ms ease; }
+.province-visual[data-raised="true"] .province-thickness { opacity: 1; }
+.province-tint { fill: #9ccab9; opacity: 0; transition: opacity 220ms ease; }
+.province-visual[data-raised="true"] .province-tint { opacity: .35; }
+.province-visual[data-raised="true"] .culture-map-province { stroke: #467a83; stroke-width: 1.4; }
+.province-visual[data-selected="true"] .culture-map-province { stroke: #b69a5c; stroke-width: 1.9; }
+.province-landscape { filter: drop-shadow(1px 3px 1px #364e3b33); }
+.province-target { cursor: pointer; outline: none; }
+.province-target > path, .province-target > rect { fill: transparent; stroke: none; pointer-events: all; }
+.province-target:focus-visible > path, .province-target:focus-visible > rect { stroke: #467a83; stroke-width: 2; stroke-dasharray: 4 3; vector-effect: non-scaling-stroke; }
+.province-selection-row { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; }
+.province-controls { margin: 8px 14px 0; padding: 14px 0 4px; }
+.province-selection-row label { color: #366c75; font-family: KaiTi, SimSun, serif; font-size: 18px; }
+.province-selection-row select { max-width: 100%; min-width: 160px; color: #366c75; border: 1px solid #b69a5c80; background: #f8faf2b3; border-radius: 14px 3px 14px 3px; padding: 8px 12px; font: inherit; font-size: 12px; }
+.province-selection-row button { border: 0; color: #79604c; background: transparent; font-size: 12px; padding: 8px; cursor: pointer; }
+.province-selection-row button:disabled { opacity: .45; cursor: default; }
+.province-selection-status { font-size: 12px; color: #626f68; margin: 12px 0 0; }
+.province-scenery-note { color: #716c5c; font-size: 10px; margin: 4px 0 0; }
+@media (prefers-reduced-motion: reduce) {
+  .province-visual, .province-paper, .province-thickness, .province-tint { transition: none; }
+  .province-visual[data-raised="true"] { transform: none; }
+}
+@media (max-width: 1000px) { .culture-map-panel { order: -1; } }
+@media (max-width: 640px) {
+  .culture-map-panel { padding: 0; }
+  .culture-map-header { padding: 0 2px 12px; gap: 8px; }
+  .culture-map-header::after { display: none; }
+  .culture-map-header h2 { font-size: 32px; }
+  .culture-map-eyebrow { font-size: 10px; letter-spacing: .02em; }
+  .culture-map-headingAside { gap: 6px; }
+  .culture-map-seal { font-size: 12px; padding: 5px 3px; }
+  .culture-map-badge { writing-mode: vertical-rl; font-size: 10px; }
+  .culture-map-toolbar { padding: 0 2px; }
+  .culture-map-caption { font-size: 10px; padding: 12px 2px; gap: 6px; }
+  .culture-map-viewport[data-enlarged="true"] { max-height: 450px; }
+  .culture-map-viewport[data-enlarged="true"] .culture-map-canvas { width: 840px; }
+  .culture-map-note { padding: 18px 2px 0; gap: 10px; }
+  .culture-map-note::after { display: none; }
+  .culture-map-note h3 { font-size: 20px; }
+  .culture-map-note p { font-size: 11px; }
+  .culture-map-source { padding: 0 2px; }
+  .province-controls { margin: 4px 2px 0; }
+  .province-selection-row { gap: 8px; }
+}

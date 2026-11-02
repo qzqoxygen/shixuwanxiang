@@ -1,7 +1,7 @@
 import Link from "next/link";
 const spaces = [
   { href: "/seasons", number: "壹", title: "四时", subtitle: "探索二十四节气", description: "循着太阳的周年运行，认识四季中的二十四个时间节点。", note: "节气基础资料已开放", tone: "spring" },
-  { href: "/explore", number: "贰", title: "知时", subtitle: "探索地域文化与传统技艺", description: "从一个问题开始，与 AI 文化讲解员聊聊节气与生活。", note: "AI 问答已开放 · 文化地图开发中", tone: "summer" },
+  { href: "/explore", number: "贰", title: "知时", subtitle: "探索地域文化与传统技艺", description: "从一个问题开始，与 AI 文化讲解员聊聊节气与生活。", note: "AI 问答 · 基础地图已开放", tone: "summer" },
   { href: "/studio", number: "叁", title: "造物", subtitle: "创作数字文化作品", description: "让传统文化启发新的表达，了解数字创意工坊的未来规划。", note: "创意工坊开发中", tone: "autumn" },
 ];
 export default function Home() {

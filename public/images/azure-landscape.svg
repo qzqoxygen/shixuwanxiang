@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 400" fill="none">
+  <defs>
+    <linearGradient id="distant" x1="270" y1="80" x2="300" y2="390" gradientUnits="userSpaceOnUse"><stop stop-color="#C5DCCD"/><stop offset="1" stop-color="#ECF1E7" stop-opacity="0"/></linearGradient>
+    <linearGradient id="mountain" x1="60" y1="140" x2="370" y2="420" gradientUnits="userSpaceOnUse"><stop stop-color="#467A83"/><stop offset=".65" stop-color="#90BBA8"/><stop offset="1" stop-color="#DDE8DC" stop-opacity="0"/></linearGradient>
+    <linearGradient id="river" x1="10" y1="290" x2="560" y2="350" gradientUnits="userSpaceOnUse"><stop stop-color="#9CBFB3"/><stop offset="1" stop-color="#DDE8DC" stop-opacity="0"/></linearGradient>
+  </defs>
+  <path d="M0 225C45 217 71 144 104 164S150 226 189 174 227 98 252 112 275 174 309 181 346 155 373 181 404 242 438 229 477 223 501 253 559 277 620 286V400H0Z" fill="url(#distant)"/>
+  <path d="M0 166C35 180 44 110 77 120S111 216 151 229 191 184 218 215 242 283 278 280 323 256 360 295 428 318 464 349L620 400H0Z" fill="url(#mountain)"/>
+  <path d="M0 257C33 258 58 212 84 225S111 295 152 304 214 276 255 304 310 348 373 342L490 400H0Z" fill="#467A83" fill-opacity=".3"/>
+  <path d="M93 274C181 245 258 308 332 295S404 253 453 278C398 263 389 314 300 320S186 279 131 298 125 340 225 350 344 370 427 355 536 358 581 381C482 357 434 401 338 386S198 388 125 359 41 299 93 274Z" fill="url(#river)"/>
+  <g stroke="#B69A5C" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M0 163C35 177 44 107 77 117S111 213 151 226" stroke-width="1.5"/>
+    <path d="M185 181C216 141 230 98 251 108S275 169 299 176M174 228C196 206 203 201 219 219" stroke-width="1"/>
+    <path d="M92 280C150 254 220 296 278 300M185 345C238 360 294 361 331 357" stroke-width="1.2"/>
+    <path d="M49 159C57 164 61 189 76 204M54 164C52 192 36 210 34 224M195 236C199 251 213 266 225 275" stroke="#79604C" stroke-opacity=".5" stroke-width=".9"/>
+  </g>
+  <g stroke="#D8C797" stroke-linecap="round">
+    <path d="M2 301C44 281 88 300 77 317S34 324 42 311 59 308 56 314M83 324C130 319 153 340 184 341" stroke-width="1.2"/>
+    <path d="M11 340C54 329 65 352 113 354M17 347C47 344 62 360 92 359" stroke-width=".8"/>
+  </g>
+</svg>
