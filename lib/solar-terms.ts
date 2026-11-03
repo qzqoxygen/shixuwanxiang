@@ -18,7 +18,7 @@ export const SEASONS: ReadonlyArray<{ id: Season; name: string; subtitle: string
 
 // Order and longitudes: https://www.hko.gov.hk/tc/gts/time/24solarterms.htm
 // Seasonal names follow the traditional calendar, not local weather forecasts.
-export const SOLAR_TERMS: readonly SolarTerm[] = [
+export const SOLAR_TERMS = [
   { id: "lichun", name: "立春", season: "spring", solarLongitude: 315, isFeatured: false, description: "二十四节气之首，传统历法中春季的开始，不代表各地同时进入气象学意义上的春天。" },
   { id: "yushui", name: "雨水", season: "spring", solarLongitude: 330, isFeatured: false, description: "春季第二个节气，位于立春之后、惊蛰之前。节气名称与降水有关，各地降水情况不同。" },
   { id: "jingzhe", name: "惊蛰", season: "spring", solarLongitude: 345, isFeatured: false, description: "春季第三个节气，位于雨水与春分之间。名称承载传统的物候观察，不是各地同步发生的天气预报。" },
@@ -43,4 +43,6 @@ export const SOLAR_TERMS: readonly SolarTerm[] = [
   { id: "dongzhi", name: "冬至", season: "winter", solarLongitude: 270, isFeatured: true, description: "太阳直射南回归线附近，北半球迎来一年中白昼最短的时段；南半球相反。冬至不一定是最冷的一天。" },
   { id: "xiaohan", name: "小寒", season: "winter", solarLongitude: 285, isFeatured: false, description: "冬季第五个节气，位于冬至与大寒之间。名称中的寒意不代表固定的气温值。" },
   { id: "dahan", name: "大寒", season: "winter", solarLongitude: 300, isFeatured: false, description: "二十四节气中的最后一个，之后回到立春。小寒与大寒哪个更冷，要看地区和具体年份。" },
-];
+] as const satisfies readonly SolarTerm[];
+
+export type SolarTermId = (typeof SOLAR_TERMS)[number]["id"];
