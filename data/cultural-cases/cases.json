@@ -1,0 +1,169 @@
+[
+  {
+    "id": "shanghai-qingming-qingtuan",
+    "title": "上海清明吃青团",
+    "solarTermIds": ["qingming"],
+    "provinceCode": "310000",
+    "provinceName": "上海市",
+    "regionName": "上海市",
+    "category": "food",
+    "description": "上海有清明食用青团的习俗。资料介绍的一种做法是将草汁与糯米粉拌合，包入甜馅后蒸制，作为清明节令食品。",
+    "relationNote": "中国非物质文化遗产网的清明专题文章，在节令食品部分记述上海清明吃青团的习俗。",
+    "sources": [
+      {
+        "title": "梨花落后清明——二十四节气之清明",
+        "url": "https://www.ihchina.cn/Article/Index/detail?id=10041",
+        "publisher": "中国非物质文化遗产网"
+      }
+    ],
+    "verificationStatus": "verified"
+  },
+  {
+    "id": "tongxiang-heshan-qingming-dinner",
+    "title": "浙江桐乡河山镇“清明大似年”团圆饭",
+    "solarTermIds": ["qingming"],
+    "provinceCode": "330000",
+    "provinceName": "浙江省",
+    "regionName": "嘉兴市桐乡市河山镇",
+    "category": "folk_custom",
+    "description": "资料记述桐乡河山镇重视清明夜的家庭晚餐，常见菜品有螺蛳、糯米藕、发芽豆和马兰头。当地将其中一些菜品的寓意与蚕桑生活相联系。",
+    "relationNote": "清明专题文章明确记述桐乡河山镇的清明夜团圆饭，并将传统菜品的民俗寓意与当地蚕桑生活相联系。",
+    "sources": [
+      {
+        "title": "梨花落后清明——二十四节气之清明",
+        "url": "https://www.ihchina.cn/Article/Index/detail?id=10041",
+        "publisher": "中国非物质文化遗产网"
+      }
+    ],
+    "verificationStatus": "verified"
+  },
+  {
+    "id": "beijing-xiazhi-noodles",
+    "title": "北京夏至吃面",
+    "solarTermIds": ["xiazhi"],
+    "provinceCode": "110000",
+    "provinceName": "北京市",
+    "regionName": "北京市",
+    "category": "food",
+    "description": "北京有在夏至吃面条的节令饮食习俗。相关资料以冬至食饺子、夏至食面条的民间说法介绍这一习惯。",
+    "relationNote": "中国非物质文化遗产网的夏至专题文章，在节气习俗部分直接记述北京夏至吃面的习惯。",
+    "sources": [
+      {
+        "title": "冰雪在心——二十四节气之夏至",
+        "url": "https://www.ihchina.cn/Article/Index/detail?id=9925",
+        "publisher": "中国非物质文化遗产网"
+      }
+    ],
+    "verificationStatus": "verified"
+  },
+  {
+    "id": "shaoxing-zuo-xiazhi",
+    "title": "浙江绍兴“做夏至”祭祖",
+    "solarTermIds": ["xiazhi"],
+    "provinceCode": "330000",
+    "provinceName": "浙江省",
+    "regionName": "绍兴地区",
+    "category": "folk_custom",
+    "description": "据夏至专题资料记载，绍兴地区旧时在夏至祭祖，称作“做夏至”，供品中有蒲丝饼。",
+    "relationNote": "夏至专题文章将“做夏至”描述为绍兴地区旧时在夏至日举行的祭祖活动。",
+    "sources": [
+      {
+        "title": "冰雪在心——二十四节气之夏至",
+        "url": "https://www.ihchina.cn/Article/Index/detail?id=9925",
+        "publisher": "中国非物质文化遗产网"
+      }
+    ],
+    "verificationStatus": "verified"
+  },
+  {
+    "id": "mohe-xiazhi-white-night",
+    "title": "漠河北极村夏至白夜极光",
+    "solarTermIds": ["xiazhi"],
+    "provinceCode": "230000",
+    "provinceName": "黑龙江省",
+    "regionName": "漠河北极村（原表称漠河县，行政名称待复核）",
+    "category": "other",
+    "description": "原表收集了漠河北极村夏至期间观赏白夜及节令活动的资料。有关极昼、极光观测时机、游客规模和现行地名的表述需要进一步核查，本条暂不公开。",
+    "relationNote": "原始来源将活动与夏至相联系，但其中天文表述及观测条件尚待专业核实；来源可访问不代表这些说法已经证实。",
+    "sources": [
+      {
+        "title": "冰雪在心——二十四节气之夏至",
+        "url": "https://www.ihchina.cn/Article/Index/detail?id=9925",
+        "publisher": "中国非物质文化遗产网"
+      }
+    ],
+    "verificationStatus": "pending"
+  },
+  {
+    "id": "sanmen-jidong",
+    "title": "三门祭冬",
+    "solarTermIds": ["dongzhi"],
+    "provinceCode": "330000",
+    "provinceName": "浙江省",
+    "regionName": "台州市三门县亭旁镇杨家村",
+    "category": "folk_custom",
+    "description": "三门祭冬是当地在冬至举行的拜冬祭祖习俗，杨家村是相关村落之一，活动包含祭祖和敬老等环节。该项目于2014年列入第四批国家级非遗代表性项目名录的扩展项目。",
+    "relationNote": "国家级非遗项目页明确记述三门祭冬在冬至举行，并列出亭旁镇杨家村及2014年第四批扩展项目信息。",
+    "sources": [
+      {
+        "title": "农历二十四节气（三门祭冬）",
+        "url": "https://www.ihchina.cn/project_details/15063.html",
+        "publisher": "中国非物质文化遗产网"
+      },
+      {
+        "title": "冬至阳生春又来——二十四节气之冬至",
+        "url": "https://www.ihchina.cn/Article/Index/detail?id=9743",
+        "publisher": "中国非物质文化遗产网"
+      }
+    ],
+    "verificationStatus": "verified"
+  },
+  {
+    "id": "suzhou-dongzhi-winter-wine",
+    "title": "姑苏冬至喝冬酿酒",
+    "solarTermIds": ["dongzhi"],
+    "provinceCode": "320000",
+    "provinceName": "江苏省",
+    "regionName": "苏州（姑苏地区）",
+    "category": "food",
+    "description": "姑苏地区有冬至夜饮用冬酿酒的习俗。资料将冬酿酒介绍为加入桂花酿造的米酒，并记述它与冬至夜饮食相伴的传统。",
+    "relationNote": "冬至专题文章与补充资料均将姑苏冬至夜与饮用冬酿酒的习俗相联系。",
+    "sources": [
+      {
+        "title": "冬至阳生春又来——二十四节气之冬至",
+        "url": "https://www.ihchina.cn/Article/Index/detail?id=9743",
+        "publisher": "中国非物质文化遗产网"
+      },
+      {
+        "title": "［传统文化·节气］冬至开启“三九歌”",
+        "url": "https://news.cau.edu.cn/zhxwnew/601643.htm",
+        "publisher": "中国农业大学新闻网"
+      }
+    ],
+    "verificationStatus": "verified"
+  },
+  {
+    "id": "beijing-dongzhi-nine-nine-chart",
+    "title": "九九消寒图",
+    "solarTermIds": ["dongzhi"],
+    "provinceCode": "110000",
+    "provinceName": "北京市",
+    "regionName": "北京（旧京民俗记述）",
+    "category": "craft",
+    "description": "旧京有从冬至开始填画九九消寒图的民俗，将八十一天的数九过程融入书画游戏，每日填画一部分，以寄托盼春之意。",
+    "relationNote": "冬至专题文章记述冬至起填画消寒图，补充资料明确提到老北京冬至开始填图，将地域与节气关联起来。",
+    "sources": [
+      {
+        "title": "冬至阳生春又来——二十四节气之冬至",
+        "url": "https://www.ihchina.cn/Article/Index/detail?id=9743",
+        "publisher": "中国非物质文化遗产网"
+      },
+      {
+        "title": "［传统文化·节气］冬至开启“三九歌”",
+        "url": "https://news.cau.edu.cn/zhxwnew/601643.htm",
+        "publisher": "中国农业大学新闻网"
+      }
+    ],
+    "verificationStatus": "verified"
+  }
+]
