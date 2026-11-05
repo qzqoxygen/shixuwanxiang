@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-8 -8 616 216" fill="none">
+  <style>
+    .ribbon-wash { transform-origin: 300px 110px; animation: ribbon-wash 5.2s ease-in-out infinite; }
+    .ribbon-silk { transform-origin: 350px 115px; animation: ribbon-silk 6s ease-in-out infinite; }
+    .ribbon-gold { stroke-dasharray: 100 686; stroke-dashoffset: 786; animation: ribbon-trace 4.5s linear infinite; }
+    .ribbon-dots circle { animation: ribbon-glimmer 2.8s ease-in-out infinite; }
+    .ribbon-dots circle:nth-child(2) { animation-delay: -3s; }
+    .ribbon-dots circle:nth-child(3) { animation-delay: -5s; }
+    .ribbon-dots circle:nth-child(4) { animation-delay: -1s; }
+    @keyframes ribbon-wash { 0%, 100% { transform: translate(0, 0) skewY(0deg); } 50% { transform: translate(9px, -10px) skewY(3.2deg); } }
+    @keyframes ribbon-silk { 0%, 100% { transform: translate(0, 0) skewY(0deg); } 50% { transform: translate(-10px, 12px) skewY(-3.8deg); } }
+    @keyframes ribbon-trace { to { stroke-dashoffset: 0; } }
+    @keyframes ribbon-glimmer { 0%, 100% { opacity: .2; } 50% { opacity: 1; } }
+    @media (prefers-reduced-motion: reduce) { .ribbon-wash, .ribbon-silk, .ribbon-gold, .ribbon-dots circle { animation: none; } .ribbon-gold { display: none; } }
+  </style>
+  <defs>
+    <linearGradient id="mist" x1="60" y1="170" x2="550" y2="40" gradientUnits="userSpaceOnUse"><stop stop-color="#DDE8DC" stop-opacity="0"/><stop offset=".45" stop-color="#B4D4C7" stop-opacity=".55"/><stop offset="1" stop-color="#467A83" stop-opacity=".28"/></linearGradient>
+    <linearGradient id="silk" x1="150" y1="100" x2="570" y2="140" gradientUnits="userSpaceOnUse"><stop stop-color="#467A83" stop-opacity="0"/><stop offset=".6" stop-color="#467A83" stop-opacity=".6"/><stop offset="1" stop-color="#A6C8B2" stop-opacity=".08"/></linearGradient>
+    <linearGradient id="gold" x1="30" y1="100" x2="570" y2="100" gradientUnits="userSpaceOnUse"><stop stop-color="#B69A5C" stop-opacity="0"/><stop offset=".4" stop-color="#B69A5C"/><stop offset="1" stop-color="#D8C797" stop-opacity=".3"/></linearGradient>
+  </defs>
+  <g class="ribbon-wash"><path d="M10 166C111 151 137 89 227 101S316 188 421 134 502 43 600 28V58C517 75 495 143 423 160S310 142 240 126 105 176 10 166Z" fill="url(#mist)"/></g>
+  <g class="ribbon-silk"><path d="M101 151C192 114 231 180 326 146S433 55 521 79 572 122 600 105C564 141 531 80 472 100S365 183 276 167 177 132 101 151Z" fill="url(#silk)"/></g>
+  <g stroke="url(#gold)" stroke-linecap="round">
+    <path d="M26 157C119 148 154 87 227 96S318 177 411 128 520 43 577 38" stroke-width="1.2"/>
+    <path d="M152 178C228 143 259 195 357 158S448 86 512 89" stroke-width=".8"/>
+    <path d="M320 108C349 96 364 71 392 73S423 101 401 111C384 119 367 109 372 95 392 84 397 95 387 98" stroke-width="1.2"/>
+    <path d="M438 64C455 67 480 56 481 41S460 22 456 36 471 51 471 40" stroke-width="1.1"/>
+    <path d="M222 58C281 17 411 12 491 60" stroke-width=".7" stroke-dasharray="1 8"/>
+  </g>
+  <path class="ribbon-gold" d="M26 157C119 148 154 87 227 96S318 177 411 128 520 43 577 38" stroke="#d4b775" stroke-width="3" stroke-linecap="round" opacity=".95"/>
+  <g class="ribbon-dots" fill="#B69A5C"><circle cx="286" cy="113" r="2.5"/><circle cx="461" cy="92" r="2"/><circle cx="533" cy="56" r="1.6"/><circle cx="349" cy="29" r="1.5"/></g>
+</svg>

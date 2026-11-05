@@ -1,7 +1,10 @@
 "use client";
 
-import { createContext, useContext, useId, useState, type ReactNode } from "react";
+import { createContext, useContext, useId, useReducer, useState, type ReactNode } from "react";
+import { ProvinceCodeSchema } from "@/lib/contracts/cultural-case";
+import { exploreSelectionReducer, INITIAL_EXPLORE_SELECTION, type ExploreSelection, type ExploreSelectionAction } from "@/lib/explore-selection";
 import PaperLandscape from "./PaperLandscape";
+import { useProvinceCases, type ProvinceCases } from "./useProvinceCases";
 
 export type ProvinceView = {
   id: string;
@@ -14,35 +17,52 @@ export type ProvinceView = {
 };
 
 type Interaction = {
+  selection: ExploreSelection;
+  dispatch: (action: ExploreSelectionAction) => void;
   provinces: ProvinceView[];
   selected: string | null;
   raised: string | null;
+  matchingCases: ProvinceCases;
+  retryMatchingCases: () => void;
   setSelected: (id: string | null) => void;
   setHovered: (id: string | null) => void;
   setFocused: (id: string | null) => void;
 };
 const ProvinceContext = createContext<Interaction | null>(null);
-function useProvinces() {
+export function useProvinces() {
   const context = useContext(ProvinceContext);
   if (!context) throw new Error("Province controls require their map provider");
   return context;
 }
 
 export function ProvinceInteraction({ provinces, children }: { provinces: ProvinceView[]; children: ReactNode }) {
-  const [selected, setSelected] = useState<string | null>(null);
+  const [selection, dispatch] = useReducer(exploreSelectionReducer, INITIAL_EXPLORE_SELECTION);
+  const selected = selection.provinceCode;
+  function setSelected(id: string | null) {
+    if (id === null) dispatch({ type: "province", value: null });
+    else {
+      const parsed = ProvinceCodeSchema.safeParse(id);
+      if (parsed.success) dispatch({ type: "province", value: parsed.data });
+    }
+  }
   const [hovered, setHovered] = useState<string | null>(null);
   const [focused, setFocused] = useState<string | null>(null);
-  return <ProvinceContext.Provider value={{ provinces, selected, raised: hovered ?? focused ?? selected, setSelected, setHovered, setFocused }}>{children}</ProvinceContext.Provider>;
+  const { resource: matchingCases, retry: retryMatchingCases } = useProvinceCases(selection.solarTermId);
+  return <ProvinceContext.Provider value={{ provinces, selection, dispatch, selected, raised: hovered ?? focused ?? selected, matchingCases, retryMatchingCases, setSelected, setHovered, setFocused }}>{children}</ProvinceContext.Provider>;
 }
 
 export function ProvinceLayers() {
-  const { provinces, selected, raised, setSelected, setHovered, setFocused } = useProvinces();
+  const { provinces, selected, raised, matchingCases, setSelected, setHovered, setFocused } = useProvinces();
+  const counts: ReadonlyMap<string, number> | null = matchingCases.status === "success" ? matchingCases.counts : null;
+  const countFor = (id: string) => counts?.get(id) ?? 0;
+  const isRaised = (id: string) => matchingCases.status === "success" ? countFor(id) > 0 : id === raised;
+  const order = (id: string) => Number(isRaised(id)) + Number(isRaised(id) && id === raised);
   // Only visual groups change stacking order. Hit regions and keyboard focus stay
   // in place, so lifting a province cannot move its pointer target away.
-  const ordered = [...provinces].sort((a, b) => Number(a.id === raised) - Number(b.id === raised));
-  return <g className="province-layers">
+  const ordered = [...provinces].sort((a, b) => order(a.id) - order(b.id));
+  return <g className="province-layers" data-match-status={matchingCases.status} aria-busy={matchingCases.status === "loading"}>
     <g className="province-art" pointerEvents="none" aria-hidden="true">
-      {ordered.map(province => <g key={province.id} className="province-visual" data-visual-province={province.id} data-raised={province.id === raised} data-selected={province.id === selected}>
+      {ordered.map(province => <g key={province.id} className="province-visual" data-visual-province={province.id} data-raised={isRaised(province.id)} data-matched={countFor(province.id) > 0} data-selected={province.id === selected}>
         <g className="province-paper">
           <path className="province-thickness" d={province.path} fillRule="evenodd" transform="translate(0 5)" />
           <path className="culture-map-province" d={province.path} fillRule="evenodd" vectorEffect="non-scaling-stroke" />
@@ -55,13 +75,13 @@ export function ProvinceLayers() {
       </g>)}
       {/* Labels have their own top layer, so a neighbouring province's paper
           never covers a municipality label that was moved outside its border. */}
-      {ordered.map(province => <g key={province.id} className="province-visual culture-map-labels" data-raised={province.id === raised}>
+      {ordered.map(province => <g key={province.id} className="province-visual culture-map-labels" data-raised={isRaised(province.id)}>
           {(province.anchor[0] !== province.label[0] || province.anchor[1] !== province.label[1]) && <path className="culture-map-leader" d={`M${province.anchor[0]},${province.anchor[1]}L${province.label[0]},${province.label[1]}`} />}
           <text x={province.label[0]} y={province.label[1]} textAnchor="middle" dominantBaseline="central">{province.shortName}</text>
       </g>)}
     </g>
     <g className="province-targets">
-      {provinces.map(province => <g key={province.id} role="button" tabIndex={0} aria-label={`选择${province.name}`} aria-pressed={province.id === selected} className="province-target" data-province-code={province.id}
+      {provinces.map(province => <g key={province.id} role="button" tabIndex={0} aria-label={`选择${province.name}${matchingCases.status === "success" ? countFor(province.id) > 0 ? `，当前节气已收录${countFor(province.id)}则案例` : "，当前节气暂无已收录案例" : ""}`} aria-pressed={province.id === selected} className="province-target" data-province-code={province.id}
         onPointerEnter={event => { if (event.pointerType !== "touch") setHovered(province.id); }}
         onPointerLeave={() => setHovered(null)} onPointerCancel={() => setHovered(null)}
         onFocus={() => { setFocused(province.id); setHovered(null); }} onBlur={() => setFocused(null)}
@@ -89,8 +109,9 @@ export function ProvinceControls() {
         {provinces.map(province => <option key={province.id} value={province.id}>{province.name}</option>)}
       </select>
       <button type="button" disabled={!selected} onClick={() => { setSelected(null); setHovered(null); setFocused(null); }}>取消选择</button>
+      {selected && <a className="province-case-link" href="#cultural-case-explorer">查看案例 <span aria-hidden="true">↓</span></a>}
     </div>
-    <p className="province-selection-status" role="status">{selectedProvince ? `已选择：${selectedProvince.name}。文化案例正在整理中。` : "移入省份可预览浮起，点击可选定；也可通过列表或键盘选择。"}</p>
+    <p className="province-selection-status" role="status">{selectedProvince ? `已选择：${selectedProvince.name}。下方展示当前条件下的已收录案例。` : "点击省份可筛选下方案例；也可通过列表或键盘选择。"}</p>
     {provinces.some(province => province.scenery) && <p className="province-scenery-note">纸雕山水为装饰意象，不代表真实地形。</p>}
   </div>;
 }

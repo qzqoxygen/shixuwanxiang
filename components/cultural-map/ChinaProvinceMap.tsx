@@ -3,6 +3,7 @@ import { createMapProjection, geometryToPath, type MapPoint, type ProvinceFeatur
 import "./ChinaProvinceMap.css";
 import MapViewport from "./MapViewport";
 import { ProvinceControls, ProvinceInteraction, ProvinceLayers, type ProvinceView } from "./ProvinceInteraction";
+import CulturalCaseExplorer, { SolarTermFilter } from "./CulturalCaseExplorer";
 
 const features = mapData.features as unknown as ProvinceFeature[];
 const provinces = features.filter((feature) => /^\d{6}$/.test(String(feature.properties.adcode)));
@@ -42,13 +43,14 @@ export default function ChinaProvinceMap() {
     <section className="culture-map-panel" aria-labelledby="culture-map-heading">
       <header className="culture-map-header">
         <div>
-          <p className="culture-map-eyebrow">地域文化地图 · 山河为引，四时为序</p>
           <h2 id="culture-map-heading">山河风物志</h2>
+          <p className="culture-map-eyebrow">选节气，点省份，读故事。</p>
         </div>
         <div className="culture-map-headingAside"><span className="culture-map-badge">中国 · 省级地图</span><span className="culture-map-seal" aria-hidden="true">四时</span></div>
       </header>
 
       <ProvinceInteraction provinces={provinceViews}>
+      <SolarTermFilter />
       <figure className="culture-map-figure">
         <MapViewport>
           <svg className="culture-map-map" viewBox="0 0 840 560" role="group" aria-labelledby="china-map-title" aria-describedby="china-map-description">
@@ -98,11 +100,12 @@ export default function ChinaProvinceMap() {
         </figcaption>
       </figure>
       <ProvinceControls />
+      <CulturalCaseExplorer />
       </ProvinceInteraction>
 
       <div className="culture-map-note">
         <span className="culture-map-noteMark" aria-hidden="true">知</span>
-        <div><h3>一方水土，自有四时故事。</h3><p>文化案例正在整理中，之后可按节气与地区探索。</p></div>
+        <div><h3>一方水土，自有四时故事。</h3><p>按节气与地区寻访已收录案例，更多风物正在整理中。</p></div>
       </div>
       <p className="culture-map-source">底图：<a href="https://datav.aliyun.com/portal/school/atlas/atlas_aigc" target="_blank" rel="noreferrer">DataV.GeoAtlas</a>（数据来源：高德开放平台） · 学习交流</p>
     </section>

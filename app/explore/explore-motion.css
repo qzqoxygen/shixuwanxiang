@@ -1,0 +1,75 @@
+/* Only the exploration page: four-season rhythm, pale ink and restrained gold. */
+.explore-page .explore-intro::after,
+.explore-page .culture-map-header::after,
+.explore-page .culture-map-note::after,
+.explore-page .cloud-chat-window::after { background-image: url("/images/azure-cloud-ribbon-motion.svg"); }
+.explore-page .explore-title h1 { animation: explore-ink-arrive 700ms 80ms cubic-bezier(.16,1,.3,1) both; }
+.explore-page .explore-title .intro-description { animation: explore-ink-arrive 800ms 220ms ease-out both; }
+.explore-page .explore-inscription > span { animation: explore-inscription-arrive 900ms 280ms ease-out both; }
+.explore-page .explore-inscription > span:nth-child(2) { animation-delay: 420ms; }
+.explore-page .explore-inscription i { animation: explore-seal-arrive 700ms 560ms ease-out both; }
+
+/* Content is visible by default, including when JavaScript or observers fail. */
+.explore-page [data-explore-reveal="pending"] { opacity: 0; transform: translateY(28px); }
+.explore-page [data-explore-reveal="visible"] { animation: explore-section-arrive 560ms cubic-bezier(.16,1,.3,1) both; }
+.explore-page [data-explore-reveal="instant"] { opacity: 1; transform: none; animation: none; }
+.explore-page [data-explore-reveal="pending"]:focus-within { opacity: 1; transform: none; }
+.explore-page .case-term-options > button { transition: transform 180ms ease, background-color 180ms ease, color 180ms ease, border-color 180ms ease; }
+@media (hover: hover) { .explore-page .case-term-options > button:hover:not([aria-pressed="true"]) { transform: translateY(-4px) scale(1.04); } }
+.explore-page .case-term-options > button[aria-pressed="true"] { animation: explore-term-imprint 340ms ease-out; }
+.explore-page .case-card { transition: transform 200ms ease, background-color 200ms ease, border-color 200ms ease; }
+@media (hover: hover) { .explore-page .case-card:hover { transform: translateY(-5px); } }
+.explore-page .case-list > li { animation: explore-case-arrive 420ms ease-out both; }
+.explore-page .case-list > li:nth-child(2) { animation-delay: 45ms; }
+.explore-page .case-list > li:nth-child(3) { animation-delay: 90ms; }
+.explore-page .case-list > li:nth-child(4) { animation-delay: 135ms; }
+.explore-page .case-list > li:nth-child(5) { animation-delay: 180ms; }
+.explore-page .case-list > li:nth-child(6) { animation-delay: 225ms; }
+.explore-page .case-detail { animation: explore-case-arrive 450ms ease-out both; }
+body:has(.explore-page) .site-header nav a { transition: color 180ms ease, background-color 180ms ease; }
+
+.explore-ambient { position: fixed; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; }
+.explore-ambient > span { position: absolute; width: 4px; height: 4px; border-radius: 50%; background: #b69a5c; box-shadow: 0 0 10px 3px #c4b17c48; opacity: 0; animation: explore-gold-dust 7s ease-in-out infinite; }
+.explore-ambient > span:nth-child(1) { left: 8%; top: 32%; animation-delay: -2s; }
+.explore-ambient > span:nth-child(2) { left: 24%; top: 76%; animation-delay: -9s; width: 2px; height: 2px; }
+.explore-ambient > span:nth-child(3) { left: 42%; top: 20%; animation-delay: -5s; }
+.explore-ambient > span:nth-child(4) { left: 57%; top: 64%; animation-delay: -12s; width: 2px; height: 2px; }
+.explore-ambient > span:nth-child(5) { left: 71%; top: 27%; animation-delay: -7s; }
+.explore-ambient > span:nth-child(6) { left: 88%; top: 79%; animation-delay: -3s; width: 2px; height: 2px; }
+.explore-ambient > span:nth-child(7) { left: 94%; top: 43%; animation-delay: -11s; }
+.explore-ambient > span:nth-child(8) { left: 16%; top: 54%; animation-delay: -6s; width: 2px; height: 2px; }
+
+.explore-page[data-motion-paused] .explore-ambient > span,
+.explore-page[data-motion-paused] .explore-landscape-mist,
+.explore-page[data-motion-paused] .cloud-chat-launcher::before,
+.explore-page[data-motion-paused] .cloud-chat-launcher-art,
+.explore-page[data-motion-paused] .cloud-chat-cloud-spark,
+.explore-page[data-motion-paused] .cloud-chat-mist { animation-play-state: paused; }
+.explore-page[data-motion-paused] .explore-intro::after,
+.explore-page[data-motion-paused] .culture-map-header::after,
+.explore-page[data-motion-paused] .culture-map-note::after,
+.explore-page[data-motion-paused] .cloud-chat-window::after { background-image: url("/images/azure-cloud-ribbon.svg"); }
+
+@keyframes explore-ink-arrive { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
+@keyframes explore-inscription-arrive { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: none; } }
+@keyframes explore-seal-arrive { from { opacity: 0; transform: rotate(-10deg) scale(.78); } to { opacity: 1; transform: none; } }
+@keyframes explore-section-arrive { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: none; } }
+@keyframes explore-case-arrive { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+@keyframes explore-term-imprint { 0% { transform: scale(.86); } 65% { transform: scale(1.05); } 100% { transform: none; } }
+@keyframes explore-gold-dust { 0%, 100% { opacity: 0; transform: translate3d(-5px, 22px, 0); } 30% { opacity: .62; } 65% { opacity: .4; } 90% { opacity: 0; transform: translate3d(28px, -68px, 0); } }
+
+@media (max-width: 640px) {
+  .explore-ambient > span:nth-child(n+5) { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .explore-page .explore-title h1, .explore-page .intro-description,
+  .explore-page .explore-inscription > span, .explore-page .explore-inscription i,
+  .explore-page [data-explore-reveal], .explore-page .case-term-options > button,
+  .explore-page .case-list > li, .explore-page .case-detail { animation: none; }
+  .explore-page [data-explore-reveal="pending"] { opacity: 1; transform: none; }
+  .explore-page .case-term-options > button, .explore-page .case-card { transition: none; }
+  .explore-page .case-term-options > button:hover, .explore-page .case-card:hover { transform: none; }
+  .explore-ambient { display: none; }
+  .explore-page .explore-intro::after, .explore-page .culture-map-header::after,
+  .explore-page .culture-map-note::after, .explore-page .cloud-chat-window::after { background-image: url("/images/azure-cloud-ribbon.svg"); }
+}
