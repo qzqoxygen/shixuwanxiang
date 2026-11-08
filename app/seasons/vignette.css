@@ -1,0 +1,92 @@
+.seasons-vignette {
+  display: none;
+  pointer-events: none;
+  user-select: none;
+}
+
+@media (min-width: 1001px) {
+  .seasons-vignette {
+    display: block;
+    flex: 1 1 0;
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  .seasons-vignette > svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    max-height: 170px;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+.seasons-vignette-art {
+  transform-origin: 4% 91%;
+}
+
+.seasons-vignette[data-vignette="summer"] .seasons-vignette-art {
+  transform-origin: 46% 96%;
+}
+
+.seasons-vignette-drift,
+.seasons-vignette-ripple {
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.seasons-vignette-drift {
+  --drift-x: 14px;
+  --drift-y: 22px;
+  --drift-turn: 40deg;
+  --vignette-delay: .25s;
+}
+
+.seasons-vignette[data-vignette="winter"] .seasons-vignette-drift {
+  --drift-x: 9px;
+  --drift-y: 42px;
+  --drift-turn: 0deg;
+}
+
+.seasons-vignette [data-drift="late"] { --vignette-delay: .65s; }
+.seasons-vignette [data-drift="last"] { --vignette-delay: .9s; }
+
+/* Only the settled base page moves. The paper copies carry the still drawing. */
+@media (min-width: 1001px) and (prefers-reduced-motion: no-preference) {
+  .seasons-explorer[data-still="false"] .seasons-book-base[aria-busy="false"] .seasons-vignette-art {
+    animation: seasons-vignette-sway 2.7s ease-in-out;
+  }
+
+  .seasons-explorer[data-still="false"] .seasons-book-base[aria-busy="false"] .seasons-vignette-drift {
+    animation: seasons-vignette-fall 1.85s ease-in-out var(--vignette-delay);
+  }
+
+  .seasons-explorer[data-still="false"] .seasons-book-base[aria-busy="false"] .seasons-vignette-ripple {
+    animation: seasons-vignette-water 1.95s ease-out var(--vignette-delay, .3s);
+  }
+
+  .seasons-explorer[data-page-hidden] .seasons-vignette :is(.seasons-vignette-art, .seasons-vignette-drift, .seasons-vignette-ripple) {
+    animation-play-state: paused;
+  }
+}
+
+@keyframes seasons-vignette-sway {
+  38% { transform: rotate(1.2deg); }
+  72% { transform: rotate(-.5deg); }
+}
+
+@keyframes seasons-vignette-fall {
+  0% { opacity: 0; transform: translate(0, -3px) rotate(-10deg); }
+  24% { opacity: .76; }
+  59% { opacity: .66; transform: translate(calc(var(--drift-x) * .42), calc(var(--drift-y) * .55)) rotate(-18deg); }
+  100% { opacity: 0; transform: translate(var(--drift-x), var(--drift-y)) rotate(var(--drift-turn)); }
+}
+
+@keyframes seasons-vignette-water {
+  0% { opacity: 0; transform: scale(.36); }
+  21% { opacity: .44; }
+  100% { opacity: 0; transform: scale(1.25); }
+}

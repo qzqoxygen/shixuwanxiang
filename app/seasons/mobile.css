@@ -1,0 +1,45 @@
+.seasons-book-track { position: relative; }
+.seasons-book-viewport { touch-action: pan-y pinch-zoom; }
+.seasons-photo-open { -webkit-user-drag: none; user-select: none; }
+
+@media (max-width: 1000px) {
+  .seasons-reading-room .seasons-book { max-width: 560px; scroll-margin-top: 12px; }
+  .seasons-reading-room .seasons-book-small-screen-hint { display: block; margin: 0 0 8px; text-align: center; font-size: 11px; line-height: 1.8; color: var(--seasons-muted); }
+  .seasons-reading-room .seasons-book-viewport { padding-block: 12px 18px; overflow: hidden; }
+  .seasons-reading-room .seasons-book-viewport > .seasons-book-cover { min-width: 0; padding: 6px 6px 11px; border-radius: 4px 4px 6px 6px; }
+  .seasons-reading-room .seasons-book-stage { min-width: 0; perspective: none; }
+  .seasons-reading-room .seasons-book-stage::after { inset: 3px 2px -5px; }
+  .seasons-reading-room .seasons-book-base, .seasons-book-mobile-incoming { display: grid; grid-template-columns: minmax(0, 1fr); }
+  .seasons-book-mobile-incoming { position: absolute; top: 0; width: 100%; }
+  .seasons-book-mobile-incoming[data-direction="next"] { left: 100%; }
+  .seasons-book-mobile-incoming[data-direction="previous"] { left: -100%; }
+  .seasons-reading-room .seasons-book .book-page { height: auto; min-height: 0; padding: 24px 26px; border-radius: 0; background: linear-gradient(#fbf8eedb, #fbf8eedb), url('/images/xuan-paper.webp') center / 900px auto, #fbf8ee; }
+  .seasons-reading-room .seasons-book .seasons-reading { padding-bottom: 16px; }
+  .seasons-reading-room .seasons-reading-top { min-height: 24px; }
+  .seasons-reading-room .seasons-term-heading { flex-direction: row; align-items: center; margin: 20px 0 18px; gap: 12px; }
+  .seasons-reading-room .seasons-term-title { font-size: 52px; }
+  .seasons-reading-room .seasons-longitude p { display: block; }
+  .seasons-reading-room .seasons-description { margin-bottom: 22px; font-size: 16px; line-height: 1.95; }
+  .seasons-reading-room .seasons-reading-note { margin-top: 0; padding-top: 16px; }
+  .seasons-reading-room .seasons-reading-note p { font-size: 12px; line-height: 1.9; }
+  .seasons-reading-room .seasons-reading-links { justify-content: space-between; padding-top: 12px; }
+  .seasons-reading-room .seasons-reading-links > a { min-height: 44px; font-size: 13px; }
+  .seasons-reading-room .seasons-book .seasons-photo-card { padding-top: 10px; padding-bottom: 28px; }
+  .seasons-reading-room .seasons-photo-heading { margin-bottom: 14px; font-size: 18px; }
+  .seasons-reading-room .seasons-photo-heading > span:last-child { font-size: 11px; }
+  .seasons-reading-room .seasons-photo-card figcaption { padding-top: 15px; gap: 7px; }
+  .seasons-reading-room .seasons-photo-credits, .seasons-reading-room .seasons-photo-source { font-size: 11px; line-height: 1.8; }
+  .seasons-reading-room .book-page-number { display: none; }
+  .seasons-reading-room .seasons-book-controls { min-height: 48px; padding: 0 2px; gap: 8px; }
+  .seasons-reading-room .seasons-book-controls > button { min-width: 82px; min-height: 48px; gap: 8px; font-size: 19px; }
+  .seasons-reading-room .seasons-book-controls small { display: none; }
+  .seasons-reading-room .seasons-book-position p { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  .seasons-reading-room .book-directory { max-width: 560px; }
+  .seasons-reading-room .book-directory-season-entry { min-height: 44px; }
+}
+
+@media (max-width: 380px) {
+  .seasons-reading-room .seasons-book .book-page { padding-inline: 22px; }
+  .seasons-reading-room .seasons-term-title { font-size: 48px; }
+  .seasons-reading-room .seasons-longitude svg { width: 25px; height: 25px; }
+}

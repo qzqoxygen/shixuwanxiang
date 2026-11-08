@@ -1,7 +1,24 @@
 import type { Metadata } from "next";
 import SolarTermsExplorer from "@/components/SolarTermsExplorer";
+import "./seasons.css";
+import "./book.css";
+import "./reading-room.css";
+import "./mobile.css";
+import "./finishing.css";
+import "./vignette.css";
 export const metadata: Metadata = { title: "四时" };
 export default function SeasonsPage() {
-  return <><div className="intro"><p className="eyebrow">四时 · 循序识节气</p><h1>一岁四时，二十四节。</h1><p className="intro-description">点击任一节气查看基础信息。本期重点探索清明、夏至、秋分、冬至。</p></div><SolarTermsExplorer />
-    <p className="page-note">节气顺序与太阳黄经参考<a className="text-link" href="https://www.hko.gov.hk/tc/gts/time/24solarterms.htm" target="_blank" rel="noopener noreferrer">香港天文台</a>。四季分组沿用传统历法，不等同于各地实际气候。</p></>;
+  return <div className="seasons-page seasons-reading-room">
+    <div className="seasons-background-landscape" aria-hidden="true" />
+    <h1 className="seasons-sr-only">四时：二十四节气风物册</h1>
+    <SolarTermsExplorer />
+    <aside className="seasons-source">
+      <span className="seasons-source-mark" aria-hidden="true">记</span>
+      <p>
+        太阳在黄道上的视位置每推进 15°，便迎来一个新的节气。节气顺序与太阳黄经参考<a className="text-link" href="https://www.hko.gov.hk/tc/gts/time/24solarterms.htm" target="_blank" rel="noopener noreferrer">香港天文台<span className="seasons-sr-only">（新窗口打开）</span></a>。四季分组沿用传统历法，不等同于各地实际气候。
+        <br />
+        照片为与节气意象相关的自然与生活影像，摄影署名、图片来源和许可见照片卡；节气文化延伸阅读来自<a className="text-link" href="https://www.ihchina.cn/solar_terms.html" target="_blank" rel="noopener noreferrer">中国非遗网<span className="seasons-sr-only">（新窗口打开）</span></a>。
+      </p>
+    </aside>
+  </div>;
 }

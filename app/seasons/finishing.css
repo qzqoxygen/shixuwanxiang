@@ -1,0 +1,79 @@
+/* Thin paper, a cloth cover, and light gathered at the fold. No layout changes. */
+.seasons-reading-room .seasons-book-cover {
+  background: linear-gradient(135deg, #728375, #607767 70%, #556e5e);
+  box-shadow: inset 0 0 0 1px #ffffff30, 0 1px 0 #3b5645, 0 5px 0 -2px #496250, 0 18px 30px -20px #243e3260;
+}
+.seasons-reading-room .seasons-book-stage::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 2px -2px -5px;
+  border-radius: 3px;
+  background: linear-gradient(90deg, #d2c7ad, #f1e9d5 1%, #f1e9d5 99%, #c5b99d);
+  pointer-events: none;
+}
+.seasons-reading-room .seasons-book-stage::after {
+  inset: 5px 2px -8px;
+  border-color: #c9bea5;
+  background: repeating-linear-gradient(0deg, #cfc4aa 0 1px, #f5efdf 1px 3px);
+  box-shadow: 0 2px 3px #423c2c18;
+}
+.seasons-reading-room .seasons-book-spine {
+  width: 32px;
+  background: linear-gradient(90deg, transparent, #67573c08 18%, #67573c26 43%, #5a4a3338 48%, #fffaf0c4 50%, #5a4a332b 53%, #67573c17 62%, transparent);
+}
+.seasons-book-leaf-face > .book-page { box-shadow: inset 0 0 0 1px #cfc5af60, 0 0 1px #71634d40; }
+.seasons-book-leaf-face::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, #4a3c262b, #4a3c2614 18%, transparent 65%);
+  opacity: 0;
+  pointer-events: none;
+  animation: book-paper-light var(--book-turn-duration) cubic-bezier(.45,.02,.25,1) both;
+}
+.seasons-book-leaf[data-direction="previous"] .seasons-book-leaf-front::after,
+.seasons-book-leaf[data-direction="next"] .seasons-book-leaf-back::after { background: linear-gradient(270deg, #4a3c263d, #4a3c261a 18%, transparent 65%); }
+.seasons-book-turn-shadow { position: absolute; inset: 0; z-index: 2; pointer-events: none; }
+.seasons-book-turn-shadow::before, .seasons-book-turn-shadow::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+  opacity: 0;
+  pointer-events: none;
+  animation-duration: var(--book-turn-duration);
+  animation-timing-function: cubic-bezier(.45,.02,.25,1);
+  animation-fill-mode: both;
+}
+.seasons-book-turn-shadow::before { left: 0; transform-origin: right center; background: linear-gradient(270deg, #463a2938, #463a2914 25%, transparent 65%); animation-name: book-shadow-receiving; }
+.seasons-book-turn-shadow::after { right: 0; transform-origin: left center; background: linear-gradient(90deg, #463a2938, #463a2914 25%, transparent 65%); animation-name: book-shadow-departing; }
+.seasons-book-turn-shadow[data-direction="previous"]::before { animation-name: book-shadow-departing; }
+.seasons-book-turn-shadow[data-direction="previous"]::after { animation-name: book-shadow-receiving; }
+@keyframes book-paper-light {
+  0%, 100% { opacity: 0; }
+  45% { opacity: .9; }
+  65% { opacity: .5; }
+}
+@keyframes book-shadow-receiving {
+  0% { opacity: 0; transform: scaleX(.15); }
+  48% { opacity: .7; transform: scaleX(.8); }
+  75% { opacity: .3; transform: scaleX(.6); }
+  100% { opacity: 0; transform: scaleX(.2); }
+}
+@keyframes book-shadow-departing {
+  0% { opacity: 0; transform: scaleX(.9); }
+  32% { opacity: .6; transform: scaleX(.75); }
+  65%, 100% { opacity: 0; transform: scaleX(.15); }
+}
+.seasons-explorer[data-still="true"] .seasons-book-turn-shadow { display: none; }
+@media (max-width: 1000px) {
+  .seasons-reading-room .seasons-book-stage::before { display: none; }
+  .seasons-reading-room .seasons-book-stage::after { inset: 3px 2px -5px; }
+  .seasons-reading-room .seasons-book-cover { box-shadow: inset 0 0 0 1px #ffffff30, 0 1px 0 #3b5645, 0 12px 22px -18px #243e3260; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .seasons-book-turn-shadow { display: none; }
+  .seasons-book-leaf-face::after { animation: none; opacity: 0; }
+}
