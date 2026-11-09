@@ -1,0 +1,242 @@
+[
+  {
+    "id": "winter-jasmine",
+    "name": "迎春花",
+    "season": "spring",
+    "src": "/images/studio-stickers/winter-jasmine.webp",
+    "width": 640,
+    "height": 640
+  },
+  {
+    "id": "peach-blossom",
+    "name": "桃花枝",
+    "season": "spring",
+    "src": "/images/studio-stickers/peach-blossom.webp",
+    "width": 640,
+    "height": 640
+  },
+  {
+    "id": "willow",
+    "name": "垂柳",
+    "season": "spring",
+    "src": "/images/studio-stickers/willow.webp",
+    "width": 640,
+    "height": 640
+  },
+  {
+    "id": "swallow-kite",
+    "name": "燕子纸鸢",
+    "season": "spring",
+    "src": "/images/studio-stickers/swallow-kite.webp",
+    "width": 640,
+    "height": 640
+  },
+  {
+    "id": "pomegranate-blossom",
+    "name": "石榴花",
+    "season": "summer",
+    "src": "/images/studio-stickers/pomegranate-blossom.webp",
+    "width": 640,
+    "height": 640
+  },
+  {
+    "id": "gardenia",
+    "name": "栀子花",
+    "season": "summer",
+    "src": "/images/studio-stickers/gardenia.webp",
+    "width": 640,
+    "height": 640
+  },
+  {
+    "id": "lotus",
+    "name": "荷花",
+    "season": "summer",
+    "src": "/images/studio-stickers/lotus.webp",
+    "width": 640,
+    "height": 640
+  },
+  {
+    "id": "wheat",
+    "name": "麦穗",
+    "season": "summer",
+    "src": "/images/studio-stickers/wheat.webp",
+    "width": 640,
+    "height": 640
+  },
+  {
+    "id": "osmanthus",
+    "name": "桂花",
+    "season": "autumn",
+    "src": "/images/studio-stickers/osmanthus.webp",
+    "width": 640,
+    "height": 640
+  },
+  {
+    "id": "chrysanthemum",
+    "name": "秋菊",
+    "season": "autumn",
+    "src": "/images/studio-stickers/chrysanthemum.webp",
+    "width": 640,
+    "height": 640
+  },
+  {
+    "id": "cotton-rose",
+    "name": "木芙蓉",
+    "season": "autumn",
+    "src": "/images/studio-stickers/cotton-rose.webp",
+    "width": 640,
+    "height": 640
+  },
+  {
+    "id": "persimmon",
+    "name": "霜柿",
+    "season": "autumn",
+    "src": "/images/studio-stickers/persimmon.webp",
+    "width": 640,
+    "height": 640
+  },
+  {
+    "id": "wintersweet",
+    "name": "蜡梅",
+    "season": "winter",
+    "src": "/images/studio-stickers/wintersweet.webp",
+    "width": 640,
+    "height": 640
+  },
+  {
+    "id": "snow-bamboo",
+    "name": "雪竹",
+    "season": "winter",
+    "src": "/images/studio-stickers/snow-bamboo.webp",
+    "width": 640,
+    "height": 640
+  },
+  {
+    "id": "nandina",
+    "name": "南天竹果",
+    "season": "winter",
+    "src": "/images/studio-stickers/nandina.webp",
+    "width": 640,
+    "height": 640
+  },
+  {
+    "id": "winter-tangerine",
+    "name": "冬柑",
+    "season": "winter",
+    "src": "/images/studio-stickers/winter-tangerine.webp",
+    "width": 640,
+    "height": 640
+  },
+  {
+    "id": "hexagonal-pavilion",
+    "name": "六角亭",
+    "category": "architecture",
+    "src": "/images/studio-stickers/hexagonal-pavilion.webp",
+    "width": 640,
+    "height": 640
+  },
+  {
+    "id": "thatched-pavilion",
+    "name": "茅草亭",
+    "category": "architecture",
+    "src": "/images/studio-stickers/thatched-pavilion.webp",
+    "width": 640,
+    "height": 640
+  },
+  {
+    "id": "stone-arch-bridge",
+    "name": "石拱桥",
+    "category": "architecture",
+    "src": "/images/studio-stickers/stone-arch-bridge.webp",
+    "width": 640,
+    "height": 640
+  },
+  {
+    "id": "wooden-footbridge",
+    "name": "木板桥",
+    "category": "architecture",
+    "src": "/images/studio-stickers/wooden-footbridge.webp",
+    "width": 640,
+    "height": 640
+  },
+  {
+    "id": "huizhou-house",
+    "name": "徽州民居",
+    "category": "architecture",
+    "src": "/images/studio-stickers/huizhou-house.webp",
+    "width": 640,
+    "height": 640
+  },
+  {
+    "id": "waterside-pavilion",
+    "name": "临水小榭",
+    "category": "architecture",
+    "src": "/images/studio-stickers/waterside-pavilion.webp",
+    "width": 640,
+    "height": 640
+  },
+  {
+    "id": "moon-gate",
+    "name": "月洞门",
+    "category": "architecture",
+    "src": "/images/studio-stickers/moon-gate.webp",
+    "width": 640,
+    "height": 640
+  },
+  {
+    "id": "thatched-cottage",
+    "name": "竹篱茅屋",
+    "category": "architecture",
+    "src": "/images/studio-stickers/thatched-cottage.webp",
+    "width": 640,
+    "height": 640
+  },
+  {
+    "id": "distant-mountains",
+    "name": "远山",
+    "category": "scenery",
+    "src": "/images/studio-stickers/distant-mountains.webp",
+    "width": 640,
+    "height": 640
+  },
+  {
+    "id": "water-ripples",
+    "name": "涟漪",
+    "category": "scenery",
+    "src": "/images/studio-stickers/water-ripples.webp",
+    "width": 640,
+    "height": 640
+  },
+  {
+    "id": "riverbank-rocks",
+    "name": "岸石",
+    "category": "scenery",
+    "src": "/images/studio-stickers/riverbank-rocks.webp",
+    "width": 640,
+    "height": 640
+  },
+  {
+    "id": "flying-swallow",
+    "name": "燕子",
+    "category": "wildlife",
+    "src": "/images/studio-stickers/flying-swallow.webp",
+    "width": 640,
+    "height": 640
+  },
+  {
+    "id": "swimming-fish",
+    "name": "游鱼",
+    "category": "wildlife",
+    "src": "/images/studio-stickers/swimming-fish.webp",
+    "width": 640,
+    "height": 640
+  },
+  {
+    "id": "small-wooden-boat",
+    "name": "小舟",
+    "category": "scenery",
+    "src": "/images/studio-stickers/small-wooden-boat.webp",
+    "width": 640,
+    "height": 640
+  }
+]
