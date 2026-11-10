@@ -41,95 +41,127 @@ test("successive follow-up searches retain the actual activity and all newly cho
   assert.match(query, /几点开始/);
 });
 
+test("long conversations fit the official Unicode query limit and retain the current question", () => {
+  const prior = user("今天节气民俗活动" + "🌕".repeat(160));
+  const query = buildSearchQuery([prior, user("那上海呢？")]);
+  assert.equal([...query].length, 128);
+  assert.ok(query.isWellFormed());
+  assert.ok(query.includes("那上海呢？"));
+  assert.ok(query.includes("今天节气民俗活动"));
+  assert.equal(needsWebSearch([user("请联网查证这段节气传说。")]), true);
+});
+
+const searchUrl = "https://api.deepseek.com/v1/tools/search";
+const chatUrl = "https://api.deepseek.com/chat/completions";
 const records = [
-  { title: "普通报道", url: "https://example.com/news", content: "民俗活动报道摘要。" },
-  { title: "香港天文台", url: "https://www.hko.gov.hk/tc/gts/time/24solarterms.htm", content: "节气时刻资料。" },
-  { title: "中国气象局", url: "https://www.cma.gov.cn/news/2026.html", content: "最新节气资讯。" },
+  { title: "普通报道", url: "https://example.com/news", summary: "", snippet: "民俗活动报道摘要。", content: "" },
+  { title: "香港天文台", url: "https://www.hko.gov.hk/tc/gts/time/24solarterms.htm", summary: "节气时刻资料。", snippet: "节气摘要。", content: "" },
+  { title: "中国气象局", url: "https://www.cma.gov.cn/news/2026.html", summary: "最新节气资讯。", snippet: "", content: "" },
 ];
 
-test("retrieval uses keyless Tavily on the server, prioritizes authoritative sources and filters unsafe links", async () => {
-  const oldFetch = globalThis.fetch;
-  const oldKey = process.env.TAVILY_API_KEY;
-  delete process.env.TAVILY_API_KEY;
-  const abortSignal = signal();
-  try {
-    globalThis.fetch = async (url, options) => {
-      assert.equal(String(url), "https://api.tavily.com/search");
-      assert.equal(options.method, "POST");
-      const headers = new Headers(options.headers);
-      assert.equal(headers.get("X-Tavily-Access-Mode"), "keyless");
-      assert.equal(headers.get("authorization"), null);
-      assert.deepEqual(JSON.parse(options.body), {
-        query: "2026年冬至时刻", max_results: 8, search_depth: "basic", include_answer: false,
-      });
-      assert.equal(options.signal.aborted, false);
-      return Response.json({ results: [
-        ...records, records[1],
-        { title: "bad", url: "javascript:alert(1)", content: "bad" },
-        { title: "bad", url: "https://user:password@example.com/", content: "bad" },
-        { title: "bad", url: "http://localhost/", content: "bad" },
-        { title: "bad", url: "http://127.0.0.1/", content: "bad" },
-        { title: "bad", url: "http://[::1]/", content: "bad" },
-        { title: "bad", url: "https://www.cma.gov.cn/empty", content: "" },
-      ] });
-    };
-    const found = await searchWeb("2026年冬至时刻", abortSignal);
-    assert.deepEqual(found.map((item) => item.url), [records[1].url, records[2].url, records[0].url]);
-    assert.ok(found.every((item) => item.title && item.content));
-  } finally {
-    globalThis.fetch = oldFetch;
-    if (oldKey === undefined) delete process.env.TAVILY_API_KEY;
-    else process.env.TAVILY_API_KEY = oldKey;
-  }
+test("a named official source resolves to its own domain even if the provider returns other websites", async (t) => {
+  setSearchKey(t);
+  const query = buildSearchQuery([user("请联网查香港天文台公布的节气时刻。")]);
+  assert.match(query, /^site:hko\.gov\.hk /);
+  t.mock.method(globalThis, "fetch", async () => Response.json({ results: records }));
+  const sources = await searchWeb(query, signal());
+  assert.deepEqual(sources.map(({url}) => url), [records[1].url]);
 });
 
-test("configured search credentials stay in authorization headers and provider failures are sanitized", async () => {
-  const oldFetch = globalThis.fetch;
-  const oldKey = process.env.TAVILY_API_KEY;
-  process.env.TAVILY_API_KEY = "test-search-secret";
-  try {
-    globalThis.fetch = async (_url, options) => {
-      const headers = new Headers(options.headers);
-      assert.equal(headers.get("authorization"), "Bearer test-search-secret");
-      assert.equal(headers.get("X-Tavily-Access-Mode"), null);
-      assert.doesNotMatch(options.body, /test-search-secret/);
-      return Response.json({ results: records });
-    };
-    assert.equal((await searchWeb("今年冬至", signal())).length, 3);
-    for (const [status, code] of [[401, "SEARCH_FAILED"], [429, "SEARCH_RATE_LIMITED"], [500, "SEARCH_FAILED"]]) {
-      globalThis.fetch = async () => Response.json({ error: "private-provider-detail test-search-secret" }, { status });
-      await assert.rejects(searchWeb("今年冬至", signal()), (error) => {
-        assert.ok(error instanceof SearchError);
-        assert.equal(error.code, code);
-        assert.doesNotMatch(error.message, /private-provider-detail|test-search-secret/);
-        return true;
-      });
-    }
-  } finally {
-    globalThis.fetch = oldFetch;
-    if (oldKey === undefined) delete process.env.TAVILY_API_KEY;
-    else process.env.TAVILY_API_KEY = oldKey;
-  }
+function setSearchKey(t, key = "test-search-secret") {
+  const previous = process.env.DEEPSEEK_API_KEY;
+  if (key) process.env.DEEPSEEK_API_KEY = key;
+  else delete process.env.DEEPSEEK_API_KEY;
+  t.after(() => {
+    if (previous === undefined) delete process.env.DEEPSEEK_API_KEY;
+    else process.env.DEEPSEEK_API_KEY = previous;
+  });
+}
+
+test("DeepSeek search sends server authorization, selects summaries and filters unsafe sources", async (t) => {
+  setSearchKey(t);
+  const fetch = t.mock.method(globalThis, "fetch", async (url, options) => {
+    assert.equal(String(url), searchUrl);
+    assert.equal(options.method, "POST");
+    assert.equal(options.cache, "no-store");
+    const headers = new Headers(options.headers);
+    assert.equal(headers.get("authorization"), "Bearer test-search-secret");
+    assert.equal(headers.get("content-type"), "application/json");
+    assert.deepEqual(JSON.parse(options.body), { query: "2026年冬至时刻", count: 8, need_content: false });
+    assert.equal(options.signal.aborted, false);
+    return Response.json({ results: [
+      ...records, records[1],
+      ...["javascript:alert(1)", "https://user:password@example.com/", "http://localhost/", "http://127.0.0.1/",
+        "http://[::1]/", "http://demo.localhost./", "https://example.com/path\n[2]"].map((url) => ({ ...records[1], url })),
+      { title: "Empty", url: "https://www.cma.gov.cn/empty", summary: " ", snippet: "", content: "" },
+    ] });
+  });
+  const found = await searchWeb("2026年冬至时刻", signal());
+  assert.deepEqual(found.map(({ url }) => url), [records[1].url, records[2].url, records[0].url]);
+  assert.deepEqual(found.map(({ content }) => content), [records[1].summary, records[2].summary, records[0].snippet]);
+  assert.equal(fetch.mock.callCount(), 1);
 });
 
-test("empty, malformed and failed search responses never become fabricated retrieval context", async () => {
-  const oldFetch = globalThis.fetch;
-  try {
-    for (const body of [{ results: [] }, { results: [{ title: "No article", url: "https://example.com" }] }]) {
-      globalThis.fetch = async () => Response.json(body);
-      await assert.rejects(searchWeb("最新节气资讯", signal()), { code: "SEARCH_EMPTY" });
-    }
-    for (const response of [() => Response.json({}), () => new Response("not json")]) {
-      globalThis.fetch = async () => response();
-      await assert.rejects(searchWeb("最新节气资讯", signal()), SearchError);
-    }
-    globalThis.fetch = async () => { throw new Error("private network detail"); };
-    await assert.rejects(searchWeb("最新节气资讯", signal()), (error) => {
+test("search without a server key makes no provider request", async (t) => {
+  setSearchKey(t, "");
+  const fetch = t.mock.method(globalThis, "fetch", () => assert.fail("unexpected network call"));
+  await assert.rejects(searchWeb("今年冬至", signal()), { code: "SEARCH_KEY_MISSING" });
+  assert.equal(fetch.mock.callCount(), 0);
+});
+
+test("provider failures preserve diagnostic status without exposing provider details or retrying", async (t) => {
+  setSearchKey(t);
+  const fetch = t.mock.method(globalThis, "fetch");
+  for (const [status, code] of [
+    [401, "SEARCH_AUTH_FAILED"], [402, "SEARCH_INSUFFICIENT_BALANCE"], [429, "SEARCH_RATE_LIMITED"],
+    [500, "SEARCH_FAILED"], [504, "SEARCH_TIMEOUT"],
+  ]) {
+    fetch.mock.mockImplementation(() => Response.json({ error: "private-provider-detail test-search-secret" }, { status }));
+    await assert.rejects(searchWeb("今年冬至", signal()), (error) => {
       assert.ok(error instanceof SearchError);
-      assert.doesNotMatch(error.message, /private network detail/);
+      assert.equal(error.code, code);
+      assert.equal(error.status, status);
+      assert.doesNotMatch(error.message, /private-provider-detail|test-search-secret/);
       return true;
     });
-  } finally { globalThis.fetch = oldFetch; }
+  }
+  assert.equal(fetch.mock.callCount(), 5);
+});
+
+test("empty, malformed and failed search responses never become fabricated retrieval context", async (t) => {
+  setSearchKey(t);
+  const fetch = t.mock.method(globalThis, "fetch");
+  for (const body of [{ results: [] }, { results: [{ title: "No article", url: "https://example.com" }] }]) {
+    fetch.mock.mockImplementation(() => Response.json(body));
+    await assert.rejects(searchWeb("最新节气资讯", signal()), { code: "SEARCH_EMPTY" });
+  }
+  for (const response of [() => Response.json({}), () => new Response("not json")]) {
+    fetch.mock.mockImplementation(response);
+    await assert.rejects(searchWeb("最新节气资讯", signal()), { code: "SEARCH_INVALID_RESPONSE" });
+  }
+  fetch.mock.mockImplementation(() => { throw new Error("private network detail"); });
+  await assert.rejects(searchWeb("最新节气资讯", signal()), (error) => {
+    assert.equal(error.code, "SEARCH_FAILED");
+    assert.doesNotMatch(error.message, /private network detail/);
+    return true;
+  });
+});
+
+test("search times out after its own budget and preserves a caller cancellation", async (t) => {
+  setSearchKey(t);
+  const deadline = new AbortController();
+  t.mock.method(AbortSignal, "timeout", (ms) => {
+    assert.equal(ms, 8_000);
+    return deadline.signal;
+  });
+  const fetch = t.mock.method(globalThis, "fetch", async (_url, { signal }) => {
+    deadline.abort();
+    signal.throwIfAborted();
+  });
+  await assert.rejects(searchWeb("最新节气资讯", signal()), { code: "SEARCH_TIMEOUT" });
+  const cancelled = AbortSignal.abort();
+  await assert.rejects(searchWeb("最新节气资讯", cancelled), (error) => error === cancelled.reason);
+  assert.equal(fetch.mock.callCount(), 1);
 });
 
 const request = (question) => new Request("http://localhost:3000/api/chat", {
@@ -141,68 +173,57 @@ const completed = (content) => ({
   choices: [{ index: 0, finish_reason: "stop", message: { role: "assistant", content } }],
 });
 
-test("the live route retrieves before generation and returns only retrieved source URLs", async () => {
-  const oldFetch = globalThis.fetch;
-  const oldKey = process.env.OPENROUTER_API_KEY;
-  process.env.OPENROUTER_API_KEY = "test-chat-secret";
+test("the live route retrieves before generation and returns only retrieved source URLs", async (t) => {
+  setSearchKey(t);
   const calls = [];
-  try {
-    globalThis.fetch = async (url, options) => {
-      calls.push(String(url));
-      if (String(url) === "https://api.tavily.com/search") return Response.json({ results: [records[1]] });
-      assert.equal(String(url), "https://openrouter.ai/api/v1/chat/completions");
-      assert.equal(calls.length, 2);
-      const body = JSON.parse(options.body);
-      assert.match(body.messages[0].content, /外部不可信数据/);
-      assert.ok(body.messages.some((message) => message.content.includes(records[1].content)));
-      assert.ok(body.messages.some((message) => message.content.includes(records[1].url)));
-      return Response.json(completed("香港天文台提供本年度节气时刻，请按其公布时区核对。[1]"));
-    };
-    const response = await POST(request("今年冬至准确到几点？"));
-    assert.equal(response.status, 200);
-    assert.equal(response.headers.get("cache-control"), "no-store");
-    const data = await response.json();
-    assert.match(data.answer, /参考来源/);
-    assert.ok(data.answer.includes(records[1].url));
-    assert.doesNotMatch(data.answer, /test-chat-secret/);
-    assert.equal(calls.length, 2);
-  } finally {
-    globalThis.fetch = oldFetch;
-    if (oldKey === undefined) delete process.env.OPENROUTER_API_KEY;
-    else process.env.OPENROUTER_API_KEY = oldKey;
-  }
+  t.mock.method(globalThis, "fetch", async (url, options) => {
+    calls.push(String(url));
+    if (String(url) === searchUrl) return Response.json({ results: [records[1]] });
+    assert.equal(String(url), chatUrl);
+    const body = JSON.parse(options.body);
+    assert.match(body.messages[0].content, /外部不可信数据/);
+    assert.ok(body.messages.some((message) => message.content.includes(records[1].summary)));
+    assert.ok(body.messages.some((message) => message.content.includes(records[1].url)));
+    return Response.json(completed("香港天文台提供本年度节气时刻，请按其公布时区核对。[1]"));
+  });
+  const response = await POST(request("今年冬至准确到几点？"));
+  assert.equal(response.status, 200);
+  assert.equal(response.headers.get("cache-control"), "no-store");
+  const data = await response.json();
+  assert.match(data.answer, /参考来源/);
+  assert.ok(data.answer.includes(records[1].url));
+  assert.doesNotMatch(data.answer, /test-search-secret/);
+  assert.deepEqual(calls, [searchUrl, chatUrl]);
 });
 
-test("search failure prevents generation while static knowledge can go directly to OpenRouter", async () => {
-  const oldFetch = globalThis.fetch;
-  const oldKey = process.env.OPENROUTER_API_KEY;
-  process.env.OPENROUTER_API_KEY = "test-chat-secret";
+test("failed search falls back to a qualified answer while static questions skip search", async (t) => {
+  setSearchKey(t);
   const calls = [];
-  try {
-    globalThis.fetch = async (url) => {
-      calls.push(String(url));
-      assert.equal(String(url), "https://api.tavily.com/search");
-      return Response.json({ error: "upstream secret" }, { status: 429 });
-    };
-    const failed = await POST(request("今天北京有哪些民俗活动？"));
-    assert.equal(failed.status, 503);
-    const body = await failed.json();
-    assert.equal(body.answer, null);
-    assert.equal(body.error.code, "SEARCH_RATE_LIMITED");
-    assert.match(body.error.message, /无法核实实时信息/);
-    assert.equal(calls.length, 1);
-    globalThis.fetch = async (url) => {
-      assert.equal(String(url), "https://openrouter.ai/api/v1/chat/completions");
-      return Response.json(completed("冬至是二十四节气之一。"));
-    };
-    const direct = await POST(request("什么是冬至？"));
-    assert.equal(direct.status, 200);
-    assert.equal((await direct.json()).answer, "冬至是二十四节气之一。");
-  } finally {
-    globalThis.fetch = oldFetch;
-    if (oldKey === undefined) delete process.env.OPENROUTER_API_KEY;
-    else process.env.OPENROUTER_API_KEY = oldKey;
-  }
+  const fetch = t.mock.method(globalThis, "fetch", async (url, options) => {
+    calls.push(String(url));
+    if (String(url) === searchUrl) return Response.json({ error: "upstream secret" }, { status: 429 });
+    assert.equal(String(url), chatUrl);
+    const messages = JSON.parse(options.body).messages;
+    assert.match(messages[0].content, /本轮实时检索失败/u);
+    assert.ok(!messages.some((message) => message.content.includes("本轮服务器检索资料（JSON")));
+    assert.doesNotMatch(JSON.stringify(messages), /upstream secret|test-search-secret/);
+    return Response.json(completed("民俗活动的时间和场地可向当地文化馆核实。"));
+  });
+  const fallback = await POST(request("今天北京有哪些民俗活动？"));
+  assert.equal(fallback.status, 200);
+  const { answer } = await fallback.json();
+  assert.match(answer, /^本次未能核实实时信息/u);
+  assert.doesNotMatch(answer, /https?:\/\/|参考来源|upstream secret|test-search-secret/u);
+  assert.deepEqual(calls, [searchUrl, chatUrl]);
+  fetch.mock.mockImplementation(async (url) => {
+    calls.push(String(url));
+    assert.equal(String(url), chatUrl);
+    return Response.json(completed("冬至是二十四节气之一。"));
+  });
+  const direct = await POST(request("什么是冬至？"));
+  assert.equal(direct.status, 200);
+  assert.equal((await direct.json()).answer, "冬至是二十四节气之一。");
+  assert.deepEqual(calls, [searchUrl, chatUrl, chatUrl]);
 });
 
 test("generated citations must reference retrieved records and cannot introduce model-created URLs", () => {

@@ -25,7 +25,8 @@ export default function StudioInspiration({ term, format, onApply }: Props) {
       const query = new URLSearchParams({ term: term.id, format });
       const response = await fetch(`/api/studio/inspiration?${query}`, {
         method: "POST",
-        signal: AbortSignal.any([controller.signal, AbortSignal.timeout(25_000)]),
+        headers: { "Idempotency-Key": crypto.getRandomValues(new Uint32Array(4)).join("-") },
+        signal: AbortSignal.any([controller.signal, AbortSignal.timeout(60_000)]),
       });
       const body = await response.json();
       if (controller.signal.aborted) return;

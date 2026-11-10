@@ -7,6 +7,7 @@ import ts from "typescript";
 const root = new URL("../", import.meta.url);
 registerHooks({
   resolve(specifier, context, nextResolve) {
+    if (specifier === "server-only") return nextResolve("next/dist/compiled/server-only/empty.js", context);
     if (specifier.startsWith("@/")) return { url: new URL(`${specifier.slice(2)}.ts`, root).href, shortCircuit: true };
     if (specifier.startsWith(".") && context.parentURL?.endsWith(".ts")) {
       const candidate = new URL(`${specifier}.ts`, context.parentURL);

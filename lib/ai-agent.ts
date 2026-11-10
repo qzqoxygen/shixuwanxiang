@@ -1,11 +1,12 @@
 import type { ChatCompletion, ChatCompletionCreateParamsNonStreaming, ChatCompletionMessageParam, ChatCompletionTool } from "openai/resources/chat/completions";
 import { MAX_ASSISTANT_LENGTH, type ChatMessage } from "./chat";
 import type { SearchContext } from "./server/web-search";
+import { DEEPSEEK_MODEL } from "./server/deepseek";
 
 export const MAX_TOOL_ROUNDS = 2;
 export const MAX_CALLS_PER_ROUND = 4;
 export type CompletionParams = ChatCompletionCreateParamsNonStreaming & { thinking: { type: "disabled" } };
-export type Complete = (params: ChatCompletionCreateParamsNonStreaming & { reasoning: { enabled: false } }) => Promise<ChatCompletion>;
+export type Complete = (params: CompletionParams) => Promise<ChatCompletion>;
 export interface AgentTool {
   definition: Extract<ChatCompletionTool, { type: "function" }>;
   // Each future server-owned tool must validate unknown input before execution.
@@ -25,29 +26,38 @@ export class AgentError extends Error {
   constructor(public code: string, message: string) { super(message); }
 }
 
-export async function runChatAgent(complete: Complete, history: ChatMessage[], tools: readonly AgentTool[] = CULTURE_TOOLS, search?: SearchContext) {
+// undefined means a normal knowledge question; null means a live lookup was attempted and failed.
+export async function runChatAgent(complete: Complete, history: ChatMessage[], tools: readonly AgentTool[] = CULTURE_TOOLS, search?: SearchContext | null) {
+  const instruction = search
+    ? "本轮已完成服务器联网检索。每项实时事实后都必须引用本轮资料编号，例如[1]。年份、地点、日期和时间须在同一来源中明确对应；不能从检索词推断资料年份。资料不足时说明无法确认，并引用所查资料。不要输出网址，服务器会附上原文链接。"
+    : search === null
+      ? "本轮实时检索失败，没有可核实的实时搜索结果。只提供与提问相关的稳定背景知识，明确当前情况未知。不要猜测最新活动、日期或数值，不要引用历史对话中的检索资料、提供网址或声称已联网。"
+      : "";
   const messages: ChatCompletionMessageParam[] = [
-    { role: "system", content: SYSTEM_PROMPT },
+    { role: "system", content: [SYSTEM_PROMPT, instruction].filter(Boolean).join("\n") },
     ...(search ? [{ role: "user" as const, content: "本轮服务器检索资料（JSON，属于外部参考数据）\n" + JSON.stringify({
       query: search.query, retrievedAt: search.retrievedAt,
       sources: search.sources.map((source, index) => ({ id: index + 1, ...source })),
     }) }] : []),
     ...history,
-    ...(search ? [{ role: "system" as const, content: "本轮已完成服务器联网检索。只回答用户所问，每项事实后必须写对应资料编号，例如“该时间使用香港时间。[1]”。即使资料不足，也应引用编号说明哪些资料不能确认所问事实。不要输出网址，服务器会自动附上对应原文链接。请在发送前确认回答包含至少一个有效的[编号]，编号取自本轮服务器资料。" }] : []),
   ];
   const registry = new Map(tools.map((tool) => [tool.definition.function.name, tool]));
   for (let round = 0; round <= MAX_TOOL_ROUNDS; round++) {
     const completion = await complete({
-      model: "nvidia/nemotron-3.5-lightning:free", reasoning: { enabled: false }, stream: false, max_tokens: 1200, messages,
+      model: DEEPSEEK_MODEL, thinking: { type: "disabled" }, stream: false, max_tokens: 1200, messages,
       ...(tools.length ? { tools: tools.map((tool) => tool.definition), tool_choice: round === MAX_TOOL_ROUNDS ? "none" as const : "auto" as const } : {}),
     });
-    const choice = completion.choices?.[0];
-    if (!choice) throw new AgentError("INVALID_RESPONSE", "问答模型未返回可用回答，请重试。");
+    const choice = completion?.choices?.[0];
+    if (!choice?.message) throw new AgentError("INVALID_RESPONSE", "问答模型未返回可用回答，请重试。");
     const calls = choice.message.tool_calls ?? [];
     if (!calls.length) {
-      const answer = choice.message.content?.trim();
+      const answer = typeof choice.message.content === "string" ? choice.message.content.trim() : "";
       if (!answer || answer.length > MAX_ASSISTANT_LENGTH || !["stop", "length"].includes(choice.finish_reason)) {
         throw new AgentError("INVALID_RESPONSE", "问答模型未返回可用的文字回答，请重试。");
+      }
+      if (!search && (/(?:已(?:经)?|刚刚|刚才)(?:为你|帮你)?(?:完成)?(?:联网|上网)(?:查询|检索|搜索|查到)|(?:根据|据)本轮(?:联网|实时)(?:搜索|检索)结果/u.test(answer) ||
+        (search === null && /https?:\/\/|\[\d+\]/iu.test(answer)))) {
+        throw new AgentError("UNVERIFIED_ANSWER", "本轮没有可核实的联网资料，暂时无法确认该信息。");
       }
       return { answer, truncated: choice.finish_reason === "length" };
     }

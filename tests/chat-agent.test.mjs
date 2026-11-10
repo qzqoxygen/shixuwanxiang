@@ -16,9 +16,9 @@ test("normal and multi-turn chat use the configured model without product tools"
   assert.deepEqual(CULTURE_TOOLS, []);
   const multi = [...history, { role: "assistant", content: "冬至是一个节气。" }, { role: "user", content: "它和夏至有什么区别？" }];
   const result = await runChatAgent(async (params) => {
-    assert.equal(params.model, "nvidia/nemotron-3.5-lightning:free");
-    assert.equal(params.thinking, undefined);
-    assert.deepEqual(params.reasoning, { enabled: false });
+    assert.equal(params.model, "deepseek-flash");
+    assert.deepEqual(params.thinking, { type: "disabled" });
+    assert.equal(params.stream, false);
     assert.equal(params.tools, undefined);
     assert.equal(params.tool_choice, undefined);
     assert.deepEqual(params.messages.slice(1), multi);
@@ -38,6 +38,11 @@ test("empty, oversized and incomplete answers fail; length finish is disclosed",
 });
 test("unrequested tool calls cannot execute with the empty product registry", async () => {
   await assert.rejects(runChatAgent(async () => completion(null, [call()]), history), { code: "TOOLS_UNAVAILABLE" });
+});
+test("failed live retrieval cannot publish an invented source or a claim of live access", async () => {
+  for (const text of ["我刚刚联网查询了活动。", "活动在今晚。[1]", "查看 https://invented.example/"]) {
+    await assert.rejects(runChatAgent(async () => completion(text), history, [], null), { code: "UNVERIFIED_ANSWER" });
+  }
 });
 test("retained generic tool runner matches IDs and returns validated results", async () => {
   let count = 0;
@@ -77,8 +82,8 @@ test("input limits preserve alternating full turns and reject client system role
 });
 const request = (messages = history, headers = {}) => new Request("http://localhost:3000/api/chat", { method: "POST", headers: { "content-type": "application/json", ...headers }, body: JSON.stringify({ messages }) });
 test("route validates origin, format, size, roles and missing key before network access", async () => {
-  const old = process.env.OPENROUTER_API_KEY;
-  delete process.env.OPENROUTER_API_KEY;
+  const old = process.env.DEEPSEEK_API_KEY;
+  delete process.env.DEEPSEEK_API_KEY;
   try {
     for (const [req, code] of [
       [request(), "API_KEY_MISSING"],
@@ -94,20 +99,20 @@ test("route validates origin, format, size, roles and missing key before network
       assert.equal(data.error.code, code);
       assert.equal(data.answer, null);
     }
-  } finally { if (old === undefined) delete process.env.OPENROUTER_API_KEY; else process.env.OPENROUTER_API_KEY = old; }
+  } finally { if (old === undefined) delete process.env.DEEPSEEK_API_KEY; else process.env.DEEPSEEK_API_KEY = old; }
 });
 test("real SDK serialization and error mapping work with isolated fake transport", async () => {
   const oldFetch = globalThis.fetch;
-  const oldKey = process.env.OPENROUTER_API_KEY;
-  process.env.OPENROUTER_API_KEY = "test-only-never-send";
+  const oldKey = process.env.DEEPSEEK_API_KEY;
+  process.env.DEEPSEEK_API_KEY = "test-only-never-send";
   try {
     globalThis.fetch = async (url, options) => {
-      assert.equal(String(url), "https://openrouter.ai/api/v1/chat/completions");
+      assert.equal(String(url), "https://api.deepseek.com/chat/completions");
       assert.equal(new Headers(options.headers).get("authorization"), "Bearer test-only-never-send");
       const body = JSON.parse(options.body);
-      assert.equal(body.model, "nvidia/nemotron-3.5-lightning:free");
-      assert.equal(body.thinking, undefined);
-      assert.deepEqual(body.reasoning, { enabled: false });
+      assert.equal(body.model, "deepseek-flash");
+      assert.deepEqual(body.thinking, { type: "disabled" });
+      assert.equal(body.stream, false);
       assert.equal(body.tools, undefined);
       return Response.json(completion());
     };
@@ -125,6 +130,6 @@ test("real SDK serialization and error mapping work with isolated fake transport
     assert.equal((await (await POST(request())).json()).error.code, "NETWORK_ERROR");
   } finally {
     globalThis.fetch = oldFetch;
-    if (oldKey === undefined) delete process.env.OPENROUTER_API_KEY; else process.env.OPENROUTER_API_KEY = oldKey;
+    if (oldKey === undefined) delete process.env.DEEPSEEK_API_KEY; else process.env.DEEPSEEK_API_KEY = oldKey;
   }
 });
