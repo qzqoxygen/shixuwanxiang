@@ -169,11 +169,11 @@ test("pending cases are hidden from lists, totals, keyword matches and detail lo
   assert.equal(findVerifiedCulturalCase(fixtures, "test-2").verificationStatus, "verified");
 });
 
-test("first-batch production data validates, has unique IDs, and contains no artificial test cases or images", () => {
+test("the text-only collection validates and the two unresolved workbook cases remain pending", () => {
   const cases = readCulturalCases();
-  assert.equal(cases.length, 8);
-  assert.equal(cases.filter((item) => item.verificationStatus === "verified").length, 7);
-  assert.deepEqual(cases.filter((item) => item.verificationStatus === "pending").map((item) => item.id), ["mohe-xiazhi-white-night"]);
+  for (const id of ["xinzheng-jujube-harvest", "huangling-flower-buns"]) {
+    assert.equal(cases.find((item) => item.id === id)?.verificationStatus, "pending", id);
+  }
   for (const item of cases) {
     assert.equal(Object.hasOwn(item, "imageUrl"), false);
     assert.equal(item.id.startsWith("test-"), false);
@@ -184,19 +184,27 @@ test("first-batch production data validates, has unique IDs, and contains no art
   assert.notEqual(readCulturalCases()[0].title, "修改测试副本");
 });
 
-test("all 12 source rows retain stable IDs and the four regionless drafts stay outside runtime data", () => {
+test("the original intake remains traceable and all eight existing runtime IDs retain their entity", () => {
   const intake = JSON.parse(readFileSync(new URL("../docs/cultural-sources/intake-2026-11-03.json", import.meta.url), "utf8"));
   assert.equal(intake.rows.length, 12);
   assert.equal(new Set(intake.rows.map((row) => row.caseId)).size, 12);
   assert.deepEqual(intake.rows.map((row) => row.row), Array.from({ length: 12 }, (_, index) => index + 2));
-  const cases = readCulturalCases();
-  for (const item of cases) assert.ok(intake.rows.some((row) => row.caseId === item.id));
-  const drafts = intake.rows.filter((row) => !cases.some((item) => item.id === row.caseId));
-  assert.deepEqual(drafts.map((row) => row.caseId), ["qingming-ancestor-tomb-sweeping", "qiufen-egg-balancing", "lingnan-qiufen-autumn-soup", "qiufen-nian-que-zi-zui"]);
-  for (const row of drafts) {
-    assert.ok(row.values["地点"]);
-    assert.ok(row.values["待核实问题"]);
-    assert.equal(findVerifiedCulturalCase(cases, row.caseId), undefined);
+  const cases = new Map(readCulturalCases().map((item) => [item.id, item]));
+  for (const [id, term, province, text] of [
+    ["shanghai-qingming-qingtuan", "qingming", "310000", "青团"],
+    ["tongxiang-heshan-qingming-dinner", "qingming", "330000", "河山"],
+    ["beijing-xiazhi-noodles", "xiazhi", "110000", "面"],
+    ["shaoxing-zuo-xiazhi", "xiazhi", "330000", "做夏至"],
+    ["mohe-xiazhi-white-night", "xiazhi", "230000", "白夜"],
+    ["sanmen-jidong", "dongzhi", "330000", "祭冬"],
+    ["suzhou-dongzhi-winter-wine", "dongzhi", "320000", "冬酿酒"],
+    ["beijing-dongzhi-nine-nine-chart", "dongzhi", "110000", "消寒图"],
+  ]) {
+    assert.ok(intake.rows.some((row) => row.caseId === id), id);
+    const item = cases.get(id);
+    assert.equal(item?.provinceCode, province, id);
+    assert.ok(item.solarTermIds.includes(term), id);
+    assert.ok([item.title, item.regionName, item.description].join(" ").includes(text), id);
   }
 });
 
@@ -210,7 +218,7 @@ test("list route returns real verified records and sources, with no model key or
     assert.equal(body.total, 1);
     assert.equal(body.items[0].id, "shanghai-qingming-qingtuan");
     assert.equal(Object.hasOwn(body.items[0], "imageUrl"), false);
-    assert.ok(body.items[0].sources[0].url.includes("ihchina.cn"));
+    assert.ok(body.items[0].sources.some((source) => source.title && source.url.startsWith("http")));
     const detailBody = await checkResponse(await detail(body.items[0].id), 200, CaseDetailResponseSchema);
     assert.deepEqual(detailBody.item, body.items[0]);
   } finally {
@@ -219,21 +227,22 @@ test("list route returns real verified records and sources, with no model key or
   }
 });
 
-test("list route paginates after filtering and hides the pending production case", async () => {
+test("list route paginates the published batch and hides the two unresolved cases even by keyword", async () => {
   const all = await checkResponse(await listGET(request()), 200, CaseListResponseSchema);
-  assert.equal(all.total, 7);
+  const published = readCulturalCases().filter((item) => item.verificationStatus === "verified");
+  assert.equal(all.total, published.length);
   assert.ok(all.items.every((item) => item.verificationStatus === "verified"));
   assert.deepEqual(all.items.map((item) => item.id), all.items.map((item) => item.id).sort());
   const page = await checkResponse(await listGET(request("?offset=1&limit=2")), 200, CaseListResponseSchema);
-  assert.equal(page.total, 7);
+  assert.equal(page.total, published.length);
   assert.deepEqual(page.items, all.items.slice(1, 3));
-  for (const suffix of ["?solarTermId=qiufen", "?provinceCode=230000", "?keyword=漠河", "?solarTermId=lichun&provinceCode=710000"]) {
+  for (const suffix of ["?solarTermId=qiufen&provinceCode=410000&keyword=砑枣", "?solarTermId=dongzhi&provinceCode=610000&keyword=面花", "?solarTermId=lichun&provinceCode=710000"]) {
     const body = await checkResponse(await listGET(request(suffix)), 200, CaseListResponseSchema);
     assert.deepEqual(body.items, []);
     assert.equal(body.total, 0);
   }
-  const beyond = await checkResponse(await listGET(request("?offset=100")), 200, CaseListResponseSchema);
-  assert.equal(beyond.total, 7);
+  const beyond = await checkResponse(await listGET(request(`?offset=${published.length}`)), 200, CaseListResponseSchema);
+  assert.equal(beyond.total, published.length);
   assert.deepEqual(beyond.items, []);
 });
 
@@ -252,10 +261,9 @@ test("detail rejects malformed decoded IDs and treats pending and absent cases i
     assert.equal(body.error.code, "INVALID_INPUT");
   }
   const missing = await checkResponse(await detail("missing-case"), 404, ApiFailureSchema);
-  const pending = await checkResponse(await detail("mohe-xiazhi-white-night"), 404, ApiFailureSchema);
-  const draft = await checkResponse(await detail("lingnan-qiufen-autumn-soup"), 404, ApiFailureSchema);
-  assert.deepEqual(pending, missing);
-  assert.deepEqual(draft, missing);
+  for (const id of ["xinzheng-jujube-harvest", "huangling-flower-buns"]) {
+    assert.deepEqual(await checkResponse(await detail(id), 404, ApiFailureSchema), missing);
+  }
   assert.equal(missing.error.code, "CASE_NOT_FOUND");
 });
 
