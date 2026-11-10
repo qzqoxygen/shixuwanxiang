@@ -16,8 +16,9 @@ test("normal and multi-turn chat use the configured model without product tools"
   assert.deepEqual(CULTURE_TOOLS, []);
   const multi = [...history, { role: "assistant", content: "冬至是一个节气。" }, { role: "user", content: "它和夏至有什么区别？" }];
   const result = await runChatAgent(async (params) => {
-    assert.equal(params.model, "deepseek-flash");
-    assert.deepEqual(params.thinking, { type: "disabled" });
+    assert.equal(params.model, "nvidia/nemotron-3.5-lightning:free");
+    assert.equal(params.thinking, undefined);
+    assert.deepEqual(params.reasoning, { enabled: false });
     assert.equal(params.tools, undefined);
     assert.equal(params.tool_choice, undefined);
     assert.deepEqual(params.messages.slice(1), multi);
@@ -28,6 +29,7 @@ test("normal and multi-turn chat use the configured model without product tools"
 });
 test("empty, oversized and incomplete answers fail; length finish is disclosed", async () => {
   for (const answer of ["", " ".repeat(4), "x".repeat(8001)]) await assert.rejects(runChatAgent(async () => completion(answer), history), { code: "INVALID_RESPONSE" });
+  await assert.rejects(runChatAgent(async () => ({ error: { code: 502 } }), history), { code: "INVALID_RESPONSE" });
   const response = completion("尚未讲完");
   response.choices[0].finish_reason = "length";
   assert.equal((await runChatAgent(async () => response, history)).truncated, true);
@@ -75,8 +77,8 @@ test("input limits preserve alternating full turns and reject client system role
 });
 const request = (messages = history, headers = {}) => new Request("http://localhost:3000/api/chat", { method: "POST", headers: { "content-type": "application/json", ...headers }, body: JSON.stringify({ messages }) });
 test("route validates origin, format, size, roles and missing key before network access", async () => {
-  const old = process.env.DEEPSEEK_API_KEY;
-  delete process.env.DEEPSEEK_API_KEY;
+  const old = process.env.OPENROUTER_API_KEY;
+  delete process.env.OPENROUTER_API_KEY;
   try {
     for (const [req, code] of [
       [request(), "API_KEY_MISSING"],
@@ -92,24 +94,27 @@ test("route validates origin, format, size, roles and missing key before network
       assert.equal(data.error.code, code);
       assert.equal(data.answer, null);
     }
-  } finally { if (old === undefined) delete process.env.DEEPSEEK_API_KEY; else process.env.DEEPSEEK_API_KEY = old; }
+  } finally { if (old === undefined) delete process.env.OPENROUTER_API_KEY; else process.env.OPENROUTER_API_KEY = old; }
 });
 test("real SDK serialization and error mapping work with isolated fake transport", async () => {
   const oldFetch = globalThis.fetch;
-  const oldKey = process.env.DEEPSEEK_API_KEY;
-  process.env.DEEPSEEK_API_KEY = "test-only-never-send";
+  const oldKey = process.env.OPENROUTER_API_KEY;
+  process.env.OPENROUTER_API_KEY = "test-only-never-send";
   try {
-    globalThis.fetch = async (_url, options) => {
+    globalThis.fetch = async (url, options) => {
+      assert.equal(String(url), "https://openrouter.ai/api/v1/chat/completions");
+      assert.equal(new Headers(options.headers).get("authorization"), "Bearer test-only-never-send");
       const body = JSON.parse(options.body);
-      assert.equal(body.model, "deepseek-flash");
-      assert.equal(body.thinking.type, "disabled");
+      assert.equal(body.model, "nvidia/nemotron-3.5-lightning:free");
+      assert.equal(body.thinking, undefined);
+      assert.deepEqual(body.reasoning, { enabled: false });
       assert.equal(body.tools, undefined);
       return Response.json(completion());
     };
     const good = await POST(request());
     assert.equal(good.status, 200);
     assert.equal((await good.json()).answer, "测试回答");
-    for (const [status, code] of [[401,"API_KEY_INVALID"],[402,"INSUFFICIENT_BALANCE"],[403,"ACCESS_DENIED"],[429,"RATE_LIMITED"],[400,"PROVIDER_REQUEST_ERROR"],[500,"PROVIDER_UNAVAILABLE"]]) {
+    for (const [status, code] of [[401,"API_KEY_INVALID"],[402,"INSUFFICIENT_BALANCE"],[403,"ACCESS_DENIED"],[429,"RATE_LIMITED"],[400,"PROVIDER_REQUEST_ERROR"],[404,"MODEL_UNAVAILABLE"],[503,"MODEL_UNAVAILABLE"],[500,"PROVIDER_UNAVAILABLE"]]) {
       globalThis.fetch = async () => Response.json({ error: { message: "private-provider-detail", type: "test" } }, { status });
       const data = await (await POST(request())).json();
       assert.equal(data.error.code, code);
@@ -120,6 +125,6 @@ test("real SDK serialization and error mapping work with isolated fake transport
     assert.equal((await (await POST(request())).json()).error.code, "NETWORK_ERROR");
   } finally {
     globalThis.fetch = oldFetch;
-    if (oldKey === undefined) delete process.env.DEEPSEEK_API_KEY; else process.env.DEEPSEEK_API_KEY = oldKey;
+    if (oldKey === undefined) delete process.env.OPENROUTER_API_KEY; else process.env.OPENROUTER_API_KEY = oldKey;
   }
 });
