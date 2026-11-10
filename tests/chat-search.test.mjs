@@ -9,6 +9,7 @@ const signal = () => new AbortController().signal;
 
 test("live questions trigger retrieval while ordinary solar-term knowledge does not", () => {
   for (const question of [
+    "明日北京会下雨吗？", "后天北京会下雨吗？", "本年度冬至是几月几号？",
     "今天有什么节气资讯？", "今年冬至的准确时间是什么？", "2026年清明上海有哪些民俗活动？",
     "下周北京天气怎么样？", "现在月亮离地球多远？", "冬至活动的门票多少钱？", "今年夏至太阳直射的准确时刻是几点？",
   ]) assert.equal(needsWebSearch([user(question)]), true, question);

@@ -33,6 +33,7 @@ export async function runChatAgent(complete: Complete, history: ChatMessage[], t
       sources: search.sources.map((source, index) => ({ id: index + 1, ...source })),
     }) }] : []),
     ...history,
+    ...(search ? [{ role: "system" as const, content: "本轮已完成服务器联网检索。只回答用户所问，每项事实后必须写对应资料编号，例如“该时间使用香港时间。[1]”。即使资料不足，也应引用编号说明哪些资料不能确认所问事实。不要输出网址，服务器会自动附上对应原文链接。请在发送前确认回答包含至少一个有效的[编号]，编号取自本轮服务器资料。" }] : []),
   ];
   const registry = new Map(tools.map((tool) => [tool.definition.function.name, tool]));
   for (let round = 0; round <= MAX_TOOL_ROUNDS; round++) {

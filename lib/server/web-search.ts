@@ -9,7 +9,7 @@ export class SearchError extends Error {
   constructor(public code: string, message: string) { super(message); }
 }
 
-const timeSensitive = /最新|实时|即時|近期|最近|目前|现在|当前|今天|今日|今年|明天|明年|昨天|昨日|去年|本周|下周|本月|下月|下一个节气|下個節氣|这个月|这周|这次|这届|这几天|搜索|检索|查一下|查一查|帮我查|上网|新闻|资讯|天气|气温|预报|门票|票价|开放时间|营业|预约|举办|举行|活动|庆典|展览|演出|流星雨|日食|月食|日出|日落|几[点时分]|什么时间|具体时间|日期|时刻|交节|何时|什么时候|哪天|哪一天|\d{1,2}月\d{1,2}日|\b(?:19|20)\d{2}\b|\btoday\b|\blatest\b|\bcurrent\b|\bweather\b|\bnews\b/iu;
+const timeSensitive = /最新|实时|即時|近期|最近|目前|现在|当前|今天|今日|今年|本年度|明天|明日|后天|後天|明年|昨天|昨日|去年|本周|下周|本月|下月|下一个节气|下個節氣|这个月|这周|这次|这届|这几天|搜索|检索|查一下|查一查|帮我查|上网|新闻|资讯|天气|气温|预报|门票|票价|开放时间|营业|预约|举办|举行|活动|庆典|展览|演出|流星雨|日食|月食|日出|日落|几[点时分月号]|什么时间|具体时间|日期|时刻|交节|何时|什么时候|哪天|哪一天|\d{1,2}月\d{1,2}日|\b(?:19|20)\d{2}\b|\btoday\b|\blatest\b|\bcurrent\b|\bweather\b|\bnews\b/iu;
 const followUp = /^(那|那么|那里|这[个些]|它|他们|有没有|还有|要不要|需要|在哪|怎么去|多少钱|几点|何时|具体|详细|继续|来源|链接|what about|and |where|when)/iu;
 
 export function needsWebSearch(history: ChatMessage[]): boolean {
