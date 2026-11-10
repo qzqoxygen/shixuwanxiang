@@ -1,6 +1,6 @@
 # 文化案例接口联调（V1.0）
 
-本轮基于 `bec7e8e`，开发分支 `codex/cultural-cases`。共享类型、运行时校验、本地读取、列表与详情 GET 已实现；基础聊天、业务工具、页面及样式保持原有行为。本说明与 [协议第 4、5、6、10 节](../contracts/v1.0.md) 配套使用。
+知时页使用同一组列表与详情 GET。11 月 6 日批次基于 `c5cec01` 接入最终表的无图资料，接口继续遵循[协议第 4、5、6、10 节](../contracts/v1.0.md)。
 
 ## 前端可直接使用的导出
 
@@ -43,7 +43,7 @@ Invoke-RestMethod "http://localhost:3000/api/cultural-cases?solarTermId=qingming
 Invoke-RestMethod 'http://localhost:3000/api/cultural-cases/shanghai-qingming-qingtuan'
 
 # 合法但尚未收录的条件：200 空列表
-Invoke-RestMethod 'http://localhost:3000/api/cultural-cases?solarTermId=qiufen&provinceCode=440000'
+Invoke-RestMethod 'http://localhost:3000/api/cultural-cases?solarTermId=qingming&provinceCode=540000'
 ```
 
 上海青团请求的完整响应（本批次省略图片字段）：
@@ -60,8 +60,8 @@ Invoke-RestMethod 'http://localhost:3000/api/cultural-cases?solarTermId=qiufen&p
       "provinceName": "上海市",
       "regionName": "上海市",
       "category": "food",
-      "description": "上海有清明食用青团的习俗。资料介绍的一种做法是将草汁与糯米粉拌合，包入甜馅后蒸制，作为清明节令食品。",
-      "relationNote": "中国非物质文化遗产网的清明专题文章，在节令食品部分记述上海清明吃青团的习俗。",
+      "description": "上海的清明节令食品中有青团。一种传统做法是用草汁和糯米做成绿色外皮，包入豆沙或枣泥，垫上芦叶蒸熟。",
+      "relationNote": "上海人家在清明时节做青团、吃青团。",
       "sources": [
         {
           "title": "梨花落后清明——二十四节气之清明",
@@ -99,7 +99,7 @@ Invoke-RestMethod 'http://localhost:3000/api/cultural-cases?solarTermId=qiufen&p
 }
 ```
 
-`GET /api/cultural-cases/mohe-xiazhi-white-night` 与不存在的 ID 均返回 HTTP 404：
+`GET /api/cultural-cases/huangling-flower-buns` 与不存在的 ID 均返回 HTTP 404：
 
 ```json
 {
@@ -119,8 +119,8 @@ Invoke-RestMethod 'http://localhost:3000/api/cultural-cases?solarTermId=qiufen&p
 - `keyword` 去除首尾空白后最长 100 个 UTF-16 单元，空白视为不筛选；仅在标题、地域、描述和节气关联依据四个字段匹配大小写不敏感的字面子串。
 - 筛选后按 ID 的 ASCII 升序排序，再分页；`total` 不包含 pending，也不受分页截取影响。
 - 详情 ID 由 Next.js 动态路由解码一次后验证；不要在客户端或服务端重复解码。`/%73anmen-jidong` 可定位 `sanmen-jidong`，二次编码后仍含 `%` 的值不合法。ID 不用于拼接文件路径。
-- 首批公开 7 条；清明 2、夏至 2、冬至 3、秋分 0。数据整理、待核查及未入库原因见 [12 条资料清单](../cultural-sources/README.md)。空结果只表示当前收录未覆盖，不表示该地区没有文化实践。
-- 列表和详情请求随手动选择取消或使用递增序号，防止旧响应覆盖新选择；这一 UI 接线由前端完成，本轮尚未修改探索页面。
+- 本批公开 44 条。24 节气各有可查询主选；秋分收录北京月坛与开平秋汤。仅在已核实案例中统计地图各省数量。[逐条来源、待核验与各节气数量](../cultural-sources/2026-11-06/report.md)
+- 在 `/explore` 选择秋分，再选北京市，打开「北京月坛秋分祭月」可在详情点击原文来源。切换为清明与西藏自治区可复现空结果。
 
 ## 检查与复现
 
@@ -137,6 +137,6 @@ npm.cmd run start -- --hostname 127.0.0.1 --port 3107
 node tests/cultural-cases-http.mjs http://127.0.0.1:3107
 ```
 
-自动测试使用 Node test runner。人工构造案例只在 `tests/cultural-cases.test.mjs` 中，生产读取只导入 `data/cultural-cases/cases.json`，不接受环境开关或请求参数切换为样例数据。旧聊天、节气和地图测试继续运行。
+生产读取仅使用 `data/cultural-cases/cases.json`。单元测试另以同一节气的 22 条测试案例验证跨页省份统计。
 
-本轮 [检查记录](cultural-cases-checks.md)：35 项自动测试、类型检查、ESLint、生产构建及 34 次真实 HTTP 检查均通过；它们不代表案例前端 UI 或真实 DeepSeek 聊天已经联调。
+本批次的自动测试、真实 HTTP 请求和知时页复验见[交付检查](../cultural-sources/2026-11-06/README.md)。[首批检查记录](cultural-cases-checks.md)对应 11 月 3 日的数据。

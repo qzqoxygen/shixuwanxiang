@@ -1,0 +1,146 @@
+[
+  {
+    "solarTermId": "lichun",
+    "caseId": "quzhou-jiuhua-spring-rites",
+    "serial": 13,
+    "excelRow": 15
+  },
+  {
+    "solarTermId": "yushui",
+    "caseId": "western-sichuan-rainwater-family-visits",
+    "serial": 14,
+    "excelRow": 16
+  },
+  {
+    "solarTermId": "jingzhe",
+    "caseId": "hong-kong-ngo-keng-kiu-ritual",
+    "serial": 16,
+    "excelRow": 18
+  },
+  {
+    "solarTermId": "chunfen",
+    "caseId": "beijing-ritan-sun-rites",
+    "serial": 18,
+    "excelRow": 19
+  },
+  {
+    "solarTermId": "qingming",
+    "caseId": "shanghai-qingming-qingtuan",
+    "serial": 1,
+    "excelRow": 3
+  },
+  {
+    "solarTermId": "guyu",
+    "caseId": "baishui-cangjie-rites",
+    "serial": 19,
+    "excelRow": 20
+  },
+  {
+    "solarTermId": "lixia",
+    "caseId": "hangzhou-banshan-summer-rites",
+    "serial": 22,
+    "excelRow": 23
+  },
+  {
+    "solarTermId": "xiaoman",
+    "caseId": "shengze-silkworm-temple-opera",
+    "serial": 24,
+    "excelRow": 25
+  },
+  {
+    "solarTermId": "mangzhong",
+    "caseId": "jixi-anmiao-festival",
+    "serial": 26,
+    "excelRow": 27
+  },
+  {
+    "solarTermId": "xiazhi",
+    "caseId": "mohe-xiazhi-white-night",
+    "serial": 3,
+    "excelRow": 5
+  },
+  {
+    "solarTermId": "xiaoshu",
+    "caseId": "nanjing-eel-and-new-rice",
+    "serial": 28,
+    "excelRow": 29
+  },
+  {
+    "solarTermId": "dashu",
+    "caseId": "jiaojiang-summer-boat",
+    "serial": 30,
+    "excelRow": 31
+  },
+  {
+    "solarTermId": "liqiu",
+    "caseId": "nanjing-autumn-watermelon",
+    "serial": 32,
+    "excelRow": 33
+  },
+  {
+    "solarTermId": "chushu",
+    "caseId": "nanjing-autumn-duck-sharing",
+    "serial": 34,
+    "excelRow": 35
+  },
+  {
+    "solarTermId": "bailu",
+    "caseId": "fuzhou-longan-and-porridge",
+    "serial": 35,
+    "excelRow": 36
+  },
+  {
+    "solarTermId": "qiufen",
+    "caseId": "beijing-yuetan-moon-rites",
+    "serial": 6,
+    "excelRow": 8
+  },
+  {
+    "solarTermId": "hanlu",
+    "caseId": "beijing-sesame-pastries",
+    "serial": 37,
+    "excelRow": 38
+  },
+  {
+    "solarTermId": "shuangjiang",
+    "caseId": "fuping-dried-persimmons",
+    "serial": 38,
+    "excelRow": 39
+  },
+  {
+    "solarTermId": "lidong",
+    "caseId": "shaoxing-huangjiu-winter-brewing",
+    "serial": 39,
+    "excelRow": 40
+  },
+  {
+    "solarTermId": "xiaoxue",
+    "caseId": "yizheng-pickled-winter-greens",
+    "serial": 41,
+    "excelRow": 42
+  },
+  {
+    "solarTermId": "daxue",
+    "caseId": "nanjing-winter-cured-meat",
+    "serial": 44,
+    "excelRow": 45
+  },
+  {
+    "solarTermId": "dongzhi",
+    "caseId": "sanmen-jidong",
+    "serial": 9,
+    "excelRow": 11
+  },
+  {
+    "solarTermId": "xiaohan",
+    "caseId": "guangzhou-sticky-rice-breakfast",
+    "serial": 45,
+    "excelRow": 46
+  },
+  {
+    "solarTermId": "dahan",
+    "caseId": "minnan-weiya-year-end-rite",
+    "serial": 48,
+    "excelRow": 49
+  }
+]
