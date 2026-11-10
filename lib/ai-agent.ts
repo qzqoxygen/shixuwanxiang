@@ -4,7 +4,7 @@ import { MAX_ASSISTANT_LENGTH, type ChatMessage } from "./chat";
 export const MAX_TOOL_ROUNDS = 2;
 export const MAX_CALLS_PER_ROUND = 4;
 export type CompletionParams = ChatCompletionCreateParamsNonStreaming & { thinking: { type: "disabled" } };
-export type Complete = (params: CompletionParams) => Promise<ChatCompletion>;
+export type Complete = (params: ChatCompletionCreateParamsNonStreaming & { reasoning: { enabled: false } }) => Promise<ChatCompletion>;
 export interface AgentTool {
   definition: Extract<ChatCompletionTool, { type: "function" }>;
   // Each future server-owned tool must validate unknown input before execution.
@@ -28,24 +28,24 @@ export async function runChatAgent(complete: Complete, history: ChatMessage[], t
   const registry = new Map(tools.map((tool) => [tool.definition.function.name, tool]));
   for (let round = 0; round <= MAX_TOOL_ROUNDS; round++) {
     const completion = await complete({
-      model: "deepseek-flash", thinking: { type: "disabled" }, stream: false, max_tokens: 1200, messages,
+      model: "nvidia/nemotron-3.5-lightning:free", reasoning: { enabled: false }, stream: false, max_tokens: 1200, messages,
       ...(tools.length ? { tools: tools.map((tool) => tool.definition), tool_choice: round === MAX_TOOL_ROUNDS ? "none" as const : "auto" as const } : {}),
     });
-    const choice = completion.choices[0];
-    if (!choice) throw new AgentError("INVALID_RESPONSE", "DeepSeek 未返回可用回答，请重试。");
+    const choice = completion.choices?.[0];
+    if (!choice) throw new AgentError("INVALID_RESPONSE", "问答模型未返回可用回答，请重试。");
     const calls = choice.message.tool_calls ?? [];
     if (!calls.length) {
       const answer = choice.message.content?.trim();
       if (!answer || answer.length > MAX_ASSISTANT_LENGTH || !["stop", "length"].includes(choice.finish_reason)) {
-        throw new AgentError("INVALID_RESPONSE", "DeepSeek 未返回可用的文字回答，请重试。");
+        throw new AgentError("INVALID_RESPONSE", "问答模型未返回可用的文字回答，请重试。");
       }
       return { answer, truncated: choice.finish_reason === "length" };
     }
-    if (!tools.length) throw new AgentError("TOOLS_UNAVAILABLE", "当前未启用工具，DeepSeek 返回了不可用的调用，请重新提问。");
+    if (!tools.length) throw new AgentError("TOOLS_UNAVAILABLE", "当前未启用工具，问答模型返回了不可用的调用，请重新提问。");
     if (round === MAX_TOOL_ROUNDS) throw new AgentError("TOOL_ROUND_LIMIT", "已达到本次工具调用轮次上限，请简化问题后重试。");
     if (calls.length > MAX_CALLS_PER_ROUND) throw new AgentError("TOO_MANY_TOOL_CALLS", "工具调用数量超出限制，本轮未执行。");
     if (choice.finish_reason !== "tool_calls" || calls.some((call) => call.type !== "function" || !call.id || call.id.length > 200) || new Set(calls.map((call) => call.id)).size !== calls.length) {
-      throw new AgentError("INVALID_TOOL_RESPONSE", "DeepSeek 返回的工具调用格式无效，请重试。");
+      throw new AgentError("INVALID_TOOL_RESPONSE", "问答模型返回的工具调用格式无效，请重试。");
     }
     messages.push({ role: "assistant", content: choice.message.content, tool_calls: calls });
     for (const call of calls) {

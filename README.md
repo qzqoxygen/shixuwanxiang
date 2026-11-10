@@ -1,6 +1,6 @@
 # 时序万象·AI
 
-二十四节气非遗文化探索平台的 V2 基础工程。当前开放节气资料、DeepSeek 文化问答、中国省级基础地图，以及按节气/省份查询案例、查看详情与来源的手动探索流程；AI 地图联动、技艺交互和创意工坊尚未开发。
+二十四节气非遗文化探索平台的 V2 基础工程。当前开放节气资料、OpenRouter 免费模型文化问答、中国省级基础地图，以及按节气/省份查询案例、查看详情与来源的手动探索流程；AI 地图联动、技艺交互和创意工坊尚未开发。
 
 ## 团队协作协议
 
@@ -43,7 +43,7 @@
 
 四时页（`/seasons`）沿用宣纸青绿风格。桌面左侧为节气目录，右侧为左文右图的对开书，支持翻页按钮、方向键和目录跳转。窄屏采用纵向阅读与横向滑动切换节气。24 个节气各有独立的「节气小识」和 **1920×1440、4:3、WebP** 实拍照片，照片逐张标注作者、来源和许可。桌面左页配有四季淡彩水墨插画，动效可暂停并遵循系统减少动态效果。详见 [四时页设计说明](docs/design/seasons-direction.md) 与 [照片来源](public/images/solar-terms/SOURCES.md)。
 
-保留本地 .env.local 中的 DEEPSEEK_API_KEY，密钥仅供服务端读取，不应提交到版本库。
+“云间问四时”使用服务端 .env.local 的 OPENROUTER_API_KEY。模型为 nvidia/nemotron-3.5-lightning:free，接口为 https://openrouter.ai/api/v1/chat/completions。密钥仅在服务端读取，.env 文件不提交版本库。创意工坊灵感接口沿用其原有 DEEPSEEK_API_KEY 配置。
 首次恢复或获取源码时使用 npm ci；已有依赖无需重复安装。
 
 ```powershell
@@ -64,7 +64,7 @@ npm.cmd run build
 ```
 
 测试使用 Node >=22.15（当前本机为 Node 24）和已安装的 TypeScript，无额外依赖。
-测试网络为隔离模拟，仅用于校验 SDK 请求序列化和错误分支；产品代码调用真实 DeepSeek。
+测试网络为隔离模拟，仅用于校验 SDK 请求序列化和错误分支；聊天服务调用真实 OpenRouter。
 案例自动测试也不访问网络；对运行中服务的可选真实 HTTP 检查见 [联调说明](docs/integration/cultural-cases.md#检查与复现)。
 
 ## 结构与扩展
@@ -87,7 +87,7 @@ npm.cmd run build
 - lib/map-projection.ts：无额外依赖的 SVG 投影与路径转换。
 - tests/：案例校验/查询/API、节气数据、聊天、通用执行流程、错误处理，以及地图省级编码、投影和路径测试。
 
-DeepSeek 配置保持 https://api.deepseek.com、deepseek-flash、thinking.type=disabled。
+聊天使用 OpenRouter 的 NVIDIA Nemotron 3.5 Lightning 免费模型，发送标准 Chat Completions 参数，并关闭推理模式以将输出预算用于问答正文。免费端点可能限流或暂时不可用，对应显示可重试提示。2026-11-10 已核实 DeepSeek 免费端点为空，并用现有服务端密钥验证 NVIDIA 免费模型返回中文回答。项目生产服务已通过“冬至是什么”和“与夏至的区别”两轮真实请求验证，浏览器端脚本经扫描未包含密钥。
 当前只传最近5轮历史与新问题，单次问题最多1000个UTF-16字符单元。聊天内容不写入数据库。
 
 ## 安全保存
