@@ -1,6 +1,7 @@
 import OpenAI from "openai";
-import { MAX_BODY_BYTES, validateMessages } from "@/lib/chat";
+import { MAX_ASSISTANT_LENGTH, MAX_BODY_BYTES, validateMessages } from "@/lib/chat";
 import { AgentError, runChatAgent } from "@/lib/ai-agent";
+import { SearchError, needsWebSearch, buildSearchQuery, searchWeb, attachSearchSources } from "@/lib/server/web-search";
 
 // Use the default Node.js runtime; explicit runtime config conflicts with Cache Components.
 
@@ -70,6 +71,11 @@ export async function POST(request: Request) {
   const deadline = AbortSignal.timeout(120_000);
   const signal = AbortSignal.any([request.signal, deadline]);
   try {
+    const query = needsWebSearch(messages) ? buildSearchQuery(messages) : null;
+    const search = query ? {
+      query, sources: await searchWeb(query, signal),
+      retrievedAt: new Date().toLocaleString("sv-SE", { timeZone: "Asia/Shanghai" }) + "（北京时间）",
+    } : undefined;
     const client = new OpenAI({
       baseURL: "https://openrouter.ai/api/v1",
       apiKey,
@@ -77,11 +83,15 @@ export async function POST(request: Request) {
       maxRetries: 0,
       logLevel: "off",
     });
-    const result = await runChatAgent((params) => client.chat.completions.create(params, { signal }), messages);
-    return Response.json(result, { headers: { "Cache-Control": "no-store" } });
+    const result = await runChatAgent((params) => client.chat.completions.create(params, { signal }), messages, undefined, search);
+    const answer = search ? attachSearchSources(result.answer, search) : result.answer;
+    if (answer.length > MAX_ASSISTANT_LENGTH) throw new AgentError("INVALID_RESPONSE", "回答及来源过长，请简化问题后重试。");
+    return Response.json({ ...result, answer }, { headers: { "Cache-Control": "no-store" } });
   } catch (error) {
     // Never log or return raw provider errors, request headers or credentials.
     if (deadline.aborted) return failure(504, "TIMEOUT", "本次文化问答等待超时，请稍后重试。");
+    if (request.signal.aborted) return failure(408, "CANCELLED", "请求已取消，可重新发送。");
+    if (error instanceof SearchError) return failure(503, error.code, error.message);
     if (error instanceof AgentError) return failure(502, error.code, error.message);
     if (error instanceof OpenAI.APIConnectionTimeoutError) return failure(504, "TIMEOUT", "OpenRouter 响应超时，请稍后重试。");
     if (error instanceof OpenAI.APIConnectionError) return failure(502, "NETWORK_ERROR", "暂时无法连接 OpenRouter，请检查服务器网络后重试。");
