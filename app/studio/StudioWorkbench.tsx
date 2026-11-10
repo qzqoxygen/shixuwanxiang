@@ -17,9 +17,9 @@ const templates = [
   { id: "poster", name: STUDIO_FORMATS.poster, ratio: 3 / 4, format: "画报 3:4" },
 ] as const;
 const editorTabs = [
-  { id: "content", name: "内容" },
-  { id: "style", name: "样式" },
-  { id: "stickers", name: "贴纸" },
+  { id: "content", name: "内容", mark: "壹" },
+  { id: "style", name: "样式", mark: "贰" },
+  { id: "stickers", name: "贴纸", mark: "叁" },
 ] as const;
 type EditorTab = (typeof editorTabs)[number]["id"];
 const sampleLines = {
@@ -101,14 +101,48 @@ function StickerIcon({ name }: { name: "delete" | "copy" | "mirror" }) {
   );
 }
 
+function StudioTitle() {
+  return (
+    <h1 id="studio-heading">
+      <Image src="/images/studio-title-calligraphy.webp" alt="造物" width={394} height={480} loading="eager" unoptimized />
+    </h1>
+  );
+}
+
+function StudioBreeze() {
+  return (
+    <svg className="studio-heading-breeze" viewBox="0 0 670 152" preserveAspectRatio="xMinYMid meet" aria-hidden="true" focusable="false">
+      <defs>
+        <linearGradient id="studio-breeze-ink" gradientUnits="userSpaceOnUse" x1="12" y1="100" x2="650" y2="54">
+          <stop stopColor="#729083" stopOpacity="0" />
+          <stop offset=".22" stopColor="#729083" />
+          <stop offset=".58" stopColor="#8a9e8c" />
+          <stop offset="1" stopColor="#9aab96" stopOpacity="0" />
+        </linearGradient>
+      </defs>
+      <g className="studio-breeze-ribbons" fill="none" strokeLinecap="round">
+        <path fill="url(#studio-breeze-ink)" opacity=".29" d="M8 100C69 103 112 62 174 64c74 2 114 32 195 9 99-29 161-45 275-24-108-13-169 5-271 32-81 22-130-2-202-11C105 62 70 110 8 100Z" />
+        <path stroke="url(#studio-breeze-ink)" strokeWidth="1.4" opacity=".7" d="M26 112c73 0 108-38 169-32 51 5 81 25 143 19 92-9 139-56 227-43" />
+        <path stroke="url(#studio-breeze-ink)" strokeWidth="1.05" opacity=".55" d="M109 70c34-27 89-36 131-27 25 5 46 16 77 13M149 126c45-16 92-15 137-6 39 8 87 4 121-9" />
+      </g>
+      <image className="studio-breeze-swallow" href="/images/studio-stickers/flying-swallow.webp" x="317" y="10" width="55" height="55" />
+      <g className="studio-breeze-leaf" fill="#77907a">
+        <path d="M235 45c-7-2-13-8-15-16 8 3 15 8 15 16Z" opacity=".69" />
+        <path d="M219 28c4 6 8 11 16 17" fill="none" stroke="#6f8875" strokeWidth=".65" />
+      </g>
+      <path className="studio-breeze-leaf studio-breeze-leaf--far" fill="#9a8b68" d="M447 53c-5-2-10-6-11-11 7 1 11 5 11 11Z" />
+    </svg>
+  );
+}
+
 export default function StudioWorkbench() {
   const snapshot = useInitialStudioDraft();
   if (snapshot === undefined) {
     return (
       <section className="studio-workbench" aria-labelledby="studio-heading" aria-busy="true">
         <header className="studio-heading">
-          <div>
-            <h1 id="studio-heading">造物</h1>
+          <div className="studio-heading-caption">
+            <StudioTitle />
             <p>正在打开工坊…</p>
           </div>
         </header>
@@ -347,16 +381,10 @@ function StudioEditor({ initialDraft }: { initialDraft: StudioDraft | null }) {
     <section className="studio-workbench" aria-labelledby="studio-heading">
       <header className="studio-heading">
         <span className="studio-heading-mist" aria-hidden="true" />
-        <div>
-          <div className="studio-heading-title">
-            <h1 id="studio-heading">造物</h1>
-            <span className="studio-heading-seal" aria-hidden="true">笺</span>
-          </div>
-          <p>做一张属于你的节气卡</p>
-          <p className="studio-draft-status" data-status={draftStatus} role="status">
-            {draftStatus === "saved" ? "草稿已保存在此浏览器" : draftStatus === "saving" ? "正在保存草稿…"
-              : draftStatus === "error" ? "无法自动保存草稿，可以先保存图片" : "编辑后自动保存草稿"}
-          </p>
+        <StudioBreeze />
+        <div className="studio-heading-caption">
+          <StudioTitle />
+          <p>把四时风物<wbr />做成一张节气卡</p>
         </div>
         <div className="studio-actions">
           <span id="studio-preview-status" role="status" data-status={saveStatus}>
@@ -495,19 +523,33 @@ function StudioEditor({ initialDraft }: { initialDraft: StudioDraft | null }) {
       </figure>
 
       <section className="studio-editor" aria-labelledby="studio-editor-heading" onFocus={revealEditorControl}>
-        <h2 id="studio-editor-heading">编辑作品</h2>
-        <div className="studio-editor-tabs" role="tablist" aria-label="作品编辑分类">
-          {editorTabs.map(({ id, name }, index) => (
-            <button key={id} type="button" role="tab" id={`studio-tab-${id}`} aria-controls={`studio-panel-${id}`}
-              aria-selected={activeTab === id} tabIndex={activeTab === id ? 0 : -1}
-              onClick={() => setActiveTab(id)} onKeyDown={(event) => handleEditorTabKey(event, index)}>
-              {name}
-            </button>
-          ))}
+        <div className="studio-editor-cover">
+          <div className="studio-editor-masthead">
+            <div>
+              <h2 id="studio-editor-heading">编辑作品</h2>
+              <p className="studio-draft-status" data-status={draftStatus} role="status">
+                {draftStatus === "saved" ? "草稿已存于此浏览器" : draftStatus === "saving" ? "正在保存草稿…"
+                  : draftStatus === "error" ? "草稿保存失败，可先保存图片" : "编辑后自动保存草稿"}
+              </p>
+            </div>
+            <span className="studio-editor-stamp" aria-hidden="true">
+              {term.name}
+              <small>{String(termIndex + 1).padStart(2, "0")} / 24</small>
+            </span>
+          </div>
+          <div className="studio-editor-tabs" role="tablist" aria-label="作品编辑分类">
+            {editorTabs.map(({ id, name, mark }, index) => (
+              <button key={id} type="button" role="tab" id={`studio-tab-${id}`} aria-controls={`studio-panel-${id}`}
+                aria-selected={activeTab === id} tabIndex={activeTab === id ? 0 : -1}
+                onClick={() => setActiveTab(id)} onKeyDown={(event) => handleEditorTabKey(event, index)}>
+                <span aria-hidden="true">{mark}</span>{name}
+              </button>
+            ))}
+          </div>
         </div>
         <div className="studio-fields" role="tabpanel" id="studio-panel-content" aria-labelledby="studio-tab-content" hidden={activeTab !== "content"}>
           <fieldset>
-            <legend>节气与版式</legend>
+            <legend><span aria-hidden="true">一</span>节气与版式</legend>
             <label>
               节气
               <select value={termIndex} onChange={(event) => setTermIndex(Number(event.currentTarget.value))}>
@@ -525,13 +567,13 @@ function StudioEditor({ initialDraft }: { initialDraft: StudioDraft | null }) {
                 <button key={option.id} type="button" data-template={option.id} title={option.format}
                   aria-pressed={index === templateIndex} onClick={() => setTemplateIndex(index)}>
                   <span className="studio-template-sample" aria-hidden="true" style={{ aspectRatio: option.ratio }} />
-                  {option.name}
+                  <span>{option.name}</span>
                 </button>
               ))}
             </div>
           </fieldset>
-          <fieldset>
-            <legend>卡片文字</legend>
+          <fieldset className="studio-writing">
+            <legend><span aria-hidden="true">二</span>卡片文字</legend>
             <label>
               标题
               <input type="text" value={title} maxLength={STUDIO_TITLE_LIMIT} onChange={(event) => setCustomTitle(event.currentTarget.value)} />
@@ -550,7 +592,7 @@ function StudioEditor({ initialDraft }: { initialDraft: StudioDraft | null }) {
         </div>
         <div className="studio-fields" role="tabpanel" id="studio-panel-style" aria-labelledby="studio-tab-style" hidden={activeTab !== "style"}>
           <fieldset className="studio-colorway">
-            <legend>底色</legend>
+            <legend><span aria-hidden="true">一</span>底色</legend>
             <div className="studio-palette-options">
               {palettes.map((option, index) => (
                 <button key={option.id} type="button" data-palette={option.id} aria-pressed={index === paletteIndex} onClick={() => setPaletteIndex(index)}>
@@ -561,7 +603,7 @@ function StudioEditor({ initialDraft }: { initialDraft: StudioDraft | null }) {
             </div>
           </fieldset>
           <fieldset className="studio-decorations">
-            <legend>边框与花纹</legend>
+            <legend><span aria-hidden="true">二</span>边框与花纹</legend>
             <div className="studio-decoration-options">
               {decorations.map((option) => (
                 <button key={option.id} type="button" data-decoration={option.id} aria-pressed={decoration === option.id} onClick={() => setDecoration(option.id)}>
@@ -574,7 +616,7 @@ function StudioEditor({ initialDraft }: { initialDraft: StudioDraft | null }) {
         </div>
         <div className="studio-fields" role="tabpanel" id="studio-panel-stickers" aria-labelledby="studio-tab-stickers" hidden={activeTab !== "stickers"}>
           <fieldset className="studio-library">
-            <legend>贴纸素材</legend>
+            <legend><span aria-hidden="true">一</span>贴纸素材</legend>
             {stickers.length > 1 && (
               <label>
                 画面中的贴纸

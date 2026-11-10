@@ -52,9 +52,12 @@ export default function StudioInspiration({ term, format, onApply }: Props) {
   return (
     <div className="studio-inspiration" role="group" aria-labelledby="studio-inspiration-heading">
       <div className="studio-inspiration-heading">
-        <h3 id="studio-inspiration-heading">AI 灵感</h3>
+        <h3 id="studio-inspiration-heading"><span aria-hidden="true">灵</span> AI 灵感</h3>
         <button type="button" aria-disabled={loading} onClick={generate}>
           {loading ? "生成中…" : suggestions.length ? "换一批" : "生成灵感"}
+          <svg aria-hidden="true" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.25">
+            <path d="M3 12.5 12.5 3M6 3h6.5v6.5" />
+          </svg>
         </button>
       </div>
       <p className="studio-inspiration-status" role="status">{status}</p>
