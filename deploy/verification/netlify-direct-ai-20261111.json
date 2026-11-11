@@ -1,0 +1,32 @@
+{
+  "origin": "https://qsxshixu-ai.netlify.app",
+  "utc": "2026-11-11T00:29:43.406Z",
+  "tests": [
+    {
+      "name": "普通问答",
+      "status": 200,
+      "ms": 3161,
+      "ok": true,
+      "answer": "冬至不一定最冷，是因为地面和大气降温有滞后，最冷通常出现在冬至之后一段时间。例如我国不少地区最冷时段常在“三九”前后，而非冬至当天。"
+    },
+    {
+      "name": "造物灵感",
+      "status": 200,
+      "ms": 3676,
+      "ok": true,
+      "count": 3,
+      "title": "柳色新"
+    },
+    {
+      "name": "实时搜索与来源",
+      "status": 200,
+      "ms": 2351,
+      "ok": true,
+      "answer": "香港天文台在其网站的“二十四节气的日期及时间资料”页面公布二十四节气时刻，所列时间为香港时间（协调世界时加8小时）[1][2]。",
+      "sources": [
+        "https://www.hko.gov.hk/tc/gts/astronomy/Solar_Term.htm",
+        "https://www.hko.gov.hk/sc/gts/astronomy/Solar_Term.htm"
+      ]
+    }
+  ]
+}

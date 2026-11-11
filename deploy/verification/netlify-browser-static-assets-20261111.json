@@ -1,0 +1,238 @@
+{
+  "origin": "https://qsxshixu-ai.netlify.app",
+  "utc": "2026-11-11T00:30:11.712Z",
+  "proxy": "Chromium --no-proxy-server",
+  "tests": [
+    {
+      "view": "desktop",
+      "pages": [
+        {
+          "path": "/",
+          "status": 200
+        },
+        {
+          "path": "/seasons",
+          "status": 200
+        },
+        {
+          "path": "/explore",
+          "status": 200
+        }
+      ],
+      "failed": [
+        {
+          "path": "/_next/static/chunks/3qv4m2v2pk7sr.css",
+          "reason": "net::ERR_ABORTED"
+        },
+        {
+          "path": "/_next/static/chunks/20box33a0_n53.js",
+          "status": 404
+        },
+        {
+          "path": "/_next/static/chunks/20box33a0_n53.js",
+          "reason": "net::ERR_ABORTED"
+        },
+        {
+          "path": "/_next/static/chunks/0_xceca9x8w3m.js",
+          "status": 404
+        },
+        {
+          "path": "/_next/static/chunks/0_xceca9x8w3m.js",
+          "reason": "net::ERR_ABORTED"
+        },
+        {
+          "path": "/_next/static/chunks/turbopack-3-ry682tkyiqk.js",
+          "status": 404
+        },
+        {
+          "path": "/_next/static/chunks/turbopack-3-ry682tkyiqk.js",
+          "reason": "net::ERR_ABORTED"
+        },
+        {
+          "path": "/_next/static/chunks/3gk5w3ho66_ge.js",
+          "status": 404
+        },
+        {
+          "path": "/_next/static/chunks/3gk5w3ho66_ge.js",
+          "reason": "net::ERR_ABORTED"
+        },
+        {
+          "path": "/_next/static/chunks/0om590q-tq0l9.js",
+          "status": 404
+        },
+        {
+          "path": "/_next/static/chunks/0om590q-tq0l9.js",
+          "reason": "net::ERR_ABORTED"
+        },
+        {
+          "path": "/_next/static/chunks/0-8-2pf2bywtz.js",
+          "status": 404
+        },
+        {
+          "path": "/_next/static/chunks/0-8-2pf2bywtz.js",
+          "reason": "net::ERR_ABORTED"
+        },
+        {
+          "path": "/images/seasons-ink/spring.webp",
+          "status": 404
+        },
+        {
+          "path": "/_next/static/chunks/3qv4m2v2pk7sr.css",
+          "reason": "net::ERR_ABORTED"
+        },
+        {
+          "path": "/images/solar-terms/lichun-hd.webp",
+          "status": 404
+        },
+        {
+          "path": "/_next/static/chunks/0adov06h9dvpl.css",
+          "reason": "net::ERR_ABORTED"
+        },
+        {
+          "path": "/_next/static/chunks/0_xceca9x8w3m.js",
+          "status": 404
+        },
+        {
+          "path": "/_next/static/chunks/0_xceca9x8w3m.js",
+          "reason": "net::ERR_ABORTED"
+        },
+        {
+          "path": "/_next/static/chunks/0-8-2pf2bywtz.js",
+          "status": 404
+        },
+        {
+          "path": "/_next/static/chunks/0-8-2pf2bywtz.js",
+          "reason": "net::ERR_ABORTED"
+        },
+        {
+          "path": "/_next/static/chunks/20box33a0_n53.js",
+          "status": 404
+        },
+        {
+          "path": "/_next/static/chunks/20box33a0_n53.js",
+          "reason": "net::ERR_ABORTED"
+        },
+        {
+          "path": "/_next/static/chunks/turbopack-3-ry682tkyiqk.js",
+          "status": 404
+        },
+        {
+          "path": "/_next/static/chunks/turbopack-3-ry682tkyiqk.js",
+          "reason": "net::ERR_ABORTED"
+        },
+        {
+          "path": "/_next/static/chunks/3gk5w3ho66_ge.js",
+          "status": 404
+        },
+        {
+          "path": "/_next/static/chunks/3gk5w3ho66_ge.js",
+          "reason": "net::ERR_ABORTED"
+        },
+        {
+          "path": "/_next/static/chunks/0om590q-tq0l9.js",
+          "status": 404
+        },
+        {
+          "path": "/_next/static/chunks/0om590q-tq0l9.js",
+          "reason": "net::ERR_ABORTED"
+        },
+        {
+          "path": "/_next/static/chunks/147eohaiaql50.js",
+          "status": 404
+        },
+        {
+          "path": "/_next/static/chunks/147eohaiaql50.js",
+          "reason": "net::ERR_ABORTED"
+        },
+        {
+          "path": "/seasons",
+          "brokenImages": [
+            "/images/solar-terms/lichun-hd.webp"
+          ]
+        },
+        {
+          "path": "/_next/static/chunks/3o20go6weybv6.css",
+          "reason": "net::ERR_ABORTED"
+        },
+        {
+          "path": "/images/xuan-paper.webp",
+          "status": 404
+        },
+        {
+          "path": "/_next/static/chunks/0om590q-tq0l9.js",
+          "status": 404
+        },
+        {
+          "path": "/_next/static/chunks/0om590q-tq0l9.js",
+          "reason": "net::ERR_ABORTED"
+        },
+        {
+          "path": "/_next/static/chunks/3qv4m2v2pk7sr.css",
+          "reason": "net::ERR_ABORTED"
+        },
+        {
+          "path": "/_next/static/chunks/0-8-2pf2bywtz.js",
+          "status": 404
+        },
+        {
+          "path": "/_next/static/chunks/0-8-2pf2bywtz.js",
+          "reason": "net::ERR_ABORTED"
+        },
+        {
+          "path": "/_next/static/chunks/20box33a0_n53.js",
+          "status": 404
+        },
+        {
+          "path": "/_next/static/chunks/20box33a0_n53.js",
+          "reason": "net::ERR_ABORTED"
+        },
+        {
+          "path": "/_next/static/chunks/0_xceca9x8w3m.js",
+          "status": 404
+        },
+        {
+          "path": "/_next/static/chunks/0_xceca9x8w3m.js",
+          "reason": "net::ERR_ABORTED"
+        },
+        {
+          "path": "/_next/static/chunks/turbopack-3-ry682tkyiqk.js",
+          "status": 404
+        },
+        {
+          "path": "/_next/static/chunks/turbopack-3-ry682tkyiqk.js",
+          "reason": "net::ERR_ABORTED"
+        },
+        {
+          "path": "/_next/static/chunks/3gk5w3ho66_ge.js",
+          "status": 404
+        },
+        {
+          "path": "/_next/static/chunks/3gk5w3ho66_ge.js",
+          "reason": "net::ERR_ABORTED"
+        },
+        {
+          "path": "/_next/static/chunks/2moxtf7u2dro0.js",
+          "status": 404
+        },
+        {
+          "path": "/_next/static/chunks/2moxtf7u2dro0.js",
+          "reason": "net::ERR_ABORTED"
+        },
+        {
+          "path": "/_next/static/chunks/3ohwoe1l0-7u5.js",
+          "status": 404
+        },
+        {
+          "path": "/_next/static/chunks/3ohwoe1l0-7u5.js",
+          "reason": "net::ERR_ABORTED"
+        }
+      ],
+      "external": [],
+      "errors": []
+    }
+  ],
+  "failure": {
+    "name": "TimeoutError",
+    "message": "locator.waitFor: Timeout 20000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.case-card').first() to be visible\u001b[22m\n"
+  }
+}

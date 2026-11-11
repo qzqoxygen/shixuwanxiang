@@ -160,7 +160,7 @@ def settings():
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    parser.add_argument("--host", default="qsxshixu-ai.vercel.app", help="DNS name of your HTTPS deployment")
+    parser.add_argument("--host", default="qsxshixu-ai.netlify.app", help="DNS name of your HTTPS deployment")
     parser.add_argument("--carrier", choices=("telecom", "unicom", "mobile", "unknown"), default="unknown")
     parser.add_argument("--rounds", type=int, default=20)
     parser.add_argument("--output", type=Path, required=True)

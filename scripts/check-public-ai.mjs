@@ -4,7 +4,7 @@ import { request as httpsRequest } from "node:https";
 import { request as httpRequest } from "node:http";
 import { randomUUID } from "node:crypto";
 
-const origin = new URL(process.argv[2] ?? "https://qsxshixu-ai.vercel.app");
+const origin = new URL(process.argv[2] ?? "https://qsxshixu-ai.netlify.app");
 const local = origin.protocol === "http:" && ["127.0.0.1", "localhost", "[::1]"].includes(origin.hostname);
 if ((!local && origin.protocol !== "https:") || origin.username || origin.password ||
     origin.pathname !== "/" || origin.search || origin.hash) {

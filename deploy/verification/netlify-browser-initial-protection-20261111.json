@@ -1,0 +1,47 @@
+{
+  "origin": "https://qsxshixu-ai.netlify.app",
+  "utc": "2026-11-11T00:28:05.559Z",
+  "proxy": "Chromium --no-proxy-server",
+  "tests": [
+    {
+      "view": "desktop",
+      "pages": [],
+      "failed": [
+        {
+          "path": "/",
+          "status": 401
+        },
+        {
+          "path": "/gtm.js",
+          "reason": "net::ERR_CONNECTION_TIMED_OUT"
+        }
+      ],
+      "external": [
+        "app.netlify.com",
+        "www.google.com",
+        "sr-client-cfg.amplitude.com",
+        "js.stripe.com",
+        "sessions.bugsnag.com",
+        "featureflags.netlify.com",
+        "cdn.sift.com",
+        "cdn.segment.com",
+        "join.netlify.com",
+        "browser-intake-datadoghq.com",
+        "sse.devcycle.com",
+        "hexagon-analytics.com",
+        "api.segment.io",
+        "partnerlinks.io",
+        "grsm.io",
+        "www.googletagmanager.com",
+        "js.hs-analytics.net",
+        "m.stripe.network",
+        "m.stripe.com"
+      ],
+      "errors": []
+    }
+  ],
+  "failure": {
+    "name": "TimeoutError",
+    "message": "page.goto: Timeout 45000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"https://qsxshixu-ai.netlify.app/\", waiting until \"networkidle\"\u001b[22m\n"
+  }
+}
