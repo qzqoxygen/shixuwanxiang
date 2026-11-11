@@ -1,12 +1,14 @@
-import OpenAI from "openai";
 import type { CompletionParams } from "@/lib/ai-agent";
+import { beginAiRequest } from "@/lib/server/ai-access";
+import { AI_REQUEST_TIMEOUT_MS, classifyDeepSeekError, completeDeepSeek, createDeepSeekClient, DEEPSEEK_MODEL, logAiError } from "@/lib/server/deepseek";
 import { SOLAR_TERMS } from "@/lib/solar-terms";
 import { isStudioFormat, readStudioSuggestions, STUDIO_FORMATS, STUDIO_LINE_LIMIT, STUDIO_TITLE_LIMIT } from "@/lib/studio-inspiration";
 
 const headers = { "Cache-Control": "no-store" };
+export const maxDuration = 60;
 
-function failure(status: number, error: string) {
-  return Response.json({ error }, { status, headers });
+function failure(status: number, code: string, error: string) {
+  return Response.json({ code, error }, { status, headers });
 }
 
 export async function POST(request: Request) {
@@ -16,22 +18,25 @@ export async function POST(request: Request) {
     try {
       const source = new URL(origin);
       const host = request.headers.get("host") ?? url.host;
-      if (!/^https?:$/.test(source.protocol) || source.host !== host) return failure(403, "请从造物工坊生成灵感。");
+      if (!/^https?:$/.test(source.protocol) || source.host !== host) return failure(403, "INVALID_ORIGIN", "请从造物工坊生成灵感。");
     } catch {
-      return failure(403, "请从造物工坊生成灵感。");
+      return failure(403, "INVALID_ORIGIN", "请从造物工坊生成灵感。");
     }
   }
 
   // The request carries only two catalog IDs, with no draft text or body.
   const term = SOLAR_TERMS.find(({ id }) => id === url.searchParams.get("term"));
   const format = url.searchParams.get("format");
-  if (!term || !isStudioFormat(format)) return failure(400, "请先选择有效的节气和版式。");
+  if (!term || !isStudioFormat(format)) return failure(400, "INVALID_INPUT", "请先选择有效的节气和版式。");
 
   const apiKey = process.env.DEEPSEEK_API_KEY?.trim();
-  if (!apiKey) return failure(503, "AI 灵感暂未开启，你可以继续手动编辑。");
+  if (!apiKey) {
+    logAiError("studio", "API_KEY_MISSING", 503);
+    return failure(503, "API_KEY_MISSING", "AI 灵感暂未开启，你可以继续手动编辑。");
+  }
 
   const params: CompletionParams = {
-    model: "deepseek-flash",
+    model: DEEPSEEK_MODEL,
     thinking: { type: "disabled" },
     stream: false,
     max_tokens: 650,
@@ -45,21 +50,23 @@ export async function POST(request: Request) {
     ],
   };
 
+  const access = beginAiRequest(request, "studio", JSON.stringify([term.id, format]));
+  if ("status" in access) return failure(access.status, access.code, access.message);
+  const signal = AbortSignal.any([request.signal, AbortSignal.timeout(AI_REQUEST_TIMEOUT_MS)]);
   try {
-    const client = new OpenAI({ baseURL: "https://api.deepseek.com", apiKey, timeout: 20_000, maxRetries: 0, logLevel: "off" });
-    const completion = await client.chat.completions.create(params, { signal: request.signal });
+    const completion = await completeDeepSeek(createDeepSeekClient(apiKey), params, signal);
     const choice = completion.choices[0];
-    if (choice?.finish_reason === "stop" && choice.message.content?.trim()) {
+    if (choice?.finish_reason === "stop" && typeof choice.message?.content === "string" && choice.message.content.trim()) {
       const suggestions = readStudioSuggestions(JSON.parse(choice.message.content));
       if (suggestions.length) return Response.json({ suggestions }, { headers });
     }
+    logAiError("studio", "INVALID_RESPONSE", 502);
+    return failure(502, "INVALID_RESPONSE", "这次没能生成可用的灵感，请重试。");
   } catch (error) {
-    if (error instanceof OpenAI.APIConnectionTimeoutError) return failure(504, "这次等待超时了，请重试。");
-    if (error instanceof OpenAI.APIConnectionError) return failure(502, "暂时连不上 DeepSeek，请检查网络后重试。你可以继续编辑作品。");
-    if (error instanceof OpenAI.APIError && error.status === 429) return failure(429, "请求有点频繁，请稍后重试。");
-    if (error instanceof OpenAI.APIError && [401, 402, 403].includes(error.status ?? 0)) {
-      return failure(503, "AI 灵感暂不可用，你可以继续手动编辑。");
-    }
+    const { status, code, message } = classifyDeepSeekError(error, signal);
+    logAiError("studio", code, status);
+    return failure(status, code, message + "你可以继续手动编辑。");
+  } finally {
+    access.finish();
   }
-  return failure(502, "这次没能生成灵感，请重试。");
 }

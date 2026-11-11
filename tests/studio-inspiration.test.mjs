@@ -12,8 +12,11 @@ test("inspiration only sends catalog context and rejects suggestions that cannot
     else process.env.DEEPSEEK_API_KEY = oldKey;
   });
   const good = { title: "冬日渐长", line: "炉上的水响起来，窗外最后一点日光还没落。" };
-  const reply = t.mock.method(globalThis, "fetch", async (_url, init) => {
+  const reply = t.mock.method(globalThis, "fetch", async (url, init) => {
+    assert.equal(String(url), "https://api.deepseek.com/chat/completions");
     const payload = JSON.parse(init.body);
+    assert.equal(payload.model, "deepseek-flash");
+    assert.deepEqual(payload.thinking, { type: "disabled" });
     assert.match(payload.messages[1].content, /冬至.*书签/);
     assert.doesNotMatch(JSON.stringify(payload), /private-draft/);
     return Response.json({ choices: [{ finish_reason: "stop", message: { content: JSON.stringify({ suggestions: [
@@ -45,6 +48,7 @@ test("empty provider output produces a retryable error and missing credentials a
     else process.env.DEEPSEEK_API_KEY = oldKey;
   });
   const request = new Request("http://localhost:3000/api/studio/inspiration?term=qingming&format=poster", { method: "POST" });
+  const logs = t.mock.method(console, "warn", () => {});
   const reply = t.mock.method(globalThis, "fetch", async () => Response.json({ choices: [{ finish_reason: "stop", message: { content: "   " } }] }));
   delete process.env.DEEPSEEK_API_KEY;
   const missing = await POST(request);
@@ -64,6 +68,8 @@ test("empty provider output produces a retryable error and missing credentials a
   const unreachable = await POST(request);
   assert.equal(unreachable.status, 502);
   const { error } = await unreachable.json();
-  assert.match(error, /连不上 DeepSeek.*检查网络/);
+  assert.match(error, /连不上 DeepSeek.*检查服务器网络/);
   assert.doesNotMatch(error, /private network details|ENOTFOUND/);
+  assert.deepEqual(logs.mock.calls.at(-1).arguments, ["[ai]", { scope: "studio", code: "NETWORK_ERROR", status: 502 }]);
+  assert.equal(reply.mock.callCount(), 2);
 });

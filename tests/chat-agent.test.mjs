@@ -18,6 +18,7 @@ test("normal and multi-turn chat use the configured model without product tools"
   const result = await runChatAgent(async (params) => {
     assert.equal(params.model, "deepseek-flash");
     assert.deepEqual(params.thinking, { type: "disabled" });
+    assert.equal(params.stream, false);
     assert.equal(params.tools, undefined);
     assert.equal(params.tool_choice, undefined);
     assert.deepEqual(params.messages.slice(1), multi);
@@ -28,6 +29,7 @@ test("normal and multi-turn chat use the configured model without product tools"
 });
 test("empty, oversized and incomplete answers fail; length finish is disclosed", async () => {
   for (const answer of ["", " ".repeat(4), "x".repeat(8001)]) await assert.rejects(runChatAgent(async () => completion(answer), history), { code: "INVALID_RESPONSE" });
+  await assert.rejects(runChatAgent(async () => ({ error: { code: 502 } }), history), { code: "INVALID_RESPONSE" });
   const response = completion("尚未讲完");
   response.choices[0].finish_reason = "length";
   assert.equal((await runChatAgent(async () => response, history)).truncated, true);
@@ -36,6 +38,11 @@ test("empty, oversized and incomplete answers fail; length finish is disclosed",
 });
 test("unrequested tool calls cannot execute with the empty product registry", async () => {
   await assert.rejects(runChatAgent(async () => completion(null, [call()]), history), { code: "TOOLS_UNAVAILABLE" });
+});
+test("failed live retrieval cannot publish an invented source or a claim of live access", async () => {
+  for (const text of ["我刚刚联网查询了活动。", "活动在今晚。[1]", "查看 https://invented.example/"]) {
+    await assert.rejects(runChatAgent(async () => completion(text), history, [], null), { code: "UNVERIFIED_ANSWER" });
+  }
 });
 test("retained generic tool runner matches IDs and returns validated results", async () => {
   let count = 0;
@@ -99,17 +106,20 @@ test("real SDK serialization and error mapping work with isolated fake transport
   const oldKey = process.env.DEEPSEEK_API_KEY;
   process.env.DEEPSEEK_API_KEY = "test-only-never-send";
   try {
-    globalThis.fetch = async (_url, options) => {
+    globalThis.fetch = async (url, options) => {
+      assert.equal(String(url), "https://api.deepseek.com/chat/completions");
+      assert.equal(new Headers(options.headers).get("authorization"), "Bearer test-only-never-send");
       const body = JSON.parse(options.body);
       assert.equal(body.model, "deepseek-flash");
-      assert.equal(body.thinking.type, "disabled");
+      assert.deepEqual(body.thinking, { type: "disabled" });
+      assert.equal(body.stream, false);
       assert.equal(body.tools, undefined);
       return Response.json(completion());
     };
     const good = await POST(request());
     assert.equal(good.status, 200);
     assert.equal((await good.json()).answer, "测试回答");
-    for (const [status, code] of [[401,"API_KEY_INVALID"],[402,"INSUFFICIENT_BALANCE"],[403,"ACCESS_DENIED"],[429,"RATE_LIMITED"],[400,"PROVIDER_REQUEST_ERROR"],[500,"PROVIDER_UNAVAILABLE"]]) {
+    for (const [status, code] of [[401,"API_KEY_INVALID"],[402,"INSUFFICIENT_BALANCE"],[403,"ACCESS_DENIED"],[429,"RATE_LIMITED"],[400,"PROVIDER_REQUEST_ERROR"],[404,"MODEL_UNAVAILABLE"],[503,"MODEL_UNAVAILABLE"],[500,"PROVIDER_UNAVAILABLE"]]) {
       globalThis.fetch = async () => Response.json({ error: { message: "private-provider-detail", type: "test" } }, { status });
       const data = await (await POST(request())).json();
       assert.equal(data.error.code, code);

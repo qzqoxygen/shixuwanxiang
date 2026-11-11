@@ -7,6 +7,13 @@ import "./ChatPanel.css";
 type DisplayMessage = ChatMessage & { truncated?: boolean };
 const SUGGESTIONS = ["什么是冬至？", "清明有什么习俗？", "夏至为什么不一定最热？"];
 
+function linkedText(content: string) {
+  return content.split(/(https?:\/\/[^\s<>]+)/gu).map((part, index) =>
+    /^https?:\/\//u.test(part)
+      ? <a key={index} href={part} target="_blank" rel="noopener noreferrer">{part}</a>
+      : part);
+}
+
 export default function ChatPanel() {
   const [messages, setMessages] = useState<DisplayMessage[]>([]);
   const [input, setInput] = useState("");
@@ -38,12 +45,12 @@ export default function ChatPanel() {
     setPending(question);
     setError("");
     let timedOut = false;
-    const timeout = setTimeout(() => { timedOut = true; controller.abort(); }, 135_000);
+    const timeout = setTimeout(() => { timedOut = true; controller.abort(); }, 60_000);
     try {
       const history: ChatMessage[] = messages.slice(-MAX_HISTORY_MESSAGES).map(({ role, content }) => ({ role, content }));
       const response = await fetch("/api/chat", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: { "Content-Type": "application/json", "Idempotency-Key": crypto.getRandomValues(new Uint32Array(4)).join("-") },
         body: JSON.stringify({ messages: [...history, { role: "user", content: question }] }),
         signal: controller.signal,
       });
@@ -76,7 +83,7 @@ export default function ChatPanel() {
       <div className="chat-transcript" ref={transcriptRef} role="log" aria-label="节气聊天记录" aria-live="polite" aria-relevant="additions text" tabIndex={0}>
         {messages.length === 0 && !busy && <div className="chat-empty"><span aria-hidden="true">问</span><h3>四时流转，皆可问。</h3><p>试着问“什么是冬至？”，<br />再追问“它和夏至有什么区别？”</p><p className="chat-small">发送后由 DeepSeek 生成回答。</p></div>}
         {historyTrimmed && <p className="chat-small">更早的对话已移出，仅保留最近 5 轮。</p>}
-        {messages.map((message, index) => <article className={`chat-message chat-${message.role}`} key={index}><p className="chat-speaker">{message.role === "user" ? "你" : "DeepSeek · 节气讲解"}</p><div className="chat-message-text">{message.content}</div>{message.truncated && <p className="chat-small">回答已达到长度上限，可追问“请继续”。</p>}</article>)}
+        {messages.map((message, index) => <article className={`chat-message chat-${message.role}`} key={index}><p className="chat-speaker">{message.role === "user" ? "你" : "DeepSeek · 节气讲解"}</p><div className="chat-message-text">{message.role === "assistant" ? linkedText(message.content) : message.content}</div>{message.truncated && <p className="chat-small">回答已达到长度上限，可追问“请继续”。</p>}</article>)}
         {busy && <><article className="chat-message chat-user"><p className="chat-speaker">你</p><div className="chat-message-text">{pending}</div></article><p className="chat-loading" role="status">正在等待 DeepSeek 回答…</p></>}
       </div>
       {error && <p className="chat-error" role="alert">{error}</p>}

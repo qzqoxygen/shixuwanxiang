@@ -1,8 +1,11 @@
-import OpenAI from "openai";
-import { MAX_BODY_BYTES, validateMessages } from "@/lib/chat";
+import { AI_REQUEST_TIMEOUT_MS, createDeepSeekClient, completeDeepSeek, classifyDeepSeekError, logAiError } from "@/lib/server/deepseek";
+import { beginAiRequest } from "@/lib/server/ai-access";
+import { MAX_ASSISTANT_LENGTH, MAX_BODY_BYTES, validateMessages } from "@/lib/chat";
 import { AgentError, runChatAgent } from "@/lib/ai-agent";
+import { type SearchContext, SearchError, needsWebSearch, buildSearchQuery, searchWeb, attachSearchSources } from "@/lib/server/web-search";
 
-// Use the default Node.js runtime; explicit runtime config conflicts with Cache Components.
+// Cache Components uses the default Node.js runtime. Leave time to return a JSON error.
+export const maxDuration = 60;
 
 class BodyTooLargeError extends Error {}
 
@@ -65,35 +68,42 @@ export async function POST(request: Request) {
   catch (error) { return failure(400, "INVALID_INPUT", error instanceof Error ? error.message : "消息格式无效。"); }
 
   const apiKey = process.env.DEEPSEEK_API_KEY?.trim();
-  if (!apiKey) return failure(503, "API_KEY_MISSING", "尚未配置 DeepSeek 密钥。请在服务端 .env.local 设置 DEEPSEEK_API_KEY 后重启服务。");
+  if (!apiKey) {
+    logAiError("chat", "API_KEY_MISSING", 503);
+    return failure(503, "API_KEY_MISSING", "问答服务尚未配置 DeepSeek 密钥，请联系管理员。");
+  }
+  const access = beginAiRequest(request, "chat", JSON.stringify(messages));
+  if ("status" in access) return failure(access.status, access.code, access.message);
 
-  const deadline = AbortSignal.timeout(120_000);
-  const signal = AbortSignal.any([request.signal, deadline]);
+  const signal = AbortSignal.any([request.signal, AbortSignal.timeout(AI_REQUEST_TIMEOUT_MS)]);
   try {
-    const client = new OpenAI({
-      baseURL: "https://api.deepseek.com",
-      apiKey,
-      timeout: 45_000,
-      maxRetries: 0,
-      logLevel: "off",
-    });
-    const result = await runChatAgent((params) => client.chat.completions.create(params, { signal }), messages);
-    return Response.json(result, { headers: { "Cache-Control": "no-store" } });
-  } catch (error) {
-    // Never log or return raw provider errors, request headers or credentials.
-    if (deadline.aborted) return failure(504, "TIMEOUT", "本次文化问答等待超时，请稍后重试。");
-    if (error instanceof AgentError) return failure(502, error.code, error.message);
-    if (error instanceof OpenAI.APIConnectionTimeoutError) return failure(504, "TIMEOUT", "DeepSeek 响应超时，请稍后重试。");
-    if (error instanceof OpenAI.APIConnectionError) return failure(502, "NETWORK_ERROR", "暂时无法连接 DeepSeek，请检查服务器网络后重试。");
-    if (error instanceof OpenAI.APIUserAbortError) return failure(408, "CANCELLED", "请求已取消，可重新发送。");
-    if (error instanceof OpenAI.APIError) {
-      if (error.status === 401) return failure(503, "API_KEY_INVALID", "DeepSeek 密钥无效或已失效，请检查服务端配置。");
-      if (error.status === 402) return failure(402, "INSUFFICIENT_BALANCE", "DeepSeek 账户余额不足，请充值后重试。");
-      if (error.status === 429) return failure(429, "RATE_LIMITED", "DeepSeek 请求过于频繁，请稍后重试。");
-      if (error.status === 403) return failure(503, "ACCESS_DENIED", "当前 DeepSeek 账户无权使用此服务，请检查账户权限。");
-      if (error.status === 400 || error.status === 404 || error.status === 422) return failure(502, "PROVIDER_REQUEST_ERROR", "DeepSeek 未接受模型或请求参数，请检查服务端配置。");
-      return failure(502, "PROVIDER_UNAVAILABLE", "DeepSeek 服务暂时不可用，请稍后重试。");
+    let search: SearchContext | null | undefined;
+    if (needsWebSearch(messages)) {
+      const query = buildSearchQuery(messages);
+      try {
+        const sources = await searchWeb(query, signal);
+        search = { query, sources, retrievedAt: new Date().toLocaleString("sv-SE", { timeZone: "Asia/Shanghai" }) + "（北京时间）" };
+      } catch (error) {
+        signal.throwIfAborted();
+        if (!(error instanceof SearchError)) throw error;
+        logAiError("search", error.code, error.status ?? 503);
+        search = null;
+      }
     }
-    return failure(500, "INTERNAL_ERROR", "聊天服务暂时出现异常，请稍后重试。");
+    const client = createDeepSeekClient(apiKey);
+    const result = await runChatAgent((params) => completeDeepSeek(client, params, signal), messages, undefined, search);
+    let answer = result.answer;
+    if (search) answer = attachSearchSources(answer, search);
+    if (search === null) answer = "本次未能核实实时信息。以下仅供了解相关背景。\n\n" + answer;
+    if (answer.length > MAX_ASSISTANT_LENGTH) throw new AgentError("INVALID_RESPONSE", "回答及来源过长，请简化问题后重试。");
+    return Response.json({ ...result, answer }, { headers: { "Cache-Control": "no-store" } });
+  } catch (error) {
+    const issue = error instanceof AgentError || error instanceof SearchError
+      ? { status: 502, code: error.code, message: error.message }
+      : classifyDeepSeekError(error, signal);
+    logAiError("chat", issue.code, issue.status);
+    return failure(issue.status, issue.code, issue.message);
+  } finally {
+    access.finish();
   }
 }
