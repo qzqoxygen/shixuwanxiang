@@ -1,0 +1,1729 @@
+{
+  "started_utc": "2026-11-10T15:51:29+00:00",
+  "host": "qsxshixu-ai.vercel.app",
+  "device_os": "Windows 11",
+  "python": "3.13.12",
+  "carrier": "unknown",
+  "carrier_evidence": "unknown",
+  "region_evidence": "unknown",
+  "proxy_settings": {
+    "environment_proxy_set": false,
+    "windows_user_proxy_enabled": true,
+    "windows_user_pac_set": false
+  },
+  "application_proxy_used": false,
+  "transport": "OS DNS, direct TCP, TLS with system trust and hostname validation, HTTP/1.1",
+  "socket_timeout_s": 5,
+  "rounds": [
+    {
+      "number": 1,
+      "utc": "2026-11-10T15:51:29+00:00",
+      "checks": [
+        {
+          "kind": "home",
+          "path": "/",
+          "status": null,
+          "ms": {
+            "dns": 6.6,
+            "tcp": 238.4,
+            "tls": 24.7,
+            "total": 270.2
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "ok": false,
+          "failed_stage": "tls",
+          "error": "ConnectionResetError",
+          "os_code": 10054
+        },
+        {
+          "kind": "cases",
+          "path": "/api/cultural-cases",
+          "status": null,
+          "ms": {
+            "dns": 0.9,
+            "tcp": 53.6,
+            "tls": 26.4,
+            "total": 81.0
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "ok": false,
+          "failed_stage": "tls",
+          "error": "ConnectionResetError",
+          "os_code": 10054
+        },
+        {
+          "kind": "image",
+          "path": "/images/azure-landscape.svg",
+          "status": null,
+          "ms": {
+            "dns": 0.9,
+            "tcp": 49.7,
+            "tls": 27.5,
+            "total": 78.2
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "ok": false,
+          "failed_stage": "tls",
+          "error": "ConnectionResetError",
+          "os_code": 10054
+        },
+        {
+          "kind": "font",
+          "path": "/fonts/ma-shan-zheng-headings.ttf",
+          "status": null,
+          "ms": {
+            "dns": 0.6,
+            "tcp": 28.8,
+            "tls": 32.3,
+            "total": 61.7
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "ok": false,
+          "failed_stage": "tls",
+          "error": "ConnectionResetError",
+          "os_code": 10054
+        }
+      ],
+      "html_dependencies": "not discovered",
+      "ok": false,
+      "total_ms": 491.2
+    },
+    {
+      "number": 2,
+      "utc": "2026-11-10T15:51:31+00:00",
+      "checks": [
+        {
+          "kind": "home",
+          "path": "/",
+          "status": null,
+          "ms": {
+            "dns": 11.9,
+            "tcp": 248.4,
+            "tls": 30.1,
+            "total": 290.5
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "ok": false,
+          "failed_stage": "tls",
+          "error": "ConnectionResetError",
+          "os_code": 10054
+        },
+        {
+          "kind": "cases",
+          "path": "/api/cultural-cases",
+          "status": null,
+          "ms": {
+            "dns": 0.6,
+            "tcp": 218.2,
+            "tls": 30.7,
+            "total": 249.5
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "ok": false,
+          "failed_stage": "tls",
+          "error": "ConnectionResetError",
+          "os_code": 10054
+        },
+        {
+          "kind": "image",
+          "path": "/images/azure-landscape.svg",
+          "status": null,
+          "ms": {
+            "dns": 1.0,
+            "tcp": 1220.8,
+            "tls": 22.5,
+            "total": 1244.4
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "ok": false,
+          "failed_stage": "tls",
+          "error": "ConnectionResetError",
+          "os_code": 10054
+        },
+        {
+          "kind": "font",
+          "path": "/fonts/ma-shan-zheng-headings.ttf",
+          "status": null,
+          "ms": {
+            "dns": 0.8,
+            "tcp": 212.6,
+            "tls": 30.7,
+            "total": 244.2
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "ok": false,
+          "failed_stage": "tls",
+          "error": "ConnectionResetError",
+          "os_code": 10054
+        }
+      ],
+      "html_dependencies": "not discovered",
+      "ok": false,
+      "total_ms": 2028.7
+    },
+    {
+      "number": 3,
+      "utc": "2026-11-10T15:51:34+00:00",
+      "checks": [
+        {
+          "kind": "home",
+          "path": "/",
+          "status": null,
+          "ms": {
+            "dns": 1.7,
+            "tcp": 237.3,
+            "tls": 36.1,
+            "total": 275.3
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "ok": false,
+          "failed_stage": "tls",
+          "error": "ConnectionResetError",
+          "os_code": 10054
+        },
+        {
+          "kind": "cases",
+          "path": "/api/cultural-cases",
+          "status": null,
+          "ms": {
+            "dns": 0.6,
+            "tcp": 228.6,
+            "tls": 25.6,
+            "total": 254.8
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "ok": false,
+          "failed_stage": "tls",
+          "error": "ConnectionResetError",
+          "os_code": 10054
+        },
+        {
+          "kind": "image",
+          "path": "/images/azure-landscape.svg",
+          "status": null,
+          "ms": {
+            "dns": 1.0,
+            "tcp": 50.9,
+            "tls": 33.0,
+            "total": 85.0
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "ok": false,
+          "failed_stage": "tls",
+          "error": "ConnectionResetError",
+          "os_code": 10054
+        },
+        {
+          "kind": "font",
+          "path": "/fonts/ma-shan-zheng-headings.ttf",
+          "status": null,
+          "ms": {
+            "dns": 1.0,
+            "tcp": 229.4,
+            "tls": 31.3,
+            "total": 261.9
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "ok": false,
+          "failed_stage": "tls",
+          "error": "ConnectionResetError",
+          "os_code": 10054
+        }
+      ],
+      "html_dependencies": "not discovered",
+      "ok": false,
+      "total_ms": 877.1
+    },
+    {
+      "number": 4,
+      "utc": "2026-11-10T15:51:36+00:00",
+      "checks": [
+        {
+          "kind": "home",
+          "path": "/",
+          "status": null,
+          "ms": {
+            "dns": 1.2,
+            "tcp": 212.1,
+            "tls": 29.9,
+            "total": 243.4
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "ok": false,
+          "failed_stage": "tls",
+          "error": "ConnectionResetError",
+          "os_code": 10054
+        },
+        {
+          "kind": "cases",
+          "path": "/api/cultural-cases",
+          "status": null,
+          "ms": {
+            "dns": 1.5,
+            "tcp": 209.3,
+            "tls": 25.3,
+            "total": 236.2
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "ok": false,
+          "failed_stage": "tls",
+          "error": "ConnectionResetError",
+          "os_code": 10054
+        },
+        {
+          "kind": "image",
+          "path": "/images/azure-landscape.svg",
+          "status": null,
+          "ms": {
+            "dns": 0.9,
+            "tcp": 48.3,
+            "tls": 23.2,
+            "total": 72.4
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "ok": false,
+          "failed_stage": "tls",
+          "error": "ConnectionResetError",
+          "os_code": 10054
+        },
+        {
+          "kind": "font",
+          "path": "/fonts/ma-shan-zheng-headings.ttf",
+          "status": null,
+          "ms": {
+            "dns": 0.7,
+            "tcp": 212.7,
+            "tls": 28.0,
+            "total": 241.5
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "ok": false,
+          "failed_stage": "tls",
+          "error": "ConnectionResetError",
+          "os_code": 10054
+        }
+      ],
+      "html_dependencies": "not discovered",
+      "ok": false,
+      "total_ms": 793.6
+    },
+    {
+      "number": 5,
+      "utc": "2026-11-10T15:51:38+00:00",
+      "checks": [
+        {
+          "kind": "home",
+          "path": "/",
+          "status": null,
+          "ms": {
+            "dns": 2.0,
+            "tcp": 221.6,
+            "tls": 40.1,
+            "total": 263.9
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "ok": false,
+          "failed_stage": "tls",
+          "error": "ConnectionResetError",
+          "os_code": 10054
+        },
+        {
+          "kind": "cases",
+          "path": "/api/cultural-cases",
+          "status": null,
+          "ms": {
+            "dns": 1.8,
+            "tcp": 237.7,
+            "tls": 30.5,
+            "total": 270.3
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "ok": false,
+          "failed_stage": "tls",
+          "error": "ConnectionResetError",
+          "os_code": 10054
+        },
+        {
+          "kind": "image",
+          "path": "/images/azure-landscape.svg",
+          "status": null,
+          "ms": {
+            "dns": 1.4,
+            "tcp": 27.0,
+            "tls": 27.1,
+            "total": 55.7
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "ok": false,
+          "failed_stage": "tls",
+          "error": "ConnectionResetError",
+          "os_code": 10054
+        },
+        {
+          "kind": "font",
+          "path": "/fonts/ma-shan-zheng-headings.ttf",
+          "status": null,
+          "ms": {
+            "dns": 2.0,
+            "tcp": 212.6,
+            "tls": 27.2,
+            "total": 241.9
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "ok": false,
+          "failed_stage": "tls",
+          "error": "ConnectionResetError",
+          "os_code": 10054
+        }
+      ],
+      "html_dependencies": "not discovered",
+      "ok": false,
+      "total_ms": 832.0
+    },
+    {
+      "number": 6,
+      "utc": "2026-11-10T15:51:39+00:00",
+      "checks": [
+        {
+          "kind": "home",
+          "path": "/",
+          "status": null,
+          "ms": {
+            "dns": 2.8,
+            "tcp": 213.1,
+            "tls": 30.6,
+            "total": 246.7
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "ok": false,
+          "failed_stage": "tls",
+          "error": "ConnectionResetError",
+          "os_code": 10054
+        },
+        {
+          "kind": "cases",
+          "path": "/api/cultural-cases",
+          "status": null,
+          "ms": {
+            "dns": 1.0,
+            "tcp": 219.7,
+            "tls": 30.4,
+            "total": 251.3
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "ok": false,
+          "failed_stage": "tls",
+          "error": "ConnectionResetError",
+          "os_code": 10054
+        },
+        {
+          "kind": "image",
+          "path": "/images/azure-landscape.svg",
+          "status": null,
+          "ms": {
+            "dns": 1.6,
+            "tcp": 1211.0,
+            "tls": 32.1,
+            "total": 1245.2
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "ok": false,
+          "failed_stage": "tls",
+          "error": "ConnectionResetError",
+          "os_code": 10054
+        },
+        {
+          "kind": "font",
+          "path": "/fonts/ma-shan-zheng-headings.ttf",
+          "status": null,
+          "ms": {
+            "dns": 2.1,
+            "tcp": 222.5,
+            "tls": 36.5,
+            "total": 261.3
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "ok": false,
+          "failed_stage": "tls",
+          "error": "ConnectionResetError",
+          "os_code": 10054
+        }
+      ],
+      "html_dependencies": "not discovered",
+      "ok": false,
+      "total_ms": 2004.7
+    },
+    {
+      "number": 7,
+      "utc": "2026-11-10T15:51:42+00:00",
+      "checks": [
+        {
+          "kind": "home",
+          "path": "/",
+          "status": null,
+          "ms": {
+            "dns": 1.7,
+            "tcp": 213.4,
+            "tls": 23.1,
+            "total": 238.4
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "ok": false,
+          "failed_stage": "tls",
+          "error": "ConnectionResetError",
+          "os_code": 10054
+        },
+        {
+          "kind": "cases",
+          "path": "/api/cultural-cases",
+          "status": null,
+          "ms": {
+            "dns": 1.4,
+            "tcp": 41.5,
+            "tls": 31.9,
+            "total": 74.9
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "ok": false,
+          "failed_stage": "tls",
+          "error": "ConnectionResetError",
+          "os_code": 10054
+        },
+        {
+          "kind": "image",
+          "path": "/images/azure-landscape.svg",
+          "status": null,
+          "ms": {
+            "dns": 1.4,
+            "tcp": 24.2,
+            "tls": 23.4,
+            "total": 49.2
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "ok": false,
+          "failed_stage": "tls",
+          "error": "ConnectionResetError",
+          "os_code": 10054
+        },
+        {
+          "kind": "font",
+          "path": "/fonts/ma-shan-zheng-headings.ttf",
+          "status": null,
+          "ms": {
+            "dns": 1.5,
+            "tcp": 229.6,
+            "tls": 28.1,
+            "total": 259.4
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "ok": false,
+          "failed_stage": "tls",
+          "error": "ConnectionResetError",
+          "os_code": 10054
+        }
+      ],
+      "html_dependencies": "not discovered",
+      "ok": false,
+      "total_ms": 622.0
+    },
+    {
+      "number": 8,
+      "utc": "2026-11-10T15:51:44+00:00",
+      "checks": [
+        {
+          "kind": "home",
+          "path": "/",
+          "status": null,
+          "ms": {
+            "dns": 1.4,
+            "tcp": 209.0,
+            "tls": 30.9,
+            "total": 241.4
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "ok": false,
+          "failed_stage": "tls",
+          "error": "ConnectionResetError",
+          "os_code": 10054
+        },
+        {
+          "kind": "cases",
+          "path": "/api/cultural-cases",
+          "status": null,
+          "ms": {
+            "dns": 1.2,
+            "tcp": 1226.2,
+            "tls": 31.3,
+            "total": 1258.8
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "ok": false,
+          "failed_stage": "tls",
+          "error": "ConnectionResetError",
+          "os_code": 10054
+        },
+        {
+          "kind": "image",
+          "path": "/images/azure-landscape.svg",
+          "status": null,
+          "ms": {
+            "dns": 15.5,
+            "tcp": 242.9,
+            "tls": 29.7,
+            "total": 288.3
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "ok": false,
+          "failed_stage": "tls",
+          "error": "ConnectionResetError",
+          "os_code": 10054
+        },
+        {
+          "kind": "font",
+          "path": "/fonts/ma-shan-zheng-headings.ttf",
+          "status": null,
+          "ms": {
+            "dns": 1.6,
+            "tcp": 40.1,
+            "tls": 38.7,
+            "total": 80.6
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "ok": false,
+          "failed_stage": "tls",
+          "error": "ConnectionResetError",
+          "os_code": 10054
+        }
+      ],
+      "html_dependencies": "not discovered",
+      "ok": false,
+      "total_ms": 1869.2
+    },
+    {
+      "number": 9,
+      "utc": "2026-11-10T15:51:47+00:00",
+      "checks": [
+        {
+          "kind": "home",
+          "path": "/",
+          "status": null,
+          "ms": {
+            "dns": 0.8,
+            "tcp": 25.3,
+            "tls": 27.7,
+            "total": 54.0
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "ok": false,
+          "failed_stage": "tls",
+          "error": "ConnectionResetError",
+          "os_code": 10054
+        },
+        {
+          "kind": "cases",
+          "path": "/api/cultural-cases",
+          "status": null,
+          "ms": {
+            "dns": 1.4,
+            "tcp": 205.3,
+            "tls": 26.3,
+            "total": 233.1
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "ok": false,
+          "failed_stage": "tls",
+          "error": "ConnectionResetError",
+          "os_code": 10054
+        },
+        {
+          "kind": "image",
+          "path": "/images/azure-landscape.svg",
+          "status": null,
+          "ms": {
+            "dns": 0.8,
+            "tcp": 211.9,
+            "tls": 30.7,
+            "total": 243.5
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "ok": false,
+          "failed_stage": "tls",
+          "error": "ConnectionResetError",
+          "os_code": 10054
+        },
+        {
+          "kind": "font",
+          "path": "/fonts/ma-shan-zheng-headings.ttf",
+          "status": null,
+          "ms": {
+            "dns": 0.5,
+            "tcp": 206.4,
+            "tls": 29.7,
+            "total": 236.7
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "ok": false,
+          "failed_stage": "tls",
+          "error": "ConnectionResetError",
+          "os_code": 10054
+        }
+      ],
+      "html_dependencies": "not discovered",
+      "ok": false,
+      "total_ms": 767.3
+    },
+    {
+      "number": 10,
+      "utc": "2026-11-10T15:51:49+00:00",
+      "checks": [
+        {
+          "kind": "home",
+          "path": "/",
+          "status": null,
+          "ms": {
+            "dns": 0.8,
+            "tcp": 42.8,
+            "tls": 26.2,
+            "total": 69.9
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "ok": false,
+          "failed_stage": "tls",
+          "error": "ConnectionResetError",
+          "os_code": 10054
+        },
+        {
+          "kind": "cases",
+          "path": "/api/cultural-cases",
+          "status": null,
+          "ms": {
+            "dns": 0.8,
+            "tcp": 25.6,
+            "tls": 26.6,
+            "total": 53.1
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "ok": false,
+          "failed_stage": "tls",
+          "error": "ConnectionResetError",
+          "os_code": 10054
+        },
+        {
+          "kind": "image",
+          "path": "/images/azure-landscape.svg",
+          "status": null,
+          "ms": {
+            "dns": 0.9,
+            "tcp": 45.2,
+            "tls": 25.0,
+            "total": 71.1
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "ok": false,
+          "failed_stage": "tls",
+          "error": "ConnectionResetError",
+          "os_code": 10054
+        },
+        {
+          "kind": "font",
+          "path": "/fonts/ma-shan-zheng-headings.ttf",
+          "status": null,
+          "ms": {
+            "dns": 0.6,
+            "tcp": 1219.9,
+            "tls": 22.3,
+            "total": 1242.8
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "ok": false,
+          "failed_stage": "tls",
+          "error": "ConnectionResetError",
+          "os_code": 10054
+        }
+      ],
+      "html_dependencies": "not discovered",
+      "ok": false,
+      "total_ms": 1437.0
+    },
+    {
+      "number": 11,
+      "utc": "2026-11-10T15:51:51+00:00",
+      "checks": [
+        {
+          "kind": "home",
+          "path": "/",
+          "status": null,
+          "ms": {
+            "dns": 0.7,
+            "tcp": 212.2,
+            "tls": 23.4,
+            "total": 236.4
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "ok": false,
+          "failed_stage": "tls",
+          "error": "ConnectionResetError",
+          "os_code": 10054
+        },
+        {
+          "kind": "cases",
+          "path": "/api/cultural-cases",
+          "status": null,
+          "ms": {
+            "dns": 2.0,
+            "tcp": 200.1,
+            "tls": 31.7,
+            "total": 233.9
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "ok": false,
+          "failed_stage": "tls",
+          "error": "ConnectionResetError",
+          "os_code": 10054
+        },
+        {
+          "kind": "image",
+          "path": "/images/azure-landscape.svg",
+          "status": null,
+          "ms": {
+            "dns": 0.8,
+            "tcp": 216.2,
+            "tls": 26.0,
+            "total": 243.2
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "ok": false,
+          "failed_stage": "tls",
+          "error": "ConnectionResetError",
+          "os_code": 10054
+        },
+        {
+          "kind": "font",
+          "path": "/fonts/ma-shan-zheng-headings.ttf",
+          "status": null,
+          "ms": {
+            "dns": 1.7,
+            "tcp": 248.9,
+            "tls": 38.1,
+            "total": 288.9
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "ok": false,
+          "failed_stage": "tls",
+          "error": "ConnectionResetError",
+          "os_code": 10054
+        }
+      ],
+      "html_dependencies": "not discovered",
+      "ok": false,
+      "total_ms": 1002.4
+    },
+    {
+      "number": 12,
+      "utc": "2026-11-10T15:51:53+00:00",
+      "checks": [
+        {
+          "kind": "home",
+          "path": "/",
+          "status": null,
+          "ms": {
+            "dns": 0.6,
+            "tcp": 261.4,
+            "tls": 70.0,
+            "total": 332.1
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "ok": false,
+          "failed_stage": "tls",
+          "error": "ConnectionResetError",
+          "os_code": 10054
+        },
+        {
+          "kind": "cases",
+          "path": "/api/cultural-cases",
+          "status": null,
+          "ms": {
+            "dns": 0.8,
+            "tcp": 210.8,
+            "tls": 45.5,
+            "total": 257.1
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "ok": false,
+          "failed_stage": "tls",
+          "error": "ConnectionResetError",
+          "os_code": 10054
+        },
+        {
+          "kind": "image",
+          "path": "/images/azure-landscape.svg",
+          "status": null,
+          "ms": {
+            "dns": 0.7,
+            "tcp": 211.0,
+            "tls": 58.7,
+            "total": 270.6
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "ok": false,
+          "failed_stage": "tls",
+          "error": "ConnectionResetError",
+          "os_code": 10054
+        },
+        {
+          "kind": "font",
+          "path": "/fonts/ma-shan-zheng-headings.ttf",
+          "status": null,
+          "ms": {
+            "dns": 1.2,
+            "tcp": 67.4,
+            "tls": 68.9,
+            "total": 137.7
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "ok": false,
+          "failed_stage": "tls",
+          "error": "ConnectionResetError",
+          "os_code": 10054
+        }
+      ],
+      "html_dependencies": "not discovered",
+      "ok": false,
+      "total_ms": 997.7
+    },
+    {
+      "number": 13,
+      "utc": "2026-11-10T15:51:55+00:00",
+      "checks": [
+        {
+          "kind": "home",
+          "path": "/",
+          "status": null,
+          "ms": {
+            "dns": 0.6,
+            "tcp": 1230.0,
+            "tls": 32.4,
+            "total": 1263.1
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "ok": false,
+          "failed_stage": "tls",
+          "error": "ConnectionResetError",
+          "os_code": 10054
+        },
+        {
+          "kind": "cases",
+          "path": "/api/cultural-cases",
+          "status": null,
+          "ms": {
+            "dns": 1.2,
+            "tcp": 247.1,
+            "tls": 27.8,
+            "total": 276.2
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "ok": false,
+          "failed_stage": "tls",
+          "error": "ConnectionResetError",
+          "os_code": 10054
+        },
+        {
+          "kind": "image",
+          "path": "/images/azure-landscape.svg",
+          "status": null,
+          "ms": {
+            "dns": 2.5,
+            "tcp": 216.6,
+            "tls": 38.3,
+            "total": 257.6
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "ok": false,
+          "failed_stage": "tls",
+          "error": "ConnectionResetError",
+          "os_code": 10054
+        },
+        {
+          "kind": "font",
+          "path": "/fonts/ma-shan-zheng-headings.ttf",
+          "status": null,
+          "ms": {
+            "dns": 1.5,
+            "tcp": 211.7,
+            "tls": 32.4,
+            "total": 245.8
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "ok": false,
+          "failed_stage": "tls",
+          "error": "ConnectionResetError",
+          "os_code": 10054
+        }
+      ],
+      "html_dependencies": "not discovered",
+      "ok": false,
+      "total_ms": 2042.9
+    },
+    {
+      "number": 14,
+      "utc": "2026-11-10T15:51:58+00:00",
+      "checks": [
+        {
+          "kind": "home",
+          "path": "/",
+          "status": null,
+          "ms": {
+            "dns": 1.9,
+            "tcp": 52.0,
+            "tls": 32.3,
+            "total": 86.4
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "ok": false,
+          "failed_stage": "tls",
+          "error": "ConnectionResetError",
+          "os_code": 10054
+        },
+        {
+          "kind": "cases",
+          "path": "/api/cultural-cases",
+          "status": null,
+          "ms": {
+            "dns": 1.7,
+            "tcp": 60.5,
+            "tls": 39.0,
+            "total": 101.2
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "ok": false,
+          "failed_stage": "tls",
+          "error": "ConnectionResetError",
+          "os_code": 10054
+        },
+        {
+          "kind": "image",
+          "path": "/images/azure-landscape.svg",
+          "status": null,
+          "ms": {
+            "dns": 1.4,
+            "tcp": 31.3,
+            "tls": 32.4,
+            "total": 65.2
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "ok": false,
+          "failed_stage": "tls",
+          "error": "ConnectionResetError",
+          "os_code": 10054
+        },
+        {
+          "kind": "font",
+          "path": "/fonts/ma-shan-zheng-headings.ttf",
+          "status": null,
+          "ms": {
+            "dns": 1.3,
+            "tcp": 216.3,
+            "tls": 25.4,
+            "total": 243.2
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "ok": false,
+          "failed_stage": "tls",
+          "error": "ConnectionResetError",
+          "os_code": 10054
+        }
+      ],
+      "html_dependencies": "not discovered",
+      "ok": false,
+      "total_ms": 496.3
+    },
+    {
+      "number": 15,
+      "utc": "2026-11-10T15:52:00+00:00",
+      "checks": [
+        {
+          "kind": "home",
+          "path": "/",
+          "status": null,
+          "ms": {
+            "dns": 1.5,
+            "tcp": 227.7,
+            "tls": 32.8,
+            "total": 262.2
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "ok": false,
+          "failed_stage": "tls",
+          "error": "ConnectionResetError",
+          "os_code": 10054
+        },
+        {
+          "kind": "cases",
+          "path": "/api/cultural-cases",
+          "status": null,
+          "ms": {
+            "dns": 1.5,
+            "tcp": 213.0,
+            "tls": 23.0,
+            "total": 237.6
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "ok": false,
+          "failed_stage": "tls",
+          "error": "ConnectionResetError",
+          "os_code": 10054
+        },
+        {
+          "kind": "image",
+          "path": "/images/azure-landscape.svg",
+          "status": null,
+          "ms": {
+            "dns": 8.9,
+            "tcp": 217.2,
+            "tls": 23.2,
+            "total": 249.5
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "ok": false,
+          "failed_stage": "tls",
+          "error": "ConnectionResetError",
+          "os_code": 10054
+        },
+        {
+          "kind": "font",
+          "path": "/fonts/ma-shan-zheng-headings.ttf",
+          "status": null,
+          "ms": {
+            "dns": 0.7,
+            "tcp": 1224.9,
+            "tls": 43.2,
+            "total": 1268.9
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "ok": false,
+          "failed_stage": "tls",
+          "error": "ConnectionResetError",
+          "os_code": 10054
+        }
+      ],
+      "html_dependencies": "not discovered",
+      "ok": false,
+      "total_ms": 2018.3
+    },
+    {
+      "number": 16,
+      "utc": "2026-11-10T15:52:03+00:00",
+      "checks": [
+        {
+          "kind": "home",
+          "path": "/",
+          "status": null,
+          "ms": {
+            "dns": 2.5,
+            "tcp": 219.3,
+            "tls": 26.1,
+            "total": 248.1
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "ok": false,
+          "failed_stage": "tls",
+          "error": "ConnectionResetError",
+          "os_code": 10054
+        },
+        {
+          "kind": "cases",
+          "path": "/api/cultural-cases",
+          "status": null,
+          "ms": {
+            "dns": 1.4,
+            "tcp": 29.9,
+            "tls": 29.6,
+            "total": 61.2
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "ok": false,
+          "failed_stage": "tls",
+          "error": "ConnectionResetError",
+          "os_code": 10054
+        },
+        {
+          "kind": "image",
+          "path": "/images/azure-landscape.svg",
+          "status": null,
+          "ms": {
+            "dns": 0.8,
+            "tcp": 26.5,
+            "tls": 29.2,
+            "total": 56.6
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "ok": false,
+          "failed_stage": "tls",
+          "error": "ConnectionResetError",
+          "os_code": 10054
+        },
+        {
+          "kind": "font",
+          "path": "/fonts/ma-shan-zheng-headings.ttf",
+          "status": null,
+          "ms": {
+            "dns": 0.9,
+            "tcp": 208.1,
+            "tls": 27.4,
+            "total": 236.6
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "ok": false,
+          "failed_stage": "tls",
+          "error": "ConnectionResetError",
+          "os_code": 10054
+        }
+      ],
+      "html_dependencies": "not discovered",
+      "ok": false,
+      "total_ms": 602.7
+    },
+    {
+      "number": 17,
+      "utc": "2026-11-10T15:52:04+00:00",
+      "checks": [
+        {
+          "kind": "home",
+          "path": "/",
+          "status": null,
+          "ms": {
+            "dns": 1.3,
+            "tcp": 25.7,
+            "tls": 25.3,
+            "total": 52.4
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "ok": false,
+          "failed_stage": "tls",
+          "error": "ConnectionResetError",
+          "os_code": 10054
+        },
+        {
+          "kind": "cases",
+          "path": "/api/cultural-cases",
+          "status": null,
+          "ms": {
+            "dns": 1.5,
+            "tcp": 32.4,
+            "tls": 30.7,
+            "total": 64.8
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "ok": false,
+          "failed_stage": "tls",
+          "error": "ConnectionResetError",
+          "os_code": 10054
+        },
+        {
+          "kind": "image",
+          "path": "/images/azure-landscape.svg",
+          "status": null,
+          "ms": {
+            "dns": 2.1,
+            "tcp": 214.0,
+            "tls": 38.4,
+            "total": 254.7
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "ok": false,
+          "failed_stage": "tls",
+          "error": "ConnectionResetError",
+          "os_code": 10054
+        },
+        {
+          "kind": "font",
+          "path": "/fonts/ma-shan-zheng-headings.ttf",
+          "status": null,
+          "ms": {
+            "dns": 0.7,
+            "tcp": 24.4,
+            "tls": 25.4,
+            "total": 50.7
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "ok": false,
+          "failed_stage": "tls",
+          "error": "ConnectionResetError",
+          "os_code": 10054
+        }
+      ],
+      "html_dependencies": "not discovered",
+      "ok": false,
+      "total_ms": 422.7
+    },
+    {
+      "number": 18,
+      "utc": "2026-11-10T15:52:06+00:00",
+      "checks": [
+        {
+          "kind": "home",
+          "path": "/",
+          "status": null,
+          "ms": {
+            "dns": 1.3,
+            "tcp": 210.9,
+            "tls": 34.4,
+            "total": 246.7
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "ok": false,
+          "failed_stage": "tls",
+          "error": "ConnectionResetError",
+          "os_code": 10054
+        },
+        {
+          "kind": "cases",
+          "path": "/api/cultural-cases",
+          "status": null,
+          "ms": {
+            "dns": 1.5,
+            "tcp": 222.8,
+            "tls": 23.4,
+            "total": 247.8
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "ok": false,
+          "failed_stage": "tls",
+          "error": "ConnectionResetError",
+          "os_code": 10054
+        },
+        {
+          "kind": "image",
+          "path": "/images/azure-landscape.svg",
+          "status": null,
+          "ms": {
+            "dns": 1.3,
+            "tcp": 32.4,
+            "tls": 31.5,
+            "total": 65.4
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "ok": false,
+          "failed_stage": "tls",
+          "error": "ConnectionResetError",
+          "os_code": 10054
+        },
+        {
+          "kind": "font",
+          "path": "/fonts/ma-shan-zheng-headings.ttf",
+          "status": null,
+          "ms": {
+            "dns": 1.3,
+            "tcp": 217.1,
+            "tls": 41.1,
+            "total": 259.6
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "ok": false,
+          "failed_stage": "tls",
+          "error": "ConnectionResetError",
+          "os_code": 10054
+        }
+      ],
+      "html_dependencies": "not discovered",
+      "ok": false,
+      "total_ms": 819.8
+    },
+    {
+      "number": 19,
+      "utc": "2026-11-10T15:52:08+00:00",
+      "checks": [
+        {
+          "kind": "home",
+          "path": "/",
+          "status": null,
+          "ms": {
+            "dns": 1.1,
+            "tcp": 57.1,
+            "tls": 37.4,
+            "total": 95.8
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "ok": false,
+          "failed_stage": "tls",
+          "error": "ConnectionResetError",
+          "os_code": 10054
+        },
+        {
+          "kind": "cases",
+          "path": "/api/cultural-cases",
+          "status": null,
+          "ms": {
+            "dns": 0.6,
+            "tcp": 41.0,
+            "tls": 41.0,
+            "total": 82.7
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "ok": false,
+          "failed_stage": "tls",
+          "error": "ConnectionResetError",
+          "os_code": 10054
+        },
+        {
+          "kind": "image",
+          "path": "/images/azure-landscape.svg",
+          "status": null,
+          "ms": {
+            "dns": 1.7,
+            "tcp": 30.6,
+            "tls": 30.4,
+            "total": 62.8
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "ok": false,
+          "failed_stage": "tls",
+          "error": "ConnectionResetError",
+          "os_code": 10054
+        },
+        {
+          "kind": "font",
+          "path": "/fonts/ma-shan-zheng-headings.ttf",
+          "status": null,
+          "ms": {
+            "dns": 2.0,
+            "tcp": 27.9,
+            "tls": 28.1,
+            "total": 58.3
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "ok": false,
+          "failed_stage": "tls",
+          "error": "ConnectionResetError",
+          "os_code": 10054
+        }
+      ],
+      "html_dependencies": "not discovered",
+      "ok": false,
+      "total_ms": 299.8
+    },
+    {
+      "number": 20,
+      "utc": "2026-11-10T15:52:09+00:00",
+      "checks": [
+        {
+          "kind": "home",
+          "path": "/",
+          "status": null,
+          "ms": {
+            "dns": 0.8,
+            "tcp": 31.3,
+            "tls": 29.8,
+            "total": 62.0
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "ok": false,
+          "failed_stage": "tls",
+          "error": "ConnectionResetError",
+          "os_code": 10054
+        },
+        {
+          "kind": "cases",
+          "path": "/api/cultural-cases",
+          "status": null,
+          "ms": {
+            "dns": 0.5,
+            "tcp": 226.4,
+            "tls": 29.8,
+            "total": 256.8
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "ok": false,
+          "failed_stage": "tls",
+          "error": "ConnectionResetError",
+          "os_code": 10054
+        },
+        {
+          "kind": "image",
+          "path": "/images/azure-landscape.svg",
+          "status": null,
+          "ms": {
+            "dns": 1.5,
+            "tcp": 222.7,
+            "tls": 30.9,
+            "total": 255.1
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "ok": false,
+          "failed_stage": "tls",
+          "error": "ConnectionResetError",
+          "os_code": 10054
+        },
+        {
+          "kind": "font",
+          "path": "/fonts/ma-shan-zheng-headings.ttf",
+          "status": null,
+          "ms": {
+            "dns": 1.5,
+            "tcp": 223.7,
+            "tls": 27.6,
+            "total": 253.0
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "ok": false,
+          "failed_stage": "tls",
+          "error": "ConnectionResetError",
+          "os_code": 10054
+        }
+      ],
+      "html_dependencies": "not discovered",
+      "ok": false,
+      "total_ms": 827.0
+    }
+  ],
+  "ended_utc": "2026-11-10T15:52:10+00:00",
+  "summary": {
+    "successful_rounds": 0,
+    "attempted_rounds": 20,
+    "success_percent": 0.0,
+    "median_successful_round_ms": null,
+    "request_failures_by_stage": {
+      "tls": 80
+    }
+  }
+}

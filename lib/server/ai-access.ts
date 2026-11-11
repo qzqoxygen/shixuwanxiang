@@ -1,7 +1,7 @@
 import "server-only";
 import { createHash } from "node:crypto";
 
-// Vercel supplies the forwarded client IP. Local development shares one bucket.
+// Only trust a proxy that replaces the header and is the application's sole public ingress.
 // These short-lived guards are per warm function instance, and never store prompts or answers.
 const clients = new Map<string, {
   reset: number;
@@ -24,7 +24,8 @@ export function beginAiRequest(request: Request, route: "chat" | "studio", conte
   if (id !== null && !/^[a-zA-Z0-9-]{1,64}$/.test(id)) {
     return { status: 400, code: "INVALID_REQUEST_ID", message: "请求标识无效，请重新发送。" } as const;
   }
-  const address = process.env.VERCEL === "1" ? request.headers.get("x-forwarded-for")?.split(",")[0].trim() : undefined;
+  const trustedIngress = process.env.VERCEL === "1" || process.env.SHIXU_TRUST_PROXY === "1";
+  const address = trustedIngress ? request.headers.get("x-forwarded-for")?.split(",")[0].trim() : undefined;
   const key = address || "local";
   const client = clients.get(key) ?? { reset: now + windowMs, count: 0, requests: new Map<string, number>() };
   if (now >= client.reset) {

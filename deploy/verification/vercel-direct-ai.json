@@ -1,0 +1,27 @@
+{
+  "origin": "https://qsxshixu-ai.vercel.app",
+  "utc": "2026-11-10T15:54:49.790Z",
+  "tests": [
+    {
+      "name": "普通问答",
+      "status": null,
+      "ms": 1046,
+      "ok": false,
+      "reason": "ECONNRESET"
+    },
+    {
+      "name": "造物灵感",
+      "status": null,
+      "ms": 1023,
+      "ok": false,
+      "reason": "ECONNRESET"
+    },
+    {
+      "name": "实时搜索与来源",
+      "status": null,
+      "ms": 269,
+      "ok": false,
+      "reason": "ECONNRESET"
+    }
+  ]
+}
