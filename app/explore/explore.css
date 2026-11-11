@@ -2,10 +2,6 @@
 @font-face { font-family: "Shixu Brush"; src: url("/fonts/ma-shan-zheng-headings.ttf") format("truetype"); font-style: normal; font-weight: 400; font-display: swap; }
 body:has(.explore-page) { --explore-paper: #f8f6ef; --explore-ink: #303b38; --explore-azurite: #305f65; --explore-jade: #92b6a0; --gold: #b69a5c; --tea: #79604c; --stone: #467a83; --muted: #626f68; --line: #d5dcd0; background: linear-gradient(#f8f6efe8, #f8f6efe8), url("/images/xuan-paper.webp") center top / 1536px auto repeat; background-color: var(--explore-paper); color: var(--explore-ink); }
 body:has(.explore-page) .page-shell { max-width: 1440px; padding: 0 32px; }
-.explore-ink-landscape { position: fixed; z-index: -1; left: 0; bottom: 0; width: min(32vw, 450px); height: 310px; pointer-events: none; opacity: .55; background: url("/images/azure-landscape.svg") left bottom / contain no-repeat; mask-image: radial-gradient(ellipse at left bottom, #000 18%, #000b 50%, transparent 80%); }
-.explore-landscape-mist { position: absolute; left: -14%; top: 57%; width: 118%; height: 24%; pointer-events: none; opacity: .22; background: radial-gradient(ellipse at 35% 55%, #f8f6ef 5%, #f8f6efb3 35%, transparent 72%), radial-gradient(ellipse at 72% 45%, #f8f6efb3, transparent 66%); filter: blur(9px); animation: explore-landscape-mist 14s ease-in-out infinite alternate; }
-.explore-landscape-mist-far { left: 3%; top: 73%; width: 102%; height: 19%; opacity: .16; animation-duration: 19s; animation-delay: -7s; }
-@keyframes explore-landscape-mist { from { transform: translate3d(-4%, 2px, 0) scaleX(.98); } to { transform: translate3d(7%, -3px, 0) scaleX(1.05); } }
 body:has(.explore-page) .page-shell { position: relative; z-index: 1; }
 body:has(.explore-page) .site-header { min-height: 86px; border-color: #b69a5c40; }
 body:has(.explore-page) .brand { color: #365e63; }
@@ -32,17 +28,6 @@ body:has(.explore-page) .site-header nav a[aria-current="page"] { color: #366c75
   font: 400 clamp(40px, 4.1vw, 57px)/1.2 "Shixu Brush", KaiTi, serif;
   letter-spacing: .025em;
 }
-.explore-title-phrase { position: relative; }
-.explore-title-flourish {
-  position: absolute;
-  inset-inline-start: 12%;
-  bottom: -.09em;
-  width: 93%;
-  height: .24em;
-  color: #8a9b82;
-  opacity: .65;
-  pointer-events: none;
-}
 .explore-page .intro-description { max-width: 640px; color: var(--muted); font-size: 14px; line-height: 1.9; letter-spacing: .04em; }
 .explore-intro-seal { writing-mode: vertical-rl; margin-inline-end: 14px; padding: 4px; border: 3px double #ead8bb; border-radius: 45% 35% 40% 30%; background: #9d5948; color: #fbecd0; font: 12px SimSun, serif; }
 .explore-map-layout { min-width: 0; padding-bottom: 58px; }
@@ -53,7 +38,6 @@ body:has(.explore-page) .site-header nav a[aria-current="page"] { color: #366c75
   .explore-page .explore-intro::after { display: none; }
 }
 @media (max-width: 640px) {
-  .explore-ink-landscape { width: 200px; height: 160px; opacity: .3; }
   body:has(.explore-page) .page-shell { padding: 0 14px; }
   .explore-page .explore-intro { min-height: 0; padding: 18px 2px 12px; margin-bottom: 10px; }
   .explore-page .explore-intro h1 { font-size: clamp(31px, 9vw, 46px); letter-spacing: 0; margin-bottom: 12px; }
@@ -62,4 +46,3 @@ body:has(.explore-page) .site-header nav a[aria-current="page"] { color: #366c75
   .explore-page .cloud-chat-launcher { width: 132px; height: 86px; }
   .explore-page .cloud-chat-launcher-label { inset-block-start: 33px; font-size: 21px; }
 }
-@media (prefers-reduced-motion: reduce) { .explore-landscape-mist { animation: none; } }

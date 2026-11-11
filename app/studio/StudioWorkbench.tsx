@@ -116,21 +116,9 @@ function StudioTitle() {
 }
 
 function StudioBreeze() {
-  return (
+  return <>
+    <span className="studio-breeze-ribbon" aria-hidden="true" />
     <svg className="studio-heading-breeze" viewBox="0 0 670 152" preserveAspectRatio="xMinYMid meet" aria-hidden="true" focusable="false">
-      <defs>
-        <linearGradient id="studio-breeze-ink" gradientUnits="userSpaceOnUse" x1="12" y1="100" x2="650" y2="54">
-          <stop stopColor="#729083" stopOpacity="0" />
-          <stop offset=".22" stopColor="#729083" />
-          <stop offset=".58" stopColor="#8a9e8c" />
-          <stop offset="1" stopColor="#9aab96" stopOpacity="0" />
-        </linearGradient>
-      </defs>
-      <path className="studio-breeze-wash" fill="url(#studio-breeze-ink)" opacity=".29" d="M8 100C69 103 112 62 174 64c74 2 114 32 195 9 99-29 161-45 275-24-108-13-169 5-271 32-81 22-130-2-202-11C105 62 70 110 8 100Z" />
-      <g className="studio-breeze-ribbons" fill="none" strokeLinecap="round">
-        <path stroke="url(#studio-breeze-ink)" strokeWidth="1.4" opacity=".7" d="M26 112c73 0 108-38 169-32 51 5 81 25 143 19 92-9 139-56 227-43" />
-        <path stroke="url(#studio-breeze-ink)" strokeWidth="1.05" opacity=".55" d="M109 70c34-27 89-36 131-27 25 5 46 16 77 13M149 126c45-16 92-15 137-6 39 8 87 4 121-9" />
-      </g>
       <image className="studio-breeze-swallow" href="/images/studio-stickers/flying-swallow.webp" x="317" y="10" width="55" height="55" />
       <g className="studio-breeze-leaf" fill="#77907a">
         <path d="M235 45c-7-2-13-8-15-16 8 3 15 8 15 16Z" opacity=".69" />
@@ -138,7 +126,7 @@ function StudioBreeze() {
       </g>
       <path className="studio-breeze-leaf studio-breeze-leaf--far" fill="#9a8b68" d="M447 53c-5-2-10-6-11-11 7 1 11 5 11 11Z" />
     </svg>
-  );
+  </>;
 }
 
 export default function StudioWorkbench() {

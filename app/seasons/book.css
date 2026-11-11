@@ -1,4 +1,12 @@
 /* One spread, two equal pages. The book owns its layout independently of the former cards. */
+@font-face {
+  font-family: "Shixu Book Lettering";
+  src: url("/fonts/seasons-book-wordmark.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
 .seasons-book-toolbar {
   display: flex;
   align-items: center;
@@ -9,7 +17,21 @@
   padding: 26px 3px 22px;
 }
 .seasons-book-toolbar > div { display: flex; align-items: baseline; flex-wrap: wrap; gap: 10px 22px; }
-.seasons-book-toolbar h2 { margin: 0; font: 400 25px/1.4 KaiTi, STKaiti, serif; letter-spacing: .08em; color: var(--seasons-blue); }
+.seasons-book-toolbar .seasons-book-wordmark {
+  display: inline-flex;
+  align-items: baseline;
+  gap: .035em;
+  width: max-content;
+  margin: 0;
+  padding-block-end: .13em;
+  color: #285052;
+  font: 400 clamp(32px, 3.1vw, 44px)/1.08 "Shixu Book Lettering", KaiTi, STKaiti, serif;
+}
+.seasons-book-wordmark > span:nth-child(1) { transform: translateY(.04em) rotate(-5deg) scale(.91); }
+.seasons-book-wordmark > span:nth-child(2) { transform: translateY(-.06em) rotate(2deg); }
+.seasons-book-wordmark > span:nth-child(3) { transform: translateY(.03em) rotate(-4deg) scale(1.08); }
+.seasons-book-wordmark > span:nth-child(4) { transform: translateY(-.04em) rotate(3deg); }
+.seasons-book-wordmark > span:nth-child(5) { transform: translateY(.06em) rotate(-3deg) scale(.92); }
 .seasons-book-toolbar p { margin: 0; color: var(--seasons-muted); font-size: 12px; letter-spacing: .08em; }
 .seasons-book { max-width: 1300px; margin: 0 auto; }
 .book-directory { max-width: 1280px; margin: 0 auto; padding-bottom: 8px; }
@@ -89,11 +111,11 @@
 }
 .seasons-book .seasons-reading {
   border-radius: 3px 0 0 3px;
-  background: linear-gradient(to right, #fffdf600, #a5946b08 90%, #8d785319), linear-gradient(#fbf8eecf, #fbf8eecf), url('/images/xuan-paper.webp') center / 1100px auto, #fbf8ee;
+  background: linear-gradient(to right, transparent, #a5946b0d 90%, #8d785322), linear-gradient(155deg, #edf2e9e5, #fbf8eed8 56%), url('/images/xuan-paper.webp') center / 1100px auto, #fbf8ee;
 }
 .seasons-book .seasons-photo-card {
   border-radius: 0 3px 3px 0;
-  background: linear-gradient(to right, #8d78531a, #a5946b05 10%, #fffdf600), linear-gradient(#fbf8eecf, #fbf8eecf), url('/images/xuan-paper.webp') center / 1100px auto, #fbf8ee;
+  background: linear-gradient(to right, #8d785322, #a5946b09 10%, transparent), linear-gradient(148deg, #f7f2e4eb, #fffdf5d9 62%), url('/images/xuan-paper.webp') center / 1100px auto, #fbf8ee;
 }
 .seasons-book .seasons-reading::before { display: none; }
 .seasons-book-spine {
@@ -206,7 +228,7 @@
   .seasons-book-small-screen-hint { display: block; margin: 0 0 12px; color: var(--seasons-muted); font-size: 11px; line-height: 1.7; }
   .seasons-book-toolbar { align-items: flex-start; gap: 12px; padding-block: 22px 18px; }
   .seasons-book-toolbar > div { display: block; }
-  .seasons-book-toolbar h2 { font-size: 23px; }
+  .seasons-book-toolbar .seasons-book-wordmark { font-size: clamp(26px, 6.5vw, 32px); }
   .seasons-book-toolbar p { margin-top: 6px; font-size: 11px; }
   .seasons-book-cover { padding: 7px 7px 13px; }
   .seasons-book .book-page { min-height: 650px; }

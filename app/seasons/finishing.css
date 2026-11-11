@@ -1,7 +1,14 @@
-/* Thin paper, a cloth cover, and light gathered at the fold. No layout changes. */
+/* Woven cover, warm paper edges and light gathered at the fold. */
 .seasons-reading-room .seasons-book-cover {
-  background: linear-gradient(135deg, #728375, #607767 70%, #556e5e);
-  box-shadow: inset 0 0 0 1px #ffffff30, 0 1px 0 #3b5645, 0 5px 0 -2px #496250, 0 18px 30px -20px #243e3260;
+  border-radius: 5px 13px 7px 11px;
+  background:
+    repeating-linear-gradient(101deg, #fff7df0d 0 1px, transparent 1px 3px),
+    linear-gradient(142deg, #567877, #305658 45%, #264549);
+  box-shadow:
+    inset 0 0 0 1px #d4bd8cba,
+    inset 0 0 0 3px #263f3d,
+    0 3px 0 #213b3c,
+    0 18px 30px -19px #203e40b0;
 }
 .seasons-reading-room .seasons-book-stage::before {
   content: "";
@@ -14,8 +21,8 @@
 }
 .seasons-reading-room .seasons-book-stage::after {
   inset: 5px 2px -8px;
-  border-color: #c9bea5;
-  background: repeating-linear-gradient(0deg, #cfc4aa 0 1px, #f5efdf 1px 3px);
+  border-color: #bfae8c;
+  background: repeating-linear-gradient(0deg, #c2b28f 0 1px, #eee5cf 1px 3px);
   box-shadow: 0 2px 3px #423c2c18;
 }
 .seasons-reading-room .seasons-book-spine {
@@ -71,7 +78,7 @@
 @media (max-width: 1000px) {
   .seasons-reading-room .seasons-book-stage::before { display: none; }
   .seasons-reading-room .seasons-book-stage::after { inset: 3px 2px -5px; }
-  .seasons-reading-room .seasons-book-cover { box-shadow: inset 0 0 0 1px #ffffff30, 0 1px 0 #3b5645, 0 12px 22px -18px #243e3260; }
+  .seasons-reading-room .seasons-book-cover { box-shadow: inset 0 0 0 1px #d4bd8cba, 0 2px 0 #213b3c, 0 12px 22px -14px #203e4090; }
 }
 @media (prefers-reduced-motion: reduce) {
   .seasons-book-turn-shadow { display: none; }

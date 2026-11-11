@@ -1,7 +1,7 @@
 @font-face { font-family: "Shixu Brush"; src: url("/fonts/ma-shan-zheng-headings.ttf") format("truetype"); font-style: normal; font-weight: 400; font-display: swap; }
 /* Activity keeps earlier pages in the DOM, hidden with display:none on the root. */
 body:has(.seasons-page:not([style*="display: none"])) {
-  --seasons-paper: #f8f6ef; --seasons-ink: #303b38; --seasons-blue: #305f65; --seasons-gold: #b69a5c; --seasons-tea: #79604c; --seasons-muted: #626f68; --stone: #467a83; --line: #d5dcd0;
+  --seasons-paper: #f8f6ef; --seasons-ink: #303b38; --seasons-blue: #305f65; --seasons-gold: #b69a5c; --seasons-tea: #79604c; --seasons-muted: #626f68; --seasons-jade-edge: #8c9e8f; --seasons-jade-rule: #597a6d; --seasons-cinnabar: #894838; --stone: #467a83; --line: #d5dcd0;
   background: linear-gradient(#f8f6efe8, #f8f6efe8), url("/images/xuan-paper.webp") center top / 1536px auto repeat; background-color: var(--seasons-paper); color: var(--seasons-ink);
 }
 body:has(.seasons-page:not([style*="display: none"])) .page-shell { position: relative; isolation: isolate; max-width: 1600px; padding-inline: 32px; }
@@ -12,7 +12,6 @@ body:has(.seasons-page:not([style*="display: none"])) .site-header nav a[aria-cu
 .seasons-page button { cursor: pointer; -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
 .seasons-page button:disabled { cursor: default; }
 .seasons-page :focus-visible { outline: 2px solid var(--seasons-blue); outline-offset: 5px; }
-.seasons-background-landscape { position: fixed; z-index: -1; left: 0; bottom: 0; width: min(32vw, 450px); height: 310px; opacity: .3; background: url("/images/azure-landscape.svg") left bottom / contain no-repeat; mask-image: radial-gradient(ellipse at left bottom, #000 15%, #0009 40%, transparent 80%); pointer-events: none; }
 .seasons-intro { position: relative; display: flex; align-items: center; justify-content: space-between; gap: 32px; min-height: 180px; padding-block: 28px 25px; }
 .seasons-intro::after { content: ""; position: absolute; right: 70px; bottom: -10px; width: min(43%, 570px); height: 200px; background: url("/images/azure-cloud-ribbon.svg") center / contain no-repeat; opacity: .62; pointer-events: none; animation: seasons-ribbon 8s ease-in-out infinite alternate; }
 .seasons-intro h1 { position: relative; z-index: 1; margin: 0 0 15px; font-family: "Shixu Brush", KaiTi, serif; font-size: clamp(38px, 4.5vw, 64px); font-weight: 400; line-height: 1.3; letter-spacing: .025em; color: var(--seasons-blue); }
@@ -146,7 +145,6 @@ body:has(.seasons-explorer[data-still="true"]) .seasons-intro::after, body:has(.
 @media (max-width: 640px) {
   body:has(.seasons-page:not([style*="display: none"])) .page-shell { padding-inline: 16px; }
   .seasons-page { padding-inline: 0; }
-  .seasons-background-landscape { width: 200px; height: 160px; opacity: .25; }
   .seasons-intro { min-height: 0; padding-block: 35px 31px; }
   .seasons-intro h1 { font-size: clamp(30px, 7.9vw, 46px); letter-spacing: 0; margin-bottom: 12px; }
   .seasons-intro p { max-width: 26em; font-size: 13px; letter-spacing: .02em; }

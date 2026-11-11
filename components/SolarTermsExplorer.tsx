@@ -119,7 +119,16 @@ export default function SolarTermsExplorer() {
   const directory = <BookDirectory bookId={`${id}-book`} currentIndex={settledIndex} requestedIndex={book.requested} activeIndex={turn?.to ?? settledIndex} motion={!still} duration={duration} onNavigate={index => { navigate(index); if (compact) { bookRef.current?.focus({ preventScroll: true }); bookRef.current?.scrollIntoView({ behavior: still ? "instant" : "smooth", block: "start" }); } }} />;
   return <div className="seasons-explorer" ref={rootRef} data-season={selected.season} data-still={still}>
     <div className="seasons-book-toolbar">
-      <div><h2 id={`${id}-book-title`}>四时风物册</h2><p>一页识时，一页观物。</p></div>
+      <div>
+        <h2 id={`${id}-book-title`} className="seasons-book-wordmark" aria-label="四时风物册">
+          <span aria-hidden="true">四</span>
+          <span aria-hidden="true">时</span>
+          <span aria-hidden="true">风</span>
+          <span aria-hidden="true">物</span>
+          <span aria-hidden="true">册</span>
+        </h2>
+        <p>一页识时，一页观物。</p>
+      </div>
       <svg className="seasons-toolbar-art" viewBox="0 0 260 56" aria-hidden="true" focusable="false">
         <image href="/images/studio-stickers/distant-mountains.webp" x="2" y="-46" width="144" height="144" opacity=".63" />
         <g className="seasons-toolbar-ripples" fill="none" stroke="#72938b" strokeLinecap="round">

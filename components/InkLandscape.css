@@ -1,0 +1,49 @@
+.ink-landscape {
+  position: fixed;
+  z-index: -1;
+  left: 0;
+  bottom: 0;
+  width: min(32vw, 450px);
+  height: 310px;
+  pointer-events: none;
+  opacity: .55;
+  background: url("/images/azure-landscape.svg") left bottom / contain no-repeat;
+  mask-image: radial-gradient(ellipse at left bottom, #000 18%, #000b 50%, transparent 80%);
+}
+
+.ink-landscape-mist {
+  position: absolute;
+  left: -14%;
+  top: 57%;
+  width: 118%;
+  height: 24%;
+  opacity: .22;
+  background: radial-gradient(ellipse at 35% 55%, #f8f6ef 5%, #f8f6efb3 35%, transparent 72%),
+    radial-gradient(ellipse at 72% 45%, #f8f6efb3, transparent 66%);
+  filter: blur(9px);
+  animation: ink-landscape-drift 14s ease-in-out infinite alternate;
+  animation-play-state: var(--ink-landscape-play-state, running);
+}
+
+.ink-landscape-mist-far {
+  left: 3%;
+  top: 73%;
+  width: 102%;
+  height: 19%;
+  opacity: .16;
+  animation-duration: 19s;
+  animation-delay: -7s;
+}
+
+@keyframes ink-landscape-drift {
+  from { transform: translate3d(-4%, 2px, 0) scaleX(.98); }
+  to { transform: translate3d(7%, -3px, 0) scaleX(1.05); }
+}
+
+@media (max-width: 640px) {
+  .ink-landscape { width: 200px; height: 160px; opacity: .3; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ink-landscape-mist { animation: none; }
+}

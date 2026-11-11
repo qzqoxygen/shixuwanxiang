@@ -1,6 +1,8 @@
+import "./InkLandscape.css";
+
 export default function InkLandscape() {
-  return <div className="explore-ink-landscape" aria-hidden="true">
-    <span className="explore-landscape-mist" />
-    <span className="explore-landscape-mist explore-landscape-mist-far" />
+  return <div className="ink-landscape" aria-hidden="true">
+    <span className="ink-landscape-mist" />
+    <span className="ink-landscape-mist ink-landscape-mist-far" />
   </div>;
 }

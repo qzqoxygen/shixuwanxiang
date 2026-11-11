@@ -1,10 +1,24 @@
-/* A quiet directory beside the open book. */
+/* An open folio beside its paper index. */
 body:has(.seasons-reading-room:not([style*="display: none"])) .site-header { min-height: 72px; }
 .seasons-reading-room { --reading-page-height: clamp(420px, calc(100svh - 272px), 620px); }
+.seasons-reading-room:has(.seasons-explorer:is([data-still="true"], [data-page-hidden])) { --ink-landscape-play-state: paused; }
 .seasons-reading-room .seasons-explorer { border-top: 0; }
-.seasons-reading-room .seasons-book-toolbar { max-width: 1360px; min-height: 64px; padding: 8px 0; gap: 16px; }
-.seasons-reading-room .seasons-book-toolbar h2 { font-size: 25px; }
-.seasons-toolbar-art { flex: 0 1 252px; display: block; min-width: 0; height: 46px; margin-inline-end: auto; pointer-events: none; }
+.seasons-reading-room .seasons-book-toolbar { position: relative; isolation: isolate; max-width: 1360px; min-height: 74px; padding: 8px 0; gap: 18px; }
+.seasons-book-toolbar::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: -12px 68px -10px auto;
+  width: min(47%, 600px);
+  background: url("/images/azure-cloud-ribbon.svg") right center / 100% auto no-repeat;
+  mask-image:
+    linear-gradient(to bottom, transparent, #000 22%, #000 62%, transparent),
+    linear-gradient(to right, #000 87%, transparent);
+  mask-composite: intersect;
+  opacity: .39;
+  pointer-events: none;
+}
+.seasons-toolbar-art { flex: 0 1 330px; display: block; min-width: 0; height: 58px; margin-inline-start: auto; pointer-events: none; }
 .seasons-toolbar-willow { transform-box: fill-box; transform-origin: 62% 9%; }
 .seasons-toolbar-boat, .seasons-toolbar-ripples, .seasons-toolbar-leaf { transform-box: fill-box; transform-origin: center; }
 .seasons-toolbar-ripples { opacity: .45; }
@@ -48,44 +62,95 @@ body:has(.seasons-reading-room:not([style*="display: none"])) .site-header { min
   100% { opacity: 0; transform: translate(-14px, 13px) rotate(-22deg); }
 }
 
-.seasons-reading-layout { display: grid; grid-template-columns: 208px minmax(0, 1fr); grid-template-areas: "directory book"; align-items: start; gap: 32px; max-width: 1360px; margin-inline: auto; }
-.seasons-reading-room .book-directory { grid-area: directory; width: 100%; margin: 18px 0 0; padding: 0; }
-.seasons-reading-room .book-directory-heading { display: flex; gap: 3px 8px; padding: 0 8px 12px; }
-.seasons-reading-room .book-directory-heading p { font-size: 17px; }
+.seasons-reading-layout { display: grid; grid-template-columns: clamp(200px, 17vw, 238px) minmax(0, 1fr); grid-template-areas: "directory book"; align-items: start; gap: clamp(24px, 3vw, 42px); max-width: 1360px; margin-inline: auto; }
+.seasons-reading-room .book-directory {
+  grid-area: directory;
+  width: 100%;
+  margin: 12px 0 0;
+  padding: 0 0 4px;
+  border: 1px solid var(--seasons-jade-edge);
+  border-top: 2px solid var(--seasons-jade-rule);
+  border-radius: 4px 16px 7px 13px;
+  background: linear-gradient(155deg, #edf2e8eb, #fbfaf3f5 64%), url("/images/xuan-paper.webp") center / 480px auto;
+  box-shadow: 2px 3px 0 #a6aa9238, 0 13px 25px -22px #334c3c;
+}
+.seasons-reading-room .book-directory-heading {
+  display: flex;
+  align-items: center;
+  gap: 4px 6px;
+  padding: 8px 10px;
+  border-radius: 2px 14px 0 0;
+  background: linear-gradient(105deg, #dce8dd, #e8ebdf75 85%);
+}
+.seasons-reading-room .book-directory-heading p { font: 400 21px/1.4 KaiTi, STKaiti, serif; color: var(--seasons-blue); }
 .seasons-reading-room .book-directory-heading > span { display: block; margin: 0; }
 .seasons-reading-room .book-directory-heading em { display: block; margin: 0; }
 .seasons-reading-room .book-directory-seasons { grid-template-columns: minmax(0, 1fr); gap: 0; }
-.seasons-reading-room .book-directory-season { padding: 3px 6px 7px; border-bottom: 0; }
-.seasons-reading-room .book-directory-season:last-child { border-bottom: 1px solid #b69a5c30; }
+.seasons-reading-room .book-directory-season { padding: 3px 8px 5px; border-bottom: 0; border-top-color: #b69a5c48; }
+.seasons-reading-room .book-directory-season[data-active="true"] { border-top-color: var(--directory-accent); }
 .seasons-reading-room .book-directory-season-entry { min-height: 36px; gap: 10px; }
-.seasons-reading-room .book-directory-season-entry strong { font-size: 25px; }
+.seasons-reading-room .book-directory-season-entry strong {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 54% 44% 51% 43%;
+  background: color-mix(in srgb, var(--directory-accent) 10%, transparent);
+  font-size: 23px;
+  line-height: 1;
+}
 .seasons-reading-room .book-directory-season-entry > span { font-size: 10px; }
 .seasons-reading-room .book-directory-season-entry > span:last-child { font-size: 14px; }
 .seasons-reading-room .book-directory-terms { gap: 0 3px; margin: 0; }
 .seasons-reading-room .book-directory-terms button { min-height: 44px; padding: 4px 2px; font-size: 17px; }
-.seasons-reading-room .seasons-book { grid-area: book; width: 100%; max-width: calc(var(--reading-page-height) * 1.8 + 20px); margin: 0 auto; }
-.seasons-reading-room .seasons-book-viewport { padding-block: 18px; }
+.seasons-reading-room .seasons-book { grid-area: book; width: 100%; max-width: calc(var(--reading-page-height) * 1.94 + 20px); margin: 0; }
+.seasons-reading-room .seasons-book-viewport { padding-block: 12px 17px; }
 .seasons-reading-room .seasons-book .book-page { height: var(--reading-page-height); min-height: 0; padding: 24px 28px 48px; }
 .seasons-reading-room .seasons-reading-top { min-height: 24px; font-size: 11px; }
-.seasons-reading-room .seasons-reading-top > span { font-size: 14px; }
-.seasons-reading-room .seasons-term-heading { flex-direction: row; align-items: center; gap: 12px; margin: 24px 0 18px; }
+.seasons-reading-room .seasons-reading-top > span {
+  padding: 2px 6px;
+  border: 3px double #e6cbb1;
+  border-radius: 2px 4px 1px 3px;
+  background: var(--seasons-cinnabar);
+  color: #fff4dc;
+  font-size: 12px;
+  line-height: 1.2;
+  transform: rotate(2deg);
+}
+.seasons-reading-room .seasons-term-heading { flex-direction: row; align-items: center; gap: 12px; margin: 16px 0 13px; }
 .seasons-reading-room .seasons-term-title { font-size: clamp(46px, 4vw, 62px); }
 .seasons-reading-room .seasons-longitude svg { width: 29px; height: 29px; }
 .seasons-reading-room .seasons-longitude p { display: block; }
 .seasons-reading-room .seasons-longitude strong { font-size: 18px; }
-.seasons-reading-room .seasons-description { min-height: 0; margin-bottom: 20px; font-size: 15px; line-height: 1.95; }
-.seasons-reading-room .seasons-reading-note { gap: 12px; padding-top: 16px; }
-.seasons-reading-room .seasons-reading-note p { font-size: 11px; line-height: 1.85; }
-.seasons-reading-room .seasons-reading-links { padding-top: 17px; gap: 8px 16px; }
+.seasons-reading-room .seasons-description { min-height: 0; margin-bottom: 10px; font-size: 15px; line-height: 1.95; }
+.seasons-reading-room .seasons-reading-note {
+  gap: 10px;
+  padding: 8px 9px;
+  border: 0;
+  border-inline-start: 2px solid color-mix(in srgb, var(--season-accent) 58%, #f8f6ef);
+  border-radius: 0 9px 3px 0;
+  background: color-mix(in srgb, var(--season-accent) 8%, transparent);
+}
+.seasons-reading-room .seasons-reading-note > span { writing-mode: horizontal-tb; padding: 0; color: var(--season-accent); font-size: 15px; letter-spacing: 0; line-height: 1.5; }
+.seasons-reading-room .seasons-reading-note p { color: #495a51; font-size: 12px; line-height: 1.8; }
+.seasons-reading-room .seasons-reading-links { padding-top: 9px; gap: 8px 16px; }
 .seasons-reading-room .book-wide-copy { display: none; }
-.seasons-reading-room .seasons-photo-heading { min-height: 24px; margin-bottom: 16px; font-size: 16px; }
+.seasons-reading-room .seasons-photo-heading { min-height: 24px; margin-bottom: 16px; font-size: 19px; }
 .seasons-reading-room .seasons-photo-heading > span:last-child { font-size: 10px; }
 .seasons-reading-room .seasons-photo-card figcaption { min-height: 0; gap: 5px; padding-top: 14px; }
 .seasons-photo-mat { width: 100%; }
+.seasons-reading-room .seasons-photo-frame { box-shadow: 0 0 0 3px #fffaf0, 0 0 0 4px #b69a5c8c, 0 6px 12px #54432921; }
 @media (min-width: 1001px) {
-  .seasons-reading-room .seasons-photo-mat { flex: 1 1 0; min-height: 0; container-type: size; display: grid; justify-items: center; align-items: start; }
-  .seasons-reading-room .seasons-photo-mat > .seasons-photo-frame { width: min(100cqw, calc(100cqh * 4 / 3)); }
-  .seasons-reading-room .seasons-photo-card figcaption { flex-shrink: 0; }
+  .seasons-reading-room .seasons-photo-card {
+    /* Reserve space for the folio heading, credits and printed page number. */
+    --mounted-photo-width: min(100%, calc((var(--reading-page-height) - 226px) * 4 / 3));
+  }
+  .seasons-reading-room .seasons-photo-mat,
+  .seasons-reading-room .seasons-photo-card figcaption {
+    width: var(--mounted-photo-width);
+    align-self: center;
+    flex-shrink: 0;
+  }
 }
 .seasons-reading-room .seasons-photo-card figcaption strong { font-size: 17px; }
 .seasons-reading-room .seasons-photo-credits, .seasons-reading-room .seasons-photo-source { font-size: 10px; line-height: 1.7; }
@@ -100,11 +165,11 @@ body:has(.seasons-reading-room:not([style*="display: none"])) .site-header { min
 
 /* One moving bookmark, with softer seasonal washes beneath the readable labels. */
 .book-directory-seasons { position: relative; isolation: isolate; }
-.book-directory-selection { position: absolute; top: 0; left: 0; z-index: 1; opacity: 0; pointer-events: none; border: 1px solid color-mix(in srgb, var(--selection-accent, #446953) 55%, transparent); border-radius: 4px; background: color-mix(in srgb, var(--selection-accent, #446953) 9%, transparent); box-shadow: inset 0 0 0 1px #fff8; transition: background-color 650ms ease, border-color 650ms ease; }
-.book-directory-selection::after { content: ""; position: absolute; top: -1px; right: 9px; width: 4px; height: 7px; background: var(--selection-accent, #446953); clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 75%, 0 100%); transition: background-color 650ms ease; }
+.book-directory-selection { position: absolute; top: 0; left: 0; z-index: 1; opacity: 0; pointer-events: none; border: 1px solid color-mix(in srgb, var(--selection-accent, #446953) 74%, #f8f6ef); border-radius: 8px 2px 7px 3px; background: color-mix(in srgb, var(--selection-accent, #446953) 16%, #fbfaf3); box-shadow: inset 0 0 0 1px #fff8; transition: background-color 650ms ease, border-color 650ms ease; }
+.book-directory-selection::after { content: ""; position: absolute; top: -1px; right: 7px; width: 5px; height: 8px; background: var(--seasons-cinnabar); clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 75%, 0 100%); }
 .book-directory-seasons[data-indicator-ready="true"] > .book-directory-selection { opacity: 1; }
 .seasons-reading-room .book-directory-season { position: relative; background: transparent; transition: border-color 650ms ease; }
-.book-directory-season::before { content: ""; position: absolute; inset: 0; z-index: -1; opacity: 0; background: linear-gradient(100deg, color-mix(in srgb, var(--directory-accent) 6%, transparent), transparent); transition: opacity 650ms ease; pointer-events: none; }
+.book-directory-season::before { content: ""; position: absolute; inset: 0; z-index: -1; opacity: 0; background: linear-gradient(100deg, color-mix(in srgb, var(--directory-accent) 11%, transparent), transparent); transition: opacity 650ms ease; pointer-events: none; }
 .book-directory-season[data-active="true"]::before { opacity: 1; }
 .book-directory-terms button { position: relative; z-index: 2; border-radius: 10px 3px; transition: color 320ms ease, background-color 200ms ease, border-color 200ms ease; }
 .book-directory-seasons[data-indicator-ready="true"] .book-directory-terms button[aria-pressed="true"] { background: transparent; border-color: transparent; }
@@ -126,6 +191,14 @@ body:has(.seasons-reading-room:not([style*="display: none"])) .site-header { min
   background: #fffdf785;
 }
 .seasons-book-toolbar .seasons-motion[aria-pressed="false"]:enabled { background: #dde8dc80; }
+.seasons-reading-room .seasons-book-controls > .seasons-book-next:enabled {
+  border-color: #24494e;
+  background: linear-gradient(135deg, #3e6b6c, #285054);
+  color: #fff8e9;
+  box-shadow: inset 0 0 0 1px #f5e6be37;
+}
+.seasons-reading-room .seasons-book-next:enabled small { color: #f0e6cd; }
+.seasons-reading-room .seasons-book-controls > .seasons-book-next:enabled:is(:hover, :active) { background: #23484c; }
 .seasons-book-button > :not(.seasons-sr-only) { pointer-events: none; }
 .seasons-explorer .seasons-book-button:enabled:active {
   background: color-mix(in srgb, var(--directory-accent, var(--seasons-blue)) 14%, transparent);
@@ -193,7 +266,7 @@ body:has(.seasons-reading-room:not([style*="display: none"])) .site-header { min
   .seasons-reading-room .book-directory-heading { display: flex; }
   .seasons-reading-room .book-directory-heading em { display: inline; margin-left: 12px; }
   .seasons-reading-room .book-directory-seasons { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px 20px; }
-  .seasons-reading-room .book-directory-season { padding: 6px 10px 10px; border-bottom: 1px solid #b69a5c30; }
+  .seasons-reading-room .book-directory-season { padding: 6px 10px 10px; }
   .seasons-reading-room .seasons-term-heading { align-items: flex-start; flex-direction: column; gap: 10px; margin-top: 18px; }
   .seasons-reading-room .seasons-longitude p { display: flex; gap: 8px; }
   .seasons-reading-room .seasons-description { font-size: 14px; }
@@ -202,10 +275,10 @@ body:has(.seasons-reading-room:not([style*="display: none"])) .site-header { min
   body:has(.seasons-reading-room:not([style*="display: none"])) .site-header { padding-top: 18px; gap: 10px; }
   .seasons-reading-room { --reading-page-height: 530px; padding-inline: 0; }
   .seasons-reading-room .seasons-book-toolbar { align-items: center; min-height: 72px; gap: 10px; }
+  .seasons-book-toolbar::before { display: none; }
   .seasons-toolbar-art { flex: 1 1 0; width: 100%; max-width: 148px; height: 38px; }
   .seasons-reading-room .seasons-book-toolbar > div { display: flex; gap: 3px; }
   .seasons-reading-room .seasons-book-toolbar > div:first-child { display: grid; flex: none; }
-  .seasons-reading-room .seasons-book-toolbar h2 { font-size: 22px; }
   .seasons-reading-room .seasons-book-toolbar p { margin: 0; font-size: 10px; }
   .seasons-reading-room .seasons-book-toolbar-actions { max-width: 150px; justify-content: end; gap: 0 8px; }
   .seasons-reading-room .seasons-book-small-screen-hint { margin: 0; }
