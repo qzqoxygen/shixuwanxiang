@@ -25,7 +25,9 @@ export function beginAiRequest(request: Request, route: "chat" | "studio", conte
     return { status: 400, code: "INVALID_REQUEST_ID", message: "请求标识无效，请重新发送。" } as const;
   }
   const trustedIngress = process.env.VERCEL === "1" || process.env.SHIXU_TRUST_PROXY === "1";
-  const address = trustedIngress ? request.headers.get("x-forwarded-for")?.split(",")[0].trim() : undefined;
+  const address = process.env.SHIXU_TRUST_NETLIFY === "1"
+    ? request.headers.get("x-nf-client-connection-ip")?.trim()
+    : trustedIngress ? request.headers.get("x-forwarded-for")?.split(",")[0].trim() : undefined;
   const key = address || "local";
   const client = clients.get(key) ?? { reset: now + windowMs, count: 0, requests: new Map<string, number>() };
   if (now >= client.reset) {

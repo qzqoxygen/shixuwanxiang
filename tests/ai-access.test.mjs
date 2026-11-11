@@ -63,3 +63,18 @@ test("self-hosted visitors get separate limits only behind the configured revers
   assert.equal(send("192.0.2.1", "over-limit").status, 429);
   send("192.0.2.2", "separate-visitor").finish();
 });
+
+test("Netlify uses its platform client IP header and ignores a supplied forwarded address", (t) => {
+  const old = process.env.SHIXU_TRUST_NETLIFY;
+  process.env.SHIXU_TRUST_NETLIFY = "1";
+  t.after(() => {
+    if (old === undefined) delete process.env.SHIXU_TRUST_NETLIFY;
+    else process.env.SHIXU_TRUST_NETLIFY = old;
+  });
+  const send = (client, forwarded, id) => beginAiRequest(new Request("https://example.netlify.app/api/chat", {
+    headers: { "x-nf-client-connection-ip": client, "x-forwarded-for": forwarded, "idempotency-key": id },
+  }), "chat", "question");
+  for (let n = 0; n < 12; n++) send("198.51.100.1", "203.0.113." + n, "netlify-" + n).finish();
+  assert.equal(send("198.51.100.1", "203.0.113.99", "netlify-over-limit").status, 429);
+  send("198.51.100.2", "203.0.113.99", "netlify-other-visitor").finish();
+});
