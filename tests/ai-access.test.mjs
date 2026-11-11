@@ -42,3 +42,39 @@ test("the access limit allows a fresh window and legacy clients can intentionall
   t.mock.timers.tick(60_000);
   beginAiRequest(request, "studio", "qingming-card").finish();
 });
+
+test("self-hosted visitors get separate limits only behind the configured reverse proxy", (t) => {
+  const previous = { VERCEL: process.env.VERCEL, SHIXU_TRUST_PROXY: process.env.SHIXU_TRUST_PROXY };
+  t.after(() => {
+    for (const [key, value] of Object.entries(previous)) {
+      if (value === undefined) delete process.env[key];
+      else process.env[key] = value;
+    }
+  });
+  delete process.env.VERCEL;
+  delete process.env.SHIXU_TRUST_PROXY;
+  const send = (ip, id) => beginAiRequest(new Request("http://localhost/api/chat", {
+    headers: { "x-forwarded-for": ip, "idempotency-key": id },
+  }), "chat", "question");
+  send("192.0.2.1", "direct").finish();
+  assert.equal(send("192.0.2.2", "direct").status, 409);
+  process.env.SHIXU_TRUST_PROXY = "1";
+  for (let n = 0; n < 12; n++) send("192.0.2.1", "chat-" + n).finish();
+  assert.equal(send("192.0.2.1", "over-limit").status, 429);
+  send("192.0.2.2", "separate-visitor").finish();
+});
+
+test("Netlify uses its platform client IP header and ignores a supplied forwarded address", (t) => {
+  const old = process.env.SHIXU_TRUST_NETLIFY;
+  process.env.SHIXU_TRUST_NETLIFY = "1";
+  t.after(() => {
+    if (old === undefined) delete process.env.SHIXU_TRUST_NETLIFY;
+    else process.env.SHIXU_TRUST_NETLIFY = old;
+  });
+  const send = (client, forwarded, id) => beginAiRequest(new Request("https://example.netlify.app/api/chat", {
+    headers: { "x-nf-client-connection-ip": client, "x-forwarded-for": forwarded, "idempotency-key": id },
+  }), "chat", "question");
+  for (let n = 0; n < 12; n++) send("198.51.100.1", "203.0.113." + n, "netlify-" + n).finish();
+  assert.equal(send("198.51.100.1", "203.0.113.99", "netlify-over-limit").status, 429);
+  send("198.51.100.2", "203.0.113.99", "netlify-other-visitor").finish();
+});

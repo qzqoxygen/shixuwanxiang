@@ -1,0 +1,1695 @@
+{
+  "target": "https://qsxshixu-ai.netlify.app/",
+  "startedUtc": "2026-11-11T00:28:52.775093Z",
+  "deploymentId": "6af3b63b2d86a195d45c0da0",
+  "source": "Anonymous Globalping HTTPS GET from mainland ISP eyeball-network probes. Control client uses requests.Session.trust_env=False and TLS verification. Physical subscriber and probe operator settings are not independently verified.",
+  "successCriterion": "Globalping probe in CN on the selected carrier ASN and city, HTTP status 200, HTML title contains 时序.",
+  "requestedRounds": 20,
+  "probeTimeoutSeconds": 15,
+  "limitsBefore": {
+    "rateLimit": {
+      "measurements": {
+        "create": {
+          "type": "ip",
+          "limit": 250,
+          "remaining": 247,
+          "reset": 1667
+        }
+      }
+    }
+  },
+  "probeInventoryUtc": "2026-11-11T00:28:52.775119Z",
+  "selectedProbeCandidates": [
+    {
+      "carrier": "mobile",
+      "asn": 56046,
+      "city": "Wuxi",
+      "matchingOnlineProbes": [
+        {
+          "version": "0.54.0",
+          "location": {
+            "continent": "AS",
+            "region": "Eastern Asia",
+            "country": "CN",
+            "state": null,
+            "city": "Wuxi",
+            "asn": 56046,
+            "latitude": 31.57,
+            "longitude": 120.29,
+            "network": "China Mobile Communications"
+          },
+          "tags": [
+            "eyeball-network"
+          ],
+          "resolvers": [
+            "private"
+          ]
+        }
+      ]
+    },
+    {
+      "carrier": "unicom",
+      "asn": 17621,
+      "city": "Shanghai",
+      "matchingOnlineProbes": [
+        {
+          "version": "0.54.0",
+          "location": {
+            "continent": "AS",
+            "region": "Eastern Asia",
+            "country": "CN",
+            "state": null,
+            "city": "Shanghai",
+            "asn": 17621,
+            "latitude": 31.22,
+            "longitude": 121.46,
+            "network": "China Unicom Shanghai network"
+          },
+          "tags": [
+            "eyeball-network",
+            "u-caoer:cn",
+            "u-caoer:shanghai",
+            "u-caoer:stex",
+            "u-caoer:coscene-stex"
+          ],
+          "resolvers": [
+            "223.5.5.5",
+            "223.6.6.6",
+            "2408:8026:480:112::6666",
+            "2400:3200::1"
+          ]
+        },
+        {
+          "version": "0.54.0",
+          "location": {
+            "continent": "AS",
+            "region": "Eastern Asia",
+            "country": "CN",
+            "state": null,
+            "city": "Shanghai",
+            "asn": 17621,
+            "latitude": 31.22,
+            "longitude": 121.46,
+            "network": "China Unicom Shanghai network"
+          },
+          "tags": [
+            "eyeball-network"
+          ],
+          "resolvers": [
+            "private",
+            "114.114.114.114",
+            "8.8.8.8"
+          ]
+        }
+      ]
+    },
+    {
+      "carrier": "telecom",
+      "asn": 4134,
+      "city": "Yancheng",
+      "matchingOnlineProbes": [
+        {
+          "version": "0.54.0",
+          "location": {
+            "continent": "AS",
+            "region": "Eastern Asia",
+            "country": "CN",
+            "state": null,
+            "city": "Yancheng",
+            "asn": 4134,
+            "latitude": 33.39,
+            "longitude": 120.13,
+            "network": "China Telecom"
+          },
+          "tags": [
+            "eyeball-network"
+          ],
+          "resolvers": [
+            "private"
+          ]
+        }
+      ]
+    }
+  ],
+  "rounds": [
+    {
+      "round": 1,
+      "utc": "2026-11-11T00:28:52.776375Z",
+      "measurement": "2FVE19qeU725lbmA400021Tu0",
+      "results": [
+        {
+          "carrier": "mobile",
+          "country": "CN",
+          "city": "Wuxi",
+          "asn": 56046,
+          "network": "China Mobile Communications",
+          "probeTags": [
+            "eyeball-network"
+          ],
+          "status": "finished",
+          "httpStatus": 401,
+          "timingsMs": {
+            "total": 382,
+            "dns": 102,
+            "tcp": 76,
+            "tls": 98,
+            "firstByte": 105,
+            "download": 1
+          },
+          "resolvedAddress": "52.74.6.109",
+          "siteBodyConfirmed": false,
+          "success": false,
+          "reason": "HTTP 401",
+          "truncated": false,
+          "responseContentType": "text/html; charset=utf-8",
+          "title": "Login Redirect",
+          "titleContainsShixu": false,
+          "bodyDecode": "api-json-string",
+          "rawTitleCandidates": [
+            [
+              "api-json-string",
+              "Login Redirect"
+            ]
+          ],
+          "rawBodyPrefix": "<!DOCTYPE html>\n<html>\n<head>\n    <title>Login Redirect</title>\n</head>\n<body>\n    <script>\n        window.onload = function() {\n            var fragment = window.location.hash;\n  ",
+          "rawBodySha256": "da1e3a4d9bd4dad1304e67c28d1e073e55f9b88727b8927c5fb8778e78944bc7"
+        },
+        {
+          "carrier": "unicom",
+          "country": "CN",
+          "city": "Shanghai",
+          "asn": 17621,
+          "network": "China Unicom Shanghai network",
+          "probeTags": [
+            "eyeball-network",
+            "u-caoer:cn",
+            "u-caoer:shanghai",
+            "u-caoer:stex",
+            "u-caoer:coscene-stex"
+          ],
+          "status": "finished",
+          "httpStatus": 401,
+          "timingsMs": {
+            "total": 424,
+            "dns": 203,
+            "tcp": 74,
+            "tls": 75,
+            "firstByte": 72,
+            "download": 0
+          },
+          "resolvedAddress": "52.74.6.109",
+          "siteBodyConfirmed": false,
+          "success": false,
+          "reason": "HTTP 401",
+          "truncated": false,
+          "responseContentType": "text/html; charset=utf-8",
+          "title": "Login Redirect",
+          "titleContainsShixu": false,
+          "bodyDecode": "api-json-string",
+          "rawTitleCandidates": [
+            [
+              "api-json-string",
+              "Login Redirect"
+            ]
+          ],
+          "rawBodyPrefix": "<!DOCTYPE html>\n<html>\n<head>\n    <title>Login Redirect</title>\n</head>\n<body>\n    <script>\n        window.onload = function() {\n            var fragment = window.location.hash;\n  ",
+          "rawBodySha256": "da1e3a4d9bd4dad1304e67c28d1e073e55f9b88727b8927c5fb8778e78944bc7"
+        },
+        {
+          "carrier": "telecom",
+          "country": "CN",
+          "city": "Yancheng",
+          "asn": 4134,
+          "network": "China Telecom",
+          "probeTags": [
+            "eyeball-network"
+          ],
+          "status": "finished",
+          "httpStatus": 401,
+          "timingsMs": {
+            "total": 319,
+            "dns": 68,
+            "tcp": 83,
+            "tls": 87,
+            "firstByte": 81,
+            "download": 0
+          },
+          "resolvedAddress": "52.74.6.109",
+          "siteBodyConfirmed": false,
+          "success": false,
+          "reason": "HTTP 401",
+          "truncated": false,
+          "responseContentType": "text/html; charset=utf-8",
+          "title": "Login Redirect",
+          "titleContainsShixu": false,
+          "bodyDecode": "api-json-string",
+          "rawTitleCandidates": [
+            [
+              "api-json-string",
+              "Login Redirect"
+            ]
+          ],
+          "rawBodyPrefix": "<!DOCTYPE html>\n<html>\n<head>\n    <title>Login Redirect</title>\n</head>\n<body>\n    <script>\n        window.onload = function() {\n            var fragment = window.location.hash;\n  ",
+          "rawBodySha256": "da1e3a4d9bd4dad1304e67c28d1e073e55f9b88727b8927c5fb8778e78944bc7"
+        }
+      ],
+      "request": {
+        "type": "http",
+        "target": "qsxshixu-ai.netlify.app",
+        "timeout": 15,
+        "measurementOptions": {
+          "protocol": "HTTPS",
+          "request": {
+            "method": "GET",
+            "path": "/",
+            "headers": {
+              "Accept": "text/html",
+              "Accept-Encoding": "identity"
+            }
+          }
+        },
+        "locations": [
+          {
+            "country": "CN",
+            "city": "Wuxi",
+            "asn": 56046,
+            "tags": [
+              "eyeball-network"
+            ],
+            "limit": 1
+          },
+          {
+            "country": "CN",
+            "city": "Shanghai",
+            "asn": 17621,
+            "tags": [
+              "eyeball-network"
+            ],
+            "limit": 1
+          },
+          {
+            "country": "CN",
+            "city": "Yancheng",
+            "asn": 4134,
+            "tags": [
+              "eyeball-network"
+            ],
+            "limit": 1
+          }
+        ]
+      },
+      "createHttpStatus": 202,
+      "rateLimitHeaders": {
+        "X-RateLimit-Reset": "1665",
+        "X-RateLimit-Limit": "250",
+        "X-RateLimit-Consumed": "3",
+        "X-RateLimit-Remaining": "244"
+      },
+      "probesCount": 3,
+      "measurementStatus": "finished",
+      "createdAt": "2026-11-11T00:28:53.562Z",
+      "updatedAt": "2026-11-11T00:28:54.224Z",
+      "completedUtc": "2026-11-11T00:28:55.531016Z",
+      "missingCarriers": []
+    },
+    {
+      "round": 2,
+      "utc": "2026-11-11T00:28:55.532644Z",
+      "measurement": "2s7O2o3XHJy64UBno00021Tu0",
+      "results": [
+        {
+          "carrier": "mobile",
+          "country": "CN",
+          "city": "Wuxi",
+          "asn": 56046,
+          "network": "China Mobile Communications",
+          "probeTags": [
+            "eyeball-network"
+          ],
+          "status": "finished",
+          "httpStatus": 401,
+          "timingsMs": {
+            "total": 303,
+            "dns": 5,
+            "tcp": 89,
+            "tls": 117,
+            "firstByte": 92,
+            "download": 0
+          },
+          "resolvedAddress": "13.215.239.219",
+          "siteBodyConfirmed": false,
+          "success": false,
+          "reason": "HTTP 401",
+          "truncated": false,
+          "responseContentType": "text/html; charset=utf-8",
+          "title": "Login Redirect",
+          "titleContainsShixu": false,
+          "bodyDecode": "api-json-string",
+          "rawTitleCandidates": [
+            [
+              "api-json-string",
+              "Login Redirect"
+            ]
+          ],
+          "rawBodyPrefix": "<!DOCTYPE html>\n<html>\n<head>\n    <title>Login Redirect</title>\n</head>\n<body>\n    <script>\n        window.onload = function() {\n            var fragment = window.location.hash;\n  ",
+          "rawBodySha256": "da1e3a4d9bd4dad1304e67c28d1e073e55f9b88727b8927c5fb8778e78944bc7"
+        },
+        {
+          "carrier": "unicom",
+          "country": "CN",
+          "city": "Shanghai",
+          "asn": 17621,
+          "network": "China Unicom Shanghai network",
+          "probeTags": [
+            "eyeball-network",
+            "u-caoer:cn",
+            "u-caoer:shanghai",
+            "u-caoer:stex",
+            "u-caoer:coscene-stex"
+          ],
+          "status": "finished",
+          "httpStatus": 401,
+          "timingsMs": {
+            "total": 398,
+            "dns": 181,
+            "tcp": 71,
+            "tls": 74,
+            "firstByte": 72,
+            "download": 0
+          },
+          "resolvedAddress": "52.74.6.109",
+          "siteBodyConfirmed": false,
+          "success": false,
+          "reason": "HTTP 401",
+          "truncated": false,
+          "responseContentType": "text/html; charset=utf-8",
+          "title": "Login Redirect",
+          "titleContainsShixu": false,
+          "bodyDecode": "api-json-string",
+          "rawTitleCandidates": [
+            [
+              "api-json-string",
+              "Login Redirect"
+            ]
+          ],
+          "rawBodyPrefix": "<!DOCTYPE html>\n<html>\n<head>\n    <title>Login Redirect</title>\n</head>\n<body>\n    <script>\n        window.onload = function() {\n            var fragment = window.location.hash;\n  ",
+          "rawBodySha256": "da1e3a4d9bd4dad1304e67c28d1e073e55f9b88727b8927c5fb8778e78944bc7"
+        },
+        {
+          "carrier": "telecom",
+          "country": "CN",
+          "city": "Yancheng",
+          "asn": 4134,
+          "network": "China Telecom",
+          "probeTags": [
+            "eyeball-network"
+          ],
+          "status": "finished",
+          "httpStatus": 401,
+          "timingsMs": {
+            "total": 283,
+            "dns": 2,
+            "tcp": 85,
+            "tls": 97,
+            "firstByte": 99,
+            "download": 0
+          },
+          "resolvedAddress": "13.215.239.219",
+          "siteBodyConfirmed": false,
+          "success": false,
+          "reason": "HTTP 401",
+          "truncated": false,
+          "responseContentType": "text/html; charset=utf-8",
+          "title": "Login Redirect",
+          "titleContainsShixu": false,
+          "bodyDecode": "api-json-string",
+          "rawTitleCandidates": [
+            [
+              "api-json-string",
+              "Login Redirect"
+            ]
+          ],
+          "rawBodyPrefix": "<!DOCTYPE html>\n<html>\n<head>\n    <title>Login Redirect</title>\n</head>\n<body>\n    <script>\n        window.onload = function() {\n            var fragment = window.location.hash;\n  ",
+          "rawBodySha256": "da1e3a4d9bd4dad1304e67c28d1e073e55f9b88727b8927c5fb8778e78944bc7"
+        }
+      ],
+      "request": {
+        "type": "http",
+        "target": "qsxshixu-ai.netlify.app",
+        "timeout": 15,
+        "measurementOptions": {
+          "protocol": "HTTPS",
+          "request": {
+            "method": "GET",
+            "path": "/",
+            "headers": {
+              "Accept": "text/html",
+              "Accept-Encoding": "identity"
+            }
+          }
+        },
+        "locations": "2FVE19qeU725lbmA400021Tu0",
+        "limit": 3
+      },
+      "createHttpStatus": 202,
+      "rateLimitHeaders": {
+        "X-RateLimit-Reset": "1662",
+        "X-RateLimit-Limit": "250",
+        "X-RateLimit-Consumed": "3",
+        "X-RateLimit-Remaining": "241"
+      },
+      "probesCount": 3,
+      "measurementStatus": "finished",
+      "createdAt": "2026-11-11T00:28:56.324Z",
+      "updatedAt": "2026-11-11T00:28:56.938Z",
+      "completedUtc": "2026-11-11T00:28:58.033840Z",
+      "missingCarriers": []
+    },
+    {
+      "round": 3,
+      "utc": "2026-11-11T00:28:58.034718Z",
+      "measurement": "2ibevJT1MmUIme0Tt00021Tu0",
+      "results": [
+        {
+          "carrier": "mobile",
+          "country": "CN",
+          "city": "Wuxi",
+          "asn": 56046,
+          "network": "China Mobile Communications",
+          "probeTags": [
+            "eyeball-network"
+          ],
+          "status": "finished",
+          "httpStatus": 401,
+          "timingsMs": {
+            "total": 282,
+            "dns": 4,
+            "tcp": 88,
+            "tls": 110,
+            "firstByte": 80,
+            "download": 0
+          },
+          "resolvedAddress": "13.215.239.219",
+          "siteBodyConfirmed": false,
+          "success": false,
+          "reason": "HTTP 401",
+          "truncated": false,
+          "responseContentType": "text/html; charset=utf-8",
+          "title": "Login Redirect",
+          "titleContainsShixu": false,
+          "bodyDecode": "api-json-string",
+          "rawTitleCandidates": [
+            [
+              "api-json-string",
+              "Login Redirect"
+            ]
+          ],
+          "rawBodyPrefix": "<!DOCTYPE html>\n<html>\n<head>\n    <title>Login Redirect</title>\n</head>\n<body>\n    <script>\n        window.onload = function() {\n            var fragment = window.location.hash;\n  ",
+          "rawBodySha256": "da1e3a4d9bd4dad1304e67c28d1e073e55f9b88727b8927c5fb8778e78944bc7"
+        },
+        {
+          "carrier": "unicom",
+          "country": "CN",
+          "city": "Shanghai",
+          "asn": 17621,
+          "network": "China Unicom Shanghai network",
+          "probeTags": [
+            "eyeball-network",
+            "u-caoer:cn",
+            "u-caoer:shanghai",
+            "u-caoer:stex",
+            "u-caoer:coscene-stex"
+          ],
+          "status": "finished",
+          "httpStatus": 401,
+          "timingsMs": {
+            "total": 235,
+            "dns": 11,
+            "tcp": 73,
+            "tls": 78,
+            "firstByte": 73,
+            "download": 0
+          },
+          "resolvedAddress": "13.215.239.219",
+          "siteBodyConfirmed": false,
+          "success": false,
+          "reason": "HTTP 401",
+          "truncated": false,
+          "responseContentType": "text/html; charset=utf-8",
+          "title": "Login Redirect",
+          "titleContainsShixu": false,
+          "bodyDecode": "api-json-string",
+          "rawTitleCandidates": [
+            [
+              "api-json-string",
+              "Login Redirect"
+            ]
+          ],
+          "rawBodyPrefix": "<!DOCTYPE html>\n<html>\n<head>\n    <title>Login Redirect</title>\n</head>\n<body>\n    <script>\n        window.onload = function() {\n            var fragment = window.location.hash;\n  ",
+          "rawBodySha256": "da1e3a4d9bd4dad1304e67c28d1e073e55f9b88727b8927c5fb8778e78944bc7"
+        },
+        {
+          "carrier": "telecom",
+          "country": "CN",
+          "city": "Yancheng",
+          "asn": 4134,
+          "network": "China Telecom",
+          "probeTags": [
+            "eyeball-network"
+          ],
+          "status": "finished",
+          "httpStatus": 401,
+          "timingsMs": {
+            "total": 292,
+            "dns": 6,
+            "tcp": 89,
+            "tls": 100,
+            "firstByte": 97,
+            "download": 0
+          },
+          "resolvedAddress": "52.74.6.109",
+          "siteBodyConfirmed": false,
+          "success": false,
+          "reason": "HTTP 401",
+          "truncated": false,
+          "responseContentType": "text/html; charset=utf-8",
+          "title": "Login Redirect",
+          "titleContainsShixu": false,
+          "bodyDecode": "api-json-string",
+          "rawTitleCandidates": [
+            [
+              "api-json-string",
+              "Login Redirect"
+            ]
+          ],
+          "rawBodyPrefix": "<!DOCTYPE html>\n<html>\n<head>\n    <title>Login Redirect</title>\n</head>\n<body>\n    <script>\n        window.onload = function() {\n            var fragment = window.location.hash;\n  ",
+          "rawBodySha256": "da1e3a4d9bd4dad1304e67c28d1e073e55f9b88727b8927c5fb8778e78944bc7"
+        }
+      ],
+      "request": {
+        "type": "http",
+        "target": "qsxshixu-ai.netlify.app",
+        "timeout": 15,
+        "measurementOptions": {
+          "protocol": "HTTPS",
+          "request": {
+            "method": "GET",
+            "path": "/",
+            "headers": {
+              "Accept": "text/html",
+              "Accept-Encoding": "identity"
+            }
+          }
+        },
+        "locations": "2s7O2o3XHJy64UBno00021Tu0",
+        "limit": 3
+      },
+      "createHttpStatus": 202,
+      "rateLimitHeaders": {
+        "X-RateLimit-Reset": "1660",
+        "X-RateLimit-Limit": "250",
+        "X-RateLimit-Consumed": "3",
+        "X-RateLimit-Remaining": "238"
+      },
+      "probesCount": 3,
+      "measurementStatus": "finished",
+      "createdAt": "2026-11-11T00:28:58.568Z",
+      "updatedAt": "2026-11-11T00:28:59.200Z",
+      "completedUtc": "2026-11-11T00:29:00.358350Z",
+      "missingCarriers": []
+    },
+    {
+      "round": 4,
+      "utc": "2026-11-11T00:29:00.360004Z",
+      "measurement": "2S9uMzwWDJ2XYjOHs00021Tu1",
+      "results": [
+        {
+          "carrier": "mobile",
+          "country": "CN",
+          "city": "Wuxi",
+          "asn": 56046,
+          "network": "China Mobile Communications",
+          "probeTags": [
+            "eyeball-network"
+          ],
+          "status": "finished",
+          "httpStatus": 401,
+          "timingsMs": {
+            "total": 251,
+            "dns": 5,
+            "tcp": 74,
+            "tls": 99,
+            "firstByte": 73,
+            "download": 0
+          },
+          "resolvedAddress": "13.215.239.219",
+          "siteBodyConfirmed": false,
+          "success": false,
+          "reason": "HTTP 401",
+          "truncated": false,
+          "responseContentType": "text/html; charset=utf-8",
+          "title": "Login Redirect",
+          "titleContainsShixu": false,
+          "bodyDecode": "api-json-string",
+          "rawTitleCandidates": [
+            [
+              "api-json-string",
+              "Login Redirect"
+            ]
+          ],
+          "rawBodyPrefix": "<!DOCTYPE html>\n<html>\n<head>\n    <title>Login Redirect</title>\n</head>\n<body>\n    <script>\n        window.onload = function() {\n            var fragment = window.location.hash;\n  ",
+          "rawBodySha256": "da1e3a4d9bd4dad1304e67c28d1e073e55f9b88727b8927c5fb8778e78944bc7"
+        },
+        {
+          "carrier": "unicom",
+          "country": "CN",
+          "city": "Shanghai",
+          "asn": 17621,
+          "network": "China Unicom Shanghai network",
+          "probeTags": [
+            "eyeball-network",
+            "u-caoer:cn",
+            "u-caoer:shanghai",
+            "u-caoer:stex",
+            "u-caoer:coscene-stex"
+          ],
+          "status": "finished",
+          "httpStatus": 401,
+          "timingsMs": {
+            "total": 235,
+            "dns": 10,
+            "tcp": 74,
+            "tls": 76,
+            "firstByte": 75,
+            "download": 0
+          },
+          "resolvedAddress": "13.215.239.219",
+          "siteBodyConfirmed": false,
+          "success": false,
+          "reason": "HTTP 401",
+          "truncated": false,
+          "responseContentType": "text/html; charset=utf-8",
+          "title": "Login Redirect",
+          "titleContainsShixu": false,
+          "bodyDecode": "api-json-string",
+          "rawTitleCandidates": [
+            [
+              "api-json-string",
+              "Login Redirect"
+            ]
+          ],
+          "rawBodyPrefix": "<!DOCTYPE html>\n<html>\n<head>\n    <title>Login Redirect</title>\n</head>\n<body>\n    <script>\n        window.onload = function() {\n            var fragment = window.location.hash;\n  ",
+          "rawBodySha256": "da1e3a4d9bd4dad1304e67c28d1e073e55f9b88727b8927c5fb8778e78944bc7"
+        },
+        {
+          "carrier": "telecom",
+          "country": "CN",
+          "city": "Yancheng",
+          "asn": 4134,
+          "network": "China Telecom",
+          "probeTags": [
+            "eyeball-network"
+          ],
+          "status": "finished",
+          "httpStatus": 401,
+          "timingsMs": {
+            "total": 280,
+            "dns": 9,
+            "tcp": 84,
+            "tls": 102,
+            "firstByte": 85,
+            "download": 0
+          },
+          "resolvedAddress": "13.215.239.219",
+          "siteBodyConfirmed": false,
+          "success": false,
+          "reason": "HTTP 401",
+          "truncated": false,
+          "responseContentType": "text/html; charset=utf-8",
+          "title": "Login Redirect",
+          "titleContainsShixu": false,
+          "bodyDecode": "api-json-string",
+          "rawTitleCandidates": [
+            [
+              "api-json-string",
+              "Login Redirect"
+            ]
+          ],
+          "rawBodyPrefix": "<!DOCTYPE html>\n<html>\n<head>\n    <title>Login Redirect</title>\n</head>\n<body>\n    <script>\n        window.onload = function() {\n            var fragment = window.location.hash;\n  ",
+          "rawBodySha256": "da1e3a4d9bd4dad1304e67c28d1e073e55f9b88727b8927c5fb8778e78944bc7"
+        }
+      ],
+      "request": {
+        "type": "http",
+        "target": "qsxshixu-ai.netlify.app",
+        "timeout": 15,
+        "measurementOptions": {
+          "protocol": "HTTPS",
+          "request": {
+            "method": "GET",
+            "path": "/",
+            "headers": {
+              "Accept": "text/html",
+              "Accept-Encoding": "identity"
+            }
+          }
+        },
+        "locations": "2ibevJT1MmUIme0Tt00021Tu0",
+        "limit": 3
+      },
+      "createHttpStatus": 202,
+      "rateLimitHeaders": {
+        "X-RateLimit-Reset": "1657",
+        "X-RateLimit-Limit": "250",
+        "X-RateLimit-Consumed": "3",
+        "X-RateLimit-Remaining": "235"
+      },
+      "probesCount": 3,
+      "measurementStatus": "finished",
+      "createdAt": "2026-11-11T00:29:00.897Z",
+      "updatedAt": "2026-11-11T00:29:01.509Z",
+      "completedUtc": "2026-11-11T00:29:02.426849Z",
+      "missingCarriers": []
+    },
+    {
+      "round": 5,
+      "utc": "2026-11-11T00:29:02.428616Z",
+      "measurement": "2FVy66kC5UuqTD0FW00021Tu1",
+      "results": [
+        {
+          "carrier": "mobile",
+          "country": "CN",
+          "city": "Wuxi",
+          "asn": 56046,
+          "network": "China Mobile Communications",
+          "probeTags": [
+            "eyeball-network"
+          ],
+          "status": "finished",
+          "httpStatus": 401,
+          "timingsMs": {
+            "total": 252,
+            "dns": 4,
+            "tcp": 72,
+            "tls": 99,
+            "firstByte": 76,
+            "download": 1
+          },
+          "resolvedAddress": "13.215.239.219",
+          "siteBodyConfirmed": false,
+          "success": false,
+          "reason": "HTTP 401",
+          "truncated": false,
+          "responseContentType": "text/html; charset=utf-8",
+          "title": "Login Redirect",
+          "titleContainsShixu": false,
+          "bodyDecode": "api-json-string",
+          "rawTitleCandidates": [
+            [
+              "api-json-string",
+              "Login Redirect"
+            ]
+          ],
+          "rawBodyPrefix": "<!DOCTYPE html>\n<html>\n<head>\n    <title>Login Redirect</title>\n</head>\n<body>\n    <script>\n        window.onload = function() {\n            var fragment = window.location.hash;\n  ",
+          "rawBodySha256": "da1e3a4d9bd4dad1304e67c28d1e073e55f9b88727b8927c5fb8778e78944bc7"
+        },
+        {
+          "carrier": "unicom",
+          "country": "CN",
+          "city": "Shanghai",
+          "asn": 17621,
+          "network": "China Unicom Shanghai network",
+          "probeTags": [
+            "eyeball-network",
+            "u-caoer:cn",
+            "u-caoer:shanghai",
+            "u-caoer:stex",
+            "u-caoer:coscene-stex"
+          ],
+          "status": "finished",
+          "httpStatus": 401,
+          "timingsMs": {
+            "total": 225,
+            "dns": 9,
+            "tcp": 71,
+            "tls": 73,
+            "firstByte": 72,
+            "download": 0
+          },
+          "resolvedAddress": "13.215.239.219",
+          "siteBodyConfirmed": false,
+          "success": false,
+          "reason": "HTTP 401",
+          "truncated": false,
+          "responseContentType": "text/html; charset=utf-8",
+          "title": "Login Redirect",
+          "titleContainsShixu": false,
+          "bodyDecode": "api-json-string",
+          "rawTitleCandidates": [
+            [
+              "api-json-string",
+              "Login Redirect"
+            ]
+          ],
+          "rawBodyPrefix": "<!DOCTYPE html>\n<html>\n<head>\n    <title>Login Redirect</title>\n</head>\n<body>\n    <script>\n        window.onload = function() {\n            var fragment = window.location.hash;\n  ",
+          "rawBodySha256": "da1e3a4d9bd4dad1304e67c28d1e073e55f9b88727b8927c5fb8778e78944bc7"
+        },
+        {
+          "carrier": "telecom",
+          "country": "CN",
+          "city": "Yancheng",
+          "asn": 4134,
+          "network": "China Telecom",
+          "probeTags": [
+            "eyeball-network"
+          ],
+          "status": "finished",
+          "httpStatus": 401,
+          "timingsMs": {
+            "total": 253,
+            "dns": 9,
+            "tcp": 77,
+            "tls": 87,
+            "firstByte": 80,
+            "download": 0
+          },
+          "resolvedAddress": "52.74.6.109",
+          "siteBodyConfirmed": false,
+          "success": false,
+          "reason": "HTTP 401",
+          "truncated": false,
+          "responseContentType": "text/html; charset=utf-8",
+          "title": "Login Redirect",
+          "titleContainsShixu": false,
+          "bodyDecode": "api-json-string",
+          "rawTitleCandidates": [
+            [
+              "api-json-string",
+              "Login Redirect"
+            ]
+          ],
+          "rawBodyPrefix": "<!DOCTYPE html>\n<html>\n<head>\n    <title>Login Redirect</title>\n</head>\n<body>\n    <script>\n        window.onload = function() {\n            var fragment = window.location.hash;\n  ",
+          "rawBodySha256": "da1e3a4d9bd4dad1304e67c28d1e073e55f9b88727b8927c5fb8778e78944bc7"
+        }
+      ],
+      "request": {
+        "type": "http",
+        "target": "qsxshixu-ai.netlify.app",
+        "timeout": 15,
+        "measurementOptions": {
+          "protocol": "HTTPS",
+          "request": {
+            "method": "GET",
+            "path": "/",
+            "headers": {
+              "Accept": "text/html",
+              "Accept-Encoding": "identity"
+            }
+          }
+        },
+        "locations": "2S9uMzwWDJ2XYjOHs00021Tu1",
+        "limit": 3
+      },
+      "createHttpStatus": 202,
+      "rateLimitHeaders": {
+        "X-RateLimit-Reset": "1655",
+        "X-RateLimit-Limit": "250",
+        "X-RateLimit-Consumed": "3",
+        "X-RateLimit-Remaining": "232"
+      },
+      "probesCount": 3,
+      "measurementStatus": "finished",
+      "createdAt": "2026-11-11T00:29:02.963Z",
+      "updatedAt": "2026-11-11T00:29:03.559Z",
+      "completedUtc": "2026-11-11T00:29:04.692217Z",
+      "missingCarriers": []
+    },
+    {
+      "round": 6,
+      "utc": "2026-11-11T00:29:04.694070Z",
+      "measurement": "2vh16jWitCxEXXO1900021Tu1",
+      "results": [
+        {
+          "carrier": "mobile",
+          "country": "CN",
+          "city": "Wuxi",
+          "asn": 56046,
+          "network": "China Mobile Communications",
+          "probeTags": [
+            "eyeball-network"
+          ],
+          "status": "finished",
+          "httpStatus": 401,
+          "timingsMs": {
+            "total": 257,
+            "dns": 5,
+            "tcp": 74,
+            "tls": 100,
+            "firstByte": 78,
+            "download": 0
+          },
+          "resolvedAddress": "13.215.239.219",
+          "siteBodyConfirmed": false,
+          "success": false,
+          "reason": "HTTP 401",
+          "truncated": false,
+          "responseContentType": "text/html; charset=utf-8",
+          "title": "Login Redirect",
+          "titleContainsShixu": false,
+          "bodyDecode": "api-json-string",
+          "rawTitleCandidates": [
+            [
+              "api-json-string",
+              "Login Redirect"
+            ]
+          ],
+          "rawBodyPrefix": "<!DOCTYPE html>\n<html>\n<head>\n    <title>Login Redirect</title>\n</head>\n<body>\n    <script>\n        window.onload = function() {\n            var fragment = window.location.hash;\n  ",
+          "rawBodySha256": "da1e3a4d9bd4dad1304e67c28d1e073e55f9b88727b8927c5fb8778e78944bc7"
+        },
+        {
+          "carrier": "unicom",
+          "country": "CN",
+          "city": "Shanghai",
+          "asn": 17621,
+          "network": "China Unicom Shanghai network",
+          "probeTags": [
+            "eyeball-network",
+            "u-caoer:cn",
+            "u-caoer:shanghai",
+            "u-caoer:stex",
+            "u-caoer:coscene-stex"
+          ],
+          "status": "finished",
+          "httpStatus": 401,
+          "timingsMs": {
+            "total": 224,
+            "dns": 10,
+            "tcp": 71,
+            "tls": 75,
+            "firstByte": 68,
+            "download": 0
+          },
+          "resolvedAddress": "52.74.6.109",
+          "siteBodyConfirmed": false,
+          "success": false,
+          "reason": "HTTP 401",
+          "truncated": false,
+          "responseContentType": "text/html; charset=utf-8",
+          "title": "Login Redirect",
+          "titleContainsShixu": false,
+          "bodyDecode": "api-json-string",
+          "rawTitleCandidates": [
+            [
+              "api-json-string",
+              "Login Redirect"
+            ]
+          ],
+          "rawBodyPrefix": "<!DOCTYPE html>\n<html>\n<head>\n    <title>Login Redirect</title>\n</head>\n<body>\n    <script>\n        window.onload = function() {\n            var fragment = window.location.hash;\n  ",
+          "rawBodySha256": "da1e3a4d9bd4dad1304e67c28d1e073e55f9b88727b8927c5fb8778e78944bc7"
+        },
+        {
+          "carrier": "telecom",
+          "country": "CN",
+          "city": "Yancheng",
+          "asn": 4134,
+          "network": "China Telecom",
+          "probeTags": [
+            "eyeball-network"
+          ],
+          "status": "finished",
+          "httpStatus": 401,
+          "timingsMs": {
+            "total": 270,
+            "dns": 2,
+            "tcp": 89,
+            "tls": 91,
+            "firstByte": 88,
+            "download": 0
+          },
+          "resolvedAddress": "13.215.239.219",
+          "siteBodyConfirmed": false,
+          "success": false,
+          "reason": "HTTP 401",
+          "truncated": false,
+          "responseContentType": "text/html; charset=utf-8",
+          "title": "Login Redirect",
+          "titleContainsShixu": false,
+          "bodyDecode": "api-json-string",
+          "rawTitleCandidates": [
+            [
+              "api-json-string",
+              "Login Redirect"
+            ]
+          ],
+          "rawBodyPrefix": "<!DOCTYPE html>\n<html>\n<head>\n    <title>Login Redirect</title>\n</head>\n<body>\n    <script>\n        window.onload = function() {\n            var fragment = window.location.hash;\n  ",
+          "rawBodySha256": "da1e3a4d9bd4dad1304e67c28d1e073e55f9b88727b8927c5fb8778e78944bc7"
+        }
+      ],
+      "request": {
+        "type": "http",
+        "target": "qsxshixu-ai.netlify.app",
+        "timeout": 15,
+        "measurementOptions": {
+          "protocol": "HTTPS",
+          "request": {
+            "method": "GET",
+            "path": "/",
+            "headers": {
+              "Accept": "text/html",
+              "Accept-Encoding": "identity"
+            }
+          }
+        },
+        "locations": "2FVy66kC5UuqTD0FW00021Tu1",
+        "limit": 3
+      },
+      "createHttpStatus": 202,
+      "rateLimitHeaders": {
+        "X-RateLimit-Reset": "1653",
+        "X-RateLimit-Limit": "250",
+        "X-RateLimit-Consumed": "3",
+        "X-RateLimit-Remaining": "229"
+      },
+      "probesCount": 3,
+      "measurementStatus": "finished",
+      "createdAt": "2026-11-11T00:29:05.268Z",
+      "updatedAt": "2026-11-11T00:29:05.868Z",
+      "completedUtc": "2026-11-11T00:29:06.930687Z",
+      "missingCarriers": []
+    },
+    {
+      "round": 7,
+      "utc": "2026-11-11T00:29:06.932464Z",
+      "measurement": "2rAexQ9STPYl3MX7x00021Tu1",
+      "results": [
+        {
+          "carrier": "mobile",
+          "country": "CN",
+          "city": "Wuxi",
+          "asn": 56046,
+          "network": "China Mobile Communications",
+          "probeTags": [
+            "eyeball-network"
+          ],
+          "status": "finished",
+          "httpStatus": 401,
+          "timingsMs": {
+            "total": 256,
+            "dns": 6,
+            "tcp": 74,
+            "tls": 99,
+            "firstByte": 77,
+            "download": 0
+          },
+          "resolvedAddress": "13.215.239.219",
+          "siteBodyConfirmed": false,
+          "success": false,
+          "reason": "HTTP 401",
+          "truncated": false,
+          "responseContentType": "text/html; charset=utf-8",
+          "title": "Login Redirect",
+          "titleContainsShixu": false,
+          "bodyDecode": "api-json-string",
+          "rawTitleCandidates": [
+            [
+              "api-json-string",
+              "Login Redirect"
+            ]
+          ],
+          "rawBodyPrefix": "<!DOCTYPE html>\n<html>\n<head>\n    <title>Login Redirect</title>\n</head>\n<body>\n    <script>\n        window.onload = function() {\n            var fragment = window.location.hash;\n  ",
+          "rawBodySha256": "da1e3a4d9bd4dad1304e67c28d1e073e55f9b88727b8927c5fb8778e78944bc7"
+        },
+        {
+          "carrier": "unicom",
+          "country": "CN",
+          "city": "Shanghai",
+          "asn": 17621,
+          "network": "China Unicom Shanghai network",
+          "probeTags": [
+            "eyeball-network",
+            "u-caoer:cn",
+            "u-caoer:shanghai",
+            "u-caoer:stex",
+            "u-caoer:coscene-stex"
+          ],
+          "status": "finished",
+          "httpStatus": 401,
+          "timingsMs": {
+            "total": 225,
+            "dns": 7,
+            "tcp": 72,
+            "tls": 74,
+            "firstByte": 72,
+            "download": 0
+          },
+          "resolvedAddress": "13.215.239.219",
+          "siteBodyConfirmed": false,
+          "success": false,
+          "reason": "HTTP 401",
+          "truncated": false,
+          "responseContentType": "text/html; charset=utf-8",
+          "title": "Login Redirect",
+          "titleContainsShixu": false,
+          "bodyDecode": "api-json-string",
+          "rawTitleCandidates": [
+            [
+              "api-json-string",
+              "Login Redirect"
+            ]
+          ],
+          "rawBodyPrefix": "<!DOCTYPE html>\n<html>\n<head>\n    <title>Login Redirect</title>\n</head>\n<body>\n    <script>\n        window.onload = function() {\n            var fragment = window.location.hash;\n  ",
+          "rawBodySha256": "da1e3a4d9bd4dad1304e67c28d1e073e55f9b88727b8927c5fb8778e78944bc7"
+        },
+        {
+          "carrier": "telecom",
+          "country": "CN",
+          "city": "Yancheng",
+          "asn": 4134,
+          "network": "China Telecom",
+          "probeTags": [
+            "eyeball-network"
+          ],
+          "status": "failed",
+          "httpStatus": null,
+          "timingsMs": {
+            "total": 109,
+            "dns": 5,
+            "tcp": 82,
+            "tls": null,
+            "firstByte": null,
+            "download": null
+          },
+          "resolvedAddress": "52.74.6.109",
+          "siteBodyConfirmed": false,
+          "success": false,
+          "reason": "read ECONNRESET",
+          "truncated": false,
+          "responseContentType": null,
+          "title": null,
+          "titleContainsShixu": false,
+          "bodyDecode": "no-body"
+        }
+      ],
+      "request": {
+        "type": "http",
+        "target": "qsxshixu-ai.netlify.app",
+        "timeout": 15,
+        "measurementOptions": {
+          "protocol": "HTTPS",
+          "request": {
+            "method": "GET",
+            "path": "/",
+            "headers": {
+              "Accept": "text/html",
+              "Accept-Encoding": "identity"
+            }
+          }
+        },
+        "locations": "2vh16jWitCxEXXO1900021Tu1",
+        "limit": 3
+      },
+      "createHttpStatus": 202,
+      "rateLimitHeaders": {
+        "X-RateLimit-Reset": "1651",
+        "X-RateLimit-Limit": "250",
+        "X-RateLimit-Consumed": "3",
+        "X-RateLimit-Remaining": "226"
+      },
+      "probesCount": 3,
+      "measurementStatus": "finished",
+      "createdAt": "2026-11-11T00:29:07.466Z",
+      "updatedAt": "2026-11-11T00:29:08.010Z",
+      "completedUtc": "2026-11-11T00:29:07.871361Z",
+      "missingCarriers": []
+    },
+    {
+      "round": 8,
+      "utc": "2026-11-11T00:29:07.873946Z",
+      "measurement": "2m9Iff97kzS9II0ek00021Tu1",
+      "results": [
+        {
+          "carrier": "mobile",
+          "country": "CN",
+          "city": "Wuxi",
+          "asn": 56046,
+          "network": "China Mobile Communications",
+          "probeTags": [
+            "eyeball-network"
+          ],
+          "status": "finished",
+          "httpStatus": 401,
+          "timingsMs": {
+            "total": 372,
+            "dns": 5,
+            "tcp": 74,
+            "tls": 102,
+            "firstByte": 191,
+            "download": 0
+          },
+          "resolvedAddress": "13.215.239.219",
+          "siteBodyConfirmed": false,
+          "success": false,
+          "reason": "HTTP 401",
+          "truncated": false,
+          "responseContentType": "text/html; charset=utf-8",
+          "title": "Login Redirect",
+          "titleContainsShixu": false,
+          "bodyDecode": "api-json-string",
+          "rawTitleCandidates": [
+            [
+              "api-json-string",
+              "Login Redirect"
+            ]
+          ],
+          "rawBodyPrefix": "<!DOCTYPE html>\n<html>\n<head>\n    <title>Login Redirect</title>\n</head>\n<body>\n    <script>\n        window.onload = function() {\n            var fragment = window.location.hash;\n  ",
+          "rawBodySha256": "da1e3a4d9bd4dad1304e67c28d1e073e55f9b88727b8927c5fb8778e78944bc7"
+        },
+        {
+          "carrier": "unicom",
+          "country": "CN",
+          "city": "Shanghai",
+          "asn": 17621,
+          "network": "China Unicom Shanghai network",
+          "probeTags": [
+            "eyeball-network",
+            "u-caoer:cn",
+            "u-caoer:shanghai",
+            "u-caoer:stex",
+            "u-caoer:coscene-stex"
+          ],
+          "status": "finished",
+          "httpStatus": 401,
+          "timingsMs": {
+            "total": 226,
+            "dns": 8,
+            "tcp": 71,
+            "tls": 75,
+            "firstByte": 72,
+            "download": 0
+          },
+          "resolvedAddress": "13.215.239.219",
+          "siteBodyConfirmed": false,
+          "success": false,
+          "reason": "HTTP 401",
+          "truncated": false,
+          "responseContentType": "text/html; charset=utf-8",
+          "title": "Login Redirect",
+          "titleContainsShixu": false,
+          "bodyDecode": "api-json-string",
+          "rawTitleCandidates": [
+            [
+              "api-json-string",
+              "Login Redirect"
+            ]
+          ],
+          "rawBodyPrefix": "<!DOCTYPE html>\n<html>\n<head>\n    <title>Login Redirect</title>\n</head>\n<body>\n    <script>\n        window.onload = function() {\n            var fragment = window.location.hash;\n  ",
+          "rawBodySha256": "da1e3a4d9bd4dad1304e67c28d1e073e55f9b88727b8927c5fb8778e78944bc7"
+        },
+        {
+          "carrier": "telecom",
+          "country": "CN",
+          "city": "Yancheng",
+          "asn": 4134,
+          "network": "China Telecom",
+          "probeTags": [
+            "eyeball-network"
+          ],
+          "status": "finished",
+          "httpStatus": 401,
+          "timingsMs": {
+            "total": 237,
+            "dns": 2,
+            "tcp": 78,
+            "tls": 79,
+            "firstByte": 78,
+            "download": 0
+          },
+          "resolvedAddress": "13.215.239.219",
+          "siteBodyConfirmed": false,
+          "success": false,
+          "reason": "HTTP 401",
+          "truncated": false,
+          "responseContentType": "text/html; charset=utf-8",
+          "title": "Login Redirect",
+          "titleContainsShixu": false,
+          "bodyDecode": "api-json-string",
+          "rawTitleCandidates": [
+            [
+              "api-json-string",
+              "Login Redirect"
+            ]
+          ],
+          "rawBodyPrefix": "<!DOCTYPE html>\n<html>\n<head>\n    <title>Login Redirect</title>\n</head>\n<body>\n    <script>\n        window.onload = function() {\n            var fragment = window.location.hash;\n  ",
+          "rawBodySha256": "da1e3a4d9bd4dad1304e67c28d1e073e55f9b88727b8927c5fb8778e78944bc7"
+        }
+      ],
+      "request": {
+        "type": "http",
+        "target": "qsxshixu-ai.netlify.app",
+        "timeout": 15,
+        "measurementOptions": {
+          "protocol": "HTTPS",
+          "request": {
+            "method": "GET",
+            "path": "/",
+            "headers": {
+              "Accept": "text/html",
+              "Accept-Encoding": "identity"
+            }
+          }
+        },
+        "locations": "2rAexQ9STPYl3MX7x00021Tu1",
+        "limit": 3
+      },
+      "createHttpStatus": 202,
+      "rateLimitHeaders": {
+        "X-RateLimit-Reset": "1650",
+        "X-RateLimit-Limit": "250",
+        "X-RateLimit-Consumed": "3",
+        "X-RateLimit-Remaining": "223"
+      },
+      "probesCount": 3,
+      "measurementStatus": "finished",
+      "createdAt": "2026-11-11T00:29:08.414Z",
+      "updatedAt": "2026-11-11T00:29:09.069Z",
+      "completedUtc": "2026-11-11T00:29:10.176756Z",
+      "missingCarriers": []
+    },
+    {
+      "round": 9,
+      "utc": "2026-11-11T00:29:10.179170Z",
+      "measurement": "2KjmgFIlevaZ2DGWD00021Tu1",
+      "results": [
+        {
+          "carrier": "mobile",
+          "country": "CN",
+          "city": "Wuxi",
+          "asn": 56046,
+          "network": "China Mobile Communications",
+          "probeTags": [
+            "eyeball-network"
+          ],
+          "status": "finished",
+          "httpStatus": 401,
+          "timingsMs": {
+            "total": 304,
+            "dns": 5,
+            "tcp": 89,
+            "tls": 118,
+            "firstByte": 92,
+            "download": 0
+          },
+          "resolvedAddress": "13.215.239.219",
+          "siteBodyConfirmed": false,
+          "success": false,
+          "reason": "HTTP 401",
+          "truncated": false,
+          "responseContentType": "text/html; charset=utf-8",
+          "title": "Login Redirect",
+          "titleContainsShixu": false,
+          "bodyDecode": "api-json-string",
+          "rawTitleCandidates": [
+            [
+              "api-json-string",
+              "Login Redirect"
+            ]
+          ],
+          "rawBodyPrefix": "<!DOCTYPE html>\n<html>\n<head>\n    <title>Login Redirect</title>\n</head>\n<body>\n    <script>\n        window.onload = function() {\n            var fragment = window.location.hash;\n  ",
+          "rawBodySha256": "da1e3a4d9bd4dad1304e67c28d1e073e55f9b88727b8927c5fb8778e78944bc7"
+        },
+        {
+          "carrier": "unicom",
+          "country": "CN",
+          "city": "Shanghai",
+          "asn": 17621,
+          "network": "China Unicom Shanghai network",
+          "probeTags": [
+            "eyeball-network",
+            "u-caoer:cn",
+            "u-caoer:shanghai",
+            "u-caoer:stex",
+            "u-caoer:coscene-stex"
+          ],
+          "status": "finished",
+          "httpStatus": 401,
+          "timingsMs": {
+            "total": 247,
+            "dns": 10,
+            "tcp": 77,
+            "tls": 81,
+            "firstByte": 79,
+            "download": 0
+          },
+          "resolvedAddress": "52.74.6.109",
+          "siteBodyConfirmed": false,
+          "success": false,
+          "reason": "HTTP 401",
+          "truncated": false,
+          "responseContentType": "text/html; charset=utf-8",
+          "title": "Login Redirect",
+          "titleContainsShixu": false,
+          "bodyDecode": "api-json-string",
+          "rawTitleCandidates": [
+            [
+              "api-json-string",
+              "Login Redirect"
+            ]
+          ],
+          "rawBodyPrefix": "<!DOCTYPE html>\n<html>\n<head>\n    <title>Login Redirect</title>\n</head>\n<body>\n    <script>\n        window.onload = function() {\n            var fragment = window.location.hash;\n  ",
+          "rawBodySha256": "da1e3a4d9bd4dad1304e67c28d1e073e55f9b88727b8927c5fb8778e78944bc7"
+        },
+        {
+          "carrier": "telecom",
+          "country": "CN",
+          "city": "Yancheng",
+          "asn": 4134,
+          "network": "China Telecom",
+          "probeTags": [
+            "eyeball-network"
+          ],
+          "status": "finished",
+          "httpStatus": 401,
+          "timingsMs": {
+            "total": 265,
+            "dns": 9,
+            "tcp": 88,
+            "tls": 84,
+            "firstByte": 84,
+            "download": 0
+          },
+          "resolvedAddress": "52.74.6.109",
+          "siteBodyConfirmed": false,
+          "success": false,
+          "reason": "HTTP 401",
+          "truncated": false,
+          "responseContentType": "text/html; charset=utf-8",
+          "title": "Login Redirect",
+          "titleContainsShixu": false,
+          "bodyDecode": "api-json-string",
+          "rawTitleCandidates": [
+            [
+              "api-json-string",
+              "Login Redirect"
+            ]
+          ],
+          "rawBodyPrefix": "<!DOCTYPE html>\n<html>\n<head>\n    <title>Login Redirect</title>\n</head>\n<body>\n    <script>\n        window.onload = function() {\n            var fragment = window.location.hash;\n  ",
+          "rawBodySha256": "da1e3a4d9bd4dad1304e67c28d1e073e55f9b88727b8927c5fb8778e78944bc7"
+        }
+      ],
+      "request": {
+        "type": "http",
+        "target": "qsxshixu-ai.netlify.app",
+        "timeout": 15,
+        "measurementOptions": {
+          "protocol": "HTTPS",
+          "request": {
+            "method": "GET",
+            "path": "/",
+            "headers": {
+              "Accept": "text/html",
+              "Accept-Encoding": "identity"
+            }
+          }
+        },
+        "locations": "2m9Iff97kzS9II0ek00021Tu1",
+        "limit": 3
+      },
+      "createHttpStatus": 202,
+      "rateLimitHeaders": {
+        "X-RateLimit-Reset": "1647",
+        "X-RateLimit-Limit": "250",
+        "X-RateLimit-Consumed": "3",
+        "X-RateLimit-Remaining": "220"
+      },
+      "probesCount": 3,
+      "measurementStatus": "finished",
+      "createdAt": "2026-11-11T00:29:10.706Z",
+      "updatedAt": "2026-11-11T00:29:11.301Z",
+      "completedUtc": "2026-11-11T00:29:12.641325Z",
+      "missingCarriers": []
+    },
+    {
+      "round": 10,
+      "utc": "2026-11-11T00:29:12.643066Z",
+      "measurement": "206oIXd3P6Ic0HE2o00021Tu1",
+      "results": [
+        {
+          "carrier": "mobile",
+          "country": "CN",
+          "city": "Wuxi",
+          "asn": 56046,
+          "network": "China Mobile Communications",
+          "probeTags": [
+            "eyeball-network"
+          ],
+          "status": "finished",
+          "httpStatus": 401,
+          "timingsMs": {
+            "total": 252,
+            "dns": 4,
+            "tcp": 73,
+            "tls": 99,
+            "firstByte": 76,
+            "download": 0
+          },
+          "resolvedAddress": "13.215.239.219",
+          "siteBodyConfirmed": false,
+          "success": false,
+          "reason": "HTTP 401",
+          "truncated": false,
+          "responseContentType": "text/html; charset=utf-8",
+          "title": "Login Redirect",
+          "titleContainsShixu": false,
+          "bodyDecode": "api-json-string",
+          "rawTitleCandidates": [
+            [
+              "api-json-string",
+              "Login Redirect"
+            ]
+          ],
+          "rawBodyPrefix": "<!DOCTYPE html>\n<html>\n<head>\n    <title>Login Redirect</title>\n</head>\n<body>\n    <script>\n        window.onload = function() {\n            var fragment = window.location.hash;\n  ",
+          "rawBodySha256": "da1e3a4d9bd4dad1304e67c28d1e073e55f9b88727b8927c5fb8778e78944bc7"
+        },
+        {
+          "carrier": "unicom",
+          "country": "CN",
+          "city": "Shanghai",
+          "asn": 17621,
+          "network": "China Unicom Shanghai network",
+          "probeTags": [
+            "eyeball-network",
+            "u-caoer:cn",
+            "u-caoer:shanghai",
+            "u-caoer:stex",
+            "u-caoer:coscene-stex"
+          ],
+          "status": "finished",
+          "httpStatus": 401,
+          "timingsMs": {
+            "total": 251,
+            "dns": 10,
+            "tcp": 78,
+            "tls": 82,
+            "firstByte": 81,
+            "download": 0
+          },
+          "resolvedAddress": "52.74.6.109",
+          "siteBodyConfirmed": false,
+          "success": false,
+          "reason": "HTTP 401",
+          "truncated": false,
+          "responseContentType": "text/html; charset=utf-8",
+          "title": "Login Redirect",
+          "titleContainsShixu": false,
+          "bodyDecode": "api-json-string",
+          "rawTitleCandidates": [
+            [
+              "api-json-string",
+              "Login Redirect"
+            ]
+          ],
+          "rawBodyPrefix": "<!DOCTYPE html>\n<html>\n<head>\n    <title>Login Redirect</title>\n</head>\n<body>\n    <script>\n        window.onload = function() {\n            var fragment = window.location.hash;\n  ",
+          "rawBodySha256": "da1e3a4d9bd4dad1304e67c28d1e073e55f9b88727b8927c5fb8778e78944bc7"
+        },
+        {
+          "carrier": "telecom",
+          "country": "CN",
+          "city": "Yancheng",
+          "asn": 4134,
+          "network": "China Telecom",
+          "probeTags": [
+            "eyeball-network"
+          ],
+          "status": "finished",
+          "httpStatus": 401,
+          "timingsMs": {
+            "total": 250,
+            "dns": 2,
+            "tcp": 81,
+            "tls": 86,
+            "firstByte": 81,
+            "download": 0
+          },
+          "resolvedAddress": "13.215.239.219",
+          "siteBodyConfirmed": false,
+          "success": false,
+          "reason": "HTTP 401",
+          "truncated": false,
+          "responseContentType": "text/html; charset=utf-8",
+          "title": "Login Redirect",
+          "titleContainsShixu": false,
+          "bodyDecode": "api-json-string",
+          "rawTitleCandidates": [
+            [
+              "api-json-string",
+              "Login Redirect"
+            ]
+          ],
+          "rawBodyPrefix": "<!DOCTYPE html>\n<html>\n<head>\n    <title>Login Redirect</title>\n</head>\n<body>\n    <script>\n        window.onload = function() {\n            var fragment = window.location.hash;\n  ",
+          "rawBodySha256": "da1e3a4d9bd4dad1304e67c28d1e073e55f9b88727b8927c5fb8778e78944bc7"
+        }
+      ],
+      "request": {
+        "type": "http",
+        "target": "qsxshixu-ai.netlify.app",
+        "timeout": 15,
+        "measurementOptions": {
+          "protocol": "HTTPS",
+          "request": {
+            "method": "GET",
+            "path": "/",
+            "headers": {
+              "Accept": "text/html",
+              "Accept-Encoding": "identity"
+            }
+          }
+        },
+        "locations": "2KjmgFIlevaZ2DGWD00021Tu1",
+        "limit": 3
+      },
+      "createHttpStatus": 202,
+      "rateLimitHeaders": {
+        "X-RateLimit-Reset": "1645",
+        "X-RateLimit-Limit": "250",
+        "X-RateLimit-Consumed": "3",
+        "X-RateLimit-Remaining": "217"
+      },
+      "probesCount": 3,
+      "measurementStatus": "finished",
+      "createdAt": "2026-11-11T00:29:13.174Z",
+      "updatedAt": "2026-11-11T00:29:13.756Z",
+      "completedUtc": "2026-11-11T00:29:13.561610Z",
+      "missingCarriers": []
+    },
+    {
+      "round": 11,
+      "utc": "2026-11-11T00:29:13.563185Z",
+      "measurement": null,
+      "results": []
+    }
+  ],
+  "stopReason": "Paused on parent instruction: Netlify login access protection returned HTTP 401; not a mainland network failure.",
+  "finishedUtc": "2026-11-11T00:29:13.830091Z",
+  "completedRounds": 10,
+  "stage": "initial-protection-enabled"
+}

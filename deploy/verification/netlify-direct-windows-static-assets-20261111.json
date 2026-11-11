@@ -1,0 +1,5038 @@
+{
+  "started_utc": "2026-11-11T00:29:43+00:00",
+  "host": "qsxshixu-ai.netlify.app",
+  "device_os": "Windows 11",
+  "python": "3.13.12",
+  "carrier": "unknown",
+  "carrier_evidence": "unknown",
+  "region_evidence": "unknown",
+  "proxy_settings": {
+    "environment_proxy_set": false,
+    "windows_user_proxy_enabled": true,
+    "windows_user_pac_set": false
+  },
+  "application_proxy_used": false,
+  "transport": "OS DNS, direct TCP, TLS with system trust and hostname validation, HTTP/1.1",
+  "socket_timeout_s": 5,
+  "rounds": [
+    {
+      "number": 1,
+      "utc": "2026-11-11T00:29:43+00:00",
+      "checks": [
+        {
+          "kind": "home",
+          "path": "/",
+          "status": 200,
+          "ms": {
+            "dns": 7.2,
+            "tcp": 96.0,
+            "tls": 86.8,
+            "headers": 1182.2,
+            "http": 1271.4,
+            "total": 1466.7
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "bytes": 13497,
+          "ok": true
+        },
+        {
+          "kind": "cases",
+          "path": "/api/cultural-cases",
+          "status": 200,
+          "ms": {
+            "dns": 13.8,
+            "tcp": 103.5,
+            "tls": 90.6,
+            "headers": 986.5,
+            "http": 987.0,
+            "total": 1195.1
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "bytes": 796,
+          "ok": true
+        },
+        {
+          "kind": "image",
+          "path": "/images/azure-landscape.svg",
+          "status": 404,
+          "ms": {
+            "dns": 1.0,
+            "tcp": 106.0,
+            "tls": 89.8,
+            "headers": 758.3,
+            "http": 759.0,
+            "total": 956.0
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "font",
+          "path": "/fonts/ma-shan-zheng-headings.ttf",
+          "status": 404,
+          "ms": {
+            "dns": 1.0,
+            "tcp": 102.6,
+            "tls": 88.1,
+            "headers": 810.0,
+            "http": 810.6,
+            "total": 1002.3
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "css",
+          "path": "/_next/static/chunks/3qv4m2v2pk7sr.css",
+          "status": 404,
+          "ms": {
+            "dns": 1.1,
+            "tcp": 114.3,
+            "tls": 95.8,
+            "headers": 1429.2,
+            "http": 1429.5,
+            "total": 1640.8
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/0_xceca9x8w3m.js",
+          "status": 404,
+          "ms": {
+            "dns": 0.6,
+            "tcp": 90.9,
+            "tls": 94.9,
+            "headers": 477.4,
+            "http": 478.2,
+            "total": 664.6
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/20box33a0_n53.js",
+          "status": 404,
+          "ms": {
+            "dns": 1.2,
+            "tcp": 91.0,
+            "tls": 94.9,
+            "headers": 1639.4,
+            "http": 1639.9,
+            "total": 1827.1
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/0-8-2pf2bywtz.js",
+          "status": 404,
+          "ms": {
+            "dns": 1.1,
+            "tcp": 100.6,
+            "tls": 93.9,
+            "headers": 477.4,
+            "http": 477.9,
+            "total": 673.6
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/turbopack-3-ry682tkyiqk.js",
+          "status": 404,
+          "ms": {
+            "dns": 1.1,
+            "tcp": 113.0,
+            "tls": 93.3,
+            "headers": 492.8,
+            "http": 493.4,
+            "total": 700.8
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/3gk5w3ho66_ge.js",
+          "status": 404,
+          "ms": {
+            "dns": 1.1,
+            "tcp": 99.8,
+            "tls": 82.0,
+            "headers": 456.6,
+            "http": 457.3,
+            "total": 640.2
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/0cz1d0mv5g_q7.js",
+          "status": null,
+          "ms": {
+            "dns": 1.0,
+            "tcp": 76.6,
+            "tls": 22.6,
+            "total": 100.3
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "ok": false,
+          "failed_stage": "tls",
+          "error": "ConnectionResetError",
+          "os_code": 10054
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/0om590q-tq0l9.js",
+          "status": 404,
+          "ms": {
+            "dns": 1.6,
+            "tcp": 90.3,
+            "tls": 93.6,
+            "headers": 469.7,
+            "http": 470.0,
+            "total": 655.6
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "js",
+          "path": "/.netlify/scripts/hud",
+          "status": 200,
+          "ms": {
+            "dns": 0.7,
+            "tcp": 90.8,
+            "tls": 94.3,
+            "headers": 233.1,
+            "http": 414.2,
+            "total": 600.0
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "bytes": 35855,
+          "ok": true
+        }
+      ],
+      "html_dependencies": {
+        "same_origin_css_js": 9,
+        "external_css_js_unfetched": 0
+      },
+      "ok": false,
+      "total_ms": 12123.5
+    },
+    {
+      "number": 2,
+      "utc": "2026-11-11T00:29:56+00:00",
+      "checks": [
+        {
+          "kind": "home",
+          "path": "/",
+          "status": 200,
+          "ms": {
+            "dns": 1.0,
+            "tcp": 96.9,
+            "tls": 85.0,
+            "headers": 476.4,
+            "http": 556.5,
+            "total": 741.8
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "bytes": 13497,
+          "ok": true
+        },
+        {
+          "kind": "cases",
+          "path": "/api/cultural-cases",
+          "status": 200,
+          "ms": {
+            "dns": 1.0,
+            "tcp": 104.2,
+            "tls": 83.1,
+            "headers": 497.7,
+            "http": 498.3,
+            "total": 686.8
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "bytes": 796,
+          "ok": true
+        },
+        {
+          "kind": "image",
+          "path": "/images/azure-landscape.svg",
+          "status": 404,
+          "ms": {
+            "dns": 0.9,
+            "tcp": 105.3,
+            "tls": 104.5,
+            "headers": 524.3,
+            "http": 524.8,
+            "total": 735.6
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "font",
+          "path": "/fonts/ma-shan-zheng-headings.ttf",
+          "status": 404,
+          "ms": {
+            "dns": 0.9,
+            "tcp": 90.3,
+            "tls": 95.0,
+            "headers": 503.8,
+            "http": 504.4,
+            "total": 690.7
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "css",
+          "path": "/_next/static/chunks/3qv4m2v2pk7sr.css",
+          "status": 404,
+          "ms": {
+            "dns": 1.0,
+            "tcp": 97.3,
+            "tls": 90.2,
+            "headers": 688.1,
+            "http": 688.5,
+            "total": 877.1
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/0_xceca9x8w3m.js",
+          "status": 404,
+          "ms": {
+            "dns": 17.7,
+            "tcp": 104.5,
+            "tls": 86.9,
+            "headers": 692.9,
+            "http": 693.4,
+            "total": 902.5
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/20box33a0_n53.js",
+          "status": 404,
+          "ms": {
+            "dns": 1.2,
+            "tcp": 99.9,
+            "tls": 82.1,
+            "headers": 454.7,
+            "http": 455.1,
+            "total": 638.4
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/0-8-2pf2bywtz.js",
+          "status": 404,
+          "ms": {
+            "dns": 1.1,
+            "tcp": 106.6,
+            "tls": 94.1,
+            "headers": 465.6,
+            "http": 466.2,
+            "total": 668.1
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/turbopack-3-ry682tkyiqk.js",
+          "status": 404,
+          "ms": {
+            "dns": 1.1,
+            "tcp": 101.6,
+            "tls": 84.8,
+            "headers": 454.2,
+            "http": 454.8,
+            "total": 642.4
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/3gk5w3ho66_ge.js",
+          "status": 404,
+          "ms": {
+            "dns": 1.0,
+            "tcp": 97.6,
+            "tls": 89.2,
+            "headers": 473.0,
+            "http": 473.7,
+            "total": 661.6
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/0cz1d0mv5g_q7.js",
+          "status": 404,
+          "ms": {
+            "dns": 0.8,
+            "tcp": 109.7,
+            "tls": 94.3,
+            "headers": 469.9,
+            "http": 470.6,
+            "total": 675.5
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/0om590q-tq0l9.js",
+          "status": 404,
+          "ms": {
+            "dns": 1.0,
+            "tcp": 109.1,
+            "tls": 114.2,
+            "headers": 500.4,
+            "http": 500.9,
+            "total": 725.4
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "js",
+          "path": "/.netlify/scripts/hud",
+          "status": 200,
+          "ms": {
+            "dns": 1.0,
+            "tcp": 77.6,
+            "tls": 79.3,
+            "headers": 191.9,
+            "http": 345.1,
+            "total": 503.1
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "bytes": 35855,
+          "ok": true
+        }
+      ],
+      "html_dependencies": {
+        "same_origin_css_js": 9,
+        "external_css_js_unfetched": 0
+      },
+      "ok": false,
+      "total_ms": 9149.3
+    },
+    {
+      "number": 3,
+      "utc": "2026-11-11T00:30:06+00:00",
+      "checks": [
+        {
+          "kind": "home",
+          "path": "/",
+          "status": null,
+          "ms": {
+            "dns": 1.2,
+            "tcp": 93.4,
+            "tls": 22.5,
+            "total": 117.2
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "ok": false,
+          "failed_stage": "tls",
+          "error": "ConnectionResetError",
+          "os_code": 10054
+        },
+        {
+          "kind": "cases",
+          "path": "/api/cultural-cases",
+          "status": 200,
+          "ms": {
+            "dns": 1.0,
+            "tcp": 86.9,
+            "tls": 91.9,
+            "headers": 767.0,
+            "http": 767.7,
+            "total": 947.8
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "bytes": 796,
+          "ok": true
+        },
+        {
+          "kind": "image",
+          "path": "/images/azure-landscape.svg",
+          "status": 404,
+          "ms": {
+            "dns": 1.0,
+            "tcp": 110.5,
+            "tls": 97.8,
+            "headers": 524.6,
+            "http": 524.8,
+            "total": 734.2
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "font",
+          "path": "/fonts/ma-shan-zheng-headings.ttf",
+          "status": 404,
+          "ms": {
+            "dns": 1.2,
+            "tcp": 90.4,
+            "tls": 94.0,
+            "headers": 755.0,
+            "http": 755.6,
+            "total": 941.3
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        }
+      ],
+      "html_dependencies": "not discovered",
+      "ok": false,
+      "total_ms": 2740.7
+    },
+    {
+      "number": 4,
+      "utc": "2026-11-11T00:30:10+00:00",
+      "checks": [
+        {
+          "kind": "home",
+          "path": "/",
+          "status": 200,
+          "ms": {
+            "dns": 0.6,
+            "tcp": 104.7,
+            "tls": 96.1,
+            "headers": 214.1,
+            "http": 299.8,
+            "total": 502.9
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "bytes": 13497,
+          "ok": true
+        },
+        {
+          "kind": "cases",
+          "path": "/api/cultural-cases",
+          "status": 200,
+          "ms": {
+            "dns": 0.6,
+            "tcp": 83.2,
+            "tls": 85.1,
+            "headers": 461.6,
+            "http": 463.9,
+            "total": 632.9
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "bytes": 796,
+          "ok": true
+        },
+        {
+          "kind": "image",
+          "path": "/images/azure-landscape.svg",
+          "status": 404,
+          "ms": {
+            "dns": 0.5,
+            "tcp": 90.5,
+            "tls": 89.6,
+            "headers": 616.4,
+            "http": 616.7,
+            "total": 797.3
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "font",
+          "path": "/fonts/ma-shan-zheng-headings.ttf",
+          "status": 404,
+          "ms": {
+            "dns": 0.6,
+            "tcp": 82.8,
+            "tls": 87.6,
+            "headers": 487.0,
+            "http": 487.6,
+            "total": 658.7
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "css",
+          "path": "/_next/static/chunks/3qv4m2v2pk7sr.css",
+          "status": 404,
+          "ms": {
+            "dns": 1.1,
+            "tcp": 101.2,
+            "tls": 90.7,
+            "headers": 484.2,
+            "http": 484.9,
+            "total": 677.9
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/0_xceca9x8w3m.js",
+          "status": null,
+          "ms": {
+            "dns": 1.4,
+            "tcp": 75.7,
+            "tls": 23.2,
+            "total": 100.4
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "ok": false,
+          "failed_stage": "tls",
+          "error": "ConnectionResetError",
+          "os_code": 10054
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/20box33a0_n53.js",
+          "status": 404,
+          "ms": {
+            "dns": 1.2,
+            "tcp": 99.5,
+            "tls": 88.9,
+            "headers": 468.2,
+            "http": 468.9,
+            "total": 658.7
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/0-8-2pf2bywtz.js",
+          "status": 404,
+          "ms": {
+            "dns": 1.4,
+            "tcp": 100.0,
+            "tls": 89.1,
+            "headers": 463.4,
+            "http": 463.8,
+            "total": 654.4
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/turbopack-3-ry682tkyiqk.js",
+          "status": 404,
+          "ms": {
+            "dns": 17.6,
+            "tcp": 115.6,
+            "tls": 98.6,
+            "headers": 483.0,
+            "http": 483.6,
+            "total": 715.4
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/3gk5w3ho66_ge.js",
+          "status": 404,
+          "ms": {
+            "dns": 1.0,
+            "tcp": 103.9,
+            "tls": 84.4,
+            "headers": 750.5,
+            "http": 751.1,
+            "total": 940.6
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/0cz1d0mv5g_q7.js",
+          "status": 404,
+          "ms": {
+            "dns": 1.0,
+            "tcp": 83.7,
+            "tls": 85.8,
+            "headers": 460.1,
+            "http": 460.7,
+            "total": 631.4
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/0om590q-tq0l9.js",
+          "status": 404,
+          "ms": {
+            "dns": 1.3,
+            "tcp": 104.7,
+            "tls": 86.0,
+            "headers": 456.1,
+            "http": 457.0,
+            "total": 649.1
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "js",
+          "path": "/.netlify/scripts/hud",
+          "status": 200,
+          "ms": {
+            "dns": 1.6,
+            "tcp": 82.1,
+            "tls": 86.1,
+            "headers": 204.7,
+            "http": 366.4,
+            "total": 536.4
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "bytes": 35855,
+          "ok": true
+        }
+      ],
+      "html_dependencies": {
+        "same_origin_css_js": 9,
+        "external_css_js_unfetched": 0
+      },
+      "ok": false,
+      "total_ms": 8156.6
+    },
+    {
+      "number": 5,
+      "utc": "2026-11-11T00:30:19+00:00",
+      "checks": [
+        {
+          "kind": "home",
+          "path": "/",
+          "status": null,
+          "ms": {
+            "dns": 2.1,
+            "tcp": 93.5,
+            "tls": 22.2,
+            "total": 117.9
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "ok": false,
+          "failed_stage": "tls",
+          "error": "ConnectionResetError",
+          "os_code": 10054
+        },
+        {
+          "kind": "cases",
+          "path": "/api/cultural-cases",
+          "status": 200,
+          "ms": {
+            "dns": 1.0,
+            "tcp": 85.8,
+            "tls": 99.7,
+            "headers": 818.6,
+            "http": 819.2,
+            "total": 1006.2
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "bytes": 796,
+          "ok": true
+        },
+        {
+          "kind": "image",
+          "path": "/images/azure-landscape.svg",
+          "status": 404,
+          "ms": {
+            "dns": 1.1,
+            "tcp": 92.3,
+            "tls": 98.8,
+            "headers": 510.3,
+            "http": 510.8,
+            "total": 703.2
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "font",
+          "path": "/fonts/ma-shan-zheng-headings.ttf",
+          "status": 404,
+          "ms": {
+            "dns": 1.1,
+            "tcp": 83.0,
+            "tls": 89.7,
+            "headers": 455.7,
+            "http": 456.3,
+            "total": 630.1
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        }
+      ],
+      "html_dependencies": "not discovered",
+      "ok": false,
+      "total_ms": 2457.7
+    },
+    {
+      "number": 6,
+      "utc": "2026-11-11T00:30:23+00:00",
+      "checks": [
+        {
+          "kind": "home",
+          "path": "/",
+          "status": 200,
+          "ms": {
+            "dns": 0.6,
+            "tcp": 85.0,
+            "tls": 90.0,
+            "headers": 211.8,
+            "http": 297.0,
+            "total": 475.1
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "bytes": 13497,
+          "ok": true
+        },
+        {
+          "kind": "cases",
+          "path": "/api/cultural-cases",
+          "status": 200,
+          "ms": {
+            "dns": 1.1,
+            "tcp": 90.3,
+            "tls": 94.6,
+            "headers": 493.3,
+            "http": 494.0,
+            "total": 680.2
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "bytes": 796,
+          "ok": true
+        },
+        {
+          "kind": "image",
+          "path": "/images/azure-landscape.svg",
+          "status": 404,
+          "ms": {
+            "dns": 1.3,
+            "tcp": 86.9,
+            "tls": 93.5,
+            "headers": 488.4,
+            "http": 488.8,
+            "total": 670.6
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "font",
+          "path": "/fonts/ma-shan-zheng-headings.ttf",
+          "status": 404,
+          "ms": {
+            "dns": 0.6,
+            "tcp": 85.8,
+            "tls": 89.5,
+            "headers": 492.7,
+            "http": 493.1,
+            "total": 669.0
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "css",
+          "path": "/_next/static/chunks/3qv4m2v2pk7sr.css",
+          "status": 404,
+          "ms": {
+            "dns": 0.9,
+            "tcp": 107.4,
+            "tls": 90.6,
+            "headers": 456.5,
+            "http": 457.0,
+            "total": 656.0
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/0_xceca9x8w3m.js",
+          "status": 404,
+          "ms": {
+            "dns": 1.1,
+            "tcp": 86.8,
+            "tls": 91.8,
+            "headers": 458.8,
+            "http": 459.2,
+            "total": 639.0
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/20box33a0_n53.js",
+          "status": 404,
+          "ms": {
+            "dns": 1.1,
+            "tcp": 108.5,
+            "tls": 87.2,
+            "headers": 459.4,
+            "http": 459.8,
+            "total": 656.8
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/0-8-2pf2bywtz.js",
+          "status": 404,
+          "ms": {
+            "dns": 0.9,
+            "tcp": 92.3,
+            "tls": 83.1,
+            "headers": 667.4,
+            "http": 667.9,
+            "total": 844.3
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/turbopack-3-ry682tkyiqk.js",
+          "status": 404,
+          "ms": {
+            "dns": 1.2,
+            "tcp": 103.1,
+            "tls": 85.7,
+            "headers": 444.7,
+            "http": 445.2,
+            "total": 635.4
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/3gk5w3ho66_ge.js",
+          "status": 404,
+          "ms": {
+            "dns": 1.2,
+            "tcp": 87.3,
+            "tls": 88.8,
+            "headers": 474.2,
+            "http": 474.8,
+            "total": 652.3
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/0cz1d0mv5g_q7.js",
+          "status": 404,
+          "ms": {
+            "dns": 1.3,
+            "tcp": 96.2,
+            "tls": 82.6,
+            "headers": 501.3,
+            "http": 501.8,
+            "total": 682.0
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/0om590q-tq0l9.js",
+          "status": 404,
+          "ms": {
+            "dns": 19.0,
+            "tcp": 89.7,
+            "tls": 101.5,
+            "headers": 479.2,
+            "http": 479.5,
+            "total": 689.9
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "js",
+          "path": "/.netlify/scripts/hud",
+          "status": 200,
+          "ms": {
+            "dns": 0.5,
+            "tcp": 99.0,
+            "tls": 78.9,
+            "headers": 195.6,
+            "http": 348.7,
+            "total": 527.2
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "bytes": 35855,
+          "ok": true
+        }
+      ],
+      "html_dependencies": {
+        "same_origin_css_js": 9,
+        "external_css_js_unfetched": 0
+      },
+      "ok": false,
+      "total_ms": 8478.1
+    },
+    {
+      "number": 7,
+      "utc": "2026-11-11T00:30:32+00:00",
+      "checks": [
+        {
+          "kind": "home",
+          "path": "/",
+          "status": 200,
+          "ms": {
+            "dns": 0.7,
+            "tcp": 85.2,
+            "tls": 94.9,
+            "headers": 215.4,
+            "http": 302.0,
+            "total": 485.1
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "bytes": 13497,
+          "ok": true
+        },
+        {
+          "kind": "cases",
+          "path": "/api/cultural-cases",
+          "status": 200,
+          "ms": {
+            "dns": 1.1,
+            "tcp": 104.2,
+            "tls": 95.0,
+            "headers": 602.8,
+            "http": 603.5,
+            "total": 804.0
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "bytes": 796,
+          "ok": true
+        },
+        {
+          "kind": "image",
+          "path": "/images/azure-landscape.svg",
+          "status": 404,
+          "ms": {
+            "dns": 1.1,
+            "tcp": 111.8,
+            "tls": 91.7,
+            "headers": 503.2,
+            "http": 503.7,
+            "total": 708.4
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "font",
+          "path": "/fonts/ma-shan-zheng-headings.ttf",
+          "status": 404,
+          "ms": {
+            "dns": 1.0,
+            "tcp": 91.7,
+            "tls": 96.8,
+            "headers": 478.1,
+            "http": 478.5,
+            "total": 668.2
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "css",
+          "path": "/_next/static/chunks/3qv4m2v2pk7sr.css",
+          "status": 404,
+          "ms": {
+            "dns": 1.1,
+            "tcp": 108.1,
+            "tls": 89.4,
+            "headers": 464.1,
+            "http": 464.6,
+            "total": 663.3
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/0_xceca9x8w3m.js",
+          "status": 404,
+          "ms": {
+            "dns": 1.0,
+            "tcp": 100.4,
+            "tls": 91.8,
+            "headers": 472.4,
+            "http": 473.0,
+            "total": 666.3
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/20box33a0_n53.js",
+          "status": 404,
+          "ms": {
+            "dns": 1.4,
+            "tcp": 92.6,
+            "tls": 109.8,
+            "headers": 503.4,
+            "http": 504.0,
+            "total": 707.9
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/0-8-2pf2bywtz.js",
+          "status": 404,
+          "ms": {
+            "dns": 1.1,
+            "tcp": 95.4,
+            "tls": 86.6,
+            "headers": 464.4,
+            "http": 464.9,
+            "total": 648.2
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/turbopack-3-ry682tkyiqk.js",
+          "status": 404,
+          "ms": {
+            "dns": 1.0,
+            "tcp": 100.7,
+            "tls": 85.8,
+            "headers": 447.1,
+            "http": 447.6,
+            "total": 635.2
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/3gk5w3ho66_ge.js",
+          "status": null,
+          "ms": {
+            "dns": 1.0,
+            "tcp": 104.8,
+            "tls": 25.6,
+            "total": 131.4
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "ok": false,
+          "failed_stage": "tls",
+          "error": "ConnectionResetError",
+          "os_code": 10054
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/0cz1d0mv5g_q7.js",
+          "status": null,
+          "ms": {
+            "dns": 1.0,
+            "tcp": 88.3,
+            "tls": 22.5,
+            "total": 111.9
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "ok": false,
+          "failed_stage": "tls",
+          "error": "ConnectionResetError",
+          "os_code": 10054
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/0om590q-tq0l9.js",
+          "status": 404,
+          "ms": {
+            "dns": 1.0,
+            "tcp": 85.0,
+            "tls": 86.4,
+            "headers": 690.4,
+            "http": 691.0,
+            "total": 863.5
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "js",
+          "path": "/.netlify/scripts/hud",
+          "status": 200,
+          "ms": {
+            "dns": 1.0,
+            "tcp": 87.6,
+            "tls": 91.2,
+            "headers": 213.0,
+            "http": 385.3,
+            "total": 565.2
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "bytes": 35855,
+          "ok": true
+        }
+      ],
+      "html_dependencies": {
+        "same_origin_css_js": 9,
+        "external_css_js_unfetched": 0
+      },
+      "ok": false,
+      "total_ms": 7658.8
+    },
+    {
+      "number": 8,
+      "utc": "2026-11-11T00:30:41+00:00",
+      "checks": [
+        {
+          "kind": "home",
+          "path": "/",
+          "status": null,
+          "ms": {
+            "dns": 0.9,
+            "tcp": 89.4,
+            "tls": 25.6,
+            "total": 115.9
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "ok": false,
+          "failed_stage": "tls",
+          "error": "ConnectionResetError",
+          "os_code": 10054
+        },
+        {
+          "kind": "cases",
+          "path": "/api/cultural-cases",
+          "status": 200,
+          "ms": {
+            "dns": 0.5,
+            "tcp": 103.7,
+            "tls": 87.0,
+            "headers": 482.4,
+            "http": 482.7,
+            "total": 674.1
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "bytes": 796,
+          "ok": true
+        },
+        {
+          "kind": "image",
+          "path": "/images/azure-landscape.svg",
+          "status": 404,
+          "ms": {
+            "dns": 0.5,
+            "tcp": 86.9,
+            "tls": 86.2,
+            "headers": 1498.4,
+            "http": 1498.9,
+            "total": 1672.5
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "font",
+          "path": "/fonts/ma-shan-zheng-headings.ttf",
+          "status": 404,
+          "ms": {
+            "dns": 1.1,
+            "tcp": 94.1,
+            "tls": 95.8,
+            "headers": 518.3,
+            "http": 518.9,
+            "total": 710.0
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        }
+      ],
+      "html_dependencies": "not discovered",
+      "ok": false,
+      "total_ms": 3172.7
+    },
+    {
+      "number": 9,
+      "utc": "2026-11-11T00:30:45+00:00",
+      "checks": [
+        {
+          "kind": "home",
+          "path": "/",
+          "status": 200,
+          "ms": {
+            "dns": 19.9,
+            "tcp": 84.3,
+            "tls": 92.6,
+            "headers": 208.8,
+            "http": 294.4,
+            "total": 493.5
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "bytes": 13497,
+          "ok": true
+        },
+        {
+          "kind": "cases",
+          "path": "/api/cultural-cases",
+          "status": 200,
+          "ms": {
+            "dns": 1.1,
+            "tcp": 107.6,
+            "tls": 90.6,
+            "headers": 1173.5,
+            "http": 1174.0,
+            "total": 1373.6
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "bytes": 796,
+          "ok": true
+        },
+        {
+          "kind": "image",
+          "path": "/images/azure-landscape.svg",
+          "status": 404,
+          "ms": {
+            "dns": 1.0,
+            "tcp": 107.3,
+            "tls": 84.9,
+            "headers": 699.6,
+            "http": 700.1,
+            "total": 893.3
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "font",
+          "path": "/fonts/ma-shan-zheng-headings.ttf",
+          "status": 404,
+          "ms": {
+            "dns": 1.1,
+            "tcp": 86.3,
+            "tls": 89.1,
+            "headers": 491.7,
+            "http": 492.4,
+            "total": 669.0
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "css",
+          "path": "/_next/static/chunks/3qv4m2v2pk7sr.css",
+          "status": 404,
+          "ms": {
+            "dns": 1.2,
+            "tcp": 104.6,
+            "tls": 88.2,
+            "headers": 475.5,
+            "http": 476.0,
+            "total": 670.1
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/0_xceca9x8w3m.js",
+          "status": 404,
+          "ms": {
+            "dns": 1.0,
+            "tcp": 101.5,
+            "tls": 90.3,
+            "headers": 486.3,
+            "http": 487.1,
+            "total": 679.9
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/20box33a0_n53.js",
+          "status": 404,
+          "ms": {
+            "dns": 1.4,
+            "tcp": 95.1,
+            "tls": 90.8,
+            "headers": 477.2,
+            "http": 477.4,
+            "total": 664.8
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/0-8-2pf2bywtz.js",
+          "status": 404,
+          "ms": {
+            "dns": 0.5,
+            "tcp": 87.3,
+            "tls": 79.2,
+            "headers": 508.7,
+            "http": 509.2,
+            "total": 676.3
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/turbopack-3-ry682tkyiqk.js",
+          "status": 404,
+          "ms": {
+            "dns": 1.0,
+            "tcp": 112.1,
+            "tls": 99.1,
+            "headers": 1564.9,
+            "http": 1565.2,
+            "total": 1777.5
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/3gk5w3ho66_ge.js",
+          "status": null,
+          "ms": {
+            "dns": 0.6,
+            "tcp": 102.1,
+            "tls": 96.4,
+            "http": 98.0,
+            "total": 297.1
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ConnectionResetError",
+          "os_code": 10054
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/0cz1d0mv5g_q7.js",
+          "status": 404,
+          "ms": {
+            "dns": 0.9,
+            "tcp": 79.6,
+            "tls": 82.7,
+            "headers": 527.3,
+            "http": 527.7,
+            "total": 691.0
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/0om590q-tq0l9.js",
+          "status": null,
+          "ms": {
+            "dns": 0.6,
+            "tcp": 112.5,
+            "tls": 102.2,
+            "http": 81.6,
+            "total": 296.9
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ConnectionResetError",
+          "os_code": 10054
+        },
+        {
+          "kind": "js",
+          "path": "/.netlify/scripts/hud",
+          "status": 200,
+          "ms": {
+            "dns": 1.0,
+            "tcp": 96.3,
+            "tls": 85.5,
+            "headers": 194.7,
+            "http": 346.1,
+            "total": 529.1
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "bytes": 35855,
+          "ok": true
+        }
+      ],
+      "html_dependencies": {
+        "same_origin_css_js": 9,
+        "external_css_js_unfetched": 0
+      },
+      "ok": false,
+      "total_ms": 9712.5
+    },
+    {
+      "number": 10,
+      "utc": "2026-11-11T00:30:56+00:00",
+      "checks": [
+        {
+          "kind": "home",
+          "path": "/",
+          "status": 200,
+          "ms": {
+            "dns": 1.3,
+            "tcp": 91.1,
+            "tls": 93.5,
+            "headers": 223.2,
+            "http": 314.2,
+            "total": 502.3
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "bytes": 13497,
+          "ok": true
+        },
+        {
+          "kind": "cases",
+          "path": "/api/cultural-cases",
+          "status": 200,
+          "ms": {
+            "dns": 1.1,
+            "tcp": 80.8,
+            "tls": 85.6,
+            "headers": 464.1,
+            "http": 464.9,
+            "total": 632.6
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "bytes": 796,
+          "ok": true
+        },
+        {
+          "kind": "image",
+          "path": "/images/azure-landscape.svg",
+          "status": 404,
+          "ms": {
+            "dns": 1.3,
+            "tcp": 107.3,
+            "tls": 98.7,
+            "headers": 508.9,
+            "http": 509.8,
+            "total": 717.2
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "font",
+          "path": "/fonts/ma-shan-zheng-headings.ttf",
+          "status": 404,
+          "ms": {
+            "dns": 1.0,
+            "tcp": 93.7,
+            "tls": 84.3,
+            "headers": 794.9,
+            "http": 795.4,
+            "total": 974.5
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "css",
+          "path": "/_next/static/chunks/3qv4m2v2pk7sr.css",
+          "status": 404,
+          "ms": {
+            "dns": 1.1,
+            "tcp": 115.9,
+            "tls": 94.6,
+            "headers": 1084.7,
+            "http": 1085.1,
+            "total": 1296.8
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/0_xceca9x8w3m.js",
+          "status": 404,
+          "ms": {
+            "dns": 8.4,
+            "tcp": 91.1,
+            "tls": 81.1,
+            "headers": 1020.6,
+            "http": 1021.2,
+            "total": 1201.8
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/20box33a0_n53.js",
+          "status": 404,
+          "ms": {
+            "dns": 1.0,
+            "tcp": 112.8,
+            "tls": 116.3,
+            "headers": 551.7,
+            "http": 552.0,
+            "total": 782.2
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/0-8-2pf2bywtz.js",
+          "status": 404,
+          "ms": {
+            "dns": 0.5,
+            "tcp": 98.8,
+            "tls": 89.9,
+            "headers": 1059.8,
+            "http": 1060.3,
+            "total": 1249.6
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/turbopack-3-ry682tkyiqk.js",
+          "status": 404,
+          "ms": {
+            "dns": 1.4,
+            "tcp": 89.6,
+            "tls": 93.3,
+            "headers": 475.3,
+            "http": 475.9,
+            "total": 660.2
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/3gk5w3ho66_ge.js",
+          "status": 404,
+          "ms": {
+            "dns": 0.9,
+            "tcp": 107.9,
+            "tls": 93.1,
+            "headers": 1180.8,
+            "http": 1181.4,
+            "total": 1383.4
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/0cz1d0mv5g_q7.js",
+          "status": 404,
+          "ms": {
+            "dns": 1.3,
+            "tcp": 91.1,
+            "tls": 98.2,
+            "headers": 593.5,
+            "http": 594.2,
+            "total": 784.9
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/0om590q-tq0l9.js",
+          "status": 404,
+          "ms": {
+            "dns": 1.1,
+            "tcp": 106.4,
+            "tls": 89.0,
+            "headers": 462.6,
+            "http": 463.2,
+            "total": 659.7
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "js",
+          "path": "/.netlify/scripts/hud",
+          "status": 200,
+          "ms": {
+            "dns": 1.1,
+            "tcp": 87.4,
+            "tls": 92.3,
+            "headers": 214.4,
+            "http": 388.4,
+            "total": 569.4
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "bytes": 35855,
+          "ok": true
+        }
+      ],
+      "html_dependencies": {
+        "same_origin_css_js": 9,
+        "external_css_js_unfetched": 0
+      },
+      "ok": false,
+      "total_ms": 11414.9
+    },
+    {
+      "number": 11,
+      "utc": "2026-11-11T00:31:08+00:00",
+      "checks": [
+        {
+          "kind": "home",
+          "path": "/",
+          "status": 200,
+          "ms": {
+            "dns": 1.2,
+            "tcp": 96.6,
+            "tls": 89.6,
+            "headers": 182.0,
+            "http": 268.1,
+            "total": 457.8
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "bytes": 13497,
+          "ok": true
+        },
+        {
+          "kind": "cases",
+          "path": "/api/cultural-cases",
+          "status": 200,
+          "ms": {
+            "dns": 1.0,
+            "tcp": 93.7,
+            "tls": 95.7,
+            "headers": 795.8,
+            "http": 796.6,
+            "total": 987.1
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "bytes": 796,
+          "ok": true
+        },
+        {
+          "kind": "image",
+          "path": "/images/azure-landscape.svg",
+          "status": 404,
+          "ms": {
+            "dns": 1.1,
+            "tcp": 98.5,
+            "tls": 90.4,
+            "headers": 1165.2,
+            "http": 1165.9,
+            "total": 1356.0
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "font",
+          "path": "/fonts/ma-shan-zheng-headings.ttf",
+          "status": 404,
+          "ms": {
+            "dns": 1.1,
+            "tcp": 103.2,
+            "tls": 83.9,
+            "headers": 493.5,
+            "http": 494.0,
+            "total": 682.3
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "css",
+          "path": "/_next/static/chunks/3qv4m2v2pk7sr.css",
+          "status": 404,
+          "ms": {
+            "dns": 0.9,
+            "tcp": 93.8,
+            "tls": 88.8,
+            "headers": 420.6,
+            "http": 421.1,
+            "total": 604.6
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/0_xceca9x8w3m.js",
+          "status": 404,
+          "ms": {
+            "dns": 1.1,
+            "tcp": 86.4,
+            "tls": 86.9,
+            "headers": 433.8,
+            "http": 434.4,
+            "total": 609.0
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/20box33a0_n53.js",
+          "status": 404,
+          "ms": {
+            "dns": 1.3,
+            "tcp": 93.9,
+            "tls": 85.5,
+            "headers": 452.9,
+            "http": 453.4,
+            "total": 634.2
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/0-8-2pf2bywtz.js",
+          "status": 404,
+          "ms": {
+            "dns": 1.1,
+            "tcp": 115.2,
+            "tls": 103.5,
+            "headers": 1098.4,
+            "http": 1098.8,
+            "total": 1318.7
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/turbopack-3-ry682tkyiqk.js",
+          "status": 404,
+          "ms": {
+            "dns": 19.4,
+            "tcp": 78.9,
+            "tls": 81.8,
+            "headers": 452.8,
+            "http": 453.3,
+            "total": 633.5
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/3gk5w3ho66_ge.js",
+          "status": 404,
+          "ms": {
+            "dns": 1.1,
+            "tcp": 83.1,
+            "tls": 89.5,
+            "headers": 465.8,
+            "http": 466.3,
+            "total": 640.2
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/0cz1d0mv5g_q7.js",
+          "status": 404,
+          "ms": {
+            "dns": 1.0,
+            "tcp": 95.8,
+            "tls": 101.1,
+            "headers": 478.4,
+            "http": 479.0,
+            "total": 677.0
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/0om590q-tq0l9.js",
+          "status": 404,
+          "ms": {
+            "dns": 1.1,
+            "tcp": 86.0,
+            "tls": 90.0,
+            "headers": 488.8,
+            "http": 489.4,
+            "total": 666.7
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "js",
+          "path": "/.netlify/scripts/hud",
+          "status": 200,
+          "ms": {
+            "dns": 1.2,
+            "tcp": 101.2,
+            "tls": 86.8,
+            "headers": 202.2,
+            "http": 362.3,
+            "total": 551.7
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "bytes": 35855,
+          "ok": true
+        }
+      ],
+      "html_dependencies": {
+        "same_origin_css_js": 9,
+        "external_css_js_unfetched": 0
+      },
+      "ok": false,
+      "total_ms": 9819.0
+    },
+    {
+      "number": 12,
+      "utc": "2026-11-11T00:31:19+00:00",
+      "checks": [
+        {
+          "kind": "home",
+          "path": "/",
+          "status": 200,
+          "ms": {
+            "dns": 1.0,
+            "tcp": 93.9,
+            "tls": 90.5,
+            "headers": 204.4,
+            "http": 285.2,
+            "total": 472.7
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "bytes": 13497,
+          "ok": true
+        },
+        {
+          "kind": "cases",
+          "path": "/api/cultural-cases",
+          "status": 200,
+          "ms": {
+            "dns": 1.0,
+            "tcp": 86.3,
+            "tls": 88.1,
+            "headers": 770.8,
+            "http": 771.1,
+            "total": 946.6
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "bytes": 796,
+          "ok": true
+        },
+        {
+          "kind": "image",
+          "path": "/images/azure-landscape.svg",
+          "status": 404,
+          "ms": {
+            "dns": 98.9,
+            "tcp": 89.5,
+            "tls": 92.1,
+            "headers": 1243.0,
+            "http": 1243.5,
+            "total": 1524.0
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "font",
+          "path": "/fonts/ma-shan-zheng-headings.ttf",
+          "status": 404,
+          "ms": {
+            "dns": 1.2,
+            "tcp": 87.0,
+            "tls": 91.4,
+            "headers": 491.8,
+            "http": 492.3,
+            "total": 672.0
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "css",
+          "path": "/_next/static/chunks/3qv4m2v2pk7sr.css",
+          "status": 404,
+          "ms": {
+            "dns": 1.1,
+            "tcp": 92.4,
+            "tls": 95.9,
+            "headers": 487.0,
+            "http": 488.1,
+            "total": 677.6
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/0_xceca9x8w3m.js",
+          "status": 404,
+          "ms": {
+            "dns": 1.7,
+            "tcp": 86.2,
+            "tls": 87.7,
+            "headers": 1148.8,
+            "http": 1149.1,
+            "total": 1324.8
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/20box33a0_n53.js",
+          "status": null,
+          "ms": {
+            "dns": 0.6,
+            "tcp": 84.1,
+            "tls": 24.8,
+            "total": 109.7
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "ok": false,
+          "failed_stage": "tls",
+          "error": "ConnectionResetError",
+          "os_code": 10054
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/0-8-2pf2bywtz.js",
+          "status": 404,
+          "ms": {
+            "dns": 1.2,
+            "tcp": 85.6,
+            "tls": 86.4,
+            "headers": 465.9,
+            "http": 466.3,
+            "total": 639.6
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/turbopack-3-ry682tkyiqk.js",
+          "status": 404,
+          "ms": {
+            "dns": 0.7,
+            "tcp": 86.6,
+            "tls": 87.5,
+            "headers": 2270.1,
+            "http": 2270.3,
+            "total": 2445.2
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/3gk5w3ho66_ge.js",
+          "status": 404,
+          "ms": {
+            "dns": 0.6,
+            "tcp": 86.9,
+            "tls": 92.5,
+            "headers": 483.2,
+            "http": 483.8,
+            "total": 663.8
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/0cz1d0mv5g_q7.js",
+          "status": 404,
+          "ms": {
+            "dns": 1.5,
+            "tcp": 88.8,
+            "tls": 90.6,
+            "headers": 464.0,
+            "http": 464.5,
+            "total": 645.4
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/0om590q-tq0l9.js",
+          "status": 404,
+          "ms": {
+            "dns": 0.9,
+            "tcp": 86.8,
+            "tls": 89.0,
+            "headers": 468.5,
+            "http": 468.8,
+            "total": 645.6
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "js",
+          "path": "/.netlify/scripts/hud",
+          "status": 200,
+          "ms": {
+            "dns": 13.3,
+            "tcp": 82.3,
+            "tls": 85.7,
+            "headers": 203.7,
+            "http": 365.8,
+            "total": 547.2
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "bytes": 35855,
+          "ok": true
+        }
+      ],
+      "html_dependencies": {
+        "same_origin_css_js": 9,
+        "external_css_js_unfetched": 0
+      },
+      "ok": false,
+      "total_ms": 11314.7
+    },
+    {
+      "number": 13,
+      "utc": "2026-11-11T00:31:31+00:00",
+      "checks": [
+        {
+          "kind": "home",
+          "path": "/",
+          "status": 200,
+          "ms": {
+            "dns": 1.2,
+            "tcp": 112.1,
+            "tls": 93.1,
+            "headers": 1284.7,
+            "http": 1374.5,
+            "total": 1583.7
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "bytes": 13497,
+          "ok": true
+        },
+        {
+          "kind": "cases",
+          "path": "/api/cultural-cases",
+          "status": 200,
+          "ms": {
+            "dns": 1.1,
+            "tcp": 100.8,
+            "tls": 89.2,
+            "headers": 706.0,
+            "http": 706.8,
+            "total": 898.2
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "bytes": 796,
+          "ok": true
+        },
+        {
+          "kind": "image",
+          "path": "/images/azure-landscape.svg",
+          "status": 404,
+          "ms": {
+            "dns": 1.5,
+            "tcp": 108.8,
+            "tls": 89.3,
+            "headers": 496.4,
+            "http": 496.9,
+            "total": 696.7
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "font",
+          "path": "/fonts/ma-shan-zheng-headings.ttf",
+          "status": 404,
+          "ms": {
+            "dns": 1.0,
+            "tcp": 81.8,
+            "tls": 83.3,
+            "headers": 687.2,
+            "http": 687.7,
+            "total": 853.8
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "css",
+          "path": "/_next/static/chunks/3qv4m2v2pk7sr.css",
+          "status": 404,
+          "ms": {
+            "dns": 0.9,
+            "tcp": 103.4,
+            "tls": 96.7,
+            "headers": 663.0,
+            "http": 663.5,
+            "total": 864.6
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/0_xceca9x8w3m.js",
+          "status": 404,
+          "ms": {
+            "dns": 1.0,
+            "tcp": 118.1,
+            "tls": 101.5,
+            "headers": 489.2,
+            "http": 489.6,
+            "total": 710.4
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/20box33a0_n53.js",
+          "status": 404,
+          "ms": {
+            "dns": 1.0,
+            "tcp": 83.8,
+            "tls": 87.1,
+            "headers": 461.5,
+            "http": 462.1,
+            "total": 634.1
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/0-8-2pf2bywtz.js",
+          "status": 404,
+          "ms": {
+            "dns": 1.1,
+            "tcp": 103.3,
+            "tls": 92.3,
+            "headers": 793.4,
+            "http": 793.9,
+            "total": 990.8
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/turbopack-3-ry682tkyiqk.js",
+          "status": 404,
+          "ms": {
+            "dns": 1.0,
+            "tcp": 91.0,
+            "tls": 94.0,
+            "headers": 461.2,
+            "http": 461.9,
+            "total": 648.1
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/3gk5w3ho66_ge.js",
+          "status": 404,
+          "ms": {
+            "dns": 1.1,
+            "tcp": 97.5,
+            "tls": 88.8,
+            "headers": 464.8,
+            "http": 465.4,
+            "total": 653.0
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/0cz1d0mv5g_q7.js",
+          "status": 404,
+          "ms": {
+            "dns": 1.2,
+            "tcp": 101.5,
+            "tls": 91.1,
+            "headers": 860.0,
+            "http": 860.4,
+            "total": 1054.3
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/0om590q-tq0l9.js",
+          "status": 404,
+          "ms": {
+            "dns": 1.2,
+            "tcp": 108.9,
+            "tls": 91.9,
+            "headers": 473.2,
+            "http": 473.5,
+            "total": 675.6
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "js",
+          "path": "/.netlify/scripts/hud",
+          "status": 200,
+          "ms": {
+            "dns": 0.6,
+            "tcp": 85.9,
+            "tls": 85.9,
+            "headers": 208.2,
+            "http": 378.4,
+            "total": 550.8
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "bytes": 35855,
+          "ok": true
+        }
+      ],
+      "html_dependencies": {
+        "same_origin_css_js": 9,
+        "external_css_js_unfetched": 0
+      },
+      "ok": false,
+      "total_ms": 10814.4
+    },
+    {
+      "number": 14,
+      "utc": "2026-11-11T00:31:43+00:00",
+      "checks": [
+        {
+          "kind": "home",
+          "path": "/",
+          "status": 200,
+          "ms": {
+            "dns": 1.0,
+            "tcp": 93.2,
+            "tls": 87.4,
+            "headers": 206.4,
+            "http": 288.6,
+            "total": 472.4
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "bytes": 13497,
+          "ok": true
+        },
+        {
+          "kind": "cases",
+          "path": "/api/cultural-cases",
+          "status": 200,
+          "ms": {
+            "dns": 1.1,
+            "tcp": 89.4,
+            "tls": 92.2,
+            "headers": 888.1,
+            "http": 888.9,
+            "total": 1071.7
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "bytes": 796,
+          "ok": true
+        },
+        {
+          "kind": "image",
+          "path": "/images/azure-landscape.svg",
+          "status": 404,
+          "ms": {
+            "dns": 20.2,
+            "tcp": 81.3,
+            "tls": 141.8,
+            "headers": 907.5,
+            "http": 908.1,
+            "total": 1151.5
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "font",
+          "path": "/fonts/ma-shan-zheng-headings.ttf",
+          "status": 404,
+          "ms": {
+            "dns": 1.0,
+            "tcp": 91.9,
+            "tls": 95.9,
+            "headers": 670.2,
+            "http": 670.4,
+            "total": 859.3
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "css",
+          "path": "/_next/static/chunks/3qv4m2v2pk7sr.css",
+          "status": 404,
+          "ms": {
+            "dns": 1.0,
+            "tcp": 102.8,
+            "tls": 81.5,
+            "headers": 459.7,
+            "http": 460.2,
+            "total": 645.6
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/0_xceca9x8w3m.js",
+          "status": null,
+          "ms": {
+            "dns": 1.0,
+            "tcp": 123.7,
+            "tls": 141.0,
+            "http": 155.9,
+            "total": 421.7
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ConnectionResetError",
+          "os_code": 10054
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/20box33a0_n53.js",
+          "status": 404,
+          "ms": {
+            "dns": 1.0,
+            "tcp": 79.9,
+            "tls": 82.9,
+            "headers": 1249.8,
+            "http": 1250.3,
+            "total": 1414.3
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/0-8-2pf2bywtz.js",
+          "status": 404,
+          "ms": {
+            "dns": 1.1,
+            "tcp": 116.0,
+            "tls": 94.3,
+            "headers": 475.0,
+            "http": 475.5,
+            "total": 687.1
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/turbopack-3-ry682tkyiqk.js",
+          "status": 404,
+          "ms": {
+            "dns": 1.3,
+            "tcp": 92.6,
+            "tls": 96.1,
+            "headers": 482.6,
+            "http": 483.1,
+            "total": 673.2
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/3gk5w3ho66_ge.js",
+          "status": 404,
+          "ms": {
+            "dns": 1.3,
+            "tcp": 81.0,
+            "tls": 84.6,
+            "headers": 450.9,
+            "http": 451.5,
+            "total": 618.5
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/0cz1d0mv5g_q7.js",
+          "status": 404,
+          "ms": {
+            "dns": 1.2,
+            "tcp": 105.7,
+            "tls": 90.9,
+            "headers": 871.5,
+            "http": 871.8,
+            "total": 1069.6
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/0om590q-tq0l9.js",
+          "status": 404,
+          "ms": {
+            "dns": 0.7,
+            "tcp": 82.6,
+            "tls": 85.9,
+            "headers": 456.4,
+            "http": 456.9,
+            "total": 626.2
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "js",
+          "path": "/.netlify/scripts/hud",
+          "status": null,
+          "ms": {
+            "dns": 1.3,
+            "tcp": 100.4,
+            "tls": 26.4,
+            "total": 128.3
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "ok": false,
+          "failed_stage": "tls",
+          "error": "ConnectionResetError",
+          "os_code": 10054
+        }
+      ],
+      "html_dependencies": {
+        "same_origin_css_js": 9,
+        "external_css_js_unfetched": 0
+      },
+      "ok": false,
+      "total_ms": 9839.7
+    },
+    {
+      "number": 15,
+      "utc": "2026-11-11T00:31:54+00:00",
+      "checks": [
+        {
+          "kind": "home",
+          "path": "/",
+          "status": 200,
+          "ms": {
+            "dns": 1.1,
+            "tcp": 111.7,
+            "tls": 96.2,
+            "headers": 221.9,
+            "http": 312.2,
+            "total": 523.6
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "bytes": 13497,
+          "ok": true
+        },
+        {
+          "kind": "cases",
+          "path": "/api/cultural-cases",
+          "status": 200,
+          "ms": {
+            "dns": 1.2,
+            "tcp": 80.7,
+            "tls": 83.6,
+            "headers": 820.4,
+            "http": 821.2,
+            "total": 986.8
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "bytes": 796,
+          "ok": true
+        },
+        {
+          "kind": "image",
+          "path": "/images/azure-landscape.svg",
+          "status": 404,
+          "ms": {
+            "dns": 1.1,
+            "tcp": 108.9,
+            "tls": 91.5,
+            "headers": 556.6,
+            "http": 557.2,
+            "total": 758.8
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "font",
+          "path": "/fonts/ma-shan-zheng-headings.ttf",
+          "status": 404,
+          "ms": {
+            "dns": 0.6,
+            "tcp": 91.1,
+            "tls": 116.3,
+            "headers": 506.1,
+            "http": 506.3,
+            "total": 714.5
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "css",
+          "path": "/_next/static/chunks/3qv4m2v2pk7sr.css",
+          "status": null,
+          "ms": {
+            "dns": 1.1,
+            "tcp": 87.3,
+            "tls": 21.5,
+            "total": 110.0
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "ok": false,
+          "failed_stage": "tls",
+          "error": "ConnectionResetError",
+          "os_code": 10054
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/0_xceca9x8w3m.js",
+          "status": 404,
+          "ms": {
+            "dns": 0.7,
+            "tcp": 98.6,
+            "tls": 82.5,
+            "headers": 581.5,
+            "http": 582.0,
+            "total": 763.8
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/20box33a0_n53.js",
+          "status": 404,
+          "ms": {
+            "dns": 1.2,
+            "tcp": 84.2,
+            "tls": 87.0,
+            "headers": 683.1,
+            "http": 683.6,
+            "total": 856.0
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/0-8-2pf2bywtz.js",
+          "status": 404,
+          "ms": {
+            "dns": 0.9,
+            "tcp": 81.8,
+            "tls": 83.3,
+            "headers": 447.6,
+            "http": 448.3,
+            "total": 614.3
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/turbopack-3-ry682tkyiqk.js",
+          "status": 404,
+          "ms": {
+            "dns": 0.9,
+            "tcp": 108.2,
+            "tls": 90.5,
+            "headers": 467.8,
+            "http": 468.5,
+            "total": 668.3
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/3gk5w3ho66_ge.js",
+          "status": 404,
+          "ms": {
+            "dns": 23.6,
+            "tcp": 85.8,
+            "tls": 88.5,
+            "headers": 520.9,
+            "http": 521.2,
+            "total": 719.3
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/0cz1d0mv5g_q7.js",
+          "status": 404,
+          "ms": {
+            "dns": 0.5,
+            "tcp": 97.0,
+            "tls": 87.8,
+            "headers": 434.1,
+            "http": 434.5,
+            "total": 619.8
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/0om590q-tq0l9.js",
+          "status": 404,
+          "ms": {
+            "dns": 0.5,
+            "tcp": 100.2,
+            "tls": 85.1,
+            "headers": 432.5,
+            "http": 433.1,
+            "total": 619.0
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "js",
+          "path": "/.netlify/scripts/hud",
+          "status": null,
+          "ms": {
+            "dns": 1.1,
+            "tcp": 107.4,
+            "tls": 22.5,
+            "total": 131.1
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "ok": false,
+          "failed_stage": "tls",
+          "error": "ConnectionResetError",
+          "os_code": 10054
+        }
+      ],
+      "html_dependencies": {
+        "same_origin_css_js": 9,
+        "external_css_js_unfetched": 0
+      },
+      "ok": false,
+      "total_ms": 8085.6
+    },
+    {
+      "number": 16,
+      "utc": "2026-11-11T00:32:03+00:00",
+      "checks": [
+        {
+          "kind": "home",
+          "path": "/",
+          "status": 200,
+          "ms": {
+            "dns": 1.0,
+            "tcp": 122.0,
+            "tls": 97.2,
+            "headers": 231.7,
+            "http": 324.8,
+            "total": 546.9
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "bytes": 13497,
+          "ok": true
+        },
+        {
+          "kind": "cases",
+          "path": "/api/cultural-cases",
+          "status": 200,
+          "ms": {
+            "dns": 1.0,
+            "tcp": 83.1,
+            "tls": 87.9,
+            "headers": 461.8,
+            "http": 462.4,
+            "total": 634.6
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "bytes": 796,
+          "ok": true
+        },
+        {
+          "kind": "image",
+          "path": "/images/azure-landscape.svg",
+          "status": 404,
+          "ms": {
+            "dns": 1.1,
+            "tcp": 105.3,
+            "tls": 86.3,
+            "headers": 500.7,
+            "http": 501.1,
+            "total": 693.8
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "font",
+          "path": "/fonts/ma-shan-zheng-headings.ttf",
+          "status": 404,
+          "ms": {
+            "dns": 0.7,
+            "tcp": 110.0,
+            "tls": 88.5,
+            "headers": 479.1,
+            "http": 479.2,
+            "total": 678.5
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "css",
+          "path": "/_next/static/chunks/3qv4m2v2pk7sr.css",
+          "status": 404,
+          "ms": {
+            "dns": 0.6,
+            "tcp": 106.6,
+            "tls": 86.6,
+            "headers": 471.5,
+            "http": 471.9,
+            "total": 665.8
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/0_xceca9x8w3m.js",
+          "status": 404,
+          "ms": {
+            "dns": 0.6,
+            "tcp": 85.9,
+            "tls": 87.8,
+            "headers": 461.8,
+            "http": 462.1,
+            "total": 636.5
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/20box33a0_n53.js",
+          "status": 404,
+          "ms": {
+            "dns": 0.5,
+            "tcp": 110.4,
+            "tls": 89.2,
+            "headers": 689.1,
+            "http": 689.4,
+            "total": 889.7
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/0-8-2pf2bywtz.js",
+          "status": 404,
+          "ms": {
+            "dns": 0.5,
+            "tcp": 84.6,
+            "tls": 86.9,
+            "headers": 762.6,
+            "http": 763.0,
+            "total": 935.1
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/turbopack-3-ry682tkyiqk.js",
+          "status": 404,
+          "ms": {
+            "dns": 0.6,
+            "tcp": 78.5,
+            "tls": 77.3,
+            "headers": 442.4,
+            "http": 442.7,
+            "total": 599.2
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/3gk5w3ho66_ge.js",
+          "status": null,
+          "ms": {
+            "dns": 0.6,
+            "tcp": 108.1,
+            "tls": 21.8,
+            "total": 130.5
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "ok": false,
+          "failed_stage": "tls",
+          "error": "ConnectionResetError",
+          "os_code": 10054
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/0cz1d0mv5g_q7.js",
+          "status": 404,
+          "ms": {
+            "dns": 0.5,
+            "tcp": 85.0,
+            "tls": 89.6,
+            "headers": 606.7,
+            "http": 606.9,
+            "total": 782.0
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/0om590q-tq0l9.js",
+          "status": 404,
+          "ms": {
+            "dns": 0.5,
+            "tcp": 110.5,
+            "tls": 97.4,
+            "headers": 464.7,
+            "http": 465.3,
+            "total": 673.9
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "js",
+          "path": "/.netlify/scripts/hud",
+          "status": 200,
+          "ms": {
+            "dns": 1.3,
+            "tcp": 101.3,
+            "tls": 90.8,
+            "headers": 433.3,
+            "http": 598.3,
+            "total": 791.8
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "bytes": 35855,
+          "ok": true
+        }
+      ],
+      "html_dependencies": {
+        "same_origin_css_js": 9,
+        "external_css_js_unfetched": 0
+      },
+      "ok": false,
+      "total_ms": 8658.4
+    },
+    {
+      "number": 17,
+      "utc": "2026-11-11T00:32:13+00:00",
+      "checks": [
+        {
+          "kind": "home",
+          "path": "/",
+          "status": 200,
+          "ms": {
+            "dns": 1489.3,
+            "tcp": 75.6,
+            "tls": 76.7,
+            "headers": 193.0,
+            "http": 269.4,
+            "total": 1913.6
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "bytes": 13497,
+          "ok": true
+        },
+        {
+          "kind": "cases",
+          "path": "/api/cultural-cases",
+          "status": 200,
+          "ms": {
+            "dns": 17.4,
+            "tcp": 99.7,
+            "tls": 88.9,
+            "headers": 822.1,
+            "http": 822.7,
+            "total": 1028.9
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "bytes": 796,
+          "ok": true
+        },
+        {
+          "kind": "image",
+          "path": "/images/azure-landscape.svg",
+          "status": 404,
+          "ms": {
+            "dns": 1.0,
+            "tcp": 108.9,
+            "tls": 89.6,
+            "headers": 486.3,
+            "http": 487.0,
+            "total": 686.6
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "font",
+          "path": "/fonts/ma-shan-zheng-headings.ttf",
+          "status": 404,
+          "ms": {
+            "dns": 1.0,
+            "tcp": 99.5,
+            "tls": 88.2,
+            "headers": 920.9,
+            "http": 921.5,
+            "total": 1110.2
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "css",
+          "path": "/_next/static/chunks/3qv4m2v2pk7sr.css",
+          "status": 404,
+          "ms": {
+            "dns": 1.0,
+            "tcp": 108.4,
+            "tls": 94.3,
+            "headers": 668.3,
+            "http": 668.9,
+            "total": 872.7
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/0_xceca9x8w3m.js",
+          "status": 404,
+          "ms": {
+            "dns": 1.2,
+            "tcp": 98.0,
+            "tls": 87.8,
+            "headers": 459.5,
+            "http": 460.0,
+            "total": 647.1
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/20box33a0_n53.js",
+          "status": 404,
+          "ms": {
+            "dns": 1.0,
+            "tcp": 90.2,
+            "tls": 91.6,
+            "headers": 474.5,
+            "http": 475.0,
+            "total": 657.9
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/0-8-2pf2bywtz.js",
+          "status": 404,
+          "ms": {
+            "dns": 0.9,
+            "tcp": 90.1,
+            "tls": 93.4,
+            "headers": 490.7,
+            "http": 491.1,
+            "total": 675.6
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/turbopack-3-ry682tkyiqk.js",
+          "status": 404,
+          "ms": {
+            "dns": 0.6,
+            "tcp": 76.2,
+            "tls": 80.3,
+            "headers": 448.4,
+            "http": 448.9,
+            "total": 606.0
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/3gk5w3ho66_ge.js",
+          "status": 404,
+          "ms": {
+            "dns": 1.2,
+            "tcp": 1084.5,
+            "tls": 83.1,
+            "headers": 452.7,
+            "http": 453.2,
+            "total": 1622.0
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/0cz1d0mv5g_q7.js",
+          "status": 404,
+          "ms": {
+            "dns": 0.7,
+            "tcp": 101.1,
+            "tls": 82.5,
+            "headers": 1014.0,
+            "http": 1014.7,
+            "total": 1199.1
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/0om590q-tq0l9.js",
+          "status": 404,
+          "ms": {
+            "dns": 1.1,
+            "tcp": 106.1,
+            "tls": 85.9,
+            "headers": 613.1,
+            "http": 613.7,
+            "total": 807.0
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "js",
+          "path": "/.netlify/scripts/hud",
+          "status": 200,
+          "ms": {
+            "dns": 1.2,
+            "tcp": 110.2,
+            "tls": 87.3,
+            "headers": 208.9,
+            "http": 375.8,
+            "total": 574.7
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "bytes": 35855,
+          "ok": true
+        }
+      ],
+      "html_dependencies": {
+        "same_origin_css_js": 9,
+        "external_css_js_unfetched": 0
+      },
+      "ok": false,
+      "total_ms": 12401.6
+    },
+    {
+      "number": 18,
+      "utc": "2026-11-11T00:32:26+00:00",
+      "checks": [
+        {
+          "kind": "home",
+          "path": "/",
+          "status": 200,
+          "ms": {
+            "dns": 0.5,
+            "tcp": 101.3,
+            "tls": 90.6,
+            "headers": 181.9,
+            "http": 266.4,
+            "total": 461.3
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "bytes": 13497,
+          "ok": true
+        },
+        {
+          "kind": "cases",
+          "path": "/api/cultural-cases",
+          "status": null,
+          "ms": {
+            "dns": 1.2,
+            "tcp": 85.6,
+            "tls": 26.5,
+            "total": 113.5
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "ok": false,
+          "failed_stage": "tls",
+          "error": "ConnectionResetError",
+          "os_code": 10054
+        },
+        {
+          "kind": "image",
+          "path": "/images/azure-landscape.svg",
+          "status": 404,
+          "ms": {
+            "dns": 1.0,
+            "tcp": 100.8,
+            "tls": 89.7,
+            "headers": 950.4,
+            "http": 951.1,
+            "total": 1142.8
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "font",
+          "path": "/fonts/ma-shan-zheng-headings.ttf",
+          "status": 404,
+          "ms": {
+            "dns": 1.2,
+            "tcp": 82.8,
+            "tls": 85.3,
+            "headers": 675.2,
+            "http": 676.0,
+            "total": 845.4
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "css",
+          "path": "/_next/static/chunks/3qv4m2v2pk7sr.css",
+          "status": 404,
+          "ms": {
+            "dns": 1.2,
+            "tcp": 86.7,
+            "tls": 89.0,
+            "headers": 692.2,
+            "http": 692.8,
+            "total": 869.7
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/0_xceca9x8w3m.js",
+          "status": 404,
+          "ms": {
+            "dns": 18.2,
+            "tcp": 101.1,
+            "tls": 92.0,
+            "headers": 450.7,
+            "http": 451.2,
+            "total": 662.6
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/20box33a0_n53.js",
+          "status": 404,
+          "ms": {
+            "dns": 1.0,
+            "tcp": 80.7,
+            "tls": 86.1,
+            "headers": 445.2,
+            "http": 445.9,
+            "total": 613.7
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/0-8-2pf2bywtz.js",
+          "status": 404,
+          "ms": {
+            "dns": 1.2,
+            "tcp": 91.6,
+            "tls": 84.0,
+            "headers": 2525.3,
+            "http": 2525.7,
+            "total": 2702.6
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/turbopack-3-ry682tkyiqk.js",
+          "status": 404,
+          "ms": {
+            "dns": 1.0,
+            "tcp": 103.4,
+            "tls": 92.1,
+            "headers": 476.9,
+            "http": 477.4,
+            "total": 674.1
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/3gk5w3ho66_ge.js",
+          "status": null,
+          "ms": {
+            "dns": 1.0,
+            "tcp": 99.4,
+            "tls": 22.7,
+            "total": 123.2
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "ok": false,
+          "failed_stage": "tls",
+          "error": "ConnectionResetError",
+          "os_code": 10054
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/0cz1d0mv5g_q7.js",
+          "status": 404,
+          "ms": {
+            "dns": 1.0,
+            "tcp": 90.3,
+            "tls": 95.5,
+            "headers": 465.8,
+            "http": 466.2,
+            "total": 653.2
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/0om590q-tq0l9.js",
+          "status": 404,
+          "ms": {
+            "dns": 0.9,
+            "tcp": 82.3,
+            "tls": 85.3,
+            "headers": 461.2,
+            "http": 461.7,
+            "total": 630.4
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "js",
+          "path": "/.netlify/scripts/hud",
+          "status": 200,
+          "ms": {
+            "dns": 1.1,
+            "tcp": 86.9,
+            "tls": 89.7,
+            "headers": 216.2,
+            "http": 389.2,
+            "total": 567.1
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "bytes": 35855,
+          "ok": true
+        }
+      ],
+      "html_dependencies": {
+        "same_origin_css_js": 9,
+        "external_css_js_unfetched": 0
+      },
+      "ok": false,
+      "total_ms": 10059.8
+    },
+    {
+      "number": 19,
+      "utc": "2026-11-11T00:32:37+00:00",
+      "checks": [
+        {
+          "kind": "home",
+          "path": "/",
+          "status": 200,
+          "ms": {
+            "dns": 1.2,
+            "tcp": 89.9,
+            "tls": 92.0,
+            "headers": 220.0,
+            "http": 310.5,
+            "total": 495.7
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "bytes": 13497,
+          "ok": true
+        },
+        {
+          "kind": "cases",
+          "path": "/api/cultural-cases",
+          "status": 200,
+          "ms": {
+            "dns": 0.9,
+            "tcp": 86.7,
+            "tls": 89.3,
+            "headers": 468.9,
+            "http": 469.7,
+            "total": 646.8
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "bytes": 796,
+          "ok": true
+        },
+        {
+          "kind": "image",
+          "path": "/images/azure-landscape.svg",
+          "status": 404,
+          "ms": {
+            "dns": 1.1,
+            "tcp": 103.8,
+            "tls": 95.0,
+            "headers": 512.3,
+            "http": 513.3,
+            "total": 713.4
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "font",
+          "path": "/fonts/ma-shan-zheng-headings.ttf",
+          "status": 404,
+          "ms": {
+            "dns": 1.3,
+            "tcp": 105.9,
+            "tls": 88.7,
+            "headers": 496.4,
+            "http": 496.9,
+            "total": 692.8
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "css",
+          "path": "/_next/static/chunks/3qv4m2v2pk7sr.css",
+          "status": 404,
+          "ms": {
+            "dns": 1.1,
+            "tcp": 101.3,
+            "tls": 91.5,
+            "headers": 759.4,
+            "http": 759.9,
+            "total": 953.9
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/0_xceca9x8w3m.js",
+          "status": 200,
+          "ms": {
+            "dns": 1.1,
+            "tcp": 84.8,
+            "tls": 89.4,
+            "headers": 1157.9,
+            "http": 1242.0,
+            "total": 1417.5
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "bytes": 26625,
+          "ok": true
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/20box33a0_n53.js",
+          "status": 200,
+          "ms": {
+            "dns": 1.0,
+            "tcp": 92.3,
+            "tls": 94.6,
+            "headers": 1334.2,
+            "http": 1698.9,
+            "total": 1887.0
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "bytes": 229627,
+          "ok": true
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/0-8-2pf2bywtz.js",
+          "status": 200,
+          "ms": {
+            "dns": 1.3,
+            "tcp": 89.3,
+            "tls": 93.4,
+            "headers": 442.8,
+            "http": 713.8,
+            "total": 897.9
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "bytes": 163772,
+          "ok": true
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/turbopack-3-ry682tkyiqk.js",
+          "status": 200,
+          "ms": {
+            "dns": 19.5,
+            "tcp": 92.0,
+            "tls": 85.3,
+            "headers": 419.4,
+            "http": 421.7,
+            "total": 618.5
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "bytes": 10030,
+          "ok": true
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/3gk5w3ho66_ge.js",
+          "status": 200,
+          "ms": {
+            "dns": 1.0,
+            "tcp": 87.4,
+            "tls": 88.8,
+            "headers": 426.2,
+            "http": 514.9,
+            "total": 692.3
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "bytes": 22433,
+          "ok": true
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/0cz1d0mv5g_q7.js",
+          "status": 200,
+          "ms": {
+            "dns": 1.0,
+            "tcp": 81.6,
+            "tls": 85.5,
+            "headers": 963.3,
+            "http": 1209.3,
+            "total": 1377.6
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "bytes": 112594,
+          "ok": true
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/0om590q-tq0l9.js",
+          "status": 200,
+          "ms": {
+            "dns": 0.9,
+            "tcp": 104.3,
+            "tls": 92.3,
+            "headers": 423.9,
+            "http": 513.5,
+            "total": 711.1
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "bytes": 13492,
+          "ok": true
+        },
+        {
+          "kind": "js",
+          "path": "/.netlify/scripts/hud",
+          "status": 200,
+          "ms": {
+            "dns": 1.3,
+            "tcp": 109.0,
+            "tls": 87.8,
+            "headers": 213.3,
+            "http": 385.7,
+            "total": 584.0
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "bytes": 35855,
+          "ok": true
+        }
+      ],
+      "html_dependencies": {
+        "same_origin_css_js": 9,
+        "external_css_js_unfetched": 0
+      },
+      "ok": false,
+      "total_ms": 11688.9
+    },
+    {
+      "number": 20,
+      "utc": "2026-11-11T00:32:50+00:00",
+      "checks": [
+        {
+          "kind": "home",
+          "path": "/",
+          "status": 200,
+          "ms": {
+            "dns": 0.6,
+            "tcp": 101.4,
+            "tls": 85.7,
+            "headers": 743.6,
+            "http": 829.3,
+            "total": 1019.2
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "bytes": 12962,
+          "ok": true
+        },
+        {
+          "kind": "cases",
+          "path": "/api/cultural-cases",
+          "status": 200,
+          "ms": {
+            "dns": 1.1,
+            "tcp": 83.0,
+            "tls": 86.3,
+            "headers": 942.9,
+            "http": 943.8,
+            "total": 1114.4
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "bytes": 796,
+          "ok": true
+        },
+        {
+          "kind": "image",
+          "path": "/images/azure-landscape.svg",
+          "status": 200,
+          "ms": {
+            "dns": 1.1,
+            "tcp": 88.0,
+            "tls": 80.7,
+            "headers": 1096.3,
+            "http": 1096.6,
+            "total": 1266.6
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "bytes": 2255,
+          "ok": true
+        },
+        {
+          "kind": "font",
+          "path": "/fonts/ma-shan-zheng-headings.ttf",
+          "status": 200,
+          "ms": {
+            "dns": 0.5,
+            "tcp": 79.6,
+            "tls": 83.0,
+            "headers": 1015.9,
+            "http": 1110.7,
+            "total": 1273.9
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "bytes": 18924,
+          "ok": true
+        },
+        {
+          "kind": "css",
+          "path": "/_next/static/chunks/3qv4m2v2pk7sr.css",
+          "status": 200,
+          "ms": {
+            "dns": 1.1,
+            "tcp": 79.9,
+            "tls": 82.0,
+            "headers": 515.0,
+            "http": 593.9,
+            "total": 757.1
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "bytes": 16487,
+          "ok": true
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/0_xceca9x8w3m.js",
+          "status": 200,
+          "ms": {
+            "dns": 1.0,
+            "tcp": 113.3,
+            "tls": 91.2,
+            "headers": 604.8,
+            "http": 692.6,
+            "total": 898.3
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "bytes": 26625,
+          "ok": true
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/20box33a0_n53.js",
+          "status": 200,
+          "ms": {
+            "dns": 0.7,
+            "tcp": 107.9,
+            "tls": 90.7,
+            "headers": 1982.7,
+            "http": 2338.7,
+            "total": 2538.2
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "bytes": 229627,
+          "ok": true
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/0-8-2pf2bywtz.js",
+          "status": 200,
+          "ms": {
+            "dns": 1.1,
+            "tcp": 92.4,
+            "tls": 95.3,
+            "headers": 401.0,
+            "http": 679.6,
+            "total": 868.6
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "bytes": 163772,
+          "ok": true
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/turbopack-3-ry682tkyiqk.js",
+          "status": 200,
+          "ms": {
+            "dns": 23.1,
+            "tcp": 85.0,
+            "tls": 89.5,
+            "headers": 979.5,
+            "http": 980.2,
+            "total": 1178.1
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "bytes": 10030,
+          "ok": true
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/3gk5w3ho66_ge.js",
+          "status": 200,
+          "ms": {
+            "dns": 1.0,
+            "tcp": 109.8,
+            "tls": 93.4,
+            "headers": 435.1,
+            "http": 525.4,
+            "total": 729.7
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "bytes": 22433,
+          "ok": true
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/0cz1d0mv5g_q7.js",
+          "status": 200,
+          "ms": {
+            "dns": 1.1,
+            "tcp": 94.9,
+            "tls": 85.5,
+            "headers": 508.5,
+            "http": 755.3,
+            "total": 936.9
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "bytes": 112594,
+          "ok": true
+        },
+        {
+          "kind": "js",
+          "path": "/_next/static/chunks/0om590q-tq0l9.js",
+          "status": 200,
+          "ms": {
+            "dns": 0.5,
+            "tcp": 89.3,
+            "tls": 92.6,
+            "headers": 492.0,
+            "http": 580.7,
+            "total": 763.2
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "bytes": 13492,
+          "ok": true
+        }
+      ],
+      "html_dependencies": {
+        "same_origin_css_js": 8,
+        "external_css_js_unfetched": 0
+      },
+      "ok": true,
+      "total_ms": 13344.5
+    }
+  ],
+  "ended_utc": "2026-11-11T00:33:03+00:00",
+  "summary": {
+    "successful_rounds": 1,
+    "attempted_rounds": 20,
+    "success_percent": 5.0,
+    "median_successful_round_ms": 13344.5,
+    "request_failures_by_stage": {
+      "http": 151,
+      "tls": 14
+    }
+  }
+}

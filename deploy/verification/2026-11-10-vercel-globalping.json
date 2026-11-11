@@ -1,0 +1,920 @@
+{
+  "target": "https://qsxshixu-ai.vercel.app/",
+  "source": "Anonymous Globalping HTTPS GET from mainland ISP eyeball-network probes. Control client used direct networking. Probe operators' device settings and physical subscribers are not independently verified.",
+  "rounds": [
+    {
+      "round": 1,
+      "utc": "2026-11-10T15:49:33.372Z",
+      "measurement": "2E1awURTRkMSJqHSf00021Tld",
+      "results": [
+        {
+          "country": "CN",
+          "city": "Wuxi",
+          "asn": 56046,
+          "network": "China Mobile Communications",
+          "status": "failed",
+          "httpStatus": null,
+          "timingsMs": {
+            "total": 15001,
+            "dns": 246,
+            "tcp": null,
+            "tls": null,
+            "firstByte": null,
+            "download": null
+          },
+          "siteBodyConfirmed": false,
+          "reason": "Request timed out while establishing the TCP connection."
+        },
+        {
+          "country": "CN",
+          "city": "Shanghai",
+          "asn": 17621,
+          "network": "China Unicom Shanghai network",
+          "status": "failed",
+          "httpStatus": null,
+          "timingsMs": {
+            "total": 15001,
+            "dns": 11,
+            "tcp": null,
+            "tls": null,
+            "firstByte": null,
+            "download": null
+          },
+          "siteBodyConfirmed": false,
+          "reason": "Request timed out while establishing the TCP connection."
+        },
+        {
+          "country": "CN",
+          "city": "Yancheng",
+          "asn": 4134,
+          "network": "China Telecom",
+          "status": "failed",
+          "httpStatus": null,
+          "timingsMs": {
+            "total": 15000,
+            "dns": 48,
+            "tcp": null,
+            "tls": null,
+            "firstByte": null,
+            "download": null
+          },
+          "siteBodyConfirmed": false,
+          "reason": "Request timed out while establishing the TCP connection."
+        }
+      ]
+    },
+    {
+      "round": 2,
+      "utc": "2026-11-10T15:50:45.541Z",
+      "measurement": "2hiokdxWeFSWfCTxd00021Tle",
+      "results": [
+        {
+          "country": "CN",
+          "city": "Wuxi",
+          "asn": 56046,
+          "network": "China Mobile Communications",
+          "status": "failed",
+          "httpStatus": null,
+          "timingsMs": {
+            "total": 15000,
+            "dns": 8,
+            "tcp": null,
+            "tls": null,
+            "firstByte": null,
+            "download": null
+          },
+          "siteBodyConfirmed": false,
+          "reason": "Request timed out while establishing the TCP connection."
+        },
+        {
+          "country": "CN",
+          "city": "Shanghai",
+          "asn": 17621,
+          "network": "China Unicom Shanghai network",
+          "status": "failed",
+          "httpStatus": null,
+          "timingsMs": {
+            "total": 15000,
+            "dns": 205,
+            "tcp": null,
+            "tls": null,
+            "firstByte": null,
+            "download": null
+          },
+          "siteBodyConfirmed": false,
+          "reason": "Request timed out while establishing the TCP connection."
+        }
+      ]
+    },
+    {
+      "round": 3,
+      "utc": "2026-11-10T15:51:04.384Z",
+      "measurement": "2UfsRjUjeTaGrQ04W00021Tlf",
+      "results": [
+        {
+          "country": "CN",
+          "city": "Wuxi",
+          "asn": 56046,
+          "network": "China Mobile Communications",
+          "status": "failed",
+          "httpStatus": null,
+          "timingsMs": {
+            "total": 15001,
+            "dns": 10,
+            "tcp": null,
+            "tls": null,
+            "firstByte": null,
+            "download": null
+          },
+          "siteBodyConfirmed": false,
+          "reason": "Request timed out while establishing the TCP connection."
+        },
+        {
+          "country": "CN",
+          "city": "Shanghai",
+          "asn": 17621,
+          "network": "China Unicom Shanghai network",
+          "status": "failed",
+          "httpStatus": null,
+          "timingsMs": {
+            "total": 14999,
+            "dns": 151,
+            "tcp": null,
+            "tls": null,
+            "firstByte": null,
+            "download": null
+          },
+          "siteBodyConfirmed": false,
+          "reason": "Request timed out while establishing the TCP connection."
+        }
+      ]
+    },
+    {
+      "round": 4,
+      "utc": "2026-11-10T15:51:23.744Z",
+      "measurement": "2DS5fRNeV0j5PkpQm00021Tlf",
+      "results": [
+        {
+          "country": "CN",
+          "city": "Wuxi",
+          "asn": 56046,
+          "network": "China Mobile Communications",
+          "status": "failed",
+          "httpStatus": null,
+          "timingsMs": {
+            "total": 14999,
+            "dns": 4,
+            "tcp": null,
+            "tls": null,
+            "firstByte": null,
+            "download": null
+          },
+          "siteBodyConfirmed": false,
+          "reason": "Request timed out while establishing the TCP connection."
+        },
+        {
+          "country": "CN",
+          "city": "Shanghai",
+          "asn": 17621,
+          "network": "China Unicom Shanghai network",
+          "status": "failed",
+          "httpStatus": null,
+          "timingsMs": {
+            "total": 15001,
+            "dns": 10,
+            "tcp": null,
+            "tls": null,
+            "firstByte": null,
+            "download": null
+          },
+          "siteBodyConfirmed": false,
+          "reason": "Request timed out while establishing the TCP connection."
+        }
+      ]
+    },
+    {
+      "round": 5,
+      "utc": "2026-11-10T15:51:42.530Z",
+      "measurement": "2Y7DtbfjoTAlxVonM00021Tlf",
+      "results": [
+        {
+          "country": "CN",
+          "city": "Wuxi",
+          "asn": 56046,
+          "network": "China Mobile Communications",
+          "status": "failed",
+          "httpStatus": null,
+          "timingsMs": {
+            "total": 15000,
+            "dns": 5,
+            "tcp": null,
+            "tls": null,
+            "firstByte": null,
+            "download": null
+          },
+          "siteBodyConfirmed": false,
+          "reason": "Request timed out while establishing the TCP connection."
+        },
+        {
+          "country": "CN",
+          "city": "Shanghai",
+          "asn": 17621,
+          "network": "China Unicom Shanghai network",
+          "status": "failed",
+          "httpStatus": null,
+          "timingsMs": {
+            "total": 15001,
+            "dns": 24,
+            "tcp": null,
+            "tls": null,
+            "firstByte": null,
+            "download": null
+          },
+          "siteBodyConfirmed": false,
+          "reason": "Request timed out while establishing the TCP connection."
+        }
+      ]
+    },
+    {
+      "round": 6,
+      "utc": "2026-11-10T15:52:01.143Z",
+      "measurement": "2qrQ8WRssTffq4c4Y00021Tlg",
+      "results": [
+        {
+          "country": "CN",
+          "city": "Wuxi",
+          "asn": 56046,
+          "network": "China Mobile Communications",
+          "status": "failed",
+          "httpStatus": null,
+          "timingsMs": {
+            "total": 15002,
+            "dns": 2,
+            "tcp": null,
+            "tls": null,
+            "firstByte": null,
+            "download": null
+          },
+          "siteBodyConfirmed": false,
+          "reason": "Request timed out while establishing the TCP connection."
+        },
+        {
+          "country": "CN",
+          "city": "Shanghai",
+          "asn": 17621,
+          "network": "China Unicom Shanghai network",
+          "status": "failed",
+          "httpStatus": null,
+          "timingsMs": {
+            "total": 66,
+            "dns": 41,
+            "tcp": null,
+            "tls": null,
+            "firstByte": null,
+            "download": null
+          },
+          "siteBodyConfirmed": false,
+          "reason": "connect ECONNREFUSED 162.125.80.5:443"
+        }
+      ]
+    },
+    {
+      "round": 7,
+      "utc": "2026-11-10T15:52:20.624Z",
+      "measurement": "29b3HREZYnh5RSfb000021Tlg",
+      "results": [
+        {
+          "country": "CN",
+          "city": "Wuxi",
+          "asn": 56046,
+          "network": "China Mobile Communications",
+          "status": "failed",
+          "httpStatus": null,
+          "timingsMs": {
+            "total": 15001,
+            "dns": 4,
+            "tcp": null,
+            "tls": null,
+            "firstByte": null,
+            "download": null
+          },
+          "siteBodyConfirmed": false,
+          "reason": "Request timed out while establishing the TCP connection."
+        },
+        {
+          "country": "CN",
+          "city": "Shanghai",
+          "asn": 17621,
+          "network": "China Unicom Shanghai network",
+          "status": "failed",
+          "httpStatus": null,
+          "timingsMs": {
+            "total": 14999,
+            "dns": 10,
+            "tcp": null,
+            "tls": null,
+            "firstByte": null,
+            "download": null
+          },
+          "siteBodyConfirmed": false,
+          "reason": "Request timed out while establishing the TCP connection."
+        }
+      ]
+    },
+    {
+      "round": 8,
+      "utc": "2026-11-10T15:52:39.561Z",
+      "measurement": "2AeRxtI6uiyGQ30TK00021Tlg",
+      "results": [
+        {
+          "country": "CN",
+          "city": "Wuxi",
+          "asn": 56046,
+          "network": "China Mobile Communications",
+          "status": "failed",
+          "httpStatus": null,
+          "timingsMs": {
+            "total": 15000,
+            "dns": 13,
+            "tcp": null,
+            "tls": null,
+            "firstByte": null,
+            "download": null
+          },
+          "siteBodyConfirmed": false,
+          "reason": "Request timed out while establishing the TCP connection."
+        },
+        {
+          "country": "CN",
+          "city": "Shanghai",
+          "asn": 17621,
+          "network": "China Unicom Shanghai network",
+          "status": "failed",
+          "httpStatus": null,
+          "timingsMs": {
+            "total": 15000,
+            "dns": 10,
+            "tcp": null,
+            "tls": null,
+            "firstByte": null,
+            "download": null
+          },
+          "siteBodyConfirmed": false,
+          "reason": "Request timed out while establishing the TCP connection."
+        }
+      ]
+    },
+    {
+      "round": 9,
+      "utc": "2026-11-10T15:52:58.950Z",
+      "measurement": "2UuWM66K5PcB3Sat500021Tlg",
+      "results": [
+        {
+          "country": "CN",
+          "city": "Wuxi",
+          "asn": 56046,
+          "network": "China Mobile Communications",
+          "status": "failed",
+          "httpStatus": null,
+          "timingsMs": {
+            "total": 14999,
+            "dns": 5,
+            "tcp": null,
+            "tls": null,
+            "firstByte": null,
+            "download": null
+          },
+          "siteBodyConfirmed": false,
+          "reason": "Request timed out while establishing the TCP connection."
+        },
+        {
+          "country": "CN",
+          "city": "Shanghai",
+          "asn": 17621,
+          "network": "China Unicom Shanghai network",
+          "status": "failed",
+          "httpStatus": null,
+          "timingsMs": {
+            "total": 14999,
+            "dns": 457,
+            "tcp": null,
+            "tls": null,
+            "firstByte": null,
+            "download": null
+          },
+          "siteBodyConfirmed": false,
+          "reason": "Request timed out while establishing the TCP connection."
+        }
+      ]
+    },
+    {
+      "round": 10,
+      "utc": "2026-11-10T15:53:18.078Z",
+      "measurement": "2QOEhTVm002GMN7Pz00021Tlh",
+      "results": [
+        {
+          "country": "CN",
+          "city": "Wuxi",
+          "asn": 56046,
+          "network": "China Mobile Communications",
+          "status": "failed",
+          "httpStatus": null,
+          "timingsMs": {
+            "total": 15000,
+            "dns": 6,
+            "tcp": null,
+            "tls": null,
+            "firstByte": null,
+            "download": null
+          },
+          "siteBodyConfirmed": false,
+          "reason": "Request timed out while establishing the TCP connection."
+        },
+        {
+          "country": "CN",
+          "city": "Shanghai",
+          "asn": 17621,
+          "network": "China Unicom Shanghai network",
+          "status": "failed",
+          "httpStatus": null,
+          "timingsMs": {
+            "total": 15000,
+            "dns": 25,
+            "tcp": null,
+            "tls": null,
+            "firstByte": null,
+            "download": null
+          },
+          "siteBodyConfirmed": false,
+          "reason": "Request timed out while establishing the TCP connection."
+        }
+      ]
+    },
+    {
+      "round": 11,
+      "utc": "2026-11-10T15:53:36.660Z",
+      "measurement": "2kBVJFZab7FwA5hMr00021Tlh",
+      "results": [
+        {
+          "country": "CN",
+          "city": "Wuxi",
+          "asn": 56046,
+          "network": "China Mobile Communications",
+          "status": "failed",
+          "httpStatus": null,
+          "timingsMs": {
+            "total": 15001,
+            "dns": 12,
+            "tcp": null,
+            "tls": null,
+            "firstByte": null,
+            "download": null
+          },
+          "siteBodyConfirmed": false,
+          "reason": "Request timed out while establishing the TCP connection."
+        },
+        {
+          "country": "CN",
+          "city": "Shanghai",
+          "asn": 17621,
+          "network": "China Unicom Shanghai network",
+          "status": "failed",
+          "httpStatus": null,
+          "timingsMs": {
+            "total": 14999,
+            "dns": 25,
+            "tcp": null,
+            "tls": null,
+            "firstByte": null,
+            "download": null
+          },
+          "siteBodyConfirmed": false,
+          "reason": "Request timed out while establishing the TCP connection."
+        }
+      ]
+    },
+    {
+      "round": 12,
+      "utc": "2026-11-10T15:53:55.350Z",
+      "measurement": "2NxuGpyVd3g1EM9MQ00021Tlh",
+      "results": [
+        {
+          "country": "CN",
+          "city": "Wuxi",
+          "asn": 56046,
+          "network": "China Mobile Communications",
+          "status": "failed",
+          "httpStatus": null,
+          "timingsMs": {
+            "total": 15000,
+            "dns": 5,
+            "tcp": null,
+            "tls": null,
+            "firstByte": null,
+            "download": null
+          },
+          "siteBodyConfirmed": false,
+          "reason": "Request timed out while establishing the TCP connection."
+        },
+        {
+          "country": "CN",
+          "city": "Shanghai",
+          "asn": 17621,
+          "network": "China Unicom Shanghai network",
+          "status": "failed",
+          "httpStatus": null,
+          "timingsMs": {
+            "total": 15000,
+            "dns": 25,
+            "tcp": null,
+            "tls": null,
+            "firstByte": null,
+            "download": null
+          },
+          "siteBodyConfirmed": false,
+          "reason": "Request timed out while establishing the TCP connection."
+        }
+      ]
+    },
+    {
+      "round": 13,
+      "utc": "2026-11-10T15:54:14.506Z",
+      "measurement": "25oax7B7FRBVVICZR00021Tli",
+      "results": [
+        {
+          "country": "CN",
+          "city": "Wuxi",
+          "asn": 56046,
+          "network": "China Mobile Communications",
+          "status": "failed",
+          "httpStatus": null,
+          "timingsMs": {
+            "total": 14999,
+            "dns": 2,
+            "tcp": null,
+            "tls": null,
+            "firstByte": null,
+            "download": null
+          },
+          "siteBodyConfirmed": false,
+          "reason": "Request timed out while establishing the TCP connection."
+        },
+        {
+          "country": "CN",
+          "city": "Shanghai",
+          "asn": 17621,
+          "network": "China Unicom Shanghai network",
+          "status": "failed",
+          "httpStatus": null,
+          "timingsMs": {
+            "total": 42,
+            "dns": 6,
+            "tcp": null,
+            "tls": null,
+            "firstByte": null,
+            "download": null
+          },
+          "siteBodyConfirmed": false,
+          "reason": "connect ECONNREFUSED 162.125.80.5:443"
+        }
+      ]
+    },
+    {
+      "round": 14,
+      "utc": "2026-11-10T15:54:33.739Z",
+      "measurement": "2KWCCmhu8cnGQ0BTZ00021Tli",
+      "results": [
+        {
+          "country": "CN",
+          "city": "Wuxi",
+          "asn": 56046,
+          "network": "China Mobile Communications",
+          "status": "failed",
+          "httpStatus": null,
+          "timingsMs": {
+            "total": 14998,
+            "dns": 5,
+            "tcp": null,
+            "tls": null,
+            "firstByte": null,
+            "download": null
+          },
+          "siteBodyConfirmed": false,
+          "reason": "Request timed out while establishing the TCP connection."
+        },
+        {
+          "country": "CN",
+          "city": "Shanghai",
+          "asn": 17621,
+          "network": "China Unicom Shanghai network",
+          "status": "failed",
+          "httpStatus": null,
+          "timingsMs": {
+            "total": 46,
+            "dns": 11,
+            "tcp": null,
+            "tls": null,
+            "firstByte": null,
+            "download": null
+          },
+          "siteBodyConfirmed": false,
+          "reason": "connect ECONNREFUSED 162.125.80.5:443"
+        }
+      ]
+    },
+    {
+      "round": 15,
+      "utc": "2026-11-10T15:54:52.935Z",
+      "measurement": "23IY7Bh95SXGHHGPn00021Tli",
+      "results": [
+        {
+          "country": "CN",
+          "city": "Wuxi",
+          "asn": 56046,
+          "network": "China Mobile Communications",
+          "status": "failed",
+          "httpStatus": null,
+          "timingsMs": {
+            "total": 14998,
+            "dns": 5,
+            "tcp": null,
+            "tls": null,
+            "firstByte": null,
+            "download": null
+          },
+          "siteBodyConfirmed": false,
+          "reason": "Request timed out while establishing the TCP connection."
+        },
+        {
+          "country": "CN",
+          "city": "Shanghai",
+          "asn": 17621,
+          "network": "China Unicom Shanghai network",
+          "status": "failed",
+          "httpStatus": null,
+          "timingsMs": {
+            "total": 67,
+            "dns": 27,
+            "tcp": null,
+            "tls": null,
+            "firstByte": null,
+            "download": null
+          },
+          "siteBodyConfirmed": false,
+          "reason": "connect ECONNREFUSED 31.13.87.34:443"
+        }
+      ]
+    },
+    {
+      "round": 16,
+      "utc": "2026-11-10T15:55:12.290Z",
+      "measurement": "2vMbC0JsTGqxTibfN00021Tlj",
+      "results": [
+        {
+          "country": "CN",
+          "city": "Wuxi",
+          "asn": 56046,
+          "network": "China Mobile Communications",
+          "status": "failed",
+          "httpStatus": null,
+          "timingsMs": {
+            "total": 15000,
+            "dns": 5,
+            "tcp": null,
+            "tls": null,
+            "firstByte": null,
+            "download": null
+          },
+          "siteBodyConfirmed": false,
+          "reason": "Request timed out while establishing the TCP connection."
+        },
+        {
+          "country": "CN",
+          "city": "Shanghai",
+          "asn": 17621,
+          "network": "China Unicom Shanghai network",
+          "status": "failed",
+          "httpStatus": null,
+          "timingsMs": {
+            "total": 63,
+            "dns": 26,
+            "tcp": null,
+            "tls": null,
+            "firstByte": null,
+            "download": null
+          },
+          "siteBodyConfirmed": false,
+          "reason": "connect ECONNREFUSED 31.13.87.34:443"
+        }
+      ]
+    },
+    {
+      "round": 17,
+      "utc": "2026-11-10T15:55:31.351Z",
+      "measurement": "2uo0UhLub3pViYskG00021Tlj",
+      "results": [
+        {
+          "country": "CN",
+          "city": "Wuxi",
+          "asn": 56046,
+          "network": "China Mobile Communications",
+          "status": "failed",
+          "httpStatus": null,
+          "timingsMs": {
+            "total": 15000,
+            "dns": 14,
+            "tcp": null,
+            "tls": null,
+            "firstByte": null,
+            "download": null
+          },
+          "siteBodyConfirmed": false,
+          "reason": "Request timed out while establishing the TCP connection."
+        },
+        {
+          "country": "CN",
+          "city": "Shanghai",
+          "asn": 17621,
+          "network": "China Unicom Shanghai network",
+          "status": "failed",
+          "httpStatus": null,
+          "timingsMs": {
+            "total": 63,
+            "dns": 25,
+            "tcp": null,
+            "tls": null,
+            "firstByte": null,
+            "download": null
+          },
+          "siteBodyConfirmed": false,
+          "reason": "connect ECONNREFUSED 31.13.87.34:443"
+        }
+      ]
+    },
+    {
+      "round": 18,
+      "utc": "2026-11-10T15:55:49.913Z",
+      "measurement": "2AYxbn97aynjdnuaV00021Tlj",
+      "results": [
+        {
+          "country": "CN",
+          "city": "Wuxi",
+          "asn": 56046,
+          "network": "China Mobile Communications",
+          "status": "failed",
+          "httpStatus": null,
+          "timingsMs": {
+            "total": 14999,
+            "dns": 5,
+            "tcp": null,
+            "tls": null,
+            "firstByte": null,
+            "download": null
+          },
+          "siteBodyConfirmed": false,
+          "reason": "Request timed out while establishing the TCP connection."
+        },
+        {
+          "country": "CN",
+          "city": "Shanghai",
+          "asn": 17621,
+          "network": "China Unicom Shanghai network",
+          "status": "failed",
+          "httpStatus": null,
+          "timingsMs": {
+            "total": 15001,
+            "dns": 12,
+            "tcp": null,
+            "tls": null,
+            "firstByte": null,
+            "download": null
+          },
+          "siteBodyConfirmed": false,
+          "reason": "Request timed out while establishing the TCP connection."
+        }
+      ]
+    },
+    {
+      "round": 19,
+      "utc": "2026-11-10T19:18:11.910Z",
+      "measurement": "2AmON1NCfXjIniTNj00021Tp0",
+      "results": [
+        {
+          "country": "CN",
+          "city": "Wuxi",
+          "asn": 56046,
+          "network": "China Mobile Communications",
+          "status": "failed",
+          "httpStatus": null,
+          "timingsMs": {
+            "total": 15001,
+            "dns": 5865,
+            "tcp": null,
+            "tls": null,
+            "firstByte": null,
+            "download": null
+          },
+          "siteBodyConfirmed": false,
+          "reason": "Request timed out while establishing the TCP connection."
+        },
+        {
+          "country": "CN",
+          "city": "Shanghai",
+          "asn": 17621,
+          "network": "China Unicom Shanghai network",
+          "status": "failed",
+          "httpStatus": null,
+          "timingsMs": {
+            "total": 5402,
+            "dns": 5370,
+            "tcp": null,
+            "tls": null,
+            "firstByte": null,
+            "download": null
+          },
+          "siteBodyConfirmed": false,
+          "reason": "connect ECONNREFUSED 31.13.87.34:443"
+        },
+        {
+          "country": "CN",
+          "city": "Yancheng",
+          "asn": 4134,
+          "network": "China Telecom",
+          "status": "failed",
+          "httpStatus": null,
+          "timingsMs": {
+            "total": 15001,
+            "dns": 32,
+            "tcp": null,
+            "tls": null,
+            "firstByte": null,
+            "download": null
+          },
+          "siteBodyConfirmed": false,
+          "reason": "Request timed out while establishing the TCP connection."
+        }
+      ]
+    },
+    {
+      "round": 20,
+      "utc": "2026-11-10T23:56:38.078Z",
+      "measurement": "2QkvkE3YM0NxutJNs00021TtU",
+      "results": [
+        {
+          "country": "CN",
+          "city": "Wuxi",
+          "asn": 56046,
+          "network": "China Mobile Communications",
+          "status": "failed",
+          "httpStatus": null,
+          "timingsMs": {
+            "total": 6056,
+            "dns": null,
+            "tcp": null,
+            "tls": null,
+            "firstByte": null,
+            "download": null
+          },
+          "siteBodyConfirmed": false,
+          "reason": "The measurement timed out during DNS resolution."
+        },
+        {
+          "country": "CN",
+          "city": "Shanghai",
+          "asn": 17621,
+          "network": "China Unicom Shanghai network",
+          "status": "failed",
+          "httpStatus": null,
+          "timingsMs": {
+            "total": 15001,
+            "dns": 13,
+            "tcp": null,
+            "tls": null,
+            "firstByte": null,
+            "download": null
+          },
+          "siteBodyConfirmed": false,
+          "reason": "Request timed out while establishing the TCP connection."
+        },
+        {
+          "country": "CN",
+          "city": "Yancheng",
+          "asn": 4134,
+          "network": "China Telecom",
+          "status": "failed",
+          "httpStatus": null,
+          "timingsMs": {
+            "total": 15000,
+            "dns": 76,
+            "tcp": null,
+            "tls": null,
+            "firstByte": null,
+            "download": null
+          },
+          "siteBodyConfirmed": false,
+          "reason": "Request timed out while establishing the TCP connection."
+        }
+      ]
+    }
+  ]
+}

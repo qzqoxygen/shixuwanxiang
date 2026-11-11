@@ -1,0 +1,27 @@
+{
+  "origin": "https://qsxshixu-ai.netlify.app",
+  "utc": "2026-11-11T00:27:20.517Z",
+  "tests": [
+    {
+      "name": "普通问答",
+      "status": 401,
+      "ms": 1173,
+      "ok": false,
+      "reason": "INVALID_JSON"
+    },
+    {
+      "name": "造物灵感",
+      "status": 401,
+      "ms": 1188,
+      "ok": false,
+      "reason": "INVALID_JSON"
+    },
+    {
+      "name": "实时搜索与来源",
+      "status": 401,
+      "ms": 390,
+      "ok": false,
+      "reason": "INVALID_JSON"
+    }
+  ]
+}

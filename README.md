@@ -47,7 +47,7 @@
 
 四时页（`/seasons`）沿用宣纸青绿风格。桌面左侧为节气目录，右侧为左文右图的对开书，支持翻页按钮、方向键和目录跳转。窄屏采用纵向阅读与横向滑动切换节气。24 个节气各有独立的「节气小识」和 **1920×1440、4:3、WebP** 实拍照片，照片逐张标注作者、来源和许可。桌面左页配有四季淡彩水墨插画，动效可暂停并遵循系统减少动态效果。详见 [四时页设计说明](docs/design/seasons-direction.md) 与 [照片来源](public/images/solar-terms/SOURCES.md)。
 
-知时问答（云间问四时）、造物灵感与联网检索共用一个服务端变量 `DEEPSEEK_API_KEY`。本地将密钥放在项目根目录的 `.env.local`，配置变更后重启服务。Vercel 使用同名的 Production 环境变量，更新后重新部署。变量模板见 [.env.example](.env.example)。
+知时问答（云间问四时）、造物灵感与联网检索共用一个服务端变量 `DEEPSEEK_API_KEY`。本地将密钥放在项目根目录的 `.env.local`，配置变更后重启服务。Netlify 为当前优先部署目标，Vercel 保留备用，两个平台独立配置同名环境变量。变量模板见 [.env.example](.env.example)，发布与验收说明见 [Netlify 部署](deploy/netlify.md)。
 首次恢复或获取源码时使用 npm ci；已有依赖无需重复安装。
 
 ```powershell

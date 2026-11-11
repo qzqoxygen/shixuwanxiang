@@ -1,0 +1,33 @@
+{
+  "origin": "http://127.0.0.1:33382",
+  "utc": "2026-11-10T15:55:29.686Z",
+  "tests": [
+    {
+      "name": "普通问答",
+      "status": 200,
+      "ms": 5786,
+      "ok": true,
+      "answer": "冬至不一定最冷，是因为地面降温有滞后：冬至太阳高度最低、白昼最短，但地面还在释放前期积存的热量，通常要再过一段时间气温才降到最低。比如我国不少地区最冷时段常出现在小寒、大寒前后。"
+    },
+    {
+      "name": "造物灵感",
+      "status": 200,
+      "ms": 6074,
+      "ok": true,
+      "count": 3,
+      "title": "柳线垂檐"
+    },
+    {
+      "name": "实时搜索与来源",
+      "status": 200,
+      "ms": 6475,
+      "ok": true,
+      "answer": "香港天文台在其网站“二十四节气的日期及时间资料”页面公布二十四节气时刻，并注明为香港时间（协调世界时加8小时）[1][2]。",
+      "sources": [
+        "https://www.hko.gov.hk/tc/gts/astronomy/Solar_Term.htm",
+        "https://www.hko.gov.hk/sc/gts/astronomy/Solar_Term.htm"
+      ]
+    }
+  ],
+  "environment": "Windows production standalone rehearsal; visitor used loopback; server contacted official DeepSeek. Not a cloud or carrier acceptance."
+}

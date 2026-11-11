@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  output: process.env.SHIXU_STANDALONE === "1" ? "standalone" : undefined,
   experimental: {
     agentFeedback: true,
   },

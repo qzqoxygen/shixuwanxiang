@@ -1,0 +1,23 @@
+{
+  "recordedUtc": "2026-11-11T00:36:17.470Z",
+  "site": "qsxshixu-ai",
+  "siteId": "51b22dd9-7d6d-4f65-afda-7bacfaa9ae72",
+  "publicUrl": "https://qsxshixu-ai.netlify.app",
+  "freePlanVerified": true,
+  "ssoLogin": false,
+  "publishedDeploy": {
+    "id": "6af3b7826e30458aeab3107e",
+    "state": "ready",
+    "context": "production",
+    "publishedAt": "2026-11-11T00:32:40.918Z"
+  },
+  "sourceCommit": "449a5dc",
+  "cli": "27.17.0",
+  "adapter": "5.16.6",
+  "functionsTimeoutSeconds": null,
+  "runtimeEnvironmentNames": [
+    "DEEPSEEK_API_KEY",
+    "SHIXU_TRUST_NETLIFY"
+  ],
+  "vercelBackup": "https://qsxshixu-ai.vercel.app"
+}

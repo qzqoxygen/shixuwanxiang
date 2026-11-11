@@ -1,0 +1,1880 @@
+{
+  "started_utc": "2026-11-11T00:27:20+00:00",
+  "host": "qsxshixu-ai.netlify.app",
+  "device_os": "Windows 11",
+  "python": "3.13.12",
+  "carrier": "unknown",
+  "carrier_evidence": "unknown",
+  "region_evidence": "unknown",
+  "proxy_settings": {
+    "environment_proxy_set": false,
+    "windows_user_proxy_enabled": true,
+    "windows_user_pac_set": false
+  },
+  "application_proxy_used": false,
+  "transport": "OS DNS, direct TCP, TLS with system trust and hostname validation, HTTP/1.1",
+  "socket_timeout_s": 5,
+  "rounds": [
+    {
+      "number": 1,
+      "utc": "2026-11-11T00:27:20+00:00",
+      "checks": [
+        {
+          "kind": "home",
+          "path": "/",
+          "status": 401,
+          "ms": {
+            "dns": 518.8,
+            "tcp": 111.1,
+            "tls": 96.4,
+            "headers": 223.0,
+            "http": 223.7,
+            "total": 950.2
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "cases",
+          "path": "/api/cultural-cases",
+          "status": 401,
+          "ms": {
+            "dns": 1.2,
+            "tcp": 75.9,
+            "tls": 80.9,
+            "headers": 202.9,
+            "http": 203.3,
+            "total": 361.4
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "image",
+          "path": "/images/azure-landscape.svg",
+          "status": 401,
+          "ms": {
+            "dns": 0.7,
+            "tcp": 84.5,
+            "tls": 85.6,
+            "headers": 423.2,
+            "http": 423.9,
+            "total": 594.7
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "font",
+          "path": "/fonts/ma-shan-zheng-headings.ttf",
+          "status": 401,
+          "ms": {
+            "dns": 1.1,
+            "tcp": 80.5,
+            "tls": 84.1,
+            "headers": 203.0,
+            "http": 203.6,
+            "total": 369.3
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        }
+      ],
+      "html_dependencies": "not discovered",
+      "ok": false,
+      "total_ms": 2275.7
+    },
+    {
+      "number": 2,
+      "utc": "2026-11-11T00:27:24+00:00",
+      "checks": [
+        {
+          "kind": "home",
+          "path": "/",
+          "status": 401,
+          "ms": {
+            "dns": 1.2,
+            "tcp": 103.9,
+            "tls": 85.9,
+            "headers": 207.8,
+            "http": 208.3,
+            "total": 399.5
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "cases",
+          "path": "/api/cultural-cases",
+          "status": 401,
+          "ms": {
+            "dns": 1.1,
+            "tcp": 84.7,
+            "tls": 89.7,
+            "headers": 330.5,
+            "http": 331.0,
+            "total": 506.6
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "image",
+          "path": "/images/azure-landscape.svg",
+          "status": 401,
+          "ms": {
+            "dns": 1.0,
+            "tcp": 84.2,
+            "tls": 101.3,
+            "headers": 203.7,
+            "http": 204.2,
+            "total": 390.8
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "font",
+          "path": "/fonts/ma-shan-zheng-headings.ttf",
+          "status": 401,
+          "ms": {
+            "dns": 1.1,
+            "tcp": 84.4,
+            "tls": 85.9,
+            "headers": 1538.0,
+            "http": 1538.5,
+            "total": 1710.0
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        }
+      ],
+      "html_dependencies": "not discovered",
+      "ok": false,
+      "total_ms": 3007.1
+    },
+    {
+      "number": 3,
+      "utc": "2026-11-11T00:27:28+00:00",
+      "checks": [
+        {
+          "kind": "home",
+          "path": "/",
+          "status": 401,
+          "ms": {
+            "dns": 0.7,
+            "tcp": 85.9,
+            "tls": 87.0,
+            "headers": 210.5,
+            "http": 211.0,
+            "total": 384.7
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "cases",
+          "path": "/api/cultural-cases",
+          "status": 401,
+          "ms": {
+            "dns": 1.1,
+            "tcp": 96.6,
+            "tls": 90.0,
+            "headers": 215.0,
+            "http": 215.6,
+            "total": 403.3
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "image",
+          "path": "/images/azure-landscape.svg",
+          "status": 401,
+          "ms": {
+            "dns": 0.8,
+            "tcp": 99.3,
+            "tls": 80.4,
+            "headers": 304.2,
+            "http": 304.8,
+            "total": 485.3
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "font",
+          "path": "/fonts/ma-shan-zheng-headings.ttf",
+          "status": 401,
+          "ms": {
+            "dns": 1.2,
+            "tcp": 87.8,
+            "tls": 92.7,
+            "headers": 227.1,
+            "http": 227.5,
+            "total": 409.2
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        }
+      ],
+      "html_dependencies": "not discovered",
+      "ok": false,
+      "total_ms": 1682.7
+    },
+    {
+      "number": 4,
+      "utc": "2026-11-11T00:27:30+00:00",
+      "checks": [
+        {
+          "kind": "home",
+          "path": "/",
+          "status": 401,
+          "ms": {
+            "dns": 0.5,
+            "tcp": 95.0,
+            "tls": 87.3,
+            "headers": 202.2,
+            "http": 202.7,
+            "total": 385.6
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "cases",
+          "path": "/api/cultural-cases",
+          "status": 401,
+          "ms": {
+            "dns": 1.1,
+            "tcp": 79.5,
+            "tls": 81.4,
+            "headers": 198.0,
+            "http": 198.3,
+            "total": 360.3
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "image",
+          "path": "/images/azure-landscape.svg",
+          "status": 401,
+          "ms": {
+            "dns": 0.9,
+            "tcp": 86.2,
+            "tls": 87.8,
+            "headers": 384.8,
+            "http": 385.1,
+            "total": 560.1
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "font",
+          "path": "/fonts/ma-shan-zheng-headings.ttf",
+          "status": 401,
+          "ms": {
+            "dns": 0.5,
+            "tcp": 111.7,
+            "tls": 90.8,
+            "headers": 214.3,
+            "http": 215.1,
+            "total": 418.2
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        }
+      ],
+      "html_dependencies": "not discovered",
+      "ok": false,
+      "total_ms": 1724.4
+    },
+    {
+      "number": 5,
+      "utc": "2026-11-11T00:27:33+00:00",
+      "checks": [
+        {
+          "kind": "home",
+          "path": "/",
+          "status": 401,
+          "ms": {
+            "dns": 1.3,
+            "tcp": 82.9,
+            "tls": 86.9,
+            "headers": 205.4,
+            "http": 205.8,
+            "total": 377.1
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "cases",
+          "path": "/api/cultural-cases",
+          "status": 401,
+          "ms": {
+            "dns": 0.6,
+            "tcp": 111.4,
+            "tls": 95.7,
+            "headers": 316.8,
+            "http": 317.1,
+            "total": 524.8
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "image",
+          "path": "/images/azure-landscape.svg",
+          "status": null,
+          "ms": {
+            "dns": 0.5,
+            "tcp": 90.8,
+            "tls": 26.8,
+            "total": 118.2
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "ok": false,
+          "failed_stage": "tls",
+          "error": "ConnectionResetError",
+          "os_code": 10054
+        },
+        {
+          "kind": "font",
+          "path": "/fonts/ma-shan-zheng-headings.ttf",
+          "status": 401,
+          "ms": {
+            "dns": 0.6,
+            "tcp": 97.6,
+            "tls": 88.6,
+            "headers": 213.9,
+            "http": 214.6,
+            "total": 401.4
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        }
+      ],
+      "html_dependencies": "not discovered",
+      "ok": false,
+      "total_ms": 1421.5
+    },
+    {
+      "number": 6,
+      "utc": "2026-11-11T00:27:35+00:00",
+      "checks": [
+        {
+          "kind": "home",
+          "path": "/",
+          "status": 401,
+          "ms": {
+            "dns": 0.7,
+            "tcp": 79.0,
+            "tls": 82.6,
+            "headers": 212.1,
+            "http": 212.6,
+            "total": 374.9
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "cases",
+          "path": "/api/cultural-cases",
+          "status": 401,
+          "ms": {
+            "dns": 0.6,
+            "tcp": 106.8,
+            "tls": 90.0,
+            "headers": 217.0,
+            "http": 217.3,
+            "total": 414.8
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "image",
+          "path": "/images/azure-landscape.svg",
+          "status": 401,
+          "ms": {
+            "dns": 0.5,
+            "tcp": 79.4,
+            "tls": 83.8,
+            "headers": 167.9,
+            "http": 168.7,
+            "total": 332.4
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "font",
+          "path": "/fonts/ma-shan-zheng-headings.ttf",
+          "status": 401,
+          "ms": {
+            "dns": 1.8,
+            "tcp": 106.5,
+            "tls": 90.5,
+            "headers": 181.5,
+            "http": 182.0,
+            "total": 381.0
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        }
+      ],
+      "html_dependencies": "not discovered",
+      "ok": false,
+      "total_ms": 1503.2
+    },
+    {
+      "number": 7,
+      "utc": "2026-11-11T00:27:38+00:00",
+      "checks": [
+        {
+          "kind": "home",
+          "path": "/",
+          "status": 401,
+          "ms": {
+            "dns": 1.6,
+            "tcp": 109.3,
+            "tls": 95.0,
+            "headers": 180.4,
+            "http": 181.0,
+            "total": 387.0
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "cases",
+          "path": "/api/cultural-cases",
+          "status": null,
+          "ms": {
+            "dns": 1.1,
+            "tcp": 113.9,
+            "tls": 22.2,
+            "total": 137.2
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "ok": false,
+          "failed_stage": "tls",
+          "error": "ConnectionResetError",
+          "os_code": 10054
+        },
+        {
+          "kind": "image",
+          "path": "/images/azure-landscape.svg",
+          "status": 401,
+          "ms": {
+            "dns": 1.0,
+            "tcp": 103.5,
+            "tls": 93.0,
+            "headers": 219.0,
+            "http": 219.4,
+            "total": 417.0
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "font",
+          "path": "/fonts/ma-shan-zheng-headings.ttf",
+          "status": 401,
+          "ms": {
+            "dns": 1.0,
+            "tcp": 110.3,
+            "tls": 90.6,
+            "headers": 219.6,
+            "http": 220.2,
+            "total": 422.1
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        }
+      ],
+      "html_dependencies": "not discovered",
+      "ok": false,
+      "total_ms": 1363.4
+    },
+    {
+      "number": 8,
+      "utc": "2026-11-11T00:27:40+00:00",
+      "checks": [
+        {
+          "kind": "home",
+          "path": "/",
+          "status": 401,
+          "ms": {
+            "dns": 1.2,
+            "tcp": 92.1,
+            "tls": 92.3,
+            "headers": 188.4,
+            "http": 189.2,
+            "total": 374.9
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "cases",
+          "path": "/api/cultural-cases",
+          "status": 401,
+          "ms": {
+            "dns": 1.3,
+            "tcp": 89.3,
+            "tls": 93.4,
+            "headers": 249.5,
+            "http": 249.9,
+            "total": 434.0
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "image",
+          "path": "/images/azure-landscape.svg",
+          "status": 401,
+          "ms": {
+            "dns": 1.0,
+            "tcp": 98.9,
+            "tls": 90.2,
+            "headers": 194.2,
+            "http": 194.8,
+            "total": 385.0
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "font",
+          "path": "/fonts/ma-shan-zheng-headings.ttf",
+          "status": 401,
+          "ms": {
+            "dns": 1.1,
+            "tcp": 81.9,
+            "tls": 87.4,
+            "headers": 168.8,
+            "http": 169.5,
+            "total": 339.9
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        }
+      ],
+      "html_dependencies": "not discovered",
+      "ok": false,
+      "total_ms": 1533.9
+    },
+    {
+      "number": 9,
+      "utc": "2026-11-11T00:27:43+00:00",
+      "checks": [
+        {
+          "kind": "home",
+          "path": "/",
+          "status": 401,
+          "ms": {
+            "dns": 0.6,
+            "tcp": 90.1,
+            "tls": 91.4,
+            "headers": 220.1,
+            "http": 220.3,
+            "total": 402.4
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "cases",
+          "path": "/api/cultural-cases",
+          "status": 401,
+          "ms": {
+            "dns": 0.5,
+            "tcp": 112.7,
+            "tls": 92.0,
+            "headers": 219.7,
+            "http": 220.3,
+            "total": 425.5
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "image",
+          "path": "/images/azure-landscape.svg",
+          "status": 401,
+          "ms": {
+            "dns": 1.0,
+            "tcp": 76.7,
+            "tls": 77.0,
+            "headers": 194.1,
+            "http": 194.6,
+            "total": 349.5
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "font",
+          "path": "/fonts/ma-shan-zheng-headings.ttf",
+          "status": 401,
+          "ms": {
+            "dns": 1.4,
+            "tcp": 103.9,
+            "tls": 84.4,
+            "headers": 204.5,
+            "http": 205.1,
+            "total": 394.9
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        }
+      ],
+      "html_dependencies": "not discovered",
+      "ok": false,
+      "total_ms": 1572.4
+    },
+    {
+      "number": 10,
+      "utc": "2026-11-11T00:27:45+00:00",
+      "checks": [
+        {
+          "kind": "home",
+          "path": "/",
+          "status": 401,
+          "ms": {
+            "dns": 1.2,
+            "tcp": 96.9,
+            "tls": 87.9,
+            "headers": 209.0,
+            "http": 209.4,
+            "total": 395.5
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "cases",
+          "path": "/api/cultural-cases",
+          "status": 401,
+          "ms": {
+            "dns": 1.0,
+            "tcp": 104.6,
+            "tls": 89.0,
+            "headers": 210.2,
+            "http": 210.9,
+            "total": 405.6
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "image",
+          "path": "/images/azure-landscape.svg",
+          "status": 401,
+          "ms": {
+            "dns": 1.2,
+            "tcp": 78.9,
+            "tls": 82.3,
+            "headers": 198.9,
+            "http": 199.3,
+            "total": 361.8
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "font",
+          "path": "/fonts/ma-shan-zheng-headings.ttf",
+          "status": 401,
+          "ms": {
+            "dns": 1.0,
+            "tcp": 101.9,
+            "tls": 92.4,
+            "headers": 220.0,
+            "http": 220.5,
+            "total": 415.9
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        }
+      ],
+      "html_dependencies": "not discovered",
+      "ok": false,
+      "total_ms": 1578.9
+    },
+    {
+      "number": 11,
+      "utc": "2026-11-11T00:27:48+00:00",
+      "checks": [
+        {
+          "kind": "home",
+          "path": "/",
+          "status": 401,
+          "ms": {
+            "dns": 1.0,
+            "tcp": 101.7,
+            "tls": 84.8,
+            "headers": 201.9,
+            "http": 202.6,
+            "total": 390.2
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "cases",
+          "path": "/api/cultural-cases",
+          "status": 401,
+          "ms": {
+            "dns": 1.2,
+            "tcp": 117.3,
+            "tls": 104.6,
+            "headers": 229.0,
+            "http": 229.4,
+            "total": 452.7
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "image",
+          "path": "/images/azure-landscape.svg",
+          "status": 401,
+          "ms": {
+            "dns": 0.9,
+            "tcp": 98.5,
+            "tls": 105.1,
+            "headers": 230.5,
+            "http": 230.9,
+            "total": 435.6
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "font",
+          "path": "/fonts/ma-shan-zheng-headings.ttf",
+          "status": 401,
+          "ms": {
+            "dns": 19.9,
+            "tcp": 100.3,
+            "tls": 89.0,
+            "headers": 178.1,
+            "http": 179.0,
+            "total": 388.3
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        }
+      ],
+      "html_dependencies": "not discovered",
+      "ok": false,
+      "total_ms": 1666.9
+    },
+    {
+      "number": 12,
+      "utc": "2026-11-11T00:27:51+00:00",
+      "checks": [
+        {
+          "kind": "home",
+          "path": "/",
+          "status": 401,
+          "ms": {
+            "dns": 1.2,
+            "tcp": 103.4,
+            "tls": 90.4,
+            "headers": 173.9,
+            "http": 174.4,
+            "total": 369.5
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "cases",
+          "path": "/api/cultural-cases",
+          "status": 401,
+          "ms": {
+            "dns": 1.1,
+            "tcp": 107.8,
+            "tls": 92.6,
+            "headers": 211.8,
+            "http": 212.2,
+            "total": 413.8
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "image",
+          "path": "/images/azure-landscape.svg",
+          "status": 401,
+          "ms": {
+            "dns": 0.5,
+            "tcp": 103.1,
+            "tls": 92.7,
+            "headers": 226.3,
+            "http": 227.0,
+            "total": 423.3
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "font",
+          "path": "/fonts/ma-shan-zheng-headings.ttf",
+          "status": 401,
+          "ms": {
+            "dns": 1.2,
+            "tcp": 112.2,
+            "tls": 114.2,
+            "headers": 265.0,
+            "http": 265.6,
+            "total": 493.3
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        }
+      ],
+      "html_dependencies": "not discovered",
+      "ok": false,
+      "total_ms": 1700.0
+    },
+    {
+      "number": 13,
+      "utc": "2026-11-11T00:27:53+00:00",
+      "checks": [
+        {
+          "kind": "home",
+          "path": "/",
+          "status": 401,
+          "ms": {
+            "dns": 1.0,
+            "tcp": 97.3,
+            "tls": 81.1,
+            "headers": 206.3,
+            "http": 206.9,
+            "total": 386.4
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "cases",
+          "path": "/api/cultural-cases",
+          "status": 401,
+          "ms": {
+            "dns": 0.8,
+            "tcp": 77.1,
+            "tls": 79.2,
+            "headers": 192.8,
+            "http": 193.4,
+            "total": 350.6
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "image",
+          "path": "/images/azure-landscape.svg",
+          "status": 401,
+          "ms": {
+            "dns": 1.2,
+            "tcp": 89.4,
+            "tls": 92.0,
+            "headers": 218.4,
+            "http": 218.7,
+            "total": 401.3
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "font",
+          "path": "/fonts/ma-shan-zheng-headings.ttf",
+          "status": 401,
+          "ms": {
+            "dns": 0.5,
+            "tcp": 106.3,
+            "tls": 87.6,
+            "headers": 202.6,
+            "http": 203.2,
+            "total": 397.6
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        }
+      ],
+      "html_dependencies": "not discovered",
+      "ok": false,
+      "total_ms": 1536.0
+    },
+    {
+      "number": 14,
+      "utc": "2026-11-11T00:27:56+00:00",
+      "checks": [
+        {
+          "kind": "home",
+          "path": "/",
+          "status": 401,
+          "ms": {
+            "dns": 0.9,
+            "tcp": 84.4,
+            "tls": 90.1,
+            "headers": 212.2,
+            "http": 213.0,
+            "total": 388.5
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "cases",
+          "path": "/api/cultural-cases",
+          "status": 401,
+          "ms": {
+            "dns": 1.1,
+            "tcp": 111.9,
+            "tls": 100.9,
+            "headers": 231.0,
+            "http": 231.4,
+            "total": 445.4
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "image",
+          "path": "/images/azure-landscape.svg",
+          "status": 401,
+          "ms": {
+            "dns": 0.6,
+            "tcp": 105.9,
+            "tls": 100.4,
+            "headers": 230.7,
+            "http": 231.3,
+            "total": 438.3
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "font",
+          "path": "/fonts/ma-shan-zheng-headings.ttf",
+          "status": 401,
+          "ms": {
+            "dns": 1.2,
+            "tcp": 84.3,
+            "tls": 88.4,
+            "headers": 215.4,
+            "http": 216.1,
+            "total": 390.1
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        }
+      ],
+      "html_dependencies": "not discovered",
+      "ok": false,
+      "total_ms": 1662.5
+    },
+    {
+      "number": 15,
+      "utc": "2026-11-11T00:27:59+00:00",
+      "checks": [
+        {
+          "kind": "home",
+          "path": "/",
+          "status": 401,
+          "ms": {
+            "dns": 1.2,
+            "tcp": 102.1,
+            "tls": 90.3,
+            "headers": 210.7,
+            "http": 211.2,
+            "total": 404.9
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "cases",
+          "path": "/api/cultural-cases",
+          "status": 401,
+          "ms": {
+            "dns": 1.0,
+            "tcp": 104.5,
+            "tls": 88.5,
+            "headers": 209.5,
+            "http": 209.9,
+            "total": 404.0
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "image",
+          "path": "/images/azure-landscape.svg",
+          "status": 401,
+          "ms": {
+            "dns": 0.9,
+            "tcp": 104.2,
+            "tls": 89.8,
+            "headers": 213.3,
+            "http": 213.7,
+            "total": 408.7
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "font",
+          "path": "/fonts/ma-shan-zheng-headings.ttf",
+          "status": null,
+          "ms": {
+            "dns": 1.3,
+            "tcp": 99.6,
+            "tls": 22.8,
+            "total": 123.7
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "ok": false,
+          "failed_stage": "tls",
+          "error": "ConnectionResetError",
+          "os_code": 10054
+        }
+      ],
+      "html_dependencies": "not discovered",
+      "ok": false,
+      "total_ms": 1341.5
+    },
+    {
+      "number": 16,
+      "utc": "2026-11-11T00:28:01+00:00",
+      "checks": [
+        {
+          "kind": "home",
+          "path": "/",
+          "status": null,
+          "ms": {
+            "dns": 1.0,
+            "tcp": 98.8,
+            "tls": 22.6,
+            "total": 122.5
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "ok": false,
+          "failed_stage": "tls",
+          "error": "ConnectionResetError",
+          "os_code": 10054
+        },
+        {
+          "kind": "cases",
+          "path": "/api/cultural-cases",
+          "status": 401,
+          "ms": {
+            "dns": 1.0,
+            "tcp": 101.7,
+            "tls": 92.2,
+            "headers": 217.2,
+            "http": 217.8,
+            "total": 412.7
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "image",
+          "path": "/images/azure-landscape.svg",
+          "status": null,
+          "ms": {
+            "dns": 1.1,
+            "tcp": 85.8,
+            "tls": 22.9,
+            "total": 109.8
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "ok": false,
+          "failed_stage": "tls",
+          "error": "ConnectionResetError",
+          "os_code": 10054
+        },
+        {
+          "kind": "font",
+          "path": "/fonts/ma-shan-zheng-headings.ttf",
+          "status": 401,
+          "ms": {
+            "dns": 1.2,
+            "tcp": 83.8,
+            "tls": 86.0,
+            "headers": 205.8,
+            "http": 206.4,
+            "total": 377.5
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        }
+      ],
+      "html_dependencies": "not discovered",
+      "ok": false,
+      "total_ms": 1022.6
+    },
+    {
+      "number": 17,
+      "utc": "2026-11-11T00:28:03+00:00",
+      "checks": [
+        {
+          "kind": "home",
+          "path": "/",
+          "status": 401,
+          "ms": {
+            "dns": 1.1,
+            "tcp": 89.8,
+            "tls": 89.7,
+            "headers": 220.6,
+            "http": 221.2,
+            "total": 401.9
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "cases",
+          "path": "/api/cultural-cases",
+          "status": 401,
+          "ms": {
+            "dns": 1.0,
+            "tcp": 109.7,
+            "tls": 89.0,
+            "headers": 210.7,
+            "http": 211.3,
+            "total": 411.1
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "image",
+          "path": "/images/azure-landscape.svg",
+          "status": 401,
+          "ms": {
+            "dns": 1.1,
+            "tcp": 196.3,
+            "tls": 146.1,
+            "headers": 252.8,
+            "http": 253.1,
+            "total": 596.7
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "font",
+          "path": "/fonts/ma-shan-zheng-headings.ttf",
+          "status": 401,
+          "ms": {
+            "dns": 10.4,
+            "tcp": 108.6,
+            "tls": 93.2,
+            "headers": 185.6,
+            "http": 185.9,
+            "total": 398.1
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        }
+      ],
+      "html_dependencies": "not discovered",
+      "ok": false,
+      "total_ms": 1808.0
+    },
+    {
+      "number": 18,
+      "utc": "2026-11-11T00:28:06+00:00",
+      "checks": [
+        {
+          "kind": "home",
+          "path": "/",
+          "status": 401,
+          "ms": {
+            "dns": 0.6,
+            "tcp": 75.9,
+            "tls": 76.8,
+            "headers": 192.3,
+            "http": 192.7,
+            "total": 346.1
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "cases",
+          "path": "/api/cultural-cases",
+          "status": 401,
+          "ms": {
+            "dns": 1.0,
+            "tcp": 77.7,
+            "tls": 79.2,
+            "headers": 193.0,
+            "http": 193.6,
+            "total": 351.5
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "image",
+          "path": "/images/azure-landscape.svg",
+          "status": 401,
+          "ms": {
+            "dns": 1.2,
+            "tcp": 80.6,
+            "tls": 83.8,
+            "headers": 168.5,
+            "http": 169.0,
+            "total": 334.8
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "font",
+          "path": "/fonts/ma-shan-zheng-headings.ttf",
+          "status": 401,
+          "ms": {
+            "dns": 1.1,
+            "tcp": 82.8,
+            "tls": 85.0,
+            "headers": 204.6,
+            "http": 204.9,
+            "total": 374.0
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        }
+      ],
+      "html_dependencies": "not discovered",
+      "ok": false,
+      "total_ms": 1406.5
+    },
+    {
+      "number": 19,
+      "utc": "2026-11-11T00:28:08+00:00",
+      "checks": [
+        {
+          "kind": "home",
+          "path": "/",
+          "status": 401,
+          "ms": {
+            "dns": 1.3,
+            "tcp": 100.9,
+            "tls": 89.2,
+            "headers": 213.0,
+            "http": 213.8,
+            "total": 405.2
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "cases",
+          "path": "/api/cultural-cases",
+          "status": 401,
+          "ms": {
+            "dns": 1.0,
+            "tcp": 103.1,
+            "tls": 83.3,
+            "headers": 203.7,
+            "http": 204.4,
+            "total": 391.9
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "image",
+          "path": "/images/azure-landscape.svg",
+          "status": 401,
+          "ms": {
+            "dns": 1.2,
+            "tcp": 92.5,
+            "tls": 97.0,
+            "headers": 223.2,
+            "http": 223.4,
+            "total": 414.3
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "font",
+          "path": "/fonts/ma-shan-zheng-headings.ttf",
+          "status": 401,
+          "ms": {
+            "dns": 0.6,
+            "tcp": 89.1,
+            "tls": 89.9,
+            "headers": 217.4,
+            "http": 218.4,
+            "total": 398.1
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        }
+      ],
+      "html_dependencies": "not discovered",
+      "ok": false,
+      "total_ms": 1609.6
+    },
+    {
+      "number": 20,
+      "utc": "2026-11-11T00:28:11+00:00",
+      "checks": [
+        {
+          "kind": "home",
+          "path": "/",
+          "status": 401,
+          "ms": {
+            "dns": 0.6,
+            "tcp": 102.0,
+            "tls": 88.4,
+            "headers": 212.4,
+            "http": 212.6,
+            "total": 403.7
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "cases",
+          "path": "/api/cultural-cases",
+          "status": 401,
+          "ms": {
+            "dns": 0.5,
+            "tcp": 104.9,
+            "tls": 85.0,
+            "headers": 203.6,
+            "http": 203.9,
+            "total": 394.5
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "image",
+          "path": "/images/azure-landscape.svg",
+          "status": 401,
+          "ms": {
+            "dns": 0.6,
+            "tcp": 103.3,
+            "tls": 85.6,
+            "headers": 204.3,
+            "http": 205.0,
+            "total": 394.5
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        },
+        {
+          "kind": "font",
+          "path": "/fonts/ma-shan-zheng-headings.ttf",
+          "status": 401,
+          "ms": {
+            "dns": 1.2,
+            "tcp": 87.5,
+            "tls": 88.8,
+            "headers": 183.8,
+            "http": 184.5,
+            "total": 362.1
+          },
+          "dns_families": {
+            "AF_INET": 2
+          },
+          "family": "AF_INET",
+          "tls_version": "TLSv1.3",
+          "ok": false,
+          "failed_stage": "http",
+          "error": "ValueError"
+        }
+      ],
+      "html_dependencies": "not discovered",
+      "ok": false,
+      "total_ms": 1554.8
+    }
+  ],
+  "ended_utc": "2026-11-11T00:28:12+00:00",
+  "summary": {
+    "successful_rounds": 0,
+    "attempted_rounds": 20,
+    "success_percent": 0.0,
+    "median_successful_round_ms": null,
+    "request_failures_by_stage": {
+      "http": 75,
+      "tls": 5
+    }
+  }
+}
