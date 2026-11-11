@@ -41,7 +41,7 @@ export function SolarTermFilter() {
     setHovered(null); setFocused(null);
     dispatch({ type: "term", value });
   }
-  return <section className="case-term-filter" aria-labelledby={`${id}-title`} aria-describedby={`${id}-hint`}>
+  return <section className="case-term-filter" aria-labelledby={`${id}-title`}>
     <header className="case-term-header">
       <div className="case-term-caption"><h3 id={`${id}-title`}>二十四节气</h3></div>
       <button className="case-term-all" type="button" aria-pressed={selection.solarTermId === null} onClick={() => choose(null)}>全部节气</button>
@@ -54,7 +54,6 @@ export function SolarTermFilter() {
         </div>
       </div>)}
     </div>
-    <footer className="case-term-footer"><p id={`${id}-hint`}>选择节气，点开浮起的省份浏览案例。</p><span role="status">{selectedTerm ? `当前节气：${selectedTerm.name}` : "当前：全部节气"}</span></footer>
     {selectedTerm && <details className="case-term-insight" key={selectedTerm.id}><summary>了解{selectedTerm.name}<svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.4" aria-hidden="true"><path d="m4 6 4 4 4-4" /></svg></summary><p>{selectedTerm.description}</p></details>}
   </section>;
 }
@@ -65,7 +64,7 @@ function RequestError({ message, retry }: { message: string; retry: () => void }
 
 function CaseLoading({ detail = false }: { detail?: boolean }) {
   return <div className="case-loading" aria-busy="true">
-    <p className="case-feedback" role="status">{detail ? "正在展开案例详情…" : "正在查找符合条件的案例…"}</p>
+    <p className="case-feedback" role="status">{detail ? "正在加载详情…" : "正在查找案例…"}</p>
     <div className={`case-skeleton${detail ? " case-skeleton-detail" : ""}`} aria-hidden="true">
       {Array.from({ length: detail ? 1 : 3 }, (_, index) => <div className="case-skeleton-row" key={index}><i /><i /><i /></div>)}
     </div>
@@ -84,13 +83,16 @@ function CaseResults({ query }: { query: CaseListQuery }) {
     dispatch({ type: "open", caseId: item.id, provinceCode: item.provinceCode });
   }
   return <div className="case-list-results">
-    <p className="case-result-count" role="status">找到 {total} 则风物故事{items.length > 0 ? ` · 正在展示 ${offset + 1}–${offset + items.length} 则` : ""}</p>
-    {items.length === 0 ? <div className="case-empty"><span aria-hidden="true">待访</span><h4>暂未找到对应案例</h4><p>当前筛选下还没有已核实的记录，素材仍在整理中。可以换个地区或节气继续探索。</p><div className="case-empty-actions">{selection.provinceCode && <button type="button" onClick={() => { dispatch({ type: "province", value: null }); setHovered(null); setFocused(null); }}>保留节气，查看全国</button>}<button type="button" onClick={() => { dispatch({ type: "reset" }); setHovered(null); setFocused(null); }}>查看全部案例</button></div></div> : <ul className="case-list">
-      {items.map(item => <li key={item.id}><button type="button" className="case-card" id={`case-card-${item.id}`} aria-pressed={selection.caseId === item.id} aria-controls="culture-case-detail" onClick={() => open(item)}>
-        <span className="case-card-meta"><span>{CATEGORY_LABELS[item.category]}</span><span>{item.provinceName}</span><span className="case-card-source">{item.sources.length} 条来源</span></span>
-        <h4>{item.title}</h4><p>{item.description}</p><span className="case-card-link">{selection.caseId === item.id ? "已展开" : "查看详情"} <span aria-hidden="true">{selection.caseId === item.id ? "✓" : "↗"}</span></span>
-      </button></li>)}
-    </ul>}
+    {items.length === 0 ? <div className="case-empty"><h4 role="status">当前筛选暂无案例</h4><div className="case-empty-actions">{selection.provinceCode && <button type="button" onClick={() => { dispatch({ type: "province", value: null }); setHovered(null); setFocused(null); }}>保留节气，查看全国</button>}<button type="button" onClick={() => { dispatch({ type: "reset" }); setHovered(null); setFocused(null); }}>查看全部案例</button></div></div> : <>
+      <p className="case-result-count" role="status">共 {total} 则案例</p>
+      <ul className="case-list">
+        {items.map(item => <li key={item.id}><button type="button" className="case-card" id={`case-card-${item.id}`} aria-pressed={selection.caseId === item.id} aria-controls="culture-case-detail" onClick={() => open(item)}>
+          <span className="case-card-meta"><span>{CATEGORY_LABELS[item.category]}</span><span>{item.provinceName}</span><span className="case-card-source">{item.sources.length} 条来源</span></span>
+          <h4>{item.title}<svg className="case-card-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.3" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" /></svg></h4>
+          <p>{item.description}</p>
+        </button></li>)}
+      </ul>
+    </>}
     {total > limit && <nav className="case-pagination" aria-label="文化案例分页">
       <button type="button" disabled={offset === 0} onClick={() => dispatch({ type: "page", value: Math.max(0, offset - limit) })}>上一页</button>
       <span>第 {Math.floor(offset / limit) + 1} / {Math.ceil(total / limit)} 页</span>
@@ -109,18 +111,22 @@ function CaseDetail({ caseId }: { caseId: string }) {
   }, [caseId, selection.solarTermId, selection.provinceCode]);
   const { resource, retry } = useCaseRequest(load);
   useEffect(() => { headingRef.current?.focus(); }, []);
-  return <section className="case-detail" id="culture-case-detail" aria-labelledby="case-detail-title" aria-busy={resource.status === "loading"}>
-    <div className="case-detail-top"><h3 id="case-detail-title" ref={headingRef} tabIndex={-1}>风物详录</h3><button type="button" onClick={() => { dispatch({ type: "close" }); requestAnimationFrame(() => document.getElementById(`case-card-${caseId}`)?.focus()); }}>关闭详情</button></div>
+  return <section className="case-detail" aria-labelledby="case-detail-title" aria-busy={resource.status === "loading"}>
+    <div className="case-detail-top">
+      <button type="button" onClick={() => {
+        dispatch({ type: "close" });
+        requestAnimationFrame(() => (document.getElementById(`case-card-${caseId}`) ?? document.getElementById("cultural-case-explorer"))?.focus());
+      }}><span aria-hidden="true">← </span>返回列表</button>
+    </div>
+    <h3 className="case-detail-name" id="case-detail-title" ref={headingRef} tabIndex={-1}>{resource.status === "success" ? resource.data.title : "案例详情"}</h3>
     {resource.status === "loading" && <CaseLoading detail />}
     {resource.status === "error" && <RequestError message={resource.message} retry={retry} />}
     {resource.status === "success" && <>
-      <p className="case-detail-meta">{resource.data.regionName} · {CATEGORY_LABELS[resource.data.category]}</p>
-      <h4 className="case-detail-name">{resource.data.title}</h4>
-      <p className="case-detail-terms">{SOLAR_TERMS.filter(term => resource.data.solarTermIds.includes(term.id)).map(term => term.name).join(" · ")}</p>
+      <p className="case-detail-meta">{resource.data.regionName} · {CATEGORY_LABELS[resource.data.category]} · {SOLAR_TERMS.filter(term => resource.data.solarTermIds.includes(term.id)).map(term => term.name).join(" · ")}</p>
       {resource.data.imageUrl && <Image className="case-detail-image" src={resource.data.imageUrl} alt={resource.data.title} width={720} height={480} />}
       <p className="case-detail-description">{resource.data.description}</p>
-      <h5>与节气的关联</h5><p className="case-detail-relation">{resource.data.relationNote}</p>
-      <div className="case-sources"><h5>资料来源</h5><ul>{resource.data.sources.map(source => <li key={source.url}><a href={source.url} target="_blank" rel="noopener noreferrer">{source.title} <span aria-hidden="true">↗</span></a>{source.publisher && <span>{source.publisher}</span>}</li>)}</ul><p>本页为已核实资料的简要整理，点击来源可查看原始记述。</p></div>
+      <h4 className="case-detail-section-title">节气关联</h4><p className="case-detail-relation">{resource.data.relationNote}</p>
+      <div className="case-sources"><h4 className="case-detail-section-title">资料来源</h4><ul>{resource.data.sources.map(source => <li key={source.url}><a href={source.url} target="_blank" rel="noopener noreferrer">{source.title} <span aria-hidden="true">↗</span></a>{source.publisher && <span>{source.publisher}</span>}</li>)}</ul></div>
     </>}
   </section>;
 }
@@ -132,9 +138,13 @@ export default function CulturalCaseExplorer() {
   const key = `${selection.solarTermId ?? "all"}-${selection.provinceCode ?? "all"}-${selection.offset}`;
   const query: CaseListQuery = { ...(selection.solarTermId ? { solarTermId: selection.solarTermId } : {}), ...(selection.provinceCode ? { provinceCode: selection.provinceCode } : {}), offset: selection.offset, limit: CASE_PAGE_SIZE };
   return <section className="case-explorer" id="cultural-case-explorer" tabIndex={-1} aria-labelledby="case-explorer-title">
-    <header className="case-explorer-heading"><div><h3 id="case-explorer-title">一方风物</h3><p>沿着节气，读地方故事与真实出处。</p></div><span>{termName}<i aria-hidden="true"> / </i>{provinceName}</span></header>
-    <div className="case-explorer-columns"><div className="case-list-panel"><CaseResults key={key} query={query} /></div>
-      {selection.caseId ? <CaseDetail key={`${key}-${selection.caseId}`} caseId={selection.caseId} /> : <div className="case-detail-placeholder" id="culture-case-detail"><span aria-hidden="true">阅</span><h4>把一方风物，慢慢读懂。</h4><p>从左侧选一则故事，<br />在这里了解节气关联与资料来源。</p></div>}
+    <header className="case-explorer-heading">
+      <h2 id="case-explorer-title">一方风物</h2>
+      <span aria-label={`当前筛选：${termName}，${provinceName}`}>{termName}<i aria-hidden="true"> / </i>{provinceName}</span>
+    </header>
+    <div className="case-list-panel" hidden={Boolean(selection.caseId)}><CaseResults key={key} query={query} /></div>
+    <div id="culture-case-detail" hidden={!selection.caseId}>
+      {selection.caseId && <CaseDetail key={`${key}-${selection.caseId}`} caseId={selection.caseId} />}
     </div>
   </section>;
 }

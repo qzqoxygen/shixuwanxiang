@@ -1,13 +1,9 @@
 /* Only the exploration page: four-season rhythm, pale ink and restrained gold. */
 .explore-page .explore-intro::after,
-.explore-page .culture-map-header::after,
-.explore-page .culture-map-note::after,
 .explore-page .cloud-chat-window::after { background-image: url("/images/azure-cloud-ribbon-motion.svg"); }
 .explore-page .explore-title h1 { animation: explore-ink-arrive 700ms 80ms cubic-bezier(.16,1,.3,1) both; }
 .explore-page .explore-title .intro-description { animation: explore-ink-arrive 800ms 220ms ease-out both; }
-.explore-page .explore-inscription > span { animation: explore-inscription-arrive 900ms 280ms ease-out both; }
-.explore-page .explore-inscription > span:nth-child(2) { animation-delay: 420ms; }
-.explore-page .explore-inscription i { animation: explore-seal-arrive 700ms 560ms ease-out both; }
+.explore-page .explore-intro-seal { animation: explore-seal-arrive 700ms 420ms ease-out both; }
 
 /* Content is visible by default, including when JavaScript or observers fail. */
 .explore-page [data-explore-reveal="pending"] { opacity: 0; transform: translateY(28px); }
@@ -46,12 +42,9 @@ body:has(.explore-page) .site-header nav a { transition: color 180ms ease, backg
 .explore-page[data-motion-paused] .cloud-chat-cloud-spark,
 .explore-page[data-motion-paused] .cloud-chat-mist { animation-play-state: paused; }
 .explore-page[data-motion-paused] .explore-intro::after,
-.explore-page[data-motion-paused] .culture-map-header::after,
-.explore-page[data-motion-paused] .culture-map-note::after,
 .explore-page[data-motion-paused] .cloud-chat-window::after { background-image: url("/images/azure-cloud-ribbon.svg"); }
 
 @keyframes explore-ink-arrive { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
-@keyframes explore-inscription-arrive { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: none; } }
 @keyframes explore-seal-arrive { from { opacity: 0; transform: rotate(-10deg) scale(.78); } to { opacity: 1; transform: none; } }
 @keyframes explore-section-arrive { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: none; } }
 @keyframes explore-case-arrive { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
@@ -63,13 +56,12 @@ body:has(.explore-page) .site-header nav a { transition: color 180ms ease, backg
 }
 @media (prefers-reduced-motion: reduce) {
   .explore-page .explore-title h1, .explore-page .intro-description,
-  .explore-page .explore-inscription > span, .explore-page .explore-inscription i,
+  .explore-page .explore-intro-seal,
   .explore-page [data-explore-reveal], .explore-page .case-term-options > button,
   .explore-page .case-list > li, .explore-page .case-detail { animation: none; }
   .explore-page [data-explore-reveal="pending"] { opacity: 1; transform: none; }
   .explore-page .case-term-options > button, .explore-page .case-card { transition: none; }
   .explore-page .case-term-options > button:hover, .explore-page .case-card:hover { transform: none; }
   .explore-ambient { display: none; }
-  .explore-page .explore-intro::after, .explore-page .culture-map-header::after,
-  .explore-page .culture-map-note::after, .explore-page .cloud-chat-window::after { background-image: url("/images/azure-cloud-ribbon.svg"); }
+  .explore-page .explore-intro::after, .explore-page .cloud-chat-window::after { background-image: url("/images/azure-cloud-ribbon.svg"); }
 }

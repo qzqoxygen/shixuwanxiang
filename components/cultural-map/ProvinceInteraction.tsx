@@ -100,18 +100,15 @@ export function ProvinceLayers() {
 export function ProvinceControls() {
   const { provinces, selected, setSelected, setHovered, setFocused } = useProvinces();
   const inputId = useId();
-  const selectedProvince = provinces.find(province => province.id === selected);
   return <div className="province-controls">
     <div className="province-selection-row">
-      <label htmlFor={inputId}>寻一方水土</label>
+      <label htmlFor={inputId}>地区</label>
       <select id={inputId} value={selected ?? ""} onChange={event => { setSelected(event.target.value || null); setHovered(null); setFocused(null); }}>
-        <option value="">选择省级行政区</option>
+        <option value="">全国</option>
         {provinces.map(province => <option key={province.id} value={province.id}>{province.name}</option>)}
       </select>
-      <button type="button" disabled={!selected} onClick={() => { setSelected(null); setHovered(null); setFocused(null); }}>取消选择</button>
-      {selected && <a className="province-case-link" href="#cultural-case-explorer">查看案例 <span aria-hidden="true">↓</span></a>}
+      <a className="province-case-link" href="#cultural-case-explorer">查看案例 <span aria-hidden="true">↓</span></a>
     </div>
-    <p className="province-selection-status" role="status">{selectedProvince ? `已选择：${selectedProvince.name}。下方展示当前条件下的已收录案例。` : "点击省份可筛选下方案例；也可通过列表或键盘选择。"}</p>
     {provinces.some(province => province.scenery) && <p className="province-scenery-note">纸雕山水为装饰意象，不代表真实地形。</p>}
   </div>;
 }

@@ -27,12 +27,8 @@
 .chat-panel .chat-heading h2 { font-family: KaiTi, "STKaiti", SimSun, serif; font-size: clamp(22px, 1.8vw, 27px); font-weight: 500; margin: 0; color: #305f65; }
 .chat-seal { flex: none; padding: 3px 4px; border: 3px double #985c4a; border-radius: 5px 2px 6px 3px; color: #98503e; font: 15px/1.15 KaiTi, "STKaiti", SimSun, serif; letter-spacing: .05em; transform: rotate(4deg); }
 .chat-panel .chat-intro { font-size: 11px; color: #626f68; margin: 14px 0 8px; line-height: 1.9; }
-.chat-panel .chat-provider { padding: 0; border: 0; background: none; font-size: 10px; letter-spacing: .02em; white-space: nowrap; }
 .chat-panel .chat-transcript { flex: none; height: 310px; min-height: 240px; overflow-y: auto; overscroll-behavior: contain; padding: 18px 2px; border: 0; scrollbar-width: thin; scrollbar-color: #91b2ad transparent; }
 .chat-panel .chat-empty { padding: 26px 4px 20px; text-align: center; color: #4b6866; }
-.chat-panel .chat-empty > span { position: relative; display: inline-grid; place-items: center; height: 68px; width: 68px; border: 1.5px solid #b69a5c; border-radius: 48% 45% 51% 46%; font: 40px/1 "Shixu Brush", KaiTi, serif; color: #467a83; transform: rotate(-8deg); }
-.chat-panel .chat-empty > span::after { content: ""; position: absolute; inset: 3px -3px -2px 2px; border: 1px solid #b69a5c55; border-radius: 47% 52% 45% 50%; }
-.chat-panel .chat-empty h3 { font: 24px/1.6 KaiTi, "STKaiti", SimSun, serif; margin: 22px 0 10px; }
 .chat-panel .chat-empty p { font-size: 12px; line-height: 1.9; }
 .chat-panel .chat-message { margin: 0 0 20px; padding: 12px 10px; border-radius: 2px 8px 3px 6px; }
 .chat-panel .chat-user { margin-left: 18px; border: 1px solid #87aaa52b; background: #dde8dc9c; }

@@ -21,7 +21,7 @@ export function ExploreMotionControl() {
   </button>;
 }
 
-const REVEAL_TARGETS = ".culture-map-header, .case-term-filter, .culture-map-figure, .case-explorer, .culture-map-note, .culture-map-source";
+const REVEAL_TARGETS = ".culture-map-sheet, .case-explorer";
 
 export default function ExploreMotion({ children }: { children: ReactNode }) {
   const rootRef = useRef<HTMLDivElement>(null);
