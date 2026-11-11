@@ -4,6 +4,50 @@ body:has(.seasons-reading-room:not([style*="display: none"])) .site-header { min
 .seasons-reading-room .seasons-explorer { border-top: 0; }
 .seasons-reading-room .seasons-book-toolbar { max-width: 1360px; min-height: 64px; padding: 8px 0; gap: 16px; }
 .seasons-reading-room .seasons-book-toolbar h2 { font-size: 25px; }
+.seasons-toolbar-art { flex: 0 1 252px; display: block; min-width: 0; height: 46px; margin-inline-end: auto; pointer-events: none; }
+.seasons-toolbar-willow { transform-box: fill-box; transform-origin: 62% 9%; }
+.seasons-toolbar-boat, .seasons-toolbar-ripples, .seasons-toolbar-leaf { transform-box: fill-box; transform-origin: center; }
+.seasons-toolbar-ripples { opacity: .45; }
+.seasons-toolbar-leaf { opacity: .57; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .seasons-book-toolbar :where(h2, p, .seasons-toolbar-art) {
+    animation: seasons-toolbar-arrive 680ms cubic-bezier(.16, 1, .3, 1) backwards;
+  }
+  .seasons-book-toolbar p { animation-delay: 150ms; }
+  .seasons-book-toolbar .seasons-toolbar-art { animation-duration: 800ms; animation-delay: 240ms; }
+  .seasons-explorer[data-still="true"] .seasons-book-toolbar :is(h2, p, .seasons-toolbar-art) {
+    opacity: 1 !important;
+    translate: none !important;
+  }
+
+  .seasons-toolbar-willow { animation: seasons-toolbar-sway 5.8s ease-in-out -1.2s infinite alternate; }
+  .seasons-toolbar-boat { animation: seasons-toolbar-float 5.2s ease-in-out -.6s infinite alternate; }
+  .seasons-toolbar-ripples { animation: seasons-toolbar-water 5.2s ease-in-out -1.9s infinite alternate; }
+  .seasons-toolbar-leaf { animation: seasons-toolbar-drift 7.4s ease-in-out -1.4s infinite; }
+}
+
+@keyframes seasons-toolbar-arrive {
+  from { opacity: .2; translate: 0 12px; }
+}
+@keyframes seasons-toolbar-sway {
+  from { transform: rotate(-3deg); }
+  to { transform: rotate(5deg); }
+}
+@keyframes seasons-toolbar-float {
+  from { transform: translate(-1px, 1px) rotate(-1.5deg); }
+  to { transform: translate(2px, -2px) rotate(1deg); }
+}
+@keyframes seasons-toolbar-water {
+  from { opacity: .27; transform: scaleX(.93); }
+  to { opacity: .69; transform: scaleX(1.03); }
+}
+@keyframes seasons-toolbar-drift {
+  0% { opacity: 0; transform: translate(5px, -4px); }
+  25%, 65% { opacity: .68; }
+  100% { opacity: 0; transform: translate(-14px, 13px) rotate(-22deg); }
+}
+
 .seasons-reading-layout { display: grid; grid-template-columns: 208px minmax(0, 1fr); grid-template-areas: "directory book"; align-items: start; gap: 32px; max-width: 1360px; margin-inline: auto; }
 .seasons-reading-room .book-directory { grid-area: directory; width: 100%; margin: 18px 0 0; padding: 0; }
 .seasons-reading-room .book-directory-heading { display: flex; gap: 3px 8px; padding: 0 8px 12px; }
@@ -62,17 +106,67 @@ body:has(.seasons-reading-room:not([style*="display: none"])) .site-header { min
 .seasons-reading-room .book-directory-season { position: relative; background: transparent; transition: border-color 650ms ease; }
 .book-directory-season::before { content: ""; position: absolute; inset: 0; z-index: -1; opacity: 0; background: linear-gradient(100deg, color-mix(in srgb, var(--directory-accent) 6%, transparent), transparent); transition: opacity 650ms ease; pointer-events: none; }
 .book-directory-season[data-active="true"]::before { opacity: 1; }
-.book-directory-terms button { position: relative; z-index: 2; transition: color 320ms ease, background-color 200ms ease, border-color 200ms ease; }
+.book-directory-terms button { position: relative; z-index: 2; border-radius: 10px 3px; transition: color 320ms ease, background-color 200ms ease, border-color 200ms ease; }
 .book-directory-seasons[data-indicator-ready="true"] .book-directory-terms button[aria-pressed="true"] { background: transparent; border-color: transparent; }
 .book-directory-terms button[data-highlighted="true"] { color: var(--directory-accent); }
 .book-directory-terms button[data-requested="true"] { background: #92b6a008; }
-.book-directory-season-entry { transition: color 320ms ease, background-color 200ms ease; }
+.book-directory-season-entry { border-radius: 12px 3px; transition: color 320ms ease, background-color 200ms ease; }
+.book-directory-term-label { display: inline-block; }
 .book-directory-status { min-height: 20px; font-variant-numeric: tabular-nums; }
 .book-directory-status > span { display: block; animation: directory-status-in 220ms ease-out both; }
 @keyframes directory-status-in { from { opacity: .25; transform: translateY(2px); } to { opacity: 1; transform: translateY(0); } }
 .seasons-explorer[data-still="true"] .book-directory *, .seasons-explorer[data-still="true"] .book-directory *::before, .seasons-explorer[data-still="true"] .book-directory *::after { transition: none; animation: none; }
 @media (prefers-reduced-motion: reduce) {
   .book-directory *, .book-directory *::before, .book-directory *::after { transition: none; animation: none; }
+}
+
+.seasons-book-controls > button:enabled, .seasons-book-toolbar .seasons-motion:enabled {
+  border: 1px solid #b69a5c69;
+  border-radius: 13px 4px;
+  background: #fffdf785;
+}
+.seasons-book-toolbar .seasons-motion[aria-pressed="false"]:enabled { background: #dde8dc80; }
+.seasons-book-button > :not(.seasons-sr-only) { pointer-events: none; }
+.seasons-explorer .seasons-book-button:enabled:active {
+  background: color-mix(in srgb, var(--directory-accent, var(--seasons-blue)) 14%, transparent);
+}
+@media (hover: hover) {
+  .seasons-book-controls > button:enabled:hover, .seasons-book-toolbar .seasons-motion:enabled:hover {
+    background: #dde8dc80;
+  }
+}
+
+/* Keep the hit area and the directory bookmark's measured box steady. */
+@media (prefers-reduced-motion: no-preference) {
+  .seasons-explorer[data-still="false"] .seasons-book-button:enabled > :not(.seasons-sr-only) {
+    transition: scale 310ms cubic-bezier(.22, 1.5, .5, 1), translate 310ms cubic-bezier(.22, 1.5, .5, 1);
+  }
+  .seasons-explorer[data-still="false"] .seasons-book-button:enabled:active > :not(.seasons-sr-only) {
+    scale: .9;
+    translate: 0 1px;
+    transition-duration: 85ms;
+    transition-timing-function: ease-out;
+  }
+  .seasons-explorer[data-still="false"] .book-directory-terms button[data-highlighted="true"] > .book-directory-term-label,
+  .seasons-book[data-turn-direction="-1"] .seasons-book-previous > span[aria-hidden="true"],
+  .seasons-book[data-turn-direction="1"] .seasons-book-next > span[aria-hidden="true"] {
+    animation: seasons-button-imprint 320ms ease-out;
+  }
+  @media (hover: hover) {
+    .book-directory-season-entry > span[aria-hidden="true"] { --seasons-arrow-nudge: 3px; }
+    .seasons-book-previous > span[aria-hidden="true"] { --seasons-arrow-nudge: -4px; }
+    .seasons-book-next > span[aria-hidden="true"] { --seasons-arrow-nudge: 4px; }
+    .seasons-explorer[data-still="false"] .seasons-book-button:enabled:hover:not(:active) > :not(.seasons-sr-only) {
+      scale: 1.04;
+      translate: var(--seasons-arrow-nudge, 0px) -2px;
+    }
+  }
+}
+
+@keyframes seasons-button-imprint {
+  0% { transform: scale(.91); }
+  62% { transform: scale(1.06); }
+  100% { transform: none; }
 }
 
 @media (min-width: 1001px) and (max-height: 760px) {
@@ -107,8 +201,10 @@ body:has(.seasons-reading-room:not([style*="display: none"])) .site-header { min
 @media (max-width: 640px) {
   body:has(.seasons-reading-room:not([style*="display: none"])) .site-header { padding-top: 18px; gap: 10px; }
   .seasons-reading-room { --reading-page-height: 530px; padding-inline: 0; }
-  .seasons-reading-room .seasons-book-toolbar { align-items: center; min-height: 72px; }
+  .seasons-reading-room .seasons-book-toolbar { align-items: center; min-height: 72px; gap: 10px; }
+  .seasons-toolbar-art { flex: 1 1 0; width: 100%; max-width: 148px; height: 38px; }
   .seasons-reading-room .seasons-book-toolbar > div { display: flex; gap: 3px; }
+  .seasons-reading-room .seasons-book-toolbar > div:first-child { display: grid; flex: none; }
   .seasons-reading-room .seasons-book-toolbar h2 { font-size: 22px; }
   .seasons-reading-room .seasons-book-toolbar p { margin: 0; font-size: 10px; }
   .seasons-reading-room .seasons-book-toolbar-actions { max-width: 150px; justify-content: end; gap: 0 8px; }

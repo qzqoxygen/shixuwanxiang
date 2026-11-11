@@ -29,7 +29,6 @@
 .cloud-chat-header { flex: none; position: relative; display: flex; align-items: center; gap: 6px; padding: 22px 20px 10px 14px; touch-action: none; cursor: grab; user-select: none; }
 .cloud-chat-window[data-dragging="true"] .cloud-chat-header { cursor: grabbing; }
 .cloud-chat-title { min-width: 0; flex: 1; }
-.cloud-chat-title p { margin: 6px 0 0; color: #79604c; font-size: 11px; line-height: 1.6; }
 .cloud-chat-title h2 { margin: 0; color: #305f65; font: 25px/1.3 KaiTi, SimSun, serif; letter-spacing: .08em; }
 .cloud-chat-header button { display: grid; place-items: center; width: 44px; height: 44px; border: 0; border-radius: 50%; background: transparent; color: #537970; cursor: pointer; font: 25px/1 KaiTi, SimSun, serif; transition: background-color 160ms ease, color 160ms ease; }
 .cloud-chat-header button:hover { background: #dce8d994; }
@@ -41,13 +40,9 @@
 .cloud-chat-window .chat-panel { position: relative; display: flex; flex-direction: column; height: 100%; min-width: 0; margin: 0; padding: 0; border: 0; background: none; box-shadow: none; }
 .cloud-chat-window .chat-panel::before, .cloud-chat-window .chat-panel::after, .cloud-chat-window .chat-heading { display: none; }
 .cloud-chat-window .chat-intro { margin: 0 0 6px; padding: 0 0 10px; border-bottom: 1px solid #b69a5c35; font-size: 12px; }
-.cloud-chat-window .chat-provider { font-size: 11px; }
 .cloud-chat-window .chat-transcript { flex: 1; height: auto; min-height: 70px; padding: 10px 1px; }
 .cloud-chat-window .chat-empty { padding: 8px 0; }
-.cloud-chat-window .chat-empty > span { display: none; }
-.cloud-chat-window .chat-empty h3 { margin: 12px 0 6px; font-size: 21px; }
 .cloud-chat-window .chat-empty p { margin: 5px 0; font-size: 13px; }
-.cloud-chat-window .chat-empty .chat-small { display: none; }
 .cloud-chat-window .chat-suggestions { flex: none; gap: 6px; padding: 8px 0 12px; }
 .cloud-chat-window .chat-suggestions button { min-height: 44px; padding: 6px 10px; border: 1px solid #92b6a055; border-radius: 12px 3px; background: #e1ebe350; font-size: 13px; transition: background-color 160ms ease, border-color 160ms ease; }
 .cloud-chat-window .chat-suggestions button:hover:enabled { background: #dce8dc; border-color: #b69a5c; filter: none; }

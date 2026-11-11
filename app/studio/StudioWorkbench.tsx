@@ -103,8 +103,14 @@ function StickerIcon({ name }: { name: "delete" | "copy" | "mirror" }) {
 
 function StudioTitle() {
   return (
-    <h1 id="studio-heading">
+    <h1 id="studio-heading" className="studio-title">
+      <svg className="studio-title-rules" viewBox="0 0 100 120" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+        <path d="M4 39c-.4-9 .2-21 1-30 8-1 16-1.3 25-1M70 9l23 .5-.4 9" />
+        <path d="M4 48v11m88 10c.5 14 0 29-1 42-7 1-13 1-21 1m-7 0h-7" />
+      </svg>
       <Image src="/images/studio-title-calligraphy.webp" alt="造物" width={394} height={480} loading="eager" unoptimized />
+      <span className="studio-title-seal studio-title-seal--season" aria-hidden="true">四时</span>
+      <span className="studio-title-seal studio-title-seal--note" aria-hidden="true">笺</span>
     </h1>
   );
 }
@@ -120,8 +126,8 @@ function StudioBreeze() {
           <stop offset="1" stopColor="#9aab96" stopOpacity="0" />
         </linearGradient>
       </defs>
+      <path className="studio-breeze-wash" fill="url(#studio-breeze-ink)" opacity=".29" d="M8 100C69 103 112 62 174 64c74 2 114 32 195 9 99-29 161-45 275-24-108-13-169 5-271 32-81 22-130-2-202-11C105 62 70 110 8 100Z" />
       <g className="studio-breeze-ribbons" fill="none" strokeLinecap="round">
-        <path fill="url(#studio-breeze-ink)" opacity=".29" d="M8 100C69 103 112 62 174 64c74 2 114 32 195 9 99-29 161-45 275-24-108-13-169 5-271 32-81 22-130-2-202-11C105 62 70 110 8 100Z" />
         <path stroke="url(#studio-breeze-ink)" strokeWidth="1.4" opacity=".7" d="M26 112c73 0 108-38 169-32 51 5 81 25 143 19 92-9 139-56 227-43" />
         <path stroke="url(#studio-breeze-ink)" strokeWidth="1.05" opacity=".55" d="M109 70c34-27 89-36 131-27 25 5 46 16 77 13M149 126c45-16 92-15 137-6 39 8 87 4 121-9" />
       </g>
