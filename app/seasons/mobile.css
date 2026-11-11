@@ -13,14 +13,14 @@
   .seasons-book-mobile-incoming { position: absolute; top: 0; width: 100%; }
   .seasons-book-mobile-incoming[data-direction="next"] { left: 100%; }
   .seasons-book-mobile-incoming[data-direction="previous"] { left: -100%; }
-  .seasons-reading-room .seasons-book .book-page { height: auto; min-height: 0; padding: 24px 26px; border-radius: 0; background: linear-gradient(#fbf8eedb, #fbf8eedb), url('/images/xuan-paper.webp') center / 900px auto, #fbf8ee; }
-  .seasons-reading-room .seasons-book .seasons-reading { padding-bottom: 16px; }
+  .seasons-reading-room .seasons-book .book-page { height: auto; min-height: 0; padding: 24px 26px; border-radius: 0; background: linear-gradient(148deg, #f7f2e4eb, #fffdf5d9 62%), url('/images/xuan-paper.webp') center / 900px auto, #fbf8ee; }
+  .seasons-reading-room .seasons-book .seasons-reading { padding-bottom: 16px; background: linear-gradient(155deg, #edf2e9e5, #fbf8eed8 56%), url('/images/xuan-paper.webp') center / 900px auto, #fbf8ee; }
   .seasons-reading-room .seasons-reading-top { min-height: 24px; }
   .seasons-reading-room .seasons-term-heading { flex-direction: row; align-items: center; margin: 20px 0 18px; gap: 12px; }
   .seasons-reading-room .seasons-term-title { font-size: 52px; }
   .seasons-reading-room .seasons-longitude p { display: block; }
   .seasons-reading-room .seasons-description { margin-bottom: 22px; font-size: 16px; line-height: 1.95; }
-  .seasons-reading-room .seasons-reading-note { margin-top: 0; padding-top: 16px; }
+  .seasons-reading-room .seasons-reading-note { margin-top: 0; }
   .seasons-reading-room .seasons-reading-note p { font-size: 12px; line-height: 1.9; }
   .seasons-reading-room .seasons-reading-links { justify-content: space-between; padding-top: 12px; }
   .seasons-reading-room .seasons-reading-links > a { min-height: 44px; font-size: 13px; }

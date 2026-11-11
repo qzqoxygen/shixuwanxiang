@@ -35,8 +35,8 @@ body:has(.explore-page) .site-header nav a { transition: color 180ms ease, backg
 .explore-ambient > span:nth-child(7) { left: 94%; top: 43%; animation-delay: -11s; }
 .explore-ambient > span:nth-child(8) { left: 16%; top: 54%; animation-delay: -6s; width: 2px; height: 2px; }
 
+.explore-page[data-motion-paused] { --ink-landscape-play-state: paused; }
 .explore-page[data-motion-paused] .explore-ambient > span,
-.explore-page[data-motion-paused] .explore-landscape-mist,
 .explore-page[data-motion-paused] .cloud-chat-launcher::before,
 .explore-page[data-motion-paused] .cloud-chat-launcher-art,
 .explore-page[data-motion-paused] .cloud-chat-cloud-spark,

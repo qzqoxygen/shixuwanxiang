@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import InkLandscape from "@/components/InkLandscape";
 import SolarTermsExplorer from "@/components/SolarTermsExplorer";
 import "./seasons.css";
 import "./book.css";
@@ -9,7 +10,7 @@ import "./vignette.css";
 export const metadata: Metadata = { title: "四时" };
 export default function SeasonsPage() {
   return <div className="seasons-page seasons-reading-room">
-    <div className="seasons-background-landscape" aria-hidden="true" />
+    <InkLandscape />
     <h1 className="seasons-sr-only">四时：二十四节气风物册</h1>
     <SolarTermsExplorer />
     <aside className="seasons-source">
