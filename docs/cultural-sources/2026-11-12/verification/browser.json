@@ -1,0 +1,887 @@
+{
+  "testedAt": "2026-11-12T01:52:28.734Z",
+  "origin": "http://127.0.0.1:3112",
+  "cases": 77,
+  "method": "Real browser, real cultural-case APIs, no API mocking; mobile is Pixel 7 emulation, not a physical phone",
+  "profiles": [
+    {
+      "profile": "desktop",
+      "viewport": {
+        "width": 1365,
+        "height": 900
+      },
+      "pages": [
+        {
+          "path": "/",
+          "status": 200,
+          "horizontalOverflow": false
+        },
+        {
+          "path": "/about",
+          "status": 200,
+          "horizontalOverflow": false
+        },
+        {
+          "path": "/studio",
+          "status": 200,
+          "horizontalOverflow": false
+        }
+      ],
+      "seasons": [
+        {
+          "term": "lichun",
+          "count": 3,
+          "allDetailsAndSources": true,
+          "horizontalOverflow": false
+        },
+        {
+          "term": "yushui",
+          "count": 3,
+          "allDetailsAndSources": true,
+          "horizontalOverflow": false
+        },
+        {
+          "term": "jingzhe",
+          "count": 3,
+          "allDetailsAndSources": true,
+          "horizontalOverflow": false
+        },
+        {
+          "term": "chunfen",
+          "count": 3,
+          "allDetailsAndSources": true,
+          "horizontalOverflow": false
+        },
+        {
+          "term": "qingming",
+          "count": 3,
+          "allDetailsAndSources": true,
+          "horizontalOverflow": false
+        },
+        {
+          "term": "guyu",
+          "count": 4,
+          "allDetailsAndSources": true,
+          "horizontalOverflow": false
+        },
+        {
+          "term": "lixia",
+          "count": 3,
+          "allDetailsAndSources": true,
+          "horizontalOverflow": false
+        },
+        {
+          "term": "xiaoman",
+          "count": 3,
+          "allDetailsAndSources": true,
+          "horizontalOverflow": false
+        },
+        {
+          "term": "mangzhong",
+          "count": 3,
+          "allDetailsAndSources": true,
+          "horizontalOverflow": false
+        },
+        {
+          "term": "xiazhi",
+          "count": 4,
+          "allDetailsAndSources": true,
+          "horizontalOverflow": false
+        },
+        {
+          "term": "xiaoshu",
+          "count": 3,
+          "allDetailsAndSources": true,
+          "horizontalOverflow": false
+        },
+        {
+          "term": "dashu",
+          "count": 3,
+          "allDetailsAndSources": true,
+          "horizontalOverflow": false
+        },
+        {
+          "term": "liqiu",
+          "count": 3,
+          "allDetailsAndSources": true,
+          "horizontalOverflow": false
+        },
+        {
+          "term": "chushu",
+          "count": 3,
+          "allDetailsAndSources": true,
+          "horizontalOverflow": false
+        },
+        {
+          "term": "bailu",
+          "count": 3,
+          "allDetailsAndSources": true,
+          "horizontalOverflow": false
+        },
+        {
+          "term": "qiufen",
+          "count": 3,
+          "allDetailsAndSources": true,
+          "horizontalOverflow": false
+        },
+        {
+          "term": "hanlu",
+          "count": 3,
+          "allDetailsAndSources": true,
+          "horizontalOverflow": false
+        },
+        {
+          "term": "shuangjiang",
+          "count": 3,
+          "allDetailsAndSources": true,
+          "horizontalOverflow": false
+        },
+        {
+          "term": "lidong",
+          "count": 3,
+          "allDetailsAndSources": true,
+          "horizontalOverflow": false
+        },
+        {
+          "term": "xiaoxue",
+          "count": 4,
+          "allDetailsAndSources": true,
+          "horizontalOverflow": false
+        },
+        {
+          "term": "daxue",
+          "count": 3,
+          "allDetailsAndSources": true,
+          "horizontalOverflow": false
+        },
+        {
+          "term": "dongzhi",
+          "count": 4,
+          "allDetailsAndSources": true,
+          "horizontalOverflow": false
+        },
+        {
+          "term": "xiaohan",
+          "count": 4,
+          "allDetailsAndSources": true,
+          "horizontalOverflow": false
+        },
+        {
+          "term": "dahan",
+          "count": 3,
+          "allDetailsAndSources": true,
+          "horizontalOverflow": false
+        }
+      ],
+      "map": [
+        {
+          "term": "lichun",
+          "count": 3,
+          "provinceCounts": {
+            "110000": 1,
+            "330000": 1,
+            "520000": 1
+          },
+          "detailReads": 3,
+          "horizontalOverflow": false
+        },
+        {
+          "term": "yushui",
+          "count": 3,
+          "provinceCounts": {
+            "350000": 1,
+            "440000": 1,
+            "450000": 1,
+            "510000": 2
+          },
+          "detailReads": 5,
+          "horizontalOverflow": false
+        },
+        {
+          "term": "jingzhe",
+          "count": 3,
+          "provinceCounts": {
+            "120000": 1,
+            "360000": 1,
+            "810000": 1
+          },
+          "detailReads": 3,
+          "horizontalOverflow": false
+        },
+        {
+          "term": "chunfen",
+          "count": 3,
+          "provinceCounts": {
+            "110000": 2,
+            "430000": 1
+          },
+          "detailReads": 3,
+          "horizontalOverflow": false
+        },
+        {
+          "term": "qingming",
+          "count": 3,
+          "provinceCounts": {
+            "310000": 1,
+            "330000": 1,
+            "510000": 1
+          },
+          "detailReads": 3,
+          "horizontalOverflow": false
+        },
+        {
+          "term": "guyu",
+          "count": 4,
+          "provinceCounts": {
+            "330000": 1,
+            "370000": 1,
+            "430000": 1,
+            "610000": 1
+          },
+          "detailReads": 4,
+          "horizontalOverflow": false
+        },
+        {
+          "term": "lixia",
+          "count": 3,
+          "provinceCounts": {
+            "320000": 1,
+            "330000": 2
+          },
+          "detailReads": 3,
+          "horizontalOverflow": false
+        },
+        {
+          "term": "xiaoman",
+          "count": 3,
+          "provinceCounts": {
+            "320000": 1,
+            "330000": 1,
+            "610000": 1
+          },
+          "detailReads": 3,
+          "horizontalOverflow": false
+        },
+        {
+          "term": "mangzhong",
+          "count": 3,
+          "provinceCounts": {
+            "320000": 1,
+            "330000": 2,
+            "340000": 1
+          },
+          "detailReads": 4,
+          "horizontalOverflow": false
+        },
+        {
+          "term": "xiazhi",
+          "count": 4,
+          "provinceCounts": {
+            "110000": 2,
+            "230000": 1,
+            "330000": 1
+          },
+          "detailReads": 4,
+          "horizontalOverflow": false
+        },
+        {
+          "term": "xiaoshu",
+          "count": 3,
+          "provinceCounts": {
+            "320000": 3
+          },
+          "detailReads": 3,
+          "horizontalOverflow": false
+        },
+        {
+          "term": "dashu",
+          "count": 3,
+          "provinceCounts": {
+            "330000": 1,
+            "350000": 1,
+            "440000": 1
+          },
+          "detailReads": 3,
+          "horizontalOverflow": false
+        },
+        {
+          "term": "liqiu",
+          "count": 3,
+          "provinceCounts": {
+            "110000": 1,
+            "320000": 1,
+            "360000": 1
+          },
+          "detailReads": 3,
+          "horizontalOverflow": false
+        },
+        {
+          "term": "chushu",
+          "count": 3,
+          "provinceCounts": {
+            "320000": 1,
+            "330000": 1,
+            "440000": 1
+          },
+          "detailReads": 3,
+          "horizontalOverflow": false
+        },
+        {
+          "term": "bailu",
+          "count": 3,
+          "provinceCounts": {
+            "320000": 1,
+            "350000": 1,
+            "430000": 1
+          },
+          "detailReads": 3,
+          "horizontalOverflow": false
+        },
+        {
+          "term": "qiufen",
+          "count": 3,
+          "provinceCounts": {
+            "110000": 1,
+            "320000": 1,
+            "440000": 1
+          },
+          "detailReads": 3,
+          "horizontalOverflow": false
+        },
+        {
+          "term": "hanlu",
+          "count": 3,
+          "provinceCounts": {
+            "110000": 2,
+            "320000": 1
+          },
+          "detailReads": 3,
+          "horizontalOverflow": false
+        },
+        {
+          "term": "shuangjiang",
+          "count": 3,
+          "provinceCounts": {
+            "350000": 2,
+            "610000": 1
+          },
+          "detailReads": 3,
+          "horizontalOverflow": false
+        },
+        {
+          "term": "lidong",
+          "count": 3,
+          "provinceCounts": {
+            "110000": 1,
+            "330000": 1,
+            "440000": 1
+          },
+          "detailReads": 3,
+          "horizontalOverflow": false
+        },
+        {
+          "term": "xiaoxue",
+          "count": 4,
+          "provinceCounts": {
+            "320000": 1,
+            "330000": 1,
+            "430000": 1,
+            "710000": 1
+          },
+          "detailReads": 4,
+          "horizontalOverflow": false
+        },
+        {
+          "term": "daxue",
+          "count": 3,
+          "provinceCounts": {
+            "320000": 2,
+            "370000": 1
+          },
+          "detailReads": 3,
+          "horizontalOverflow": false
+        },
+        {
+          "term": "dongzhi",
+          "count": 4,
+          "provinceCounts": {
+            "110000": 1,
+            "320000": 1,
+            "330000": 1,
+            "640000": 1
+          },
+          "detailReads": 4,
+          "horizontalOverflow": false
+        },
+        {
+          "term": "xiaohan",
+          "count": 4,
+          "provinceCounts": {
+            "120000": 1,
+            "320000": 2,
+            "440000": 1
+          },
+          "detailReads": 4,
+          "horizontalOverflow": false
+        },
+        {
+          "term": "dahan",
+          "count": 3,
+          "provinceCounts": {
+            "110000": 1,
+            "350000": 1,
+            "440000": 1
+          },
+          "detailReads": 3,
+          "horizontalOverflow": false
+        }
+      ],
+      "pageErrors": [],
+      "failedResources": [],
+      "ignoredNavigationAborts": 1,
+      "bookToMapNavigation": true,
+      "provinceLinkNavigation": true,
+      "invalidLinkFallsBackToAll": true
+    },
+    {
+      "profile": "mobile-emulation",
+      "viewport": {
+        "width": 412,
+        "height": 839
+      },
+      "pages": [
+        {
+          "path": "/",
+          "status": 200,
+          "horizontalOverflow": false
+        },
+        {
+          "path": "/about",
+          "status": 200,
+          "horizontalOverflow": false
+        },
+        {
+          "path": "/studio",
+          "status": 200,
+          "horizontalOverflow": false
+        }
+      ],
+      "seasons": [
+        {
+          "term": "lichun",
+          "count": 3,
+          "allDetailsAndSources": true,
+          "horizontalOverflow": false
+        },
+        {
+          "term": "yushui",
+          "count": 3,
+          "allDetailsAndSources": true,
+          "horizontalOverflow": false
+        },
+        {
+          "term": "jingzhe",
+          "count": 3,
+          "allDetailsAndSources": true,
+          "horizontalOverflow": false
+        },
+        {
+          "term": "chunfen",
+          "count": 3,
+          "allDetailsAndSources": true,
+          "horizontalOverflow": false
+        },
+        {
+          "term": "qingming",
+          "count": 3,
+          "allDetailsAndSources": true,
+          "horizontalOverflow": false
+        },
+        {
+          "term": "guyu",
+          "count": 4,
+          "allDetailsAndSources": true,
+          "horizontalOverflow": false
+        },
+        {
+          "term": "lixia",
+          "count": 3,
+          "allDetailsAndSources": true,
+          "horizontalOverflow": false
+        },
+        {
+          "term": "xiaoman",
+          "count": 3,
+          "allDetailsAndSources": true,
+          "horizontalOverflow": false
+        },
+        {
+          "term": "mangzhong",
+          "count": 3,
+          "allDetailsAndSources": true,
+          "horizontalOverflow": false
+        },
+        {
+          "term": "xiazhi",
+          "count": 4,
+          "allDetailsAndSources": true,
+          "horizontalOverflow": false
+        },
+        {
+          "term": "xiaoshu",
+          "count": 3,
+          "allDetailsAndSources": true,
+          "horizontalOverflow": false
+        },
+        {
+          "term": "dashu",
+          "count": 3,
+          "allDetailsAndSources": true,
+          "horizontalOverflow": false
+        },
+        {
+          "term": "liqiu",
+          "count": 3,
+          "allDetailsAndSources": true,
+          "horizontalOverflow": false
+        },
+        {
+          "term": "chushu",
+          "count": 3,
+          "allDetailsAndSources": true,
+          "horizontalOverflow": false
+        },
+        {
+          "term": "bailu",
+          "count": 3,
+          "allDetailsAndSources": true,
+          "horizontalOverflow": false
+        },
+        {
+          "term": "qiufen",
+          "count": 3,
+          "allDetailsAndSources": true,
+          "horizontalOverflow": false
+        },
+        {
+          "term": "hanlu",
+          "count": 3,
+          "allDetailsAndSources": true,
+          "horizontalOverflow": false
+        },
+        {
+          "term": "shuangjiang",
+          "count": 3,
+          "allDetailsAndSources": true,
+          "horizontalOverflow": false
+        },
+        {
+          "term": "lidong",
+          "count": 3,
+          "allDetailsAndSources": true,
+          "horizontalOverflow": false
+        },
+        {
+          "term": "xiaoxue",
+          "count": 4,
+          "allDetailsAndSources": true,
+          "horizontalOverflow": false
+        },
+        {
+          "term": "daxue",
+          "count": 3,
+          "allDetailsAndSources": true,
+          "horizontalOverflow": false
+        },
+        {
+          "term": "dongzhi",
+          "count": 4,
+          "allDetailsAndSources": true,
+          "horizontalOverflow": false
+        },
+        {
+          "term": "xiaohan",
+          "count": 4,
+          "allDetailsAndSources": true,
+          "horizontalOverflow": false
+        },
+        {
+          "term": "dahan",
+          "count": 3,
+          "allDetailsAndSources": true,
+          "horizontalOverflow": false
+        }
+      ],
+      "map": [
+        {
+          "term": "lichun",
+          "count": 3,
+          "provinceCounts": {
+            "110000": 1,
+            "330000": 1,
+            "520000": 1
+          },
+          "detailReads": 3,
+          "horizontalOverflow": false
+        },
+        {
+          "term": "yushui",
+          "count": 3,
+          "provinceCounts": {
+            "350000": 1,
+            "440000": 1,
+            "450000": 1,
+            "510000": 2
+          },
+          "detailReads": 5,
+          "horizontalOverflow": false
+        },
+        {
+          "term": "jingzhe",
+          "count": 3,
+          "provinceCounts": {
+            "120000": 1,
+            "360000": 1,
+            "810000": 1
+          },
+          "detailReads": 3,
+          "horizontalOverflow": false
+        },
+        {
+          "term": "chunfen",
+          "count": 3,
+          "provinceCounts": {
+            "110000": 2,
+            "430000": 1
+          },
+          "detailReads": 3,
+          "horizontalOverflow": false
+        },
+        {
+          "term": "qingming",
+          "count": 3,
+          "provinceCounts": {
+            "310000": 1,
+            "330000": 1,
+            "510000": 1
+          },
+          "detailReads": 3,
+          "horizontalOverflow": false
+        },
+        {
+          "term": "guyu",
+          "count": 4,
+          "provinceCounts": {
+            "330000": 1,
+            "370000": 1,
+            "430000": 1,
+            "610000": 1
+          },
+          "detailReads": 4,
+          "horizontalOverflow": false
+        },
+        {
+          "term": "lixia",
+          "count": 3,
+          "provinceCounts": {
+            "320000": 1,
+            "330000": 2
+          },
+          "detailReads": 3,
+          "horizontalOverflow": false
+        },
+        {
+          "term": "xiaoman",
+          "count": 3,
+          "provinceCounts": {
+            "320000": 1,
+            "330000": 1,
+            "610000": 1
+          },
+          "detailReads": 3,
+          "horizontalOverflow": false
+        },
+        {
+          "term": "mangzhong",
+          "count": 3,
+          "provinceCounts": {
+            "320000": 1,
+            "330000": 2,
+            "340000": 1
+          },
+          "detailReads": 4,
+          "horizontalOverflow": false
+        },
+        {
+          "term": "xiazhi",
+          "count": 4,
+          "provinceCounts": {
+            "110000": 2,
+            "230000": 1,
+            "330000": 1
+          },
+          "detailReads": 4,
+          "horizontalOverflow": false
+        },
+        {
+          "term": "xiaoshu",
+          "count": 3,
+          "provinceCounts": {
+            "320000": 3
+          },
+          "detailReads": 3,
+          "horizontalOverflow": false
+        },
+        {
+          "term": "dashu",
+          "count": 3,
+          "provinceCounts": {
+            "330000": 1,
+            "350000": 1,
+            "440000": 1
+          },
+          "detailReads": 3,
+          "horizontalOverflow": false
+        },
+        {
+          "term": "liqiu",
+          "count": 3,
+          "provinceCounts": {
+            "110000": 1,
+            "320000": 1,
+            "360000": 1
+          },
+          "detailReads": 3,
+          "horizontalOverflow": false
+        },
+        {
+          "term": "chushu",
+          "count": 3,
+          "provinceCounts": {
+            "320000": 1,
+            "330000": 1,
+            "440000": 1
+          },
+          "detailReads": 3,
+          "horizontalOverflow": false
+        },
+        {
+          "term": "bailu",
+          "count": 3,
+          "provinceCounts": {
+            "320000": 1,
+            "350000": 1,
+            "430000": 1
+          },
+          "detailReads": 3,
+          "horizontalOverflow": false
+        },
+        {
+          "term": "qiufen",
+          "count": 3,
+          "provinceCounts": {
+            "110000": 1,
+            "320000": 1,
+            "440000": 1
+          },
+          "detailReads": 3,
+          "horizontalOverflow": false
+        },
+        {
+          "term": "hanlu",
+          "count": 3,
+          "provinceCounts": {
+            "110000": 2,
+            "320000": 1
+          },
+          "detailReads": 3,
+          "horizontalOverflow": false
+        },
+        {
+          "term": "shuangjiang",
+          "count": 3,
+          "provinceCounts": {
+            "350000": 2,
+            "610000": 1
+          },
+          "detailReads": 3,
+          "horizontalOverflow": false
+        },
+        {
+          "term": "lidong",
+          "count": 3,
+          "provinceCounts": {
+            "110000": 1,
+            "330000": 1,
+            "440000": 1
+          },
+          "detailReads": 3,
+          "horizontalOverflow": false
+        },
+        {
+          "term": "xiaoxue",
+          "count": 4,
+          "provinceCounts": {
+            "320000": 1,
+            "330000": 1,
+            "430000": 1,
+            "710000": 1
+          },
+          "detailReads": 4,
+          "horizontalOverflow": false
+        },
+        {
+          "term": "daxue",
+          "count": 3,
+          "provinceCounts": {
+            "320000": 2,
+            "370000": 1
+          },
+          "detailReads": 3,
+          "horizontalOverflow": false
+        },
+        {
+          "term": "dongzhi",
+          "count": 4,
+          "provinceCounts": {
+            "110000": 1,
+            "320000": 1,
+            "330000": 1,
+            "640000": 1
+          },
+          "detailReads": 4,
+          "horizontalOverflow": false
+        },
+        {
+          "term": "xiaohan",
+          "count": 4,
+          "provinceCounts": {
+            "120000": 1,
+            "320000": 2,
+            "440000": 1
+          },
+          "detailReads": 4,
+          "horizontalOverflow": false
+        },
+        {
+          "term": "dahan",
+          "count": 3,
+          "provinceCounts": {
+            "110000": 1,
+            "350000": 1,
+            "440000": 1
+          },
+          "detailReads": 3,
+          "horizontalOverflow": false
+        }
+      ],
+      "pageErrors": [],
+      "failedResources": [],
+      "ignoredNavigationAborts": 1,
+      "bookToMapNavigation": true,
+      "provinceLinkNavigation": true,
+      "invalidLinkFallsBackToAll": true
+    }
+  ],
+  "passed": true
+}

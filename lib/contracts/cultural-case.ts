@@ -21,6 +21,7 @@ export const CulturalSourceSchema = z.strictObject({
     } catch { return false; }
   }, "来源必须是绝对 HTTP(S) URL。"),
   publisher: text(100).optional(),
+  accessNote: text(300).optional(),
 });
 
 // No external image domains have been approved for this batch.
@@ -38,6 +39,8 @@ export const CulturalCaseSchema = z.strictObject({
   solarTermIds: z.array(SolarTermIdSchema).min(1).max(24).refine((ids) => new Set(ids).size === ids.length),
   provinceCode: ProvinceCodeSchema,
   provinceName: text(100),
+  // A regional custom stays one entity; other supported provinces are filterable too.
+  relatedProvinceCodes: z.array(ProvinceCodeSchema).min(1).max(33).refine((codes) => new Set(codes).size === codes.length).optional(),
   regionName: text(100),
   category: CulturalCategorySchema,
   description: text(2000),
@@ -47,6 +50,8 @@ export const CulturalCaseSchema = z.strictObject({
   imageUrl: ImageUrlSchema.optional(),
 }).refine((item) => SUPPORTED_PROVINCES.some((province) => province.code === item.provinceCode && province.name === item.provinceName), {
   message: "省份名称必须与地图编码对应。", path: ["provinceName"],
+}).refine((item) => !item.relatedProvinceCodes?.includes(item.provinceCode), {
+  message: "关联省份不得重复主省份。", path: ["relatedProvinceCodes"],
 });
 
 export const VerifiedCulturalCaseSchema = CulturalCaseSchema.safeExtend({ verificationStatus: z.literal("verified") });

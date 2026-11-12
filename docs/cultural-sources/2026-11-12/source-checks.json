@@ -1,0 +1,1307 @@
+{
+  "checkedAt": "2026-11-11T16:57:35.498348+00:00",
+  "method": "Direct HTTPS/HTTP GET, normal TLS verification, no proxy; availability is not content verification",
+  "sources": [
+    {
+      "url": "https://www.shiqian.gov.cn/ywjj/zwyw/202602/t20260204_89374336.html",
+      "supplementSerial": 1,
+      "caseTitle": "贵州石阡“说春”",
+      "term": "立春",
+      "keywords": [
+        "贵州石阡",
+        "说春"
+      ],
+      "status": 200,
+      "finalUrl": "https://www.shiqian.gov.cn/ywjj/zwyw/202602/t20260204_89374336.html",
+      "pageTitle": "【新春走基层】石阡：以“说春”之声开启春耕画卷",
+      "textLength": 2048,
+      "bodySha256": "b8f900abdab0f255f41ed1fbbbb457e49357395b51fa029c81b481c088d4873c",
+      "termPresent": true,
+      "matchedTerms": [
+        "说春"
+      ],
+      "availability": "readable"
+    },
+    {
+      "url": "https://news.bjd.com.cn/2026/02/04/11565199.shtml",
+      "supplementSerial": 2,
+      "caseTitle": "北京昌平康陵村“正德春饼宴”咬春",
+      "term": "立春",
+      "keywords": [
+        "北京昌平康陵村",
+        "正德春饼宴",
+        "咬春"
+      ],
+      "status": 200,
+      "finalUrl": "https://news.bjd.com.cn/2026/02/04/11565199.shtml",
+      "pageTitle": "欢乐过大年・乡“亲”京郊行｜立春“咬春”，寻味五百年“正德春饼宴”_京报网",
+      "textLength": 2943,
+      "bodySha256": "7255eed03b45c3739f33a86af036963e6371879060776584771bdb60c7504c52",
+      "termPresent": true,
+      "matchedTerms": [
+        "正德春饼宴",
+        "咬春"
+      ],
+      "availability": "readable"
+    },
+    {
+      "url": "http://tjtong.enorth.com.cn/system/2026/03/06/059201612.shtml",
+      "supplementSerial": 3,
+      "caseTitle": "天津惊蛰吃梨",
+      "term": "惊蛰",
+      "keywords": [
+        "天津惊蛰吃梨"
+      ],
+      "status": 200,
+      "finalUrl": "http://tjtong.enorth.com.cn/system/2026/03/06/059201612.shtml",
+      "pageTitle": "惊蛰养生 疏肝理气-天津通-北方网",
+      "textLength": 3069,
+      "bodySha256": "92b537c5fd41d80fdd86f318889ba69802b7df5ab5c548ce47509f8c337e887a",
+      "termPresent": true,
+      "matchedTerms": [],
+      "availability": "readable"
+    },
+    {
+      "url": "https://www.chinarjw.com/chinarjw/c100049/202603/c71b73412d7f403ca124364bcf3ee926.shtml",
+      "supplementSerial": 4,
+      "caseTitle": "江西赣南上犹、崇义“炒虫”",
+      "term": "惊蛰",
+      "keywords": [
+        "江西赣南上犹",
+        "崇义",
+        "炒虫"
+      ],
+      "status": 200,
+      "finalUrl": "https://www.chinarjw.com/chinarjw/c100049/202603/c71b73412d7f403ca124364bcf3ee926.shtml",
+      "pageTitle": "一雷惊蛰始，田家无闲日|文化资讯 | 红都新闻网",
+      "textLength": 2576,
+      "bodySha256": "9ead68255d5708bca7da0585d03b659a291462c824226a34594fb0270c3dd13d",
+      "termPresent": true,
+      "matchedTerms": [
+        "崇义",
+        "炒虫"
+      ],
+      "availability": "readable"
+    },
+    {
+      "url": "http://hn.people.com.cn/n2/2026/0321/c356887-41530004.html",
+      "supplementSerial": 5,
+      "caseTitle": "湖南安仁“赶分社”",
+      "term": "春分",
+      "keywords": [
+        "湖南安仁",
+        "赶分社"
+      ],
+      "status": 200,
+      "finalUrl": "http://hn.people.com.cn/n2/2026/0321/c356887-41530004.html",
+      "pageTitle": "2026“安仁赶分社”暨“仁商大会”开幕",
+      "textLength": 2394,
+      "bodySha256": "2ab2c57fa98e9485f5dbfd426066090b864799d107930491b1de2c98be4022ca",
+      "termPresent": true,
+      "matchedTerms": [
+        "赶分社"
+      ],
+      "availability": "readable"
+    },
+    {
+      "url": "http://www.news.cn/book/20220322/76a3755e37654d2f96fc43a6762c6b87/c.html",
+      "supplementSerial": 6,
+      "caseTitle": "北京春分吃太阳糕",
+      "term": "春分",
+      "keywords": [
+        "北京春分吃太阳糕"
+      ],
+      "status": 200,
+      "finalUrl": "http://www.news.cn/book/20220322/76a3755e37654d2f96fc43a6762c6b87/c.html",
+      "pageTitle": "春分民俗大赏-新华网",
+      "textLength": 3725,
+      "bodySha256": "dae04aa5ac9cae30dbbf047a223804001c8c01ebd1c4c306b97072808f4b0eb1",
+      "termPresent": true,
+      "matchedTerms": [],
+      "availability": "readable"
+    },
+    {
+      "url": "http://www.cma.gov.cn/2011xzt/20150130/20150821/2015072102/201508/t20150821_291111.html",
+      "supplementSerial": 7,
+      "caseTitle": "浙江象山石浦开渔节",
+      "term": "处暑",
+      "keywords": [
+        "浙江象山石浦开渔节"
+      ],
+      "status": 200,
+      "finalUrl": "https://www.cma.gov.cn/2011xzt/20150130/20150821/2015072102/201508/t20150821_291111.html",
+      "pageTitle": "处暑：夏将止，秋未满-中国气象局政府门户网站",
+      "textLength": 2526,
+      "bodySha256": "946b268f4d1c1d20dcefca6636b7e28d2041dafabb887e203809034b54df1aa4",
+      "termPresent": true,
+      "matchedTerms": [],
+      "availability": "readable"
+    },
+    {
+      "url": "https://content.foshanplus.com/newsDetails.html?newsId=964712",
+      "supplementSerial": 8,
+      "caseTitle": "广州处暑喝凉茶（煎药茶）",
+      "term": "处暑",
+      "keywords": [
+        "广州处暑喝凉茶",
+        "煎药茶"
+      ],
+      "status": 200,
+      "finalUrl": "https://content.foshanplus.com/newsDetails.html?newsId=964712",
+      "pageTitle": "佛山+客户端",
+      "textLength": 1739,
+      "bodySha256": "283cd8759d19a8c40168fdc01222119a513120277786076e7b4570f3ef700fd1",
+      "termPresent": false,
+      "matchedTerms": [],
+      "availability": "readable",
+      "browser": {
+        "checkedAt": "2026-11-11T16:59:56.275Z",
+        "status": 200,
+        "finalUrl": "https://content.foshanplus.com/newsDetails.html?newsId=964712",
+        "textLength": 1668,
+        "containsTerm": true,
+        "note": "Rendered in browser"
+      }
+    },
+    {
+      "url": "http://culture.people.com.cn/n1/2020/1008/c1013-31884182.html",
+      "supplementSerial": 9,
+      "caseTitle": "北京香山寒露登高赏红叶",
+      "term": "寒露",
+      "keywords": [],
+      "status": 200,
+      "finalUrl": "http://culture.people.com.cn/n1/2020/1008/c1013-31884182.html",
+      "pageTitle": "寒露秋意浓：饮菊登高赏红叶--文化--人民网",
+      "textLength": 3381,
+      "bodySha256": "3008621ddf320cb83f9da8fba521a9a8c53698f15bdac3928c11b972d8a6389d",
+      "termPresent": true,
+      "matchedTerms": [],
+      "availability": "readable"
+    },
+    {
+      "url": "https://news.cctv.com/2026/10/08/ARTICSDnHU9ACbTJaA9jCeWv261008.shtml",
+      "supplementSerial": 10,
+      "caseTitle": "江苏兴化千垛寒露赏菊",
+      "term": "寒露",
+      "keywords": [
+        "江苏兴化千垛寒露赏菊"
+      ],
+      "status": 200,
+      "finalUrl": "https://news.cctv.com/2026/10/08/ARTICSDnHU9ACbTJaA9jCeWv261008.shtml",
+      "pageTitle": "寒露秋色正浓 全国秋菊绽放地图看哪里“菊”势正好_新闻频道_央视网(cctv.com)",
+      "textLength": 372,
+      "bodySha256": "4cae818c47f25641b76a8df301dd8ec20026c185fc85fe0cf3e623ebe1191d8c",
+      "termPresent": true,
+      "matchedTerms": [],
+      "availability": "readable"
+    },
+    {
+      "url": "http://minsu.fjsen.com/2023-10/24/content_31440090.htm",
+      "supplementSerial": 11,
+      "caseTitle": "福建泉州“霜降吃丁柿”",
+      "term": "霜降",
+      "keywords": [
+        "福建泉州",
+        "霜降吃丁柿"
+      ],
+      "status": 200,
+      "finalUrl": "http://minsu.fjsen.com/2023-10/24/content_31440090.htm",
+      "pageTitle": "闽俗时节｜闽式饮食中的二十四节气——霜降\n-\n观闽俗知闽风\n- 福建民俗博物馆",
+      "textLength": 1452,
+      "bodySha256": "417c48366c85a046d8d6bf7ec5fb798ee9ee9394f6b637a19f0f89e53f1ac703",
+      "termPresent": true,
+      "matchedTerms": [
+        "霜降吃丁柿"
+      ],
+      "availability": "readable"
+    },
+    {
+      "url": "https://wjw.fujian.gov.cn/jggk/wsjsfc/tp/202510/t20251023_7024530.htm",
+      "supplementSerial": 12,
+      "caseTitle": "福建漳州“霜降食芋头”",
+      "term": "霜降",
+      "keywords": [
+        "福建漳州",
+        "霜降食芋头"
+      ],
+      "status": 200,
+      "finalUrl": "https://wjw.fujian.gov.cn/jggk/wsjsfc/tp/202510/t20251023_7024530.htm",
+      "pageTitle": "“时令节气与健康福建”系列新闻发布会之霜降节气文字实录\n        _\n        图片\n        _\n        省卫健委",
+      "textLength": 7569,
+      "bodySha256": "93e4b4505add0e5d4b6e78551241ef94faaaf5fda1294149f837f86ee0ca85d4",
+      "termPresent": true,
+      "matchedTerms": [
+        "霜降食芋头"
+      ],
+      "availability": "readable"
+    },
+    {
+      "url": "http://www.news.cn/politics/20251107/402c58cb670d4e20b759ef34cbdb8a64/c.html",
+      "supplementSerial": 13,
+      "caseTitle": "北京立冬吃饺子",
+      "term": "立冬",
+      "keywords": [
+        "北京立冬吃饺子"
+      ],
+      "status": 200,
+      "finalUrl": "http://www.news.cn/politics/20251107/402c58cb670d4e20b759ef34cbdb8a64/c.html",
+      "pageTitle": "节令之美丨立冬时节话“补冬”-新华网",
+      "textLength": 1823,
+      "bodySha256": "0200391655e77b0f5c090008a2072641f25869402627ad063c5cdec166ae9413",
+      "termPresent": true,
+      "matchedTerms": [],
+      "availability": "readable"
+    },
+    {
+      "url": "https://static.nfnews.com/content/202511/07/c11888931.html",
+      "supplementSerial": 14,
+      "caseTitle": "广东潮汕立冬食蔗",
+      "term": "立冬",
+      "keywords": [
+        "广东潮汕立冬食蔗"
+      ],
+      "status": 200,
+      "finalUrl": "https://static.nfnews.com/content/202511/07/c11888931.html",
+      "pageTitle": "立冬食蔗齿不痛？潮汕老习俗暗藏护齿科学_南方+_南方plus",
+      "textLength": 1538,
+      "bodySha256": "ecba157f649d5004236c8742e3350be2666543dd4793e07b9d9643274f11259f",
+      "termPresent": true,
+      "matchedTerms": [],
+      "availability": "readable"
+    },
+    {
+      "url": "http://paper.people.com.cn/rmrbhwb/pad/content/202412/06/content_30033264.html",
+      "supplementSerial": 15,
+      "caseTitle": "鲁北“碌碡顶了门，光喝红黏粥”",
+      "term": "大雪",
+      "keywords": [
+        "鲁北",
+        "碌碡顶了门",
+        "光喝红黏粥"
+      ],
+      "status": 200,
+      "finalUrl": "http://paper.people.com.cn/rmrbhwb/pad/content/202412/06/content_30033264.html",
+      "pageTitle": "大雪：雪兆丰年 温阳散寒（二十四节气里的中医养生之道）",
+      "textLength": 3249,
+      "bodySha256": "8269333f337022521bea0aeecdc0ba27f835b7d63df53f6d7ca25f077721d9a0",
+      "termPresent": true,
+      "matchedTerms": [
+        "鲁北",
+        "碌碡顶了门",
+        "光喝红黏粥"
+      ],
+      "availability": "readable"
+    },
+    {
+      "url": "http://paper.people.com.cn/rmrbhwb/html/2015-12/04/content_1638382.htm",
+      "supplementSerial": 16,
+      "caseTitle": "南京大雪吃大萝卜·萝卜圆子",
+      "term": "大雪",
+      "keywords": [
+        "南京大雪吃大萝卜",
+        "萝卜圆子"
+      ],
+      "status": 200,
+      "finalUrl": "http://paper.people.com.cn/rmrbhwb/html/2015-12/04/content_1638382.htm",
+      "pageTitle": "人民日报海外版-人民网",
+      "textLength": 3763,
+      "bodySha256": "7bf8742f9a27721bc8015e0fea0f23bf2574f4b812825f06367fd7c430c386c6",
+      "termPresent": true,
+      "matchedTerms": [
+        "萝卜圆子"
+      ],
+      "availability": "readable"
+    },
+    {
+      "url": "https://www.chinanews.com.cn/hwjy/2011/01-28/2819533.shtml",
+      "supplementSerial": 17,
+      "caseTitle": "北京大寒吃消寒糕",
+      "term": "大寒",
+      "keywords": [
+        "北京大寒吃消寒糕"
+      ],
+      "status": 200,
+      "finalUrl": "https://www.chinanews.com.cn/hwjy/2011/01-28/2819533.shtml",
+      "pageTitle": "北京习俗：“大寒”要吃消寒糕——中新网",
+      "textLength": 2010,
+      "bodySha256": "b089a532414fe88cf1b91688fa6b0040eb3dd9094b8b0fd2c62388d02d38db88",
+      "termPresent": true,
+      "matchedTerms": [],
+      "availability": "readable"
+    },
+    {
+      "url": "https://www.fsonline.com.cn/FS_PLUS/1002754.html",
+      "supplementSerial": 18,
+      "caseTitle": "广东佛山大寒吃糯米饭",
+      "term": "大寒",
+      "keywords": [
+        "广东佛山大寒吃糯米饭"
+      ],
+      "status": 200,
+      "finalUrl": "https://www.fsonline.com.cn/upgrade",
+      "pageTitle": "",
+      "textLength": 1,
+      "bodySha256": "474d045c98337a096d6855059f728144df859c4af61ce0ebaad5f6309fc7103b",
+      "termPresent": false,
+      "matchedTerms": [],
+      "availability": "needs-review",
+      "browser": {
+        "checkedAt": "2026-11-11T16:59:56.288Z",
+        "status": 200,
+        "finalUrl": "https://www.fsonline.com.cn/upgrade",
+        "textLength": 0,
+        "containsTerm": false,
+        "note": "Redirects to upgrade page; article not readable"
+      },
+      "editorialNote": "收录依据为素材组在补采表明确标记的已打开核对结果；本次正文无法复验，保留原链接并在详情显示访问说明。"
+    },
+    {
+      "url": "https://www.cma.gov.cn/ztbd/2025zt/24jq/yushui/index.html",
+      "supplementSerial": 19,
+      "caseTitle": "华南稻作区“占稻色”",
+      "term": "雨水",
+      "keywords": [
+        "华南稻作区",
+        "占稻色"
+      ],
+      "status": 200,
+      "finalUrl": "https://www.cma.gov.cn/ztbd/2025zt/24jq/yushui/index.html",
+      "pageTitle": "二十四节气·雨水-中国气象网",
+      "textLength": 4922,
+      "bodySha256": "cbd56a4d6a1020a3afb6ffe8a505f649e7378ac2d86daea64946db62a9b07b88",
+      "termPresent": true,
+      "matchedTerms": [
+        "占稻色"
+      ],
+      "availability": "readable"
+    },
+    {
+      "url": "https://www.ihchina.cn/project_details/14973/",
+      "supplementSerial": 20,
+      "caseTitle": "四川都江堰清明放水节",
+      "term": "清明",
+      "keywords": [
+        "四川都江堰清明放水节"
+      ],
+      "status": 200,
+      "finalUrl": "https://www.ihchina.cn/project_details/14973/",
+      "pageTitle": "都江堰放水节 - 中国非物质文化遗产网·中国非物质文化遗产数字博物馆",
+      "textLength": 1328,
+      "bodySha256": "1fe01414cca447de19122e146943f91b2559362696fb78690129e5535443a8a5",
+      "termPresent": true,
+      "matchedTerms": [],
+      "availability": "readable"
+    },
+    {
+      "url": "http://njrb.njdaily.cn/jlwb/h5/html5/2026-04/30/content_557_262612.htm",
+      "supplementSerial": 21,
+      "caseTitle": "江苏南京立夏斗蛋",
+      "term": "立夏",
+      "keywords": [
+        "江苏南京立夏斗蛋"
+      ],
+      "status": 200,
+      "finalUrl": "http://njrb.njdaily.cn/jlwb/h5/html5/2026-04/30/content_557_262612.htm",
+      "pageTitle": "金陵晚报-老南京过立夏：<br><br>    称一称<br><br>    斗一斗<br><br>    尝一尝",
+      "textLength": 2036,
+      "bodySha256": "ee01c1d07ec9e08709c8021f65268a3a760403faeb332bce7aacf7d504b0aebc",
+      "termPresent": true,
+      "matchedTerms": [],
+      "availability": "readable"
+    },
+    {
+      "url": "https://m.gmw.cn/2025-05/21/content_38039214.htm",
+      "supplementSerial": 22,
+      "caseTitle": "陕西关中“看麦梢黄”",
+      "term": "小满",
+      "keywords": [
+        "陕西关中",
+        "看麦梢黄"
+      ],
+      "status": 200,
+      "finalUrl": "https://m.gmw.cn/2025-05/21/content_38039214.htm",
+      "pageTitle": "文化中国行 | 南北风俗话小满",
+      "textLength": 1676,
+      "bodySha256": "58f959f8e8615c03a84bcb83e6c46f8ce410a63bc9758237399fec87b8e41205",
+      "termPresent": true,
+      "matchedTerms": [
+        "陕西关中",
+        "看麦梢黄"
+      ],
+      "availability": "readable"
+    },
+    {
+      "url": "https://xinwen.bjd.com.cn/content/s6a227a77d5de3eb734f1d9b1.html",
+      "supplementSerial": 23,
+      "caseTitle": "江南芒种“送花神”",
+      "term": "芒种",
+      "keywords": [
+        "江南芒种",
+        "送花神"
+      ],
+      "status": 200,
+      "finalUrl": "https://xinwen.bjd.com.cn/content/s6a227a77d5de3eb734f1d9b1.html",
+      "pageTitle": "今日芒种",
+      "textLength": 981,
+      "bodySha256": "bf2f53f96ec67b399b948a00baf8c54d539a4ff0f87a559860a386833117ac04",
+      "termPresent": true,
+      "matchedTerms": [
+        "送花神"
+      ],
+      "availability": "readable"
+    },
+    {
+      "url": "https://feiyi.gmw.cn/2026-07/07/content_38871722.htm",
+      "supplementSerial": 24,
+      "caseTitle": "江苏徐州伏羊食俗",
+      "term": "小暑",
+      "keywords": [
+        "江苏徐州伏羊食俗"
+      ],
+      "status": 200,
+      "finalUrl": "https://feiyi.gmw.cn/2026-07/07/content_38871722.htm",
+      "pageTitle": "",
+      "textLength": 6647,
+      "bodySha256": "12507be28e5f23dd38f9b707f22b183ddd3db0f6322ae62b7ad551cd5228983d",
+      "termPresent": false,
+      "matchedTerms": [],
+      "availability": "readable",
+      "browser": {
+        "checkedAt": "2026-11-11T16:59:56.288Z",
+        "status": 200,
+        "finalUrl": "https://feiyi.gmw.cn/2026-07/07/content_38871722.htm",
+        "textLength": 1698,
+        "containsTerm": true,
+        "note": "Rendered in browser"
+      },
+      "editorialNote": "浏览器正文确认小暑江苏吃暑羊及2021徐州非遗；表内最核心等非逐字引语与未证实细节已从展示稿剔除，原文保留intake。"
+    },
+    {
+      "url": "https://www.cma.gov.cn/ztbd/2026zt/24jq/dashu/index.html",
+      "supplementSerial": 25,
+      "caseTitle": "广东大暑吃仙草（凉粉/仙人粄）",
+      "term": "大暑",
+      "keywords": [
+        "广东大暑吃仙草",
+        "凉粉",
+        "仙人粄"
+      ],
+      "status": 200,
+      "finalUrl": "https://www.cma.gov.cn/ztbd/2026zt/24jq/dashu/index.html",
+      "pageTitle": "二十四节气·大暑-中国气象网",
+      "textLength": 4734,
+      "bodySha256": "f9667cd55cc1c289b2bd5d2abcc690eb8c3f75afd9dc7a5789420717275b2ada",
+      "termPresent": true,
+      "matchedTerms": [
+        "凉粉"
+      ],
+      "availability": "readable"
+    },
+    {
+      "url": "https://news.bjd.com.cn/2026/08/07/11904940.shtml",
+      "supplementSerial": 26,
+      "caseTitle": "北京立秋“贴秋膘”",
+      "term": "立秋",
+      "keywords": [
+        "北京立秋",
+        "贴秋膘"
+      ],
+      "status": 200,
+      "finalUrl": "https://news.bjd.com.cn/2026/08/07/11904940.shtml",
+      "pageTitle": "立秋贴秋膘！老字号备足传统酱肉_京报网",
+      "textLength": 2330,
+      "bodySha256": "498c8dcdf1a6e248ec876aec1e9a57182c97f4f61413352423ddc6fd4e8ec88d",
+      "termPresent": true,
+      "matchedTerms": [
+        "贴秋膘"
+      ],
+      "availability": "readable"
+    },
+    {
+      "url": "http://www.zixing.gov.cn/btwh/fwzwhyc/content_2559196.html",
+      "supplementSerial": 27,
+      "caseTitle": "湖南资兴白露米酒（程酒）",
+      "term": "白露",
+      "keywords": [
+        "湖南资兴白露米酒",
+        "程酒"
+      ],
+      "availability": "unavailable",
+      "errorType": "HTTPError",
+      "status": 412,
+      "browser": {
+        "checkedAt": "2026-11-11T16:59:56.288Z",
+        "status": 412,
+        "finalUrl": "http://www.zixing.gov.cn/btwh/fwzwhyc/content_2559196.html",
+        "textLength": 327,
+        "containsTerm": false,
+        "note": "WAF blocks public access"
+      }
+    },
+    {
+      "url": "http://sc.people.com.cn/n2/2026/0923/c345167-41705483.html",
+      "supplementSerial": 28,
+      "caseTitle": "江苏苏州秋分“送秋牛”“说秋”",
+      "term": "秋分",
+      "keywords": [
+        "江苏苏州秋分",
+        "送秋牛",
+        "说秋"
+      ],
+      "status": 200,
+      "finalUrl": "http://sc.people.com.cn/n2/2026/0923/c345167-41705483.html",
+      "pageTitle": "秋分为何送“秋牛”？（节气趣谈）",
+      "textLength": 2501,
+      "bodySha256": "28f9b9f1c37c827b0e5ce25f4eae51f8f8e2d3d06ff492906688074ecc9586da",
+      "termPresent": true,
+      "matchedTerms": [
+        "说秋"
+      ],
+      "availability": "readable"
+    },
+    {
+      "url": "http://www.news.cn/local/2023-04/20/c_1129544553.htm",
+      "supplementSerial": 29,
+      "caseTitle": "浙江绍兴谷雨公祭大禹陵",
+      "term": "谷雨",
+      "keywords": [],
+      "status": 200,
+      "finalUrl": "http://www.news.cn/local/2023-04/20/c_1129544553.htm",
+      "pageTitle": "节令之美·谷雨丨雨生百谷，且惜春光-新华网",
+      "textLength": 2079,
+      "bodySha256": "edf269406b02bae9befb51daa1c2ee36f4f47ad133e88e8877e4dd4f68be4913",
+      "termPresent": true,
+      "matchedTerms": [],
+      "availability": "readable"
+    },
+    {
+      "url": "http://culture.people.com.cn/n/2015/0108/c172318-26351122.html",
+      "supplementSerial": 30,
+      "caseTitle": "北京地坛夏至祭地",
+      "term": "夏至",
+      "keywords": [
+        "北京地坛夏至祭地"
+      ],
+      "status": 200,
+      "finalUrl": "http://culture.people.com.cn/n/2015/0108/c172318-26351122.html",
+      "pageTitle": "明清祭地仪式需两小时 盛装皇帝跪拜70余次（图）--文化--人民网",
+      "textLength": 2955,
+      "bodySha256": "43ed67cb571227fbe1cfc2ae7e91464d9719025f9fab886d20eb6d5aac388851",
+      "termPresent": true,
+      "matchedTerms": [],
+      "availability": "readable"
+    },
+    {
+      "url": "http://www.cma.gov.cn/2011xzt/2016zt/essjq/xx/jqxs/201611/t20161117_342065.html",
+      "supplementSerial": 31,
+      "caseTitle": "台湾嘉义布袋小雪晒鱼干",
+      "term": "小雪",
+      "keywords": [],
+      "status": 200,
+      "finalUrl": "https://www.cma.gov.cn/2011xzt/2016zt/essjq/xx/jqxs/201611/t20161117_342065.html",
+      "pageTitle": "晒鱼干-中国气象局政府门户网站",
+      "textLength": 1319,
+      "bodySha256": "773bcec4f0536dee09924eeddacaec1bc35ec8f58b5849e4b92a0fe5dbccba21",
+      "termPresent": true,
+      "matchedTerms": [],
+      "availability": "readable"
+    },
+    {
+      "url": "https://news.cctv.com/2024/12/21/ARTIShWtntjzzysP52HWWmzW241221.shtml",
+      "supplementSerial": 32,
+      "caseTitle": "宁夏银川冬至喝“头脑”",
+      "term": "冬至",
+      "keywords": [
+        "宁夏银川冬至喝",
+        "头脑"
+      ],
+      "status": 200,
+      "finalUrl": "https://news.cctv.com/2024/12/21/ARTIShWtntjzzysP52HWWmzW241221.shtml",
+      "pageTitle": "全国冬至饭地图揭秘！五大流派 “食” 力交锋 你家乡属于哪一派？_新闻频道_央视网(cctv.com)",
+      "textLength": 2755,
+      "bodySha256": "8ea3cb7aa336ef3f632740569da2f03c5118bb76f02d1ea0406dc022a1b38786",
+      "termPresent": true,
+      "matchedTerms": [
+        "头脑"
+      ],
+      "availability": "readable"
+    },
+    {
+      "url": "https://zschina.nanjing.gov.cn/lyzx/202601/t20260116_5770274.html",
+      "supplementSerial": 33,
+      "caseTitle": "江苏南京梅花山小寒探梅",
+      "term": "小寒",
+      "keywords": [],
+      "availability": "unavailable",
+      "errorType": "HTTPError",
+      "status": 403,
+      "webVerification": {
+        "availability": "readable",
+        "note": "原文明确岁首小寒、梅花山早梅及2026-01-16报道时点，不能代表今天花情。"
+      }
+    },
+    {
+      "url": "https://news.cctv.com/2025/04/20/ARTIUpglBoNq3aPSTmMx2fwh250420.shtml",
+      "caseTitle": "湖南安化“谷雨采茶打擂茶”",
+      "status": 200,
+      "finalUrl": "https://news.cctv.com/2025/04/20/ARTIUpglBoNq3aPSTmMx2fwh250420.shtml",
+      "pageTitle": "文化中国行｜谷雨节气话“习俗” 中华优秀传统文化底蕴深厚_新闻频道_央视网(cctv.com)",
+      "textLength": 1717,
+      "bodySha256": "d3ab6d0ba5b7e0e678c2a45646e966285b48db3fd5e0f8ae8ba5fcfea8ca5b38",
+      "termPresent": true,
+      "matchedTerms": [],
+      "availability": "readable"
+    },
+    {
+      "url": "http://www.baishui.gov.cn/zjbs/cybs/2046748782419144705.html",
+      "caseTitle": "陕西白水“谷雨祭仓颉”",
+      "status": 200,
+      "finalUrl": "https://www.baishui.gov.cn/zjbs/cybs/2046748782419144705.html",
+      "pageTitle": "丙午（2026）年谷雨 “四仪九规制”非遗展演在白水县举行--白水县人民政府",
+      "textLength": 1038,
+      "bodySha256": "75b9cbfe90b3d101ed8c41112f772d8e6c95bb066e501d827ca4dc3457a6138a",
+      "termPresent": true,
+      "matchedTerms": [],
+      "availability": "readable"
+    },
+    {
+      "url": "https://www.ihchina.cn/Article/Index/detail?id=9743",
+      "caseTitle": "九九消寒图",
+      "status": 200,
+      "finalUrl": "https://www.ihchina.cn/Article/Index/detail?id=9743",
+      "pageTitle": "冬至阳生春又来——二十四节气之冬至 - 中国非物质文化遗产网·中国非物质文化遗产数字博物馆",
+      "textLength": 3294,
+      "bodySha256": "2233f056915d1f88c2a93acf9b8b003d016ba3b000e3ffef4f80e784ee347d25",
+      "termPresent": true,
+      "matchedTerms": [],
+      "availability": "readable"
+    },
+    {
+      "url": "https://news.cau.edu.cn/zhxwnew/601643.htm",
+      "caseTitle": "九九消寒图",
+      "status": 200,
+      "finalUrl": "https://news.cau.edu.cn/zhxwnew/601643.htm",
+      "pageTitle": "［传统文化·节气］冬至开启“三九歌”",
+      "textLength": 4745,
+      "bodySha256": "a56b964f11e562bb90b82a20505c08ad167112dacf23075864c9fcf7fd73e881",
+      "termPresent": true,
+      "matchedTerms": [],
+      "availability": "readable"
+    },
+    {
+      "url": "https://www.beijing.gov.cn/renwen/sy/whkb/201903/t20190321_1865481.html",
+      "caseTitle": "北京日坛“春分祭日”",
+      "status": 200,
+      "finalUrl": "https://www.beijing.gov.cn/renwen/sy/whkb/201903/t20190321_1865481.html",
+      "pageTitle": "春色平分盈乾坤_文化快报_首都之窗_北京市人民政府门户网站",
+      "textLength": 2092,
+      "bodySha256": "16ffdbb346c09aad31e73af06ed06f56efeb509d9c9dced3b0700814910efb05",
+      "termPresent": true,
+      "matchedTerms": [],
+      "availability": "readable"
+    },
+    {
+      "url": "https://yllhj.beijing.gov.cn/ztxx/lhysh/st/202304/t20230411_3003938.shtml",
+      "caseTitle": "北京日坛“春分祭日”",
+      "status": 200,
+      "finalUrl": "https://yllhj.beijing.gov.cn/ztxx/lhysh/st/202304/t20230411_3003938.shtml",
+      "pageTitle": "北京鼓励和推动历史名园活化利用-生态-北京市园林绿化局（首都绿化委员会办公室）北京鼓励和推动历史名园活化利用-生态-北京市园林绿化局（首都绿化委员会办公室）",
+      "textLength": 4030,
+      "bodySha256": "a3e5fa9e10c03740f69d5a8a73c497faad1ccd00686dd60f3186e98cb71439a3",
+      "termPresent": true,
+      "matchedTerms": [],
+      "availability": "readable"
+    },
+    {
+      "url": "https://m.gmw.cn/2025-10/08/content_1304176820.htm",
+      "caseTitle": "北京“寒露吃芝麻”",
+      "status": 200,
+      "finalUrl": "https://m.gmw.cn/2025-10/08/content_1304176820.htm",
+      "pageTitle": "今日寒露 | 今天起，这几件事一定要做好！",
+      "textLength": 3797,
+      "bodySha256": "f243c737e96c76dbe3294413be279361126cb9b3cd5687d71d2eb18afcbf30f5",
+      "termPresent": true,
+      "matchedTerms": [],
+      "availability": "readable"
+    },
+    {
+      "url": "https://www.ihchina.cn/Article/Index/detail?id=9925",
+      "caseTitle": "北京夏至吃面",
+      "status": 200,
+      "finalUrl": "https://www.ihchina.cn/Article/Index/detail?id=9925",
+      "pageTitle": "冰雪在心——二十四节气之夏至 - 中国非物质文化遗产网·中国非物质文化遗产数字博物馆",
+      "textLength": 2558,
+      "bodySha256": "290b699f1a8dc6f8b08411fbb4219bb9624756bcbdbfda5c3e69f1f0269fb67a",
+      "termPresent": true,
+      "matchedTerms": [],
+      "availability": "readable"
+    },
+    {
+      "url": "https://www.bjxch.gov.cn/xcfw/whfw/xxxq/pnidpv737602.html",
+      "caseTitle": "北京月坛秋分祭月",
+      "status": 200,
+      "finalUrl": "https://www.bjxch.gov.cn/xcfw/whfw/xxxq/pnidpv737602.html",
+      "pageTitle": "北京市西城区人民政府",
+      "textLength": 1742,
+      "bodySha256": "11c912451d3b5c9b5e3134f14eccf784fba176f04da7d32eca28d9c93b7688a8",
+      "termPresent": true,
+      "matchedTerms": [],
+      "availability": "readable"
+    },
+    {
+      "url": "https://wwj.beijing.gov.cn/bjww/362771/362779/dlpqgzdwwbhdw/523493/index.html",
+      "caseTitle": "北京月坛秋分祭月",
+      "status": 200,
+      "finalUrl": "https://wwj.beijing.gov.cn/bjww/362771/362779/dlpqgzdwwbhdw/523493/index.html",
+      "pageTitle": "北京市文物局-月坛",
+      "textLength": 1948,
+      "bodySha256": "12c0c800fd9a319374147bd0edecf1c08d41de1b4ee7727a9fc9ebf9f50d43eb",
+      "termPresent": true,
+      "matchedTerms": [],
+      "availability": "readable"
+    },
+    {
+      "url": "https://www.visitbeijing.com.cn/article/47Qou8Zh4k4",
+      "caseTitle": "北京月坛秋分祭月",
+      "status": 200,
+      "finalUrl": "https://www.visitbeijing.com.cn/article/47Qou8Zh4k4",
+      "pageTitle": "读西城故事 | 明清时皇家月坛祭的是哪一位神?",
+      "textLength": 3040,
+      "bodySha256": "0c15ad1a0b2897415595ec647a4af7dd84fdf4f27f0155a65caf2dd5642c841c",
+      "termPresent": true,
+      "matchedTerms": [],
+      "availability": "readable"
+    },
+    {
+      "url": "https://www.zjskw.gov.cn/art/2024/11/25/art_1229536557_61674.html",
+      "caseTitle": "浙江长兴“小雪酒”",
+      "status": 200,
+      "finalUrl": "https://www.zjskw.gov.cn/art/2024/11/25/art_1229536557_61674.html",
+      "pageTitle": "寻味二十四节气・小雪",
+      "textLength": 3436,
+      "bodySha256": "f975ff25ebb293d4e86efab6a2d4e40659d1ed3493912b60b82eede43281c7c0",
+      "termPresent": true,
+      "matchedTerms": [],
+      "availability": "readable"
+    },
+    {
+      "url": "https://news.cctv.com/2026/10/23/ARTIA9yaUiuI9zXerSxmJwzv261023.shtml",
+      "caseTitle": "陕西富平“霜降柿子红”——富平柿饼制作季",
+      "status": 200,
+      "finalUrl": "https://news.cctv.com/2026/10/23/ARTIA9yaUiuI9zXerSxmJwzv261023.shtml",
+      "pageTitle": "今日霜降 | 枝头硕果盈仓 深秋盛景浓淡相宜_新闻频道_央视网(cctv.com)",
+      "textLength": 365,
+      "bodySha256": "628d8a841a3b151ca8ed129060585616560dc75711633970b52276f78d9e5968",
+      "termPresent": true,
+      "matchedTerms": [],
+      "availability": "readable"
+    },
+    {
+      "url": "https://www.fuzhou.gov.cn/zgfzzt/zjrc/mdfc/msfq/202512/t20251205_5241002.htm",
+      "caseTitle": "福州白露吃龙眼",
+      "status": 200,
+      "finalUrl": "https://www.fuzhou.gov.cn/zgfzzt/zjrc/mdfc/msfq/202512/t20251205_5241002.htm",
+      "pageTitle": "福州白露限定美味龙眼\n        _\n        民俗风情\n        _ 福州市人民政府门户网站",
+      "textLength": 2783,
+      "bodySha256": "c46367256f199d4be6f8d60d1b1e2a3f5cfd059b892989276c49b7b89fb6e2fa",
+      "termPresent": true,
+      "matchedTerms": [],
+      "availability": "readable"
+    },
+    {
+      "url": "https://wlt.sc.gov.cn/scwlt/hydt/2026/3/5/b7e6bc39b8f742f28e7d6c620ca59b05.shtml",
+      "caseTitle": "四川广汉“保保节”（雨水节气前后）",
+      "status": 200,
+      "finalUrl": "https://wlt.sc.gov.cn/scwlt/hydt/2026/3/5/b7e6bc39b8f742f28e7d6c620ca59b05.shtml",
+      "pageTitle": "四川省文化和旅游厅",
+      "textLength": 2547,
+      "bodySha256": "5daa83e6eb2c36278a7f6432b3e692adb629885b013bd6fed31f835941a1e8f1",
+      "termPresent": true,
+      "matchedTerms": [],
+      "availability": "readable"
+    },
+    {
+      "url": "https://sichuan.scol.com.cn/ggxw/202202/58420446.html",
+      "caseTitle": "四川广汉“保保节”（雨水节气前后）",
+      "status": 200,
+      "finalUrl": "https://sichuan.scol.com.cn/ggxw/202202/58420446.html",
+      "pageTitle": "今日雨水，好雨时节万物生|二十四节气里的巴山蜀水②_四川在线",
+      "textLength": 2617,
+      "bodySha256": "59e9e37e6c499e7862cacde8337f8f71fd728daab8ae1540833aa26ad45e2a2f",
+      "termPresent": true,
+      "matchedTerms": [],
+      "availability": "readable"
+    },
+    {
+      "url": "http://paper.people.com.cn/zgnybwap/html/2024-01/08/content_26037105.htm",
+      "caseTitle": "广州小寒糯米饭",
+      "status": 200,
+      "finalUrl": "http://paper.people.com.cn/zgnybwap/html/2024-01/08/content_26037105.htm",
+      "pageTitle": "中国能源报\r\n-\r\n小寒时节有安闲（书令）",
+      "textLength": 1105,
+      "bodySha256": "8d5e9846406064261714ea4757c7a2e79a5a6b3e658eaffd8179a0d38cd374a4",
+      "termPresent": true,
+      "matchedTerms": [],
+      "availability": "readable"
+    },
+    {
+      "url": "https://www.ihchina.cn/news_1_details/9602.html",
+      "caseTitle": "浙江海宁“小满抢水”",
+      "status": 200,
+      "finalUrl": "https://www.ihchina.cn/news_1_details/9602.html",
+      "pageTitle": "小满农俗 - 中国非物质文化遗产网·中国非物质文化遗产数字博物馆",
+      "textLength": 2828,
+      "bodySha256": "703a265d8a2d673f82d77b4a3e41b10defe15e6559eb66697c55eb582c598046",
+      "termPresent": true,
+      "matchedTerms": [],
+      "availability": "readable"
+    },
+    {
+      "url": "http://paper.people.com.cn/rmrbhwb/pad/content/202605/05/content_30154841.html",
+      "caseTitle": "杭州半山立夏习俗",
+      "status": 200,
+      "finalUrl": "http://paper.people.com.cn/rmrbhwb/pad/content/202605/05/content_30154841.html",
+      "pageTitle": "半山立夏  古韵新辉（节气趣谈）",
+      "textLength": 1263,
+      "bodySha256": "a21e9ae1a5b5f85dc27a7606c5fcb0bd9b06ff3f9995e941d246c0f7f92220aa",
+      "termPresent": true,
+      "matchedTerms": [],
+      "availability": "readable"
+    },
+    {
+      "url": "https://wsjkw.hangzhou.gov.cn/art/2024/5/6/art_1229113704_58937646.html",
+      "caseTitle": "杭州“立夏乌米饭”饮食习俗",
+      "status": 200,
+      "finalUrl": "https://wsjkw.hangzhou.gov.cn/art/2024/5/6/art_1229113704_58937646.html",
+      "pageTitle": "连杜甫都羡慕这口饭！杭州人立夏的记忆都在这了",
+      "textLength": 1030,
+      "bodySha256": "d20181fca239d533f1b571fc1773e0a4f57e388d4f7016ac745422440455acec",
+      "termPresent": true,
+      "matchedTerms": [],
+      "availability": "readable"
+    },
+    {
+      "url": "http://www.chinanews.com.cn/ga/2014/03-06/5919635.shtml",
+      "caseTitle": "香港鹅颈桥“惊蛰打小人”",
+      "status": 200,
+      "finalUrl": "http://www.chinanews.com.cn/ga/2014/03-06/5919635.shtml",
+      "pageTitle": "惊蛰香港“打小人” 老“打手”自言心肠不坏-中新网",
+      "textLength": 3584,
+      "bodySha256": "0540db72fabd767723b8584563ee67cb7386a7471fdc70bc897ba0281728ea61",
+      "termPresent": true,
+      "matchedTerms": [],
+      "availability": "readable"
+    },
+    {
+      "url": "https://www.gohk.gov.hk/tc/spots/spot_detail.php?spot=Ngo+Keng+Kiu",
+      "caseTitle": "香港鹅颈桥“惊蛰打小人”",
+      "status": 200,
+      "finalUrl": "https://www.gohk.gov.hk/tc/spots/spot_detail.php?spot=Ngo+Keng+Kiu",
+      "pageTitle": "香港自遊樂在18區 - 鵝頸橋",
+      "textLength": 1207,
+      "bodySha256": "25f4e3f6005d762d9453ac027d087a7052d9d9897d62eea982ef07731fbfd805",
+      "termPresent": true,
+      "matchedTerms": [],
+      "availability": "readable"
+    },
+    {
+      "url": "https://www.zjskw.gov.cn/art/2024/8/15/art_1229516293_60188.html",
+      "caseTitle": "江苏淮安“小暑吃黄鳝”",
+      "status": 200,
+      "finalUrl": "https://www.zjskw.gov.cn/art/2024/8/15/art_1229516293_60188.html",
+      "pageTitle": "寻味二十四节气・小暑",
+      "textLength": 1385,
+      "bodySha256": "2a053f28d326cc020254fc6b1e97e7783ef0db40d3852510de7c055650240885",
+      "termPresent": true,
+      "matchedTerms": [],
+      "availability": "readable"
+    },
+    {
+      "url": "https://www.ihchina.cn/project_details/14095.html",
+      "caseTitle": "陕西黄陵面花（花馍）迎冬祭祖",
+      "status": 200,
+      "finalUrl": "https://www.ihchina.cn/project_details/14095.html",
+      "pageTitle": "面花（黄陵面花） - 中国非物质文化遗产网·中国非物质文化遗产数字博物馆",
+      "textLength": 1694,
+      "bodySha256": "c0525a8ed75e3e544853f9b3a33928a30a77ec6aa2dd95ed1c07c11231fd41e7",
+      "termPresent": true,
+      "matchedTerms": [],
+      "availability": "readable"
+    },
+    {
+      "url": "http://www.whysb.org/whysb/20171229/html/content_20171229009002.htm",
+      "caseTitle": "陕西黄陵面花（花馍）迎冬祭祖",
+      "status": 200,
+      "finalUrl": "https://www.whysb.org/whysb/20171229/html/content_20171229009002.htm",
+      "pageTitle": "黄陵面花--文化艺术报",
+      "textLength": 1390,
+      "bodySha256": "0be005dc5948fc1cef08ed5a6b49c50f80e9c8da825a0d1f9d06b4284bcd84a4",
+      "termPresent": true,
+      "matchedTerms": [],
+      "availability": "readable"
+    },
+    {
+      "url": "https://www.chinanews.com.cn/sh/shipin/cns-d/2026/08-08/news1064749.shtml",
+      "caseTitle": "江西婺源篁岭“晒秋”",
+      "status": 200,
+      "finalUrl": "https://www.chinanews.com.cn/sh/shipin/cns-d/2026/08-08/news1064749.shtml",
+      "pageTitle": "江西篁岭立秋“晒秋”引游客-中新网视频",
+      "textLength": 2411,
+      "bodySha256": "375c96f5732b18cb5f4669b31524b52ad08c5cc57bb86b66849178aad2dbb1af",
+      "termPresent": true,
+      "matchedTerms": [],
+      "availability": "readable"
+    },
+    {
+      "url": "https://www.wyhl.cc/site/wyhl/lyzx/rmhd/detail2025-08-17-400.html",
+      "caseTitle": "江西婺源篁岭“晒秋”",
+      "availability": "unavailable",
+      "errorType": "URLError"
+    },
+    {
+      "url": "https://www.ihchina.cn/project_details/23868",
+      "caseTitle": "台州椒江葭沚“送大暑船”",
+      "status": 200,
+      "finalUrl": "https://www.ihchina.cn/project_details/23868",
+      "pageTitle": "农历二十四节气（送大暑船） - 中国非物质文化遗产网·中国非物质文化遗产数字博物馆",
+      "textLength": 2170,
+      "bodySha256": "3087c9fbb623988295f6e11fe5497fccd3b2b0d9c091b8e2c4436e38163bd6cc",
+      "termPresent": true,
+      "matchedTerms": [],
+      "availability": "readable"
+    },
+    {
+      "url": "http://zj.news.cn/20250723/7a7153e5c50a47c0bdad2c4a4cce335e/c.html",
+      "caseTitle": "台州椒江葭沚“送大暑船”",
+      "status": 200,
+      "finalUrl": "http://zj.news.cn/20250723/7a7153e5c50a47c0bdad2c4a4cce335e/c.html",
+      "pageTitle": "椒江口外“大暑船”，国遗传承上百年 -新华网",
+      "textLength": 1418,
+      "bodySha256": "7796d8d6a82b8a2756d933bd8b505b4b071db6819314bd59ea6b0ba0eaf5846c",
+      "termPresent": true,
+      "matchedTerms": [],
+      "availability": "readable"
+    },
+    {
+      "url": "https://www.xuancheng.gov.cn/News/show/634430.html",
+      "caseTitle": "绩溪“安苗节”",
+      "status": 200,
+      "finalUrl": "https://www.xuancheng.gov.cn/Content/show/634430.html",
+      "pageTitle": "安苗节-宣城市人民政府",
+      "textLength": 1612,
+      "bodySha256": "41a59c521990708ec10161bd959f8fe8dc2db2ec33f63c7c9d9811a9cd4e93a1",
+      "termPresent": true,
+      "matchedTerms": [],
+      "availability": "readable"
+    },
+    {
+      "url": "http://www.cma.gov.cn/2011xzt/essjqzt/20130916/2013090701/201309/t20130922_226800.html",
+      "caseTitle": "开平苍城秋分吃秋菜、秋汤",
+      "status": 200,
+      "finalUrl": "https://www.cma.gov.cn/2011xzt/essjqzt/20130916/2013090701/201309/t20130922_226800.html",
+      "pageTitle": "岭南地区：吃秋菜喝秋汤_中国气象局",
+      "textLength": 1127,
+      "bodySha256": "ba137fc3f37145ab18c084253927a2bf2fa29bfb271aced71550a26e22c81715",
+      "termPresent": true,
+      "matchedTerms": [],
+      "availability": "readable"
+    },
+    {
+      "url": "http://static.nfapp.southcn.com/content/201709/23/c694076.html",
+      "caseTitle": "开平苍城秋分吃秋菜、秋汤",
+      "status": 200,
+      "finalUrl": "http://static.nfapp.southcn.com/content/201709/23/c694076.html",
+      "pageTitle": "谈天说粤|秋分至，燥起来，广东今日最高温35℃……_南方plus_南方+",
+      "textLength": 2209,
+      "bodySha256": "c96f505a4d13d354f2e97241bb2b5f60d9f6d6ac160c622a0fc2ce7e8f8e86ca",
+      "termPresent": true,
+      "matchedTerms": [],
+      "availability": "readable"
+    },
+    {
+      "url": "https://gd.weather.com.cn/gqzt/2013/09/2395468.shtml",
+      "caseTitle": "开平苍城秋分吃秋菜、秋汤",
+      "status": 200,
+      "finalUrl": "https://gd.weather.com.cn/gqzt/2013/09/2395468.shtml",
+      "pageTitle": "秋分已然到了\r\n-\r\n国庆专题\r\n-中国天气网",
+      "textLength": 2121,
+      "bodySha256": "acaf3682a50c7a0d5f63b60009b0cb3e99febeac69fd950841949c7594aca8b1",
+      "termPresent": true,
+      "matchedTerms": [],
+      "availability": "readable"
+    },
+    {
+      "url": "https://www.ihchina.cn/Article/Index/detail?id=9827",
+      "caseTitle": "开平苍城秋分吃秋菜、秋汤",
+      "status": 200,
+      "finalUrl": "https://www.ihchina.cn/Article/Index/detail?id=9827",
+      "pageTitle": "桂子飘香远——二十四节气之秋分 - 中国非物质文化遗产网·中国非物质文化遗产数字博物馆",
+      "textLength": 3152,
+      "bodySha256": "a685d75a2d995da334b05cc84c63ce6146aa1777c4660c6987ffbe54d36ea198",
+      "termPresent": true,
+      "matchedTerms": [],
+      "availability": "readable"
+    },
+    {
+      "url": "https://www.ihchina.cn/project_details/23869",
+      "caseTitle": "浙江云和“梅源芒种开犁节”",
+      "status": 200,
+      "finalUrl": "https://www.ihchina.cn/project_details/23869",
+      "pageTitle": "农历二十四节气（梅源芒种开犁节） - 中国非物质文化遗产网·中国非物质文化遗产数字博物馆",
+      "textLength": 2009,
+      "bodySha256": "58e2587203cb31a31e0210e12a85da283d3f5ac0f638059e5fdebd042497ec98",
+      "termPresent": true,
+      "matchedTerms": [],
+      "availability": "readable"
+    },
+    {
+      "url": "https://minsu.fjsen.com/2026-01/20/content_32119372.htm",
+      "caseTitle": "闽南大寒尾牙祭",
+      "status": 200,
+      "finalUrl": "https://minsu.fjsen.com/2026-01/20/content_32119372.htm",
+      "pageTitle": "节气里的福建 | 大寒\r\n-\r\n福建民俗博物馆\r\n- 福建民俗博物馆",
+      "textLength": 1124,
+      "bodySha256": "8dbf8967b02a2491808ddb2cd78e6a91cdbc3f0d46ffa11da6dffd7c8f4dadc5",
+      "termPresent": true,
+      "matchedTerms": [],
+      "availability": "readable"
+    },
+    {
+      "url": "https://www.mohe.gov.cn/mohe/c101071/202606/c13_339989.shtml",
+      "caseTitle": "漠河北极村夏至白夜与节庆活动",
+      "status": 200,
+      "finalUrl": "https://www.mohe.gov.cn/mohe/c101071/202606/c13_339989.shtml",
+      "pageTitle": "漠河：夏至狂欢启幕 极昼盛会燃动北极_漠河要闻_漠河市人民政府",
+      "textLength": 1780,
+      "bodySha256": "a99ce7b5ce74f78bd13e27e77b82a51ad25cc49ac20fbc0cf3a6f82335383c23",
+      "termPresent": true,
+      "matchedTerms": [],
+      "availability": "readable"
+    },
+    {
+      "url": "http://www.chinanews.com.cn/sh/2026/06-22/10644822.shtml",
+      "caseTitle": "漠河北极村夏至白夜与节庆活动",
+      "status": 200,
+      "finalUrl": "http://www.chinanews.com.cn/sh/2026/06-22/10644822.shtml",
+      "pageTitle": "游客“夏至”追光狂欢 “白夜”盛会燃动神州北极-中新网",
+      "textLength": 4005,
+      "bodySha256": "38bcf5f7e6f1bfac32ce564070d817f1dafaed2153ce65781418dca5e8d7bd90",
+      "termPresent": true,
+      "matchedTerms": [],
+      "availability": "readable"
+    },
+    {
+      "url": "https://www.dxal.gov.cn/dxal/c100020/202506/c13_314315.shtml",
+      "caseTitle": "漠河北极村夏至白夜与节庆活动",
+      "status": 200,
+      "finalUrl": "https://www.dxal.gov.cn/dxal/c100020/202506/c13_314315.shtml",
+      "pageTitle": "漠河第三十五届北极光节华彩启幕_大兴安岭地区行政公署",
+      "textLength": 1991,
+      "bodySha256": "a1f02d9dec3204497d8e47ad4ba94fe223384426576a254421f8e3eaa7c57daf",
+      "termPresent": true,
+      "matchedTerms": [],
+      "availability": "readable"
+    },
+    {
+      "url": "https://e.weather.com.cn/news/2020/08/3375461.shtml",
+      "caseTitle": "南京处暑吃鸭与赠鸭",
+      "status": 200,
+      "finalUrl": "https://e.weather.com.cn/news/2020/08/3375461.shtml",
+      "pageTitle": "处暑节气的传统美食 一起来了解下-天气生活-中国天气网",
+      "textLength": 1632,
+      "bodySha256": "5fb1a1407d6ca0e56c7af74239aee9e5987a18ecb55730fae466c0f2c73f424d",
+      "termPresent": true,
+      "matchedTerms": [],
+      "availability": "readable"
+    },
+    {
+      "url": "http://www.gmw.cn/guoxue/node_44346.htm",
+      "caseTitle": "南京“啃秋”——立秋吃西瓜",
+      "status": 200,
+      "finalUrl": "https://www.gmw.cn/guoxue/node_44346.htm",
+      "pageTitle": "立秋养生_光明网",
+      "textLength": 1470,
+      "bodySha256": "4bb525445c0f716d6aa2eb4a73fea2eae87f269749dc7743fc84b603bdc79f66",
+      "termPresent": true,
+      "matchedTerms": [],
+      "availability": "readable"
+    },
+    {
+      "url": "http://dfz.nanjing.gov.cn/gzdt/202607/t20260706_5871977.html",
+      "caseTitle": "南京小暑吃黄鳝与食新",
+      "availability": "unavailable",
+      "errorType": "HTTPError",
+      "status": 403
+    },
+    {
+      "url": "https://js.xuexi.cn/local/detail.html?FD0CA7A0771E7C74EA5F38101D0C3A49=1E43BFFBDC9BBC15A3E7A300ECB81016&6E9D852F0075DEF5A5B44097C3EBECDA=6A7AEF2591DA6A6F4C59B11C2A3E8CFA520A0D3939B62E746A607EED23D050D0&D33FA5C955359659FFCA6FA4AB1778C8=CFE4252BEE7064CA2E25278687200485C234EAF7EC308634B81DD33EFA0BA357&AC11F3C9EE565CEDC2B7AA9B8914E5A6=590715588EE0E46B5B6DF30A635AEBB1022E9731653A320542CCE7C34C95D583",
+      "caseTitle": "南京大雪腌肉",
+      "status": 200,
+      "finalUrl": "https://js.xuexi.cn/local/detail.html?FD0CA7A0771E7C74EA5F38101D0C3A49=1E43BFFBDC9BBC15A3E7A300ECB81016&6E9D852F0075DEF5A5B44097C3EBECDA=6A7AEF2591DA6A6F4C59B11C2A3E8CFA520A0D3939B62E746A607EED23D050D0&D33FA5C955359659FFCA6FA4AB1778C8=CFE4252BEE7064CA2E25278687200485C234EAF7EC308634B81DD33EFA0BA357&AC11F3C9EE565CEDC2B7AA9B8914E5A6=590715588EE0E46B5B6DF30A635AEBB1022E9731653A320542CCE7C34C95D583",
+      "pageTitle": "地方学习平台详情页",
+      "textLength": 11,
+      "bodySha256": "47c305e17d940a3c5346c131d6ab51c76014db246fd2d0825ea170b6fd921308",
+      "termPresent": true,
+      "matchedTerms": [],
+      "availability": "needs-review"
+    },
+    {
+      "url": "http://www.putianbwg.cn/html/default/xuanjiaotiandi/jiaoyuhuodong/815444179258757120.html",
+      "caseTitle": "福建莆田“过大暑”",
+      "status": 200,
+      "finalUrl": "http://www.putianbwg.cn/html/default/xuanjiaotiandi/jiaoyuhuodong/815444179258757120.html",
+      "pageTitle": "莆博微课堂|“时令节气”莆田人“过大暑”习俗_莆田市博物馆",
+      "textLength": 1334,
+      "bodySha256": "6cb35bc708b0017e77c358eb555b7e1f8771f25328059352b1cafb26b36e713f",
+      "termPresent": true,
+      "matchedTerms": [],
+      "availability": "readable"
+    },
+    {
+      "url": "http://ent.people.com.cn/n1/2026/0208/c1012-40661733.html",
+      "caseTitle": "浙江九华立春祭",
+      "status": 200,
+      "finalUrl": "http://ent.people.com.cn/n1/2026/0208/c1012-40661733.html",
+      "pageTitle": "千年习俗 迎春纳新福--文旅·体育--人民网",
+      "textLength": 2974,
+      "bodySha256": "966d3e07718862c1849e1387685a18762a712d226dca4f1b7b2ce62f16299332",
+      "termPresent": true,
+      "matchedTerms": [],
+      "availability": "readable"
+    },
+    {
+      "url": "https://www.xinhuanet.com/20260212/ddcf9b30fa6a480dafd8f224cd7f4a0a/c.html",
+      "caseTitle": "浙江九华立春祭",
+      "status": 200,
+      "finalUrl": "https://www.xinhuanet.com/20260212/ddcf9b30fa6a480dafd8f224cd7f4a0a/c.html",
+      "pageTitle": "新春走基层丨夜宿乡村话共富-新华网",
+      "textLength": 8608,
+      "bodySha256": "faaf366d3f65cc56186c741ff89b983376cc48a9752d642e95da7b90afbef82e",
+      "termPresent": true,
+      "matchedTerms": [],
+      "availability": "readable"
+    },
+    {
+      "url": "https://www.ihchina.cn/project_details/15063.html",
+      "caseTitle": "三门祭冬",
+      "status": 200,
+      "finalUrl": "https://www.ihchina.cn/project_details/15063.html",
+      "pageTitle": "农历二十四节气（三门祭冬） - 中国非物质文化遗产网·中国非物质文化遗产数字博物馆",
+      "textLength": 2251,
+      "bodySha256": "cf967cb00af9636c422fbb826a4fdd64f70166faf0550820ff3d3f8368c69f1d",
+      "termPresent": true,
+      "matchedTerms": [],
+      "availability": "readable"
+    },
+    {
+      "url": "https://www.ihchina.cn/Article/Index/detail?id=10041",
+      "caseTitle": "上海清明吃青团",
+      "status": 200,
+      "finalUrl": "https://www.ihchina.cn/Article/Index/detail?id=10041",
+      "pageTitle": "梨花落后清明——二十四节气之清明 - 中国非物质文化遗产网·中国非物质文化遗产数字博物馆",
+      "textLength": 3528,
+      "bodySha256": "7bcfae9634b578040369cbe972d62eb08310f5c0b5582ef53f0dc74dbece00ef",
+      "termPresent": true,
+      "matchedTerms": [],
+      "availability": "readable"
+    },
+    {
+      "url": "http://www.news.cn/20251106/3257d59a92fa482db6147aee8d3d38b1/c.html",
+      "caseTitle": "绍兴立冬黄酒开酿（冬酿）",
+      "status": 200,
+      "finalUrl": "http://www.news.cn/20251106/3257d59a92fa482db6147aee8d3d38b1/c.html",
+      "pageTitle": "节令之美丨立冬：黄酒冬酿正当时-新华网",
+      "textLength": 1307,
+      "bodySha256": "c29821c793e6af44379ec7e3ece96da3ee757d2dfa55aea86b36d22c5647ce21",
+      "termPresent": true,
+      "matchedTerms": [],
+      "availability": "readable"
+    },
+    {
+      "url": "http://culture.people.com.cn/n1/2018/1112/c1013-30393948.html",
+      "caseTitle": "绍兴立冬黄酒开酿（冬酿）",
+      "status": 200,
+      "finalUrl": "http://culture.people.com.cn/n1/2018/1112/c1013-30393948.html",
+      "pageTitle": "立冬，绍兴黄酒开酿--文化--人民网",
+      "textLength": 1858,
+      "bodySha256": "051467ed6c29f6399c8d0bf07db53e5e1e25214f31c7f5cf1606d1f26d353bca",
+      "termPresent": true,
+      "matchedTerms": [],
+      "availability": "readable"
+    },
+    {
+      "url": "https://szfy.wglj.suzhou.com.cn/fy-project/334",
+      "caseTitle": "盛泽“小满戏”",
+      "status": 200,
+      "finalUrl": "https://szfy.wglj.suzhou.com.cn/fy-project/334",
+      "pageTitle": "小满戏|苏州非物质文化遗产信息网",
+      "textLength": 1207,
+      "bodySha256": "afa8b013cc75ab98aa9f72cd32462ed424e0129c040477bc55b450037f432ff1",
+      "termPresent": true,
+      "matchedTerms": [],
+      "availability": "readable"
+    },
+    {
+      "url": "http://www.cma.gov.cn/2011xzt/2016zt/essjq/bl/jqxs/201609/t20160906_321199.html",
+      "caseTitle": "太湖“白露祭禹王”",
+      "status": 200,
+      "finalUrl": "https://www.cma.gov.cn/2011xzt/2016zt/essjq/bl/jqxs/201609/t20160906_321199.html",
+      "pageTitle": "太湖地区：祭禹王-中国气象局政府门户网站",
+      "textLength": 1399,
+      "bodySha256": "9d1c47f510430db124045e6e766425fa90f9edfde4971f48fb17ebe94ef7b21f",
+      "termPresent": true,
+      "matchedTerms": [],
+      "availability": "readable"
+    },
+    {
+      "url": "https://news.jstv.com/a/20220907/2700d3b003c54ac199deed961fa23d68.shtml",
+      "caseTitle": "太湖“白露祭禹王”",
+      "availability": "unavailable",
+      "errorType": "URLError"
+    },
+    {
+      "url": "http://scdfz.sc.gov.cn/scyx/scms/content_17352",
+      "caseTitle": "川西“回娘屋”与“拉保保”",
+      "status": 200,
+      "finalUrl": "http://scdfz.sc.gov.cn/scyx/scms/content_17352",
+      "pageTitle": "好雨知时节 当春乃发生——今日雨水_四川民俗_四川印象_四川省情网",
+      "textLength": 3608,
+      "bodySha256": "62d809a37637e64333f76f92b9bab05dfd5b184febebf48665c7ccc8636caf79",
+      "termPresent": true,
+      "matchedTerms": [],
+      "availability": "readable"
+    },
+    {
+      "url": "https://hn.cri.cn/2018-09-25/ab3710f9-3cc9-998f-174a-e33f1de883b7.html",
+      "caseTitle": "河南新郑秋分丰收季·大枣文化",
+      "status": 200,
+      "finalUrl": "https://hn.cri.cn/2018-09-25/ab3710f9-3cc9-998f-174a-e33f1de883b7.html",
+      "pageTitle": "首届中国农民丰收节河南主会场在新郑举行",
+      "textLength": 1908,
+      "bodySha256": "b6df59ec72bf45bd8a8de2d8d56c378390b14c7731caec848d344ade670bb3e7",
+      "termPresent": true,
+      "matchedTerms": [],
+      "availability": "readable"
+    },
+    {
+      "url": "https://www.peopleapp.com/column/30039126694-500004120148",
+      "caseTitle": "河南新郑秋分丰收季·大枣文化",
+      "status": 200,
+      "finalUrl": "https://www.peopleapp.com/column/30039126694-500004120148",
+      "pageTitle": "今日芒种，见证农事活动特有的充实和浪漫_人民日报",
+      "textLength": 2752,
+      "bodySha256": "69f4ed5fa3f0f7695639ede053eefc6db72fa31ead62efbd8ccebe1d33c99c64",
+      "termPresent": true,
+      "matchedTerms": [],
+      "availability": "readable"
+    },
+    {
+      "url": "https://news.cau.edu.cn/zhxwnew/584965.htm",
+      "caseTitle": "湖南资兴白露米酒（程酒）",
+      "method": "Web retrieval of the original article, with full text read",
+      "availability": "readable",
+      "pageTitle": "［传统文化·二十四节气］白露",
+      "editorialNote": "中国农业大学文化资料整理稿：支持资兴及白露酿酒、程江命名与制法；不视为独立田野调查。"
+    }
+  ]
+}

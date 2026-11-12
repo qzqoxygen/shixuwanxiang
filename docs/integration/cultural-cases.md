@@ -119,7 +119,8 @@ Invoke-RestMethod 'http://localhost:3000/api/cultural-cases?solarTermId=qingming
 - `keyword` 去除首尾空白后最长 100 个 UTF-16 单元，空白视为不筛选；仅在标题、地域、描述和节气关联依据四个字段匹配大小写不敏感的字面子串。
 - 筛选后按 ID 的 ASCII 升序排序，再分页；`total` 不包含 pending，也不受分页截取影响。
 - 详情 ID 由 Next.js 动态路由解码一次后验证；不要在客户端或服务端重复解码。`/%73anmen-jidong` 可定位 `sanmen-jidong`，二次编码后仍含 `%` 的值不合法。ID 不用于拼接文件路径。
-- 本批公开 44 条。24 节气各有可查询主选；秋分收录北京月坛与开平秋汤。仅在已核实案例中统计地图各省数量。[逐条来源、待核验与各节气数量](../cultural-sources/2026-11-06/report.md)
+- 本批公开 77 条。24 节气每个至少 3 条，谷雨、夏至、小雪、冬至、小寒各 4 条。仅在已核实案例中统计地图各省数量。[逐条来源、待核验与各节气数量](../cultural-sources/2026-11-12/report.md)
+- 兼容扩展：`relatedProvinceCodes?: ProvinceCode[]` 保留跨省区域案例的其他明确关联省份。按省份筛选时匹配主省或关联省；全国列表仅返回一个实体，不把分省数量之和当作案例总数。`sources[].accessNote?: string` 用于显示带日期的外链访问限制。原有必填字段、ID、排序、分页与错误格式保持不变。
 - 在 `/explore` 选择秋分，再选北京市，打开「北京月坛秋分祭月」可在详情点击原文来源。切换为清明与西藏自治区可复现空结果。
 
 ## 检查与复现
@@ -139,4 +140,4 @@ node tests/cultural-cases-http.mjs http://127.0.0.1:3107
 
 生产读取仅使用 `data/cultural-cases/cases.json`。单元测试另以同一节气的 22 条测试案例验证跨页省份统计。
 
-本批次的自动测试、真实 HTTP 请求和知时页复验见[交付检查](../cultural-sources/2026-11-06/README.md)。[首批检查记录](cultural-cases-checks.md)对应 11 月 3 日的数据。
+本批次的自动测试、真实 HTTP 请求和全站复验见[全站覆盖与验收](cultural-case-site-coverage-2026-11-12.md)。[上一批检查记录](../cultural-sources/2026-11-06/README.md)对应 11 月 6 日，[首批检查记录](cultural-cases-checks.md)对应 11 月 3 日的数据。

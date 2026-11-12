@@ -1,0 +1,8 @@
+.seasons-cases { margin-top: 28px; padding: 18px clamp(16px, 4vw, 36px); border: 1px solid #b69a5c40; background: #fffdf563; }
+.seasons-cases .case-explorer-heading { flex-wrap: wrap; }
+.seasons-cases .case-explorer-heading > a { font-size: 14px; }
+.seasons-cases summary { list-style: none; }
+.seasons-cases summary::-webkit-details-marker { display: none; }
+.seasons-cases summary:focus-visible { outline: 2px solid #305f65; outline-offset: 4px; }
+.seasons-cases details[open] > summary { background: #dde8dc70; }
+.seasons-cases .case-detail { padding: 12px 8px 24px; }

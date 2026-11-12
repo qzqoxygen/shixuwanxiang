@@ -1,11 +1,23 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import FloatingChat from "@/components/FloatingChat";
 import ChinaProvinceMap from "@/components/cultural-map/ChinaProvinceMap";
 import ExploreMotion from "@/components/ExploreMotion";
+import { ProvinceCodeSchema, SolarTermIdSchema } from "@/lib/contracts/cultural-case";
+import { INITIAL_EXPLORE_SELECTION } from "@/lib/explore-selection";
 import "./explore.css";
 import "./explore-motion.css";
 export const metadata: Metadata = { title: "知时" };
-export default function ExplorePage() {
+type SearchParams = Promise<{ [key: string]: string | string[] | undefined }>;
+
+async function SelectedMap({ searchParams }: { searchParams: SearchParams }) {
+  const params = await searchParams;
+  const term = SolarTermIdSchema.safeParse(params.solarTermId);
+  const province = ProvinceCodeSchema.safeParse(params.provinceCode);
+  return <ChinaProvinceMap initialSelection={{ ...INITIAL_EXPLORE_SELECTION, solarTermId: term.success ? term.data : null, provinceCode: province.success ? province.data : null }} />;
+}
+
+export default function ExplorePage({ searchParams }: { searchParams: SearchParams }) {
   return <ExploreMotion>
     <div className="intro explore-intro">
       <div className="explore-title">
@@ -17,7 +29,7 @@ export default function ExplorePage() {
       </div>
       <span className="explore-intro-seal" aria-hidden="true">知时</span>
     </div>
-    <div className="explore-map-layout"><ChinaProvinceMap /></div>
+    <div className="explore-map-layout"><Suspense fallback={<p className="muted" role="status">正在展开山河风物…</p>}><SelectedMap searchParams={searchParams} /></Suspense></div>
     <FloatingChat />
   </ExploreMotion>;
 }

@@ -22,7 +22,8 @@ test("normal and multi-turn chat use the configured model without product tools"
     assert.equal(params.tools, undefined);
     assert.equal(params.tool_choice, undefined);
     assert.deepEqual(params.messages.slice(1), multi);
-    assert.match(params.messages[0].content, /没有知识库/);
+    assert.match(params.messages[0].content, /仅在服务器提供时引用本地案例/);
+    assert.match(params.messages[0].content, /没有地图操作/);
     return completion();
   }, multi);
   assert.equal(result.answer, "测试回答");

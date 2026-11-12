@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { readStudioSuggestions, type StudioFormat, type StudioSuggestion } from "@/lib/studio-inspiration";
+import { readStudioReferences, readStudioSuggestions, type StudioFormat, type StudioReference, type StudioSuggestion } from "@/lib/studio-inspiration";
 
 type Props = {
   term: { id: string; name: string };
@@ -11,6 +11,7 @@ export default function StudioInspiration({ term, format, onApply }: Props) {
   const request = useRef<AbortController | null>(null);
   const [loading, setLoading] = useState(false);
   const [suggestions, setSuggestions] = useState<StudioSuggestion[]>([]);
+  const [references, setReferences] = useState<StudioReference[]>([]);
   const [status, setStatus] = useState("生成标题和短句，选中后再填入作品。");
 
   useEffect(() => () => request.current?.abort(), []);
@@ -33,6 +34,7 @@ export default function StudioInspiration({ term, format, onApply }: Props) {
       const results = response.ok ? readStudioSuggestions(body) : [];
       if (results.length) {
         setSuggestions(results);
+        setReferences(readStudioReferences(body));
         setStatus(`${results.length} 组${term.name}灵感，可分别选用标题或短句。`);
       } else {
         setStatus(!response.ok && typeof body?.error === "string" ? body.error : "这次没能生成灵感，请重试。");
@@ -76,6 +78,13 @@ export default function StudioInspiration({ term, format, onApply }: Props) {
           ))}
         </ul>
       )}
+      {references.length > 0 && <details className="studio-inspiration-references">
+        <summary>参考文化案例（{references.length} 则）</summary>
+        <ul>{references.map(item => <li key={item.caseId}>
+          <strong>{item.title}</strong><p>{item.provinceName} · {item.regionName}</p>
+          {item.sources.map(source => <div key={source.url}><a href={source.url} target="_blank" rel="noopener noreferrer">{source.title}{source.publisher ? `（${source.publisher}）` : ""} ↗</a>{source.accessNote && <span>{source.accessNote}</span>}</div>)}
+        </li>)}</ul>
+      </details>}
     </div>
   );
 }

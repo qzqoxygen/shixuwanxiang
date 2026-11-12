@@ -35,8 +35,8 @@ export function useProvinces() {
   return context;
 }
 
-export function ProvinceInteraction({ provinces, children }: { provinces: ProvinceView[]; children: ReactNode }) {
-  const [selection, dispatch] = useReducer(exploreSelectionReducer, INITIAL_EXPLORE_SELECTION);
+export function ProvinceInteraction({ provinces, children, initialSelection = INITIAL_EXPLORE_SELECTION }: { provinces: ProvinceView[]; children: ReactNode; initialSelection?: ExploreSelection }) {
+  const [selection, dispatch] = useReducer(exploreSelectionReducer, initialSelection);
   const selected = selection.provinceCode;
   function setSelected(id: string | null) {
     if (id === null) dispatch({ type: "province", value: null });

@@ -584,6 +584,13 @@ body:has(.studio-workbench:not([style*="display: none"])) .site-header nav a[ari
   overflow-wrap: anywhere;
 }
 .studio-inspiration-list button strong { font-weight: 600; }
+.studio-inspiration-references { margin-top: 12px; color: var(--studio-muted); font-size: 12px; line-height: 1.7; overflow-wrap: anywhere; }
+.studio-inspiration-references summary { cursor: pointer; min-height: 44px; padding-block: 10px; }
+.studio-inspiration-references summary:focus-visible, .studio-inspiration-references a:focus-visible { outline: 2px solid var(--studio-ink); outline-offset: 2px; }
+.studio-inspiration-references ul { margin: 0; padding-left: 18px; }
+.studio-inspiration-references li { margin-bottom: 12px; }
+.studio-inspiration-references p { margin: 2px 0; }
+.studio-inspiration-references a { display: block; color: var(--studio-ink); text-underline-offset: 3px; padding-block: 5px; }
 .studio-inspiration-list button span:last-child { color: var(--studio-muted); font-size: 12px; }
 .studio-template-options, .studio-palette-options, .studio-decoration-options, .studio-library-grid { display: grid; gap: 8px; }
 .studio-template-options { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 10px; }
