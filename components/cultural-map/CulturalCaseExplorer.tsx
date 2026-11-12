@@ -1,37 +1,14 @@
 "use client";
 
-import Image from "next/image";
-import { useCallback, useEffect, useId, useRef, useState } from "react";
+import { useCallback, useEffect, useId, useRef } from "react";
 import { fetchCaseDetail, fetchCaseList } from "@/lib/cultural-case-client";
 import { CASE_PAGE_SIZE } from "@/lib/explore-selection";
 import { SEASONS, SOLAR_TERMS, type SolarTermId } from "@/lib/solar-terms";
-import type { CaseListQuery, CulturalCategory, VerifiedCulturalCase } from "@/lib/contracts/cultural-case";
+import type { CaseListQuery, VerifiedCulturalCase } from "@/lib/contracts/cultural-case";
 import { useProvinces } from "./ProvinceInteraction";
+import CulturalCaseContent, { CATEGORY_LABELS } from "./CulturalCaseContent";
+import { useCaseRequest } from "./useCaseRequest";
 import "./CulturalCaseExplorer.css";
-
-const CATEGORY_LABELS: Record<CulturalCategory, string> = { folk_custom: "民俗", agriculture: "农事", craft: "技艺", food: "饮食", other: "其他" };
-type Resource<T> = { status: "loading" } | { status: "success"; data: T } | { status: "error"; message: string };
-
-// Each result view is keyed by its selection. Unmounting cancels the old request;
-// the active flag also protects against transports that finish after cancellation.
-function useCaseRequest<T>(load: (signal: AbortSignal) => Promise<T>) {
-  const [resource, setResource] = useState<Resource<T>>({ status: "loading" });
-  const [attempt, setAttempt] = useState(0);
-  useEffect(() => {
-    const controller = new AbortController();
-    let active = true;
-    const timeout = setTimeout(() => controller.abort(), 15_000);
-    load(controller.signal).then(data => {
-      if (active) setResource({ status: "success", data });
-    }).catch(error => {
-      if (!active) return;
-      const message = controller.signal.aborted ? "案例请求超时，请重试。" : error instanceof TypeError ? "网络连接异常，请检查网络后重试。" : error instanceof Error ? error.message : "案例暂时无法读取，请重试。";
-      setResource({ status: "error", message });
-    }).finally(() => clearTimeout(timeout));
-    return () => { active = false; clearTimeout(timeout); controller.abort(); };
-  }, [load, attempt]);
-  return { resource, retry: () => { setResource({ status: "loading" }); setAttempt(value => value + 1); } };
-}
 
 export function SolarTermFilter() {
   const { selection, dispatch, setHovered, setFocused } = useProvinces();
@@ -80,7 +57,7 @@ function CaseResults({ query }: { query: CaseListQuery }) {
   const { items, total, offset, limit } = resource.data;
   function open(item: VerifiedCulturalCase) {
     setHovered(null); setFocused(null);
-    dispatch({ type: "open", caseId: item.id, provinceCode: item.provinceCode });
+    dispatch({ type: "open", caseId: item.id, provinceCode: selection.provinceCode ?? item.provinceCode });
   }
   return <div className="case-list-results">
     {items.length === 0 ? <div className="case-empty"><h4 role="status">当前筛选暂无案例</h4><div className="case-empty-actions">{selection.provinceCode && <button type="button" onClick={() => { dispatch({ type: "province", value: null }); setHovered(null); setFocused(null); }}>保留节气，查看全国</button>}<button type="button" onClick={() => { dispatch({ type: "reset" }); setHovered(null); setFocused(null); }}>查看全部案例</button></div></div> : <>
@@ -106,7 +83,7 @@ function CaseDetail({ caseId }: { caseId: string }) {
   const headingRef = useRef<HTMLHeadingElement>(null);
   const load = useCallback(async (signal: AbortSignal) => {
     const item = await fetchCaseDetail(caseId, signal);
-    if ((selection.solarTermId && !item.solarTermIds.includes(selection.solarTermId)) || (selection.provinceCode && item.provinceCode !== selection.provinceCode)) throw new Error("案例详情与当前筛选不一致，请重新选择。");
+    if ((selection.solarTermId && !item.solarTermIds.includes(selection.solarTermId)) || (selection.provinceCode && item.provinceCode !== selection.provinceCode && !item.relatedProvinceCodes?.includes(selection.provinceCode))) throw new Error("案例详情与当前筛选不一致，请重新选择。");
     return item;
   }, [caseId, selection.solarTermId, selection.provinceCode]);
   const { resource, retry } = useCaseRequest(load);
@@ -121,13 +98,7 @@ function CaseDetail({ caseId }: { caseId: string }) {
     <h3 className="case-detail-name" id="case-detail-title" ref={headingRef} tabIndex={-1}>{resource.status === "success" ? resource.data.title : "案例详情"}</h3>
     {resource.status === "loading" && <CaseLoading detail />}
     {resource.status === "error" && <RequestError message={resource.message} retry={retry} />}
-    {resource.status === "success" && <>
-      <p className="case-detail-meta">{resource.data.regionName} · {CATEGORY_LABELS[resource.data.category]} · {SOLAR_TERMS.filter(term => resource.data.solarTermIds.includes(term.id)).map(term => term.name).join(" · ")}</p>
-      {resource.data.imageUrl && <Image className="case-detail-image" src={resource.data.imageUrl} alt={resource.data.title} width={720} height={480} />}
-      <p className="case-detail-description">{resource.data.description}</p>
-      <h4 className="case-detail-section-title">节气关联</h4><p className="case-detail-relation">{resource.data.relationNote}</p>
-      <div className="case-sources"><h4 className="case-detail-section-title">资料来源</h4><ul>{resource.data.sources.map(source => <li key={source.url}><a href={source.url} target="_blank" rel="noopener noreferrer">{source.title} <span aria-hidden="true">↗</span></a>{source.publisher && <span>{source.publisher}</span>}</li>)}</ul></div>
-    </>}
+    {resource.status === "success" && <CulturalCaseContent item={resource.data} />}
   </section>;
 }
 

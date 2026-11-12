@@ -23,7 +23,7 @@ export function ReadingPage({ index, titleId }: { index: number; titleId?: strin
       <span>节气小识</span>
       <p>{SOLAR_TERM_NOTES[term.id]}</p>
     </div>
-    <div className="seasons-reading-links"><Link className="seasons-explore-link" href="/explore" aria-label="去知时，寻访山河风物">去知时<span className="book-wide-copy">，寻访山河风物</span> <span aria-hidden="true">↗</span></Link><a className="seasons-article-link" href={photo.articleUrl} target="_blank" rel="noopener noreferrer">阅读<span className="book-wide-copy">{term.name}</span>专题 <span aria-hidden="true">↗</span><span className="seasons-sr-only">（中国非遗网，新窗口打开）</span></a></div>
+    <div className="seasons-reading-links"><Link className="seasons-explore-link" href={`/explore?solarTermId=${term.id}`} aria-label={`去知时，寻访${term.name}风物`}>去知时<span className="book-wide-copy">，寻访山河风物</span> <span aria-hidden="true">↗</span></Link><a className="seasons-article-link" href={photo.articleUrl} target="_blank" rel="noopener noreferrer">阅读<span className="book-wide-copy">{term.name}</span>专题 <span aria-hidden="true">↗</span><span className="seasons-sr-only">（中国非遗网，新窗口打开）</span></a></div>
     <span className="book-page-number" aria-label={`左页，第${index * 2 + 1}页`}>{number(index * 2 + 1)}</span>
   </article>;
 }

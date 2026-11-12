@@ -1,0 +1,27 @@
+{
+  "testedAt": "2026-11-12T02:47:23.414Z",
+  "origin": "http://127.0.0.1:3112",
+  "method": "Real browser form and real DeepSeek response, one click, no mocks or automatic retry",
+  "passed": true,
+  "status": 200,
+  "suggestions": [
+    {
+      "title": "碌碡倚门",
+      "line": "鲁北风紧，石碾子歇在门边，灶上红薯粥正冒热气。"
+    },
+    {
+      "title": "城南箩卜圆",
+      "line": "南京老城南的下午，萝卜丝汆成圆子，撒一把蒜花。"
+    },
+    {
+      "title": "檐下风鸡",
+      "line": "大雪前后，老南京人腌起五花肉，灌香肠，把风鸡挂上檐头。"
+    }
+  ],
+  "referenceIds": [
+    "lubei-daxue-sweet-potato-porridge",
+    "nanjing-daxue-radish-balls",
+    "nanjing-winter-cured-meat"
+  ],
+  "allSourcesAndAccessNotesDisplayed": true
+}

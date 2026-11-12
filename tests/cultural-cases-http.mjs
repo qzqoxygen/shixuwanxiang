@@ -53,7 +53,7 @@ for (const [term, province, titlePart] of [
   ["qiufen", "110000", "祭月"], ["dongzhi", "330000", "祭冬"],
 ]) {
   const body = await get(`?solarTermId=${term}&provinceCode=${province}`, 200, CaseListResponseSchema);
-  const matches = published.filter((item) => item.solarTermIds.includes(term) && item.provinceCode === province);
+  const matches = published.filter((item) => item.solarTermIds.includes(term) && (item.provinceCode === province || item.relatedProvinceCodes?.includes(province)));
   assert.equal(body.total, matches.length);
   assert.deepEqual(body.items.map((item) => item.id), matches.map((item) => item.id).sort().slice(0, body.limit));
   assert.ok(body.items.some((item) => item.title.includes(titlePart)), `${term}/${province}: ${titlePart}`);
@@ -62,7 +62,9 @@ for (const [term, province, titlePart] of [
 for (const term of SOLAR_TERMS) {
   const expected = new Map();
   for (const item of published.filter((item) => item.solarTermIds.includes(term.id))) {
-    expected.set(item.provinceCode, (expected.get(item.provinceCode) ?? 0) + 1);
+    for (const code of [item.provinceCode, ...(item.relatedProvinceCodes ?? [])]) {
+      expected.set(code, (expected.get(code) ?? 0) + 1);
+    }
   }
   const actual = await fetchProvinceCaseCounts(term.id, AbortSignal.timeout(15000), request);
   assert.deepEqual(actual, expected, term.id);

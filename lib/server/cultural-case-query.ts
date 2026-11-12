@@ -8,7 +8,7 @@ export function queryCulturalCases(cases: readonly CulturalCase[], query: CaseLi
   const keyword = query.keyword?.toLowerCase();
   const matches = cases.filter(isVerified).filter((item) =>
     (!query.solarTermId || item.solarTermIds.includes(query.solarTermId)) &&
-    (!query.provinceCode || item.provinceCode === query.provinceCode) &&
+    (!query.provinceCode || item.provinceCode === query.provinceCode || item.relatedProvinceCodes?.includes(query.provinceCode)) &&
     (!query.category || item.category === query.category) &&
     (!keyword || [item.title, item.regionName, item.description, item.relationNote].some((value) => value.toLowerCase().includes(keyword))),
   ).sort((a, b) => a.id < b.id ? -1 : a.id > b.id ? 1 : 0);

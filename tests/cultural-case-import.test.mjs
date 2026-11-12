@@ -13,12 +13,19 @@ const primary = read("../data/cultural-cases/primary.json");
 const cases = read("../data/cultural-cases/cases.json");
 const byId = new Map(cases.map((item) => [item.id, item]));
 
-test("every one of the 47 original rows has a decision; the uncollected Tianjin pear is not synthesized", () => {
+test("every one of the 47 original rows has a decision; Tianjin pear only appears after its collected supplement", () => {
   assert.deepEqual(raw.map((row) => row[0]).sort((a, b) => a - b), rows.map((row) => row.serial).sort((a, b) => a - b));
   assert.equal(reviewed.size, 47);
   assert.equal(reviewed.has(17), false);
   assert.deepEqual(["主选", "候选", "待核验"].map((tag) => raw.filter((row) => row[12] === tag).length), [24, 21, 2]);
-  assert.equal(cases.some((item) => item.provinceCode === "120000" && item.solarTermIds.includes("jingzhe") && item.title.includes("梨")), false);
+  assert.equal(rows.some((row) => row.id === "tianjin-jingzhe-pears"), false);
+  const supplement = read("../docs/cultural-sources/2026-11-12/intake.json").sheets["补采案例"];
+  const pear = byId.get("tianjin-jingzhe-pears");
+  const collectedPear = supplement.find((row) => row[2] === "天津惊蛰吃梨");
+  assert.ok(collectedPear, "A coverage-sheet title alone must not synthesize a case");
+  assert.equal(pear?.provinceCode, "120000");
+  assert.deepEqual(pear?.solarTermIds, ["jingzhe"]);
+  assert.equal(pear?.sources[0].url, collectedPear[11]);
   for (const row of rows) {
     const item = byId.get(row.id);
     if (row.status === "draft") assert.equal(item, undefined, row.id);

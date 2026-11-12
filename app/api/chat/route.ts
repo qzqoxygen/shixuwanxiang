@@ -3,6 +3,7 @@ import { beginAiRequest } from "@/lib/server/ai-access";
 import { MAX_ASSISTANT_LENGTH, MAX_BODY_BYTES, validateMessages } from "@/lib/chat";
 import { AgentError, runChatAgent } from "@/lib/ai-agent";
 import { type SearchContext, SearchError, needsWebSearch, buildSearchQuery, searchWeb, attachSearchSources } from "@/lib/server/web-search";
+import { CulturalContextError, retrieveChatCases, culturalSourceNotes } from "@/lib/server/cultural-case-context";
 
 // Cache Components uses the default Node.js runtime. Leave time to return a JSON error.
 export const maxDuration = 60;
@@ -91,14 +92,17 @@ export async function POST(request: Request) {
       }
     }
     const client = createDeepSeekClient(apiKey);
-    const result = await runChatAgent((params) => completeDeepSeek(client, params, signal), messages, undefined, search);
+    const cases = retrieveChatCases(messages);
+    const result = await runChatAgent((params) => completeDeepSeek(client, params, signal), messages, undefined, search, cases);
+    const caseSources = culturalSourceNotes(result.answer, cases);
     let answer = result.answer;
     if (search) answer = attachSearchSources(answer, search);
     if (search === null) answer = "本次未能核实实时信息。以下仅供了解相关背景。\n\n" + answer;
+    answer += caseSources;
     if (answer.length > MAX_ASSISTANT_LENGTH) throw new AgentError("INVALID_RESPONSE", "回答及来源过长，请简化问题后重试。");
     return Response.json({ ...result, answer }, { headers: { "Cache-Control": "no-store" } });
   } catch (error) {
-    const issue = error instanceof AgentError || error instanceof SearchError
+    const issue = error instanceof AgentError || error instanceof SearchError || error instanceof CulturalContextError
       ? { status: 502, code: error.code, message: error.message }
       : classifyDeepSeekError(error, signal);
     logAiError("chat", issue.code, issue.status);

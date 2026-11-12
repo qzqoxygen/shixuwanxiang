@@ -1,4 +1,4 @@
-import { ApiFailureSchema, CaseDetailResponseSchema, CaseListResponseSchema, type CaseListQuery, type ProvinceCode, type SolarTermId } from "./contracts/cultural-case";
+import { ApiFailureSchema, CaseDetailResponseSchema, CaseListResponseSchema, type CaseListQuery, type ProvinceCode, type SolarTermId, type VerifiedCulturalCase } from "./contracts/cultural-case";
 
 export function caseListUrl(query: CaseListQuery) {
   const params = new URLSearchParams();
@@ -24,7 +24,7 @@ export async function fetchCaseList(query: CaseListQuery, signal: AbortSignal, f
   const data = parsed.data;
   if (data.offset !== query.offset || data.limit !== query.limit || data.items.length > query.limit || data.total < data.items.length ||
     new Set(data.items.map(item => item.id)).size !== data.items.length ||
-    data.items.some(item => (query.solarTermId && !item.solarTermIds.includes(query.solarTermId)) || (query.provinceCode && item.provinceCode !== query.provinceCode))) {
+    data.items.some(item => (query.solarTermId && !item.solarTermIds.includes(query.solarTermId)) || (query.provinceCode && item.provinceCode !== query.provinceCode && !item.relatedProvinceCodes?.includes(query.provinceCode)))) {
     throw new Error("案例列表与当前筛选不一致，请重试。");
   }
   return data;
@@ -38,8 +38,8 @@ export async function fetchCaseDetail(caseId: string, signal: AbortSignal, fetch
 
 // Province availability is nationwide for the chosen term, independent of the
 // province/list-page currently selected. The existing API allows at most 20 rows.
-export async function fetchProvinceCaseCounts(solarTermId: SolarTermId, signal: AbortSignal, fetcher: typeof fetch = fetch) {
-  const counts = new Map<ProvinceCode, number>();
+export async function fetchSolarTermCases(solarTermId: SolarTermId, signal: AbortSignal, fetcher: typeof fetch = fetch) {
+  const items: VerifiedCulturalCase[] = [];
   const seen = new Set<string>();
   let offset = 0;
   let total: number | undefined;
@@ -53,10 +53,20 @@ export async function fetchProvinceCaseCounts(solarTermId: SolarTermId, signal: 
     for (const item of page.items) {
       if (seen.has(item.id)) throw new Error("案例分页数据重复，请重新查找对应地区。");
       seen.add(item.id);
-      counts.set(item.provinceCode, (counts.get(item.provinceCode) ?? 0) + 1);
+      items.push(item);
     }
     offset += page.items.length;
   } while (offset < total);
   // Publish only a complete, validated aggregation, never a partial first page.
+  return items;
+}
+
+export async function fetchProvinceCaseCounts(solarTermId: SolarTermId, signal: AbortSignal, fetcher: typeof fetch = fetch) {
+  const counts = new Map<ProvinceCode, number>();
+  for (const item of await fetchSolarTermCases(solarTermId, signal, fetcher)) {
+    for (const code of [item.provinceCode, ...(item.relatedProvinceCodes ?? [])]) {
+      counts.set(code, (counts.get(code) ?? 0) + 1);
+    }
+  }
   return counts;
 }

@@ -3,6 +3,8 @@ import assert from "node:assert/strict";
 import { test } from "node:test";
 
 const { POST } = await import("../app/api/studio/inspiration/route.ts");
+const { studioCulturalCases } = await import("../lib/server/cultural-case-context.ts");
+const { readStudioReferences } = await import("../lib/studio-inspiration.ts");
 
 test("inspiration only sends catalog context and rejects suggestions that cannot fit the editor", async (t) => {
   const oldKey = process.env.DEEPSEEK_API_KEY;
@@ -18,6 +20,11 @@ test("inspiration only sends catalog context and rejects suggestions that cannot
     assert.equal(payload.model, "deepseek-flash");
     assert.deepEqual(payload.thinking, { type: "disabled" });
     assert.match(payload.messages[1].content, /冬至.*书签/);
+    for (const item of studioCulturalCases("dongzhi")) {
+      assert.ok(payload.messages[1].content.includes(item.id));
+      assert.ok(payload.messages[1].content.includes(item.description));
+    }
+    assert.doesNotMatch(payload.messages[1].content, /huangling-flower-buns/);
     assert.doesNotMatch(JSON.stringify(payload), /private-draft/);
     return Response.json({ choices: [{ finish_reason: "stop", message: { content: JSON.stringify({ suggestions: [
       { title: "长".repeat(13), line: "好句" },
@@ -36,7 +43,11 @@ test("inspiration only sends catalog context and rejects suggestions that cannot
   assert.equal(reply.mock.callCount(), 0);
   const response = await POST(request("term=dongzhi&format=bookmark&draft=private-draft"));
   assert.equal(response.status, 200);
-  assert.deepEqual(await response.json(), { suggestions: [good] });
+  const data = await response.json();
+  assert.deepEqual(data.suggestions, [good]);
+  assert.deepEqual(readStudioReferences(data), studioCulturalCases("dongzhi").map((item) => ({
+    caseId: item.id, title: item.title, provinceName: item.provinceName, regionName: item.regionName, sources: item.sources,
+  })));
   assert.equal(response.headers.get("cache-control"), "no-store");
   assert.equal(reply.mock.callCount(), 1);
 });

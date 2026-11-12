@@ -1,0 +1,47 @@
+{
+  "testedAt": "2026-11-12T01:56:14.461Z",
+  "origin": "http://127.0.0.1:3112",
+  "method": "Real server requests; no mocked transport, no browser API key, no automatic retry",
+  "checks": [
+    {
+      "name": "普通节气知识",
+      "status": 200,
+      "response": {
+        "answer": "冬至不一定最冷，是因为冬至后太阳直射点虽开始北移，但北半球地面热量仍持续净散失，气温通常还要滞后一段时间才降到最低。",
+        "truncated": false
+      },
+      "passed": true,
+      "ms": 5084
+    },
+    {
+      "name": "新增地坛案例问答与原文",
+      "status": 200,
+      "response": {
+        "answer": "北京地坛夏至祭地是明清两朝的皇家礼制，并非今天每年夏至仍在举行的活动。\n\n地坛建成于明嘉靖九年（1530年），是明清两朝祭祀“皇地祇神”的场所。每逢夏至，皇帝到地坛行祭地大典，全过程约2小时，盛装皇帝跪拜70余次；1531年至1911年共有15位皇帝连续祭地381年[1][2][案例1]。1911年是地坛最后一次祭地活动，此后民国建立，不再祭地[5]。\n\n1990年起，地坛按乾隆朝程序复排仿清祭地表演，作为春节地坛庙会的保留节目[1][2][案例1]。这项表演在春节庙会期间进行，不能视为仍在夏至举行的祭祀活动[案例1]。\n\n简而言之：夏至祭地属于已终止的明清皇家历史礼制；今天能看到的是春节庙会中的仿清表演，两者时间与性质都不同。\n\n案例来源：人民网文化频道转载北京晚报《明清祭地仪式需两小时 盛装皇帝跪拜70余次》[案例1]。\n\n参考来源（检索于 2026-11-12 09:56:20（北京时间））\n[1] 明清祭地儀式需兩小時 盛裝皇帝跪拜70余次（圖） - 明清祭地儀式需兩小時 盛裝皇帝跪拜70余次（圖）\nhttp://culture.people.com.cn/BIG5/n/2015/0108/c172318-26351122.html#1\n[2] 明清祭地仪式需两小时 盛装皇帝跪拜70余次（图） - 明清祭地仪式需两小时 盛装皇帝跪拜70余次（图）\nhttps://www.chinanews.com/cul/2015/01-08/6949844.shtml#1\n[5] 地坛 - 维基百科，自由的百科全书\nhttps://zh.wikipedia.org/wiki?oldid=81727020&title=%e5%9c%b0%e5%9d%9b\n\n文化案例来源（本地已核验资料，并非本轮联网结果）\n[案例1] 北京地坛夏至祭地（北京市·东城区地坛公园（方泽坛））\n明清祭地仪式需两小时 盛装皇帝跪拜70余次｜人民网文化频道（来源北京晚报）\nhttp://culture.people.com.cn/n/2015/0108/c172318-26351122.html",
+        "truncated": false
+      },
+      "passed": true,
+      "ms": 3502
+    },
+    {
+      "name": "大雪创意与补采参考",
+      "passed": false,
+      "error": "TimeoutError: The operation was aborted due to timeout",
+      "ms": 196491
+    },
+    {
+      "name": "待核验习俗不当作定论",
+      "status": 502,
+      "passed": false,
+      "error": "Error: NETWORK_ERROR",
+      "ms": 56
+    },
+    {
+      "name": "实时联网与独立来源",
+      "status": 502,
+      "passed": false,
+      "error": "Error: NETWORK_ERROR",
+      "ms": 57
+    }
+  ]
+}

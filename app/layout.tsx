@@ -5,7 +5,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: { default: "时序万象·AI", template: "%s · 时序万象·AI" },
-  description: "基于多模态智能体的二十四节气非遗文化可视化探索与交互创作平台。当前开放节气基础资料与 AI 文化问答。",
+  description: "基于多模态智能体的二十四节气非遗文化可视化探索与交互创作平台。探索节气文化案例与地域地图，体验 DeepSeek AI 问答和节气卡创作。",
 };
 export default function RootLayout({ children }: { children: ReactNode }) {
   return <html lang="zh-CN"><body><div className="page-shell">

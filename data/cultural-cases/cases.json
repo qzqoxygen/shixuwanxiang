@@ -21,6 +21,27 @@
     "verificationStatus": "verified"
   },
   {
+    "id": "anren-chunfen-spring-fair",
+    "title": "湖南安仁“赶分社”",
+    "solarTermIds": [
+      "chunfen"
+    ],
+    "provinceCode": "430000",
+    "provinceName": "湖南省",
+    "regionName": "郴州市安仁县",
+    "category": "folk_custom",
+    "description": "安仁民众于春分前后三天在神农殿“祀社神以祈谷”，随后交友聚餐、男女相亲，交易草药、农具、苗木种子，唱社戏、演皮影，形成“药市”传统，被称为中华农耕、医药文化的“活化石”。2026年开幕式于3月20日春分当日举行。2014年列入国家级非遗，2016年随“二十四节气”列入人类非遗。",
+    "relationNote": "“3月20日，正值春分节气，2026年人类非物质文化遗产‘安仁赶分社’开幕式暨‘仁商大会’在安仁县稻田公园举行。”",
+    "sources": [
+      {
+        "title": "2026“安仁赶分社”暨“仁商大会”开幕",
+        "url": "http://hn.people.com.cn/n2/2026/0321/c356887-41530004.html",
+        "publisher": "人民网湖南频道"
+      }
+    ],
+    "verificationStatus": "verified"
+  },
+  {
     "id": "baishui-cangjie-rites",
     "title": "陕西白水“谷雨祭仓颉”",
     "solarTermIds": [
@@ -47,6 +68,48 @@
     "verificationStatus": "verified"
   },
   {
+    "id": "beijing-chunfen-sun-cakes",
+    "title": "北京春分吃太阳糕",
+    "solarTermIds": [
+      "chunfen"
+    ],
+    "provinceCode": "110000",
+    "provinceName": "北京市",
+    "regionName": "北京市",
+    "category": "food",
+    "description": "春分日老北京有吃太阳糕之俗，太阳糕既是春分祭日的供品，也是应节食品。用糯米加糖制成圆形小饼，五枚一层，最上面印或塑象征太阳的三足金乌（小鸡），取“太阳高”的谐音，表达对太阳的感恩。旧时春分寅时祭太阳神，太阳糕为主要供品。",
+    "relationNote": "“春分这天，北方地区有吃太阳糕的习俗。太阳糕在北京地区尤为多见，既是祭日的供品，又是应节食品，有‘太阳高’的寓意。”",
+    "sources": [
+      {
+        "title": "春分民俗大赏",
+        "url": "http://www.news.cn/book/20220322/76a3755e37654d2f96fc43a6762c6b87/c.html",
+        "publisher": "新华网（来源中国青年报）"
+      }
+    ],
+    "verificationStatus": "verified"
+  },
+  {
+    "id": "beijing-dahan-cold-dispelling-cakes",
+    "title": "北京大寒吃消寒糕",
+    "solarTermIds": [
+      "dahan"
+    ],
+    "provinceCode": "110000",
+    "provinceName": "北京市",
+    "regionName": "北京市",
+    "category": "food",
+    "description": "老北京大寒吃“消寒糕”，即年糕。资料以传统饮食观念解释它与“暖身、温散风寒、润肺健脾胃”的联系（不作为营养比较或医学功效保证）；又取“年高”之意，寓意步步高升。大寒当日稻香村、稻香春、桂香村等老字号齐推消寒糕，单店一天可售数百盒。",
+    "relationNote": "“‘消寒糕’是年糕的一种……老百姓选择在‘大寒’这天吃年糕，还有‘年高’之意……一家人分吃年糕……所以称为‘消寒糕’。”",
+    "sources": [
+      {
+        "title": "北京习俗：“大寒”要吃消寒糕",
+        "url": "https://www.chinanews.com.cn/hwjy/2011/01-28/2819533.shtml",
+        "publisher": "中国新闻网（来源北京日报）"
+      }
+    ],
+    "verificationStatus": "verified"
+  },
+  {
     "id": "beijing-dongzhi-nine-nine-chart",
     "title": "九九消寒图",
     "solarTermIds": [
@@ -68,6 +131,90 @@
         "title": "［传统文化·节气］冬至开启“三九歌”",
         "url": "https://news.cau.edu.cn/zhxwnew/601643.htm",
         "publisher": "中国农业大学新闻网"
+      }
+    ],
+    "verificationStatus": "verified"
+  },
+  {
+    "id": "beijing-hanlu-fragrant-hills",
+    "title": "北京香山寒露登高赏红叶",
+    "solarTermIds": [
+      "hanlu"
+    ],
+    "provinceCode": "110000",
+    "provinceName": "北京市",
+    "regionName": "海淀区香山公园",
+    "category": "folk_custom",
+    "description": "寒露与重阳时间相近，登高赏红叶成“重头戏”。北京人此时去香山、八大处、景山登高，秋日登高又称“辞青”，与春日踏青相对，是送秋的仪式。香山红叶每年吸引大批游人。北方寒露还流行斗蛐蛐，南方则有“秋钓边”。",
+    "relationNote": "“寒露时节，各地秋色斑斓……登高赏红叶成了‘重头戏’……在北京，景山公园、八大处、香山等都是登高的好去处。尤其是香山的红叶美景……”",
+    "sources": [
+      {
+        "title": "寒露秋意浓：饮菊登高赏红叶",
+        "url": "http://culture.people.com.cn/n1/2020/1008/c1013-31884182.html",
+        "publisher": "人民网文化频道"
+      }
+    ],
+    "verificationStatus": "verified"
+  },
+  {
+    "id": "beijing-kangling-spring-pancakes",
+    "title": "北京昌平康陵村“正德春饼宴”咬春",
+    "solarTermIds": [
+      "lichun"
+    ],
+    "provinceCode": "110000",
+    "provinceName": "北京市",
+    "regionName": "昌平区十三陵镇康陵村",
+    "category": "food",
+    "description": "立春当日，康陵村家家烙春饼“咬春”。春饼为烫面双层薄饼，讲究“薄如蝉翼、白如翠玉、隔饼看菜”，配菜至少八样，取“四平八稳、迎春纳福”之意，热菜有梅菜扣肉、炖柴鸡、炒合菜，凉菜有酱肘子、黄瓜条、葱丝。当地称其源自明代正德年间食法，传承约五百年。",
+    "relationNote": "“又是一年立春时……来到了昌平区十三陵镇康陵村，带您一起‘咬春’，尝尝传承了五百年的春日味道——正德春饼宴。”",
+    "sources": [
+      {
+        "title": "欢乐过大年·乡“亲”京郊行｜立春“咬春”，寻味五百年“正德春饼宴”",
+        "url": "https://news.bjd.com.cn/2026/02/04/11565199.shtml",
+        "publisher": "北京日报网（京报网）"
+      }
+    ],
+    "verificationStatus": "verified"
+  },
+  {
+    "id": "beijing-lidong-dumplings",
+    "title": "北京立冬吃饺子",
+    "solarTermIds": [
+      "lidong"
+    ],
+    "provinceCode": "110000",
+    "provinceName": "北京市",
+    "regionName": "北京市丰台区",
+    "category": "food",
+    "description": "立冬当日北方讲究吃饺子，北京丰台老边饺子馆凌晨五点即开工，托盘摆满近百个饺子，当日饺子需求为平时三倍以上，韭菜鸡蛋、猪肉白菜馅卖得最好。说法是饺子形似耳朵，立冬吃饺子冬天耳朵不受冻。",
+    "relationNote": "“在我国北方，吃饺子可谓立冬最为显眼的‘注脚’……北京丰台一家‘老边饺子馆’的后厨已然忙碌起来……需求量是平时的至少三倍。”\n“吃饺子耳朵不受冻”是民间说法，不是防冻功效。",
+    "sources": [
+      {
+        "title": "节令之美丨立冬时节话“补冬”",
+        "url": "http://www.news.cn/politics/20251107/402c58cb670d4e20b759ef34cbdb8a64/c.html",
+        "publisher": "新华网（新华社）"
+      }
+    ],
+    "verificationStatus": "verified"
+  },
+  {
+    "id": "beijing-liqiu-autumn-meat",
+    "title": "北京立秋“贴秋膘”",
+    "solarTermIds": [
+      "liqiu"
+    ],
+    "provinceCode": "110000",
+    "provinceName": "北京市",
+    "regionName": "北京市",
+    "category": "food",
+    "description": "立秋当日老北京“贴秋膘”：伏天胃口差、人易瘦，立秋吃味厚美食补回来，首选吃肉。护国寺惠丰门丁肉饼店当日备猪头肉60多块、肘子60多个、猪耳朵20多个，比平时多一倍；酱肘子、酱肉、酱猪耳、酱牛肉最俏，市民用荷叶饼卷肘子肉、黄瓜条吃。",
+    "relationNote": "“8月7日立秋，老北京‘贴秋膘’的传统食俗如期而至……今天的备货，足足比平时多出一倍。”\n店铺备货数量是2026年报道的当日记录；“贴秋膘”为饮食民俗，不是普遍增重建议。",
+    "sources": [
+      {
+        "title": "立秋贴秋膘！老字号备足传统酱肉",
+        "url": "https://news.bjd.com.cn/2026/08/07/11904940.shtml",
+        "publisher": "京报网（北京日报客户端）"
       }
     ],
     "verificationStatus": "verified"
@@ -115,6 +262,27 @@
         "title": "今日寒露 | 今天起，这几件事一定要做好！",
         "url": "https://m.gmw.cn/2025-10/08/content_1304176820.htm",
         "publisher": "光明网（来源为北京发布）"
+      }
+    ],
+    "verificationStatus": "verified"
+  },
+  {
+    "id": "beijing-xiazhi-earth-rites",
+    "title": "北京地坛夏至祭地",
+    "solarTermIds": [
+      "xiazhi"
+    ],
+    "provinceCode": "110000",
+    "provinceName": "北京市",
+    "regionName": "东城区地坛公园（方泽坛）",
+    "category": "folk_custom",
+    "description": "地坛建于明嘉靖九年（1530），是明清两朝祭祀“皇地祇神”的场所。每逢夏至，皇帝到地坛行祭地大典，全过程约2小时，盛装皇帝跪拜70余次；1531年至1911年共有15位皇帝连续祭地381年。1990年起地坛按乾隆朝程序复排仿清祭地表演，今为春节庙会保留节目。",
+    "relationNote": "“每逢夏至这一天，明清两代的皇帝便会来到地坛进行皇家祭祀活动……祭地也并非……持续半小时左右，而是足足要2个小时……皇帝需要跪拜70余次。”\n夏至祭地是明清历史皇家礼制，现已不实行；今天春节庙会的仿清表演不能视为仍在夏至举行。",
+    "sources": [
+      {
+        "title": "明清祭地仪式需两小时 盛装皇帝跪拜70余次",
+        "url": "http://culture.people.com.cn/n/2015/0108/c172318-26351122.html",
+        "publisher": "人民网文化频道（来源北京晚报）"
       }
     ],
     "verificationStatus": "verified"
@@ -193,6 +361,91 @@
     "verificationStatus": "verified"
   },
   {
+    "id": "chaoshan-lidong-sugarcane",
+    "title": "广东潮汕立冬食蔗",
+    "solarTermIds": [
+      "lidong"
+    ],
+    "provinceCode": "440000",
+    "provinceName": "广东省",
+    "regionName": "汕头市（潮汕地区）",
+    "category": "food",
+    "description": "潮汕立冬有买甘蔗“食蔗”的习惯，俗谚“立冬食蔗齿不痛”。传统饮食观念把甘蔗汁多与“生津润燥”联系起来；长辈会让孩子啃甘蔗，也取甘蔗“节节高”的好意头。当日街头甘蔗摊明显增多。",
+    "relationNote": "“‘立冬食蔗齿不痛’，这句在潮汕地区流传已久的民间谚语，每年随着冬意渐浓便被人们提起。”\n“食蔗齿不痛”是当地民谚，不是护齿或治疗牙痛的医学保证。",
+    "sources": [
+      {
+        "title": "立冬食蔗齿不痛？潮汕老习俗暗藏护齿科学",
+        "url": "https://static.nfnews.com/content/202511/07/c11888931.html",
+        "publisher": "南方+（南方日报）"
+      }
+    ],
+    "verificationStatus": "verified"
+  },
+  {
+    "id": "chiayi-xiaoxue-dried-fish",
+    "title": "台湾嘉义布袋小雪晒鱼干",
+    "solarTermIds": [
+      "xiaoxue"
+    ],
+    "provinceCode": "710000",
+    "provinceName": "台湾省",
+    "regionName": "嘉义县布袋镇（中南部沿海）",
+    "category": "food",
+    "description": "小雪前后乌鱼群来到台湾海峡，台湾中南部海边渔民开始晒鱼干、储存干粮，兼捕旗鱼、鲨鱼。做法为剖割（大鱼背剖、小鱼腹剖）、洗净黏液血污、按每100千克鱼用盐18～24千克盐腌3～5小时、上架晒制2～3天至挤不出水。俗谚“十月豆，肥到不见头”指布袋一带农历十月可捕“豆仔鱼”。",
+    "relationNote": "“小雪时台湾中南部海边的渔民们会开始晒鱼干、储存乾粮……在嘉义县布袋一带，到了农历十月可以捕到‘豆仔鱼’。”",
+    "sources": [
+      {
+        "title": "晒鱼干",
+        "url": "http://www.cma.gov.cn/2011xzt/2016zt/essjq/xx/jqxs/201611/t20161117_342065.html",
+        "publisher": "中国气象局政府门户网站（中国气象报社）"
+      }
+    ],
+    "verificationStatus": "verified"
+  },
+  {
+    "id": "dujiangyan-qingming-water-release",
+    "title": "四川都江堰清明放水节",
+    "solarTermIds": [
+      "qingming"
+    ],
+    "provinceCode": "510000",
+    "provinceName": "四川省",
+    "regionName": "成都市都江堰市",
+    "category": "folk_custom",
+    "description": "清明当日，都江堰举行放水庆典：巡江告水—共筑祭坛—肃穆祭礼—砍杩槎放水。堰工挥古斧斩断拦水杩槎，岷江水涌入内江、奔向成都平原，标志岁修竣工与春灌开始，纪念李冰治水。2006年列入首批国家级非遗。",
+    "relationNote": "“清明放水节是……都江堰市的民间习俗。在农历二十四节气的清明这一天，为庆祝一年一度都江堰水利工程岁修竣工……举行盛大的庆典仪式。”",
+    "sources": [
+      {
+        "title": "都江堰放水节（项目页）",
+        "url": "https://www.ihchina.cn/project_details/14973/",
+        "publisher": "中国非物质文化遗产网"
+      }
+    ],
+    "verificationStatus": "verified"
+  },
+  {
+    "id": "foshan-dahan-sticky-rice",
+    "title": "广东佛山大寒吃糯米饭",
+    "solarTermIds": [
+      "dahan"
+    ],
+    "provinceCode": "440000",
+    "provinceName": "广东省",
+    "regionName": "佛山市顺德区",
+    "category": "food",
+    "description": "大寒日佛山人吃糯米饭暖身。顺德厨师做生炒糯米饭，糯米与粘米按8:2配比，温水泡半小时沥干，慢火干炒十分钟，再“三淋三焖”，最后下腊肉粒、腊肠粒、虾米大火快炒。民俗专家称“糯”谐音“暖”，米粒黏结象征阖家团圆。",
+    "relationNote": "“‘大寒至，一碗糯米饭，暖透筋骨到开春！’……大寒吃糯米饭……是刻在佛山人骨子里的文化印记。”",
+    "sources": [
+      {
+        "title": "大寒至，糯香起：顺德名厨解锁生炒糯米饭的匠心密码",
+        "url": "https://www.fsonline.com.cn/FS_PLUS/1002754.html",
+        "publisher": "佛山市新闻传媒中心（佛山日报）",
+        "accessNote": "2026-11-12复查：原链接进入网站升级页面，本次未能读取正文。按素材表既有核实记录收录，待原站恢复后复核。"
+      }
+    ],
+    "verificationStatus": "verified"
+  },
+  {
     "id": "fuping-dried-persimmons",
     "title": "陕西富平“霜降柿子红”——富平柿饼制作季",
     "solarTermIds": [
@@ -235,6 +488,48 @@
     "verificationStatus": "verified"
   },
   {
+    "id": "gannan-jingzhe-fried-seeds",
+    "title": "江西赣南上犹、崇义“炒虫”",
+    "solarTermIds": [
+      "jingzhe"
+    ],
+    "provinceCode": "360000",
+    "provinceName": "江西省",
+    "regionName": "赣州市上犹县、崇义县",
+    "category": "folk_custom",
+    "description": "惊蛰清晨，赣南客家农家抓一小把谷种、豆种、南瓜籽入锅干炒，噼啪作响，称为“炒虫”，炒熟后分给自家和邻居孩子吃，寓意把田里的害虫炒死、护佑庄稼。寻乌、石城等地还用开水煮带皮毛的芋子，边煮边念“煮虫煮穿，煞虫煞穿”，以毛芋象征毛虫。",
+    "relationNote": "“赣南客家先民深谙自然之道，便有了惊蛰‘炒虫’‘煞芋子’的习俗……在上犹、崇义的山间村落……”",
+    "sources": [
+      {
+        "title": "一雷惊蛰始，田家无闲日",
+        "url": "https://www.chinarjw.com/chinarjw/c100049/202603/c71b73412d7f403ca124364bcf3ee926.shtml",
+        "publisher": "红都新闻网（江西赣州）"
+      }
+    ],
+    "verificationStatus": "verified"
+  },
+  {
+    "id": "guangdong-dashu-grass-jelly",
+    "title": "广东大暑吃仙草（凉粉/仙人粄）",
+    "solarTermIds": [
+      "dashu"
+    ],
+    "provinceCode": "440000",
+    "provinceName": "广东省",
+    "regionName": "广州、梅州等地",
+    "category": "food",
+    "description": "广东很多地方大暑吃仙草，民谚“六月大暑吃仙草，活如神仙不会老”。仙草又名凉粉草、仙人草，晒干煎汁与米浆同煮，冷却成黑色胶状物，拌糖食用：广州称“凉粉”，梅县称“仙人拌”，客家地区称“仙人粄”，闽南台湾则熬成烧仙草。",
+    "relationNote": "“广东很多地方在大暑时节有吃仙草的习俗，民谚说‘六月大暑吃仙草，活如神仙不会老’。”\n“活如神仙不会老”为民间谚语，不是抗衰老功效。",
+    "sources": [
+      {
+        "title": "二十四节气·大暑",
+        "url": "https://www.cma.gov.cn/ztbd/2026zt/24jq/dashu/index.html",
+        "publisher": "中国气象局（中国气象网）"
+      }
+    ],
+    "verificationStatus": "verified"
+  },
+  {
     "id": "guanghan-baobao-festival",
     "title": "四川广汉“保保节”（雨水节气前后）",
     "solarTermIds": [
@@ -261,6 +556,27 @@
     "verificationStatus": "verified"
   },
   {
+    "id": "guangzhou-chushu-herbal-tea",
+    "title": "广州处暑喝凉茶（煎药茶）",
+    "solarTermIds": [
+      "chushu"
+    ],
+    "provinceCode": "440000",
+    "provinceName": "广东省",
+    "regionName": "广州市",
+    "category": "food",
+    "description": "广州处暑有喝凉茶的传统，认为入秋需“食苦”。原资料用“外燥渐起，内暑未清”说明传统饮食观念，把凉茶与“清暑湿、润秋燥”联系起来。老广也常配百合“双雪”（雪梨、雪耳）糖水。这些养生说法不作为医学功效保证。",
+    "relationNote": "“在广州，处暑有喝凉茶的传统，认为入秋需‘食苦’。一杯凉茶……既是应节的养生之选……”",
+    "sources": [
+      {
+        "title": "处暑｜解暑湿、润秋燥，老广最爱的凉茶糖水走起",
+        "url": "https://content.foshanplus.com/newsDetails.html?newsId=964712",
+        "publisher": "佛山Plus（佛山市新闻传媒中心）"
+      }
+    ],
+    "verificationStatus": "verified"
+  },
+  {
     "id": "guangzhou-sticky-rice-breakfast",
     "title": "广州小寒糯米饭",
     "solarTermIds": [
@@ -277,6 +593,27 @@
         "title": "小寒时节有安闲（书令）",
         "url": "http://paper.people.com.cn/zgnybwap/html/2024-01/08/content_26037105.htm",
         "publisher": "中国能源报"
+      }
+    ],
+    "verificationStatus": "verified"
+  },
+  {
+    "id": "guanzhong-xiaoman-wheat-visits",
+    "title": "陕西关中“看麦梢黄”",
+    "solarTermIds": [
+      "xiaoman"
+    ],
+    "provinceCode": "610000",
+    "provinceName": "陕西省",
+    "regionName": "关中地区（西安、咸阳、渭南一带）",
+    "category": "folk_custom",
+    "description": "麦梢泛黄、夏收将至时，出嫁的女儿带新麦做的馍馍、黄杏、黄瓜等礼物回娘家，问候父母夏收准备情况，帮忙收拾农具、归置粮仓；麦收后母亲再去看女儿。农谚“麦梢黄，女看娘；卸了杠枷，娘看冤家”，当地还形成“看忙罢”节。",
+    "relationNote": "“此时在陕西关中地区，‘看麦梢黄’习俗依旧温暖……都凝结在‘麦梢黄，女看娘’的谚语之中。”",
+    "sources": [
+      {
+        "title": "文化中国行｜南北风俗话小满",
+        "url": "https://m.gmw.cn/2025-05/21/content_38039214.htm",
+        "publisher": "光明网（来源农民日报客户端）"
       }
     ],
     "verificationStatus": "verified"
@@ -443,7 +780,32 @@
       {
         "title": "篁岭晒秋季开启！官方玩法指南来袭！",
         "url": "https://www.wyhl.cc/site/wyhl/lyzx/rmhd/detail2025-08-17-400.html",
-        "publisher": "婺源篁岭景区"
+        "publisher": "婺源篁岭景区",
+        "accessNote": "2026-11-12本机复查连接异常，未重新读取正文；保留既有核查来源。"
+      }
+    ],
+    "verificationStatus": "verified"
+  },
+  {
+    "id": "jiangnan-mangzhong-flower-farewell",
+    "title": "江南芒种“送花神”",
+    "solarTermIds": [
+      "mangzhong"
+    ],
+    "provinceCode": "320000",
+    "provinceName": "江苏省",
+    "relatedProvinceCodes": [
+      "330000"
+    ],
+    "regionName": "江南地区（江苏、浙江一带，未落实县市）",
+    "category": "folk_custom",
+    "description": "芒种过后众芳摇落，古人认为花神退位，要为其饯行。人们用花瓣柳枝编成轿马系于树上，江南地区则在枝头系红绸、摆放祭品送别花神，感谢花神一春馈赠，盼来年花事繁盛。《红楼梦》第二十七回即写大观园女儿芒种饯花神。",
+    "relationNote": "“《红楼梦》里写过，芒种这一天，姑娘们要‘送花神’……江南地区，人们会在枝头系上红绸，摆放祭品，送别花神。”\n资料以江南地区介绍该习俗，并引《红楼梦》记载；尚未给出江苏或浙江具体县市的活动调查。",
+    "sources": [
+      {
+        "title": "今日芒种",
+        "url": "https://xinwen.bjd.com.cn/content/s6a227a77d5de3eb734f1d9b1.html",
+        "publisher": "京报网（北京怀柔官方发布）"
       }
     ],
     "verificationStatus": "verified"
@@ -548,6 +910,27 @@
         "title": "寻味二十四节气・小雪",
         "url": "https://www.zjskw.gov.cn/art/2024/11/25/art_1229536557_61674.html",
         "publisher": "浙江省社会科学界联合会"
+      }
+    ],
+    "verificationStatus": "verified"
+  },
+  {
+    "id": "lubei-daxue-sweet-potato-porridge",
+    "title": "鲁北“碌碡顶了门，光喝红黏粥”",
+    "solarTermIds": [
+      "daxue"
+    ],
+    "provinceCode": "370000",
+    "provinceName": "山东省",
+    "regionName": "鲁北地区（山东北部）",
+    "category": "food",
+    "description": "大雪天寒，鲁北民间用“碌碡顶了门，光喝红黏粥”形容天冷不再串门、在家喝红薯粥御寒。碌碡是石制圆柱农具，可轧谷物、平场地；红薯粥含大量膳食纤维，热食暖身。",
+    "relationNote": "“鲁北民间有‘碌碡顶了门，光喝红黏粥’的说法……意思是天冷了，人们不再串门，在家喝暖乎乎的红薯粥御寒。”",
+    "sources": [
+      {
+        "title": "大雪：雪兆丰年 温阳散寒（二十四节气里的中医养生之道）",
+        "url": "http://paper.people.com.cn/rmrbhwb/pad/content/202412/06/content_30033264.html",
+        "publisher": "人民日报海外版"
       }
     ],
     "verificationStatus": "verified"
@@ -668,6 +1051,27 @@
     "verificationStatus": "verified"
   },
   {
+    "id": "nanjing-daxue-radish-balls",
+    "title": "南京大雪吃大萝卜·萝卜圆子",
+    "solarTermIds": [
+      "daxue"
+    ],
+    "provinceCode": "320000",
+    "provinceName": "江苏省",
+    "regionName": "南京市（老城南一带）",
+    "category": "food",
+    "description": "南京人大雪时节多吃大萝卜，老城南把萝卜加工成“萝卜圆子”：萝卜洗净削皮、擦丝拌料，入沸水汆熟，摊主盛碗撒蒜花，是旧时下午点心的常见吃食，多年来风靡老城南。",
+    "relationNote": "“大雪时节，南京人多吃大萝卜。用萝卜加工成的萝卜圆子，多年来一直风靡老城南一带。”",
+    "sources": [
+      {
+        "title": "大雪：玩雪赏雪捕乌鱼（节气·民俗）",
+        "url": "http://paper.people.com.cn/rmrbhwb/html/2015-12/04/content_1638382.htm",
+        "publisher": "人民日报海外版"
+      }
+    ],
+    "verificationStatus": "verified"
+  },
+  {
     "id": "nanjing-eel-and-new-rice",
     "title": "南京小暑吃黄鳝与食新",
     "solarTermIds": [
@@ -683,7 +1087,29 @@
       {
         "title": "南京记忆｜夏季节气里的金陵习俗",
         "url": "http://dfz.nanjing.gov.cn/gzdt/202607/t20260706_5871977.html",
-        "publisher": "南京市地方志工作办公室"
+        "publisher": "南京市地方志工作办公室",
+        "accessNote": "2026-11-12本机复查返回403，访问可能受网站防护或网络限制；保留既有核查来源。"
+      }
+    ],
+    "verificationStatus": "verified"
+  },
+  {
+    "id": "nanjing-lixia-egg-fighting",
+    "title": "江苏南京立夏斗蛋",
+    "solarTermIds": [
+      "lixia"
+    ],
+    "provinceCode": "320000",
+    "provinceName": "江苏省",
+    "regionName": "南京市",
+    "category": "folk_custom",
+    "description": "立夏中午，大人用彩色丝线或绒线编成网兜，套上冷水浸过的煮鸡蛋挂在孩子胸前，寓意健康成长。孩子们聚在一起手持鸡蛋相碰，比谁的蛋壳更硬，蛋壳破者出局，赛后把蛋吃掉。南京立夏还有称人、吃豌豆糕等俗。",
+    "relationNote": "“斗蛋是立夏时节南京孩子们最爱的游戏。在立夏这天的中午，大人们用彩色丝线或绒线编成网兜，套上冷水浸过的煮鸡蛋，挂在孩子胸前……”",
+    "sources": [
+      {
+        "title": "老南京过立夏：称一称 斗一斗 尝一尝",
+        "url": "http://njrb.njdaily.cn/jlwb/h5/html5/2026-04/30/content_557_262612.htm",
+        "publisher": "金陵晚报（南京日报数字报）"
       }
     ],
     "verificationStatus": "verified"
@@ -704,7 +1130,8 @@
       {
         "title": "金陵节气诗词：大雪",
         "url": "https://js.xuexi.cn/local/detail.html?FD0CA7A0771E7C74EA5F38101D0C3A49=1E43BFFBDC9BBC15A3E7A300ECB81016&6E9D852F0075DEF5A5B44097C3EBECDA=6A7AEF2591DA6A6F4C59B11C2A3E8CFA520A0D3939B62E746A607EED23D050D0&D33FA5C955359659FFCA6FA4AB1778C8=CFE4252BEE7064CA2E25278687200485C234EAF7EC308634B81DD33EFA0BA357&AC11F3C9EE565CEDC2B7AA9B8914E5A6=590715588EE0E46B5B6DF30A635AEBB1022E9731653A320542CCE7C34C95D583",
-        "publisher": "学习强国南京学习平台"
+        "publisher": "学习强国南京学习平台",
+        "accessNote": "2026-11-12本机复查仅取得动态页面，未重新读取正文；保留既有核查来源。"
       }
     ],
     "verificationStatus": "verified"
@@ -731,6 +1158,28 @@
     "verificationStatus": "verified"
   },
   {
+    "id": "nanjing-xiaohan-plum-viewing",
+    "title": "江苏南京梅花山小寒探梅",
+    "solarTermIds": [
+      "xiaohan"
+    ],
+    "provinceCode": "320000",
+    "provinceName": "江苏省",
+    "regionName": "南京市 钟山风景区梅花山",
+    "category": "folk_custom",
+    "description": "小寒是二十四番花信风之始，一候梅花。南京梅花山早梅（红冬至、江南宫粉、粉红朱砂、早玉蝶等）在小寒前后零星绽放，市民游客沿园路探梅、寻梅，最佳打卡点为山顶博爱阁、观梅轩周边及梅花谷；盛花期一般在二月上中旬。",
+    "relationNote": "“岁首小寒 梅花山已收到春的第一封信笺 早梅初绽……眼下，正是‘探梅’‘寻梅’的好时节。”\n花期与赏花地点为2026年1月报道的情况，不代表今天的开花状态。",
+    "sources": [
+      {
+        "title": "梅花山早梅“剧透”！快来探第一缕梅香~",
+        "url": "https://zschina.nanjing.gov.cn/lyzx/202601/t20260116_5770274.html",
+        "publisher": "南京市中山陵园管理局",
+        "accessNote": "2026-11-12复查：本机直连返回403，已通过网页检索读取原文；不同网络直接访问可能受限。"
+      }
+    ],
+    "verificationStatus": "verified"
+  },
+  {
     "id": "putian-summer-lychees",
     "title": "福建莆田“过大暑”",
     "solarTermIds": [
@@ -747,6 +1196,27 @@
         "title": "莆博微课堂｜“时令节气”莆田人“过大暑”习俗",
         "url": "http://www.putianbwg.cn/html/default/xuanjiaotiandi/jiaoyuhuodong/815444179258757120.html",
         "publisher": "莆田市博物馆"
+      }
+    ],
+    "verificationStatus": "verified"
+  },
+  {
+    "id": "quanzhou-shuangjiang-persimmons",
+    "title": "福建泉州“霜降吃丁柿”",
+    "solarTermIds": [
+      "shuangjiang"
+    ],
+    "provinceCode": "350000",
+    "provinceName": "福建省",
+    "regionName": "泉州市",
+    "category": "food",
+    "description": "霜降前后柿子完全成熟，皮薄肉鲜。泉州民间有“霜降吃丁柿，不会流鼻涕”的说法，认为霜降吃柿子可御寒保暖、补筋骨，防止冬天嘴唇冻裂。闽南一带霜降还讲究吃鸭子进补、吃萝卜。",
+    "relationNote": "“泉州民间有着‘霜降吃丁柿，不会流鼻涕’的说法。”\n“不会流鼻涕”“补筋骨”等为民间饮食说法，不作为预防或治疗疾病的保证。",
+    "sources": [
+      {
+        "title": "闽俗时节｜闽式饮食中的二十四节气——霜降",
+        "url": "http://minsu.fjsen.com/2023-10/24/content_31440090.htm",
+        "publisher": "福建民俗博物馆"
       }
     ],
     "verificationStatus": "verified"
@@ -846,6 +1316,27 @@
     "verificationStatus": "verified"
   },
   {
+    "id": "shaoxing-guyu-yu-rites",
+    "title": "浙江绍兴谷雨公祭大禹陵",
+    "solarTermIds": [
+      "guyu"
+    ],
+    "provinceCode": "330000",
+    "provinceName": "浙江省",
+    "regionName": "绍兴市（大禹陵祭祀广场）",
+    "category": "folk_custom",
+    "description": "每年谷雨，绍兴大禹陵举行公祭大禹典礼，含肃立雅静、鸣长号、恭读祭文、颂唱大禹纪念歌、献祭舞等13项议程。守禹陵、奉禹祀已有几千年，1995年起将大禹祭典日期定在谷雨，取“雨生百谷”之日祈求五谷丰登、风调雨顺之意。",
+    "relationNote": "“近年来，每年谷雨，这里都会举行大禹祭典……1995年起将大禹祭典日期定为谷雨，有在‘雨生百谷’之日祈求五谷丰登、风调雨顺之意。”",
+    "sources": [
+      {
+        "title": "节令之美·谷雨丨雨生百谷，且惜春光",
+        "url": "http://www.news.cn/local/2023-04/20/c_1129544553.htm",
+        "publisher": "新华网（新华社）"
+      }
+    ],
+    "verificationStatus": "verified"
+  },
+  {
     "id": "shaoxing-huangjiu-winter-brewing",
     "title": "绍兴立冬黄酒开酿（冬酿）",
     "solarTermIds": [
@@ -914,6 +1405,52 @@
     "verificationStatus": "verified"
   },
   {
+    "id": "shiqian-lichun-saying-spring",
+    "title": "贵州石阡“说春”",
+    "solarTermIds": [
+      "lichun"
+    ],
+    "provinceCode": "520000",
+    "provinceName": "贵州省",
+    "regionName": "铜仁市石阡县",
+    "category": "folk_custom",
+    "description": "立春当日，石阡侗族“春官”身穿传统服饰，手持春牛和春牛棒走村串户，唱春词、送春帖，用顺口溜提醒乡亲备耕，唱词中融入二十四节气农时知识。花桥镇坡背村设有石阡说春陈列馆，春官们先印制春帖、举行出征仪式，再入村入户“送春”。2011年列入国家级非遗，2016年随“二十四节气”列入人类非遗代表作名录。",
+    "relationNote": "“2月4日立春当日，在石阡县，‘石阡说春’这一古老民俗活动拉开了‘一年之计在于春’的农忙序幕。”",
+    "sources": [
+      {
+        "title": "【新春走基层】石阡：以“说春”之声开启春耕画卷",
+        "url": "https://www.shiqian.gov.cn/ywjj/zwyw/202602/t20260204_89374336.html",
+        "publisher": "石阡县人民政府（石阡新闻网）"
+      }
+    ],
+    "verificationStatus": "verified"
+  },
+  {
+    "id": "south-china-yushui-rice-divination",
+    "title": "华南稻作区“占稻色”",
+    "solarTermIds": [
+      "yushui"
+    ],
+    "provinceCode": "440000",
+    "provinceName": "广东省",
+    "relatedProvinceCodes": [
+      "350000",
+      "450000"
+    ],
+    "regionName": "华南稻作区（含福建、广东、广西，未落实县市）",
+    "category": "agriculture",
+    "description": "雨水节把糯谷倒入烧热的干锅爆炒，看爆出的米花多少与成色，占卜当年稻谷丰歉：米花越多越白，预示收成好；米花少则收成差、米价贵。此俗最晚宋代已有，范成大《吴郡志》称“爆糯谷于釜中，名孛娄，亦曰米花”。",
+    "relationNote": "“雨水节气，华南地区有‘占稻色’习俗……《田家五行》记载：‘雨水节，烧干镬，以糯稻爆之，谓之孛罗花，占稻色。’”\n“占稻色”是民俗占卜，不是科学预测收成的方法；资料仅给出华南稻作区范围，没有具体县市调查。",
+    "sources": [
+      {
+        "title": "二十四节气·雨水",
+        "url": "https://www.cma.gov.cn/ztbd/2025zt/24jq/yushui/index.html",
+        "publisher": "中国气象局（中国气象网）"
+      }
+    ],
+    "verificationStatus": "verified"
+  },
+  {
     "id": "suzhou-dongzhi-winter-wine",
     "title": "姑苏冬至喝冬酿酒",
     "solarTermIds": [
@@ -940,6 +1477,27 @@
     "verificationStatus": "verified"
   },
   {
+    "id": "suzhou-qiufen-autumn-ox",
+    "title": "江苏苏州秋分“送秋牛”“说秋”",
+    "solarTermIds": [
+      "qiufen"
+    ],
+    "provinceCode": "320000",
+    "provinceName": "江苏省",
+    "regionName": "苏州市",
+    "category": "folk_custom",
+    "description": "秋分时苏州等地有送“秋牛”之俗。秋牛不是活牛，而是一张印有全年二十四节气与农夫耕田图样的“秋牛图”，相当于古时的“农事历”。送图人能言善唱，到各家即兴说唱秋耕与吉祥话，称“说秋”，送图人又称“秋官”，主家以花生等酬谢。",
+    "relationNote": "“在江苏苏州等地，秋分时有‘说秋’、送‘秋牛’等习俗……送图人即兴说唱，故称‘说秋’，以通俗韵文传递农耕智慧。”",
+    "sources": [
+      {
+        "title": "秋分为何送“秋牛”？（节气趣谈）",
+        "url": "http://sc.people.com.cn/n2/2026/0923/c345167-41705483.html",
+        "publisher": "人民网（转载人民日报海外版）"
+      }
+    ],
+    "verificationStatus": "verified"
+  },
+  {
     "id": "taihu-yuwang-worship",
     "title": "太湖“白露祭禹王”",
     "solarTermIds": [
@@ -960,7 +1518,29 @@
       {
         "title": "二十四节气之白露：观鸟饮茶祭禹王",
         "url": "https://news.jstv.com/a/20220907/2700d3b003c54ac199deed961fa23d68.shtml",
-        "publisher": "荔枝网（江苏广电《零距离》）"
+        "publisher": "荔枝网（江苏广电《零距离》）",
+        "accessNote": "2026-11-12本机复查连接异常，未重新读取正文；保留既有核查来源。"
+      }
+    ],
+    "verificationStatus": "verified"
+  },
+  {
+    "id": "tianjin-jingzhe-pears",
+    "title": "天津惊蛰吃梨",
+    "solarTermIds": [
+      "jingzhe"
+    ],
+    "provinceCode": "120000",
+    "provinceName": "天津市",
+    "regionName": "天津市",
+    "category": "food",
+    "description": "天津人讲究惊蛰吃梨，多用皮薄肉细汁多的天津鸭梨，也常与冰糖同炖成冰糖雪梨。当地解释有两层：一是传统饮食观念所说的梨“性寒味甘、润肺滋阴”（不作为医学功效保证）；二是“梨”与“犁”同音，寓意春耕开始。惊蛰当日水果店、餐饮店的梨品明显走俏。",
+    "relationNote": "“天津人讲究在惊蛰时节吃梨……尤其是天津鸭梨……此外，‘梨’与‘犁’同音，也寓意着春耕的开始。”",
+    "sources": [
+      {
+        "title": "惊蛰养生 疏肝理气",
+        "url": "http://tjtong.enorth.com.cn/system/2026/03/06/059201612.shtml",
+        "publisher": "天津通（北方网，来源今晚报）"
       }
     ],
     "verificationStatus": "verified"
@@ -1034,6 +1614,48 @@
     "verificationStatus": "verified"
   },
   {
+    "id": "xiangshan-chushu-fishing-festival",
+    "title": "浙江象山石浦开渔节",
+    "solarTermIds": [
+      "chushu"
+    ],
+    "provinceCode": "330000",
+    "provinceName": "浙江省",
+    "regionName": "宁波市象山县石浦镇",
+    "category": "folk_custom",
+    "description": "处暑前后东海渔业收获季开启，浙江沿海举行开渔节。象山石浦渔港为中国四大渔港之一，开渔节含千家万户挂渔灯、千舟竞发开船仪式、祭海、文艺晚会、海岛旅游与特产展销等，由民间“祭海”组织成节庆，1998年首办。",
+    "relationNote": "“每年处暑期间，在浙江沿海都要举行一年一度的隆重的开渔节……以象山开渔节为例，象山石浦渔港是中国四大渔港之一……”\n此处按资料的“处暑前后”节令范围介绍，不代表每年实际开捕日固定在处暑当天。",
+    "sources": [
+      {
+        "title": "处暑：夏将止，秋未满",
+        "url": "http://www.cma.gov.cn/2011xzt/20150130/20150821/2015072102/201508/t20150821_291111.html",
+        "publisher": "中国气象局政府门户网站"
+      }
+    ],
+    "verificationStatus": "verified"
+  },
+  {
+    "id": "xinghua-hanlu-chrysanthemums",
+    "title": "江苏兴化千垛寒露赏菊",
+    "solarTermIds": [
+      "hanlu"
+    ],
+    "provinceCode": "320000",
+    "provinceName": "江苏省",
+    "regionName": "泰州市兴化市千垛景区",
+    "category": "folk_custom",
+    "description": "寒露三候“菊有黄华”，农历九月又称菊月，民间赏菊、品菊花茶、饮菊花酒。2026年寒露报道记述，江苏兴化千垛景区菊花当时进入最佳观赏期，游客可乘船穿行垛田菊海，与云南昆明大观公园同为南方赏菊热点。",
+    "relationNote": "“在南方，江苏兴化千垛景区、云南昆明大观公园目前正值菊花最佳观赏期。”",
+    "sources": [
+      {
+        "title": "寒露秋色正浓 全国秋菊绽放地图看哪里“菊”势正好",
+        "url": "https://news.cctv.com/2026/10/08/ARTICSDnHU9ACbTJaA9jCeWv261008.shtml",
+        "publisher": "央视网"
+      }
+    ],
+    "verificationStatus": "verified"
+  },
+  {
     "id": "xinzheng-jujube-harvest",
     "title": "河南新郑秋分丰收季·大枣文化",
     "solarTermIds": [
@@ -1060,6 +1682,48 @@
     "verificationStatus": "pending"
   },
   {
+    "id": "xuzhou-xiaoshu-lamb-custom",
+    "title": "江苏徐州伏羊食俗",
+    "solarTermIds": [
+      "xiaoshu"
+    ],
+    "provinceCode": "320000",
+    "provinceName": "江苏省",
+    "regionName": "徐州市",
+    "category": "food",
+    "description": "小暑时节，江苏等地有吃“暑羊”的食俗。光明网非遗频道《二十四节气之小暑》在介绍这些夏季食俗时，记述徐州伏羊食俗于2021年列入国家级非物质文化遗产代表性项目名录。这里将伏羊作为徐州的地方饮食文化介绍，不把民间“以热制热”等饮食观念写成医学功效。",
+    "relationNote": "《二十四节气之小暑》在小暑食俗部分介绍江苏吃“暑羊”，并提及徐州伏羊食俗的国家级非遗记录。据此按小暑时节收录，不声称伏羊活动固定在小暑当天。",
+    "sources": [
+      {
+        "title": "二十四节气之小暑",
+        "url": "https://feiyi.gmw.cn/2026-07/07/content_38871722.htm",
+        "publisher": "光明网非遗频道（来源中国文化报）"
+      }
+    ],
+    "verificationStatus": "verified"
+  },
+  {
+    "id": "yinchuan-dongzhi-lamb-soup",
+    "title": "宁夏银川冬至喝“头脑”",
+    "solarTermIds": [
+      "dongzhi"
+    ],
+    "provinceCode": "640000",
+    "provinceName": "宁夏回族自治区",
+    "regionName": "银川市",
+    "category": "food",
+    "description": "银川冬至喝羊肉粉汤、吃羊肉粉汤饺子，当地给羊肉粉汤起了个名字叫“头脑”：五更天以松山紫蘑菇熬汤，羊肉丁下锅炒干水汽，加姜、葱、蒜、辣椒面入味，汤浓味鲜；粉汤饺子做好后先盛一碗供起，再给近邻端一碗。",
+    "relationNote": "“在宁夏银川，当地会在冬至时节吃一种叫‘头脑’的食物，实际上是一种当地特有的羊肉粉汤，以蘑菇熬汤，羊肉丁下锅烹炒……”",
+    "sources": [
+      {
+        "title": "全国冬至饭地图揭秘！五大流派“食”力交锋 你家乡属于哪一派",
+        "url": "https://news.cctv.com/2024/12/21/ARTIShWtntjzzysP52HWWmzW241221.shtml",
+        "publisher": "央视网（据中国天气网）"
+      }
+    ],
+    "verificationStatus": "verified"
+  },
+  {
     "id": "yizheng-pickled-winter-greens",
     "title": "仪征小雪腌“寒菜”",
     "solarTermIds": [
@@ -1076,6 +1740,54 @@
         "title": "寻味二十四节气・小雪",
         "url": "https://www.zjskw.gov.cn/art/2024/11/25/art_1229536557_61674.html",
         "publisher": "浙江省社会科学界联合会"
+      }
+    ],
+    "verificationStatus": "verified"
+  },
+  {
+    "id": "zhangzhou-shuangjiang-taro",
+    "title": "福建漳州“霜降食芋头”",
+    "solarTermIds": [
+      "shuangjiang"
+    ],
+    "provinceCode": "350000",
+    "provinceName": "福建省",
+    "regionName": "漳州市",
+    "category": "food",
+    "description": "漳州霜降有吃芋头的传统，民间流传“霜降食芋头，一年不用愁”。发布会以“芋头益胃宽肠”介绍当地的霜降时令食疗观念，此处作为传统饮食文化记录，不作为医学功效保证。同场发布会还提到福州“霜降食柿，唇齿生香”、莆田“霜降药浴”。",
+    "relationNote": "“漳州‘霜降食芋头，一年不用愁’的传承，诠释着‘芋头益胃宽肠’的食疗精髓。”",
+    "sources": [
+      {
+        "title": "“时令节气与健康福建”系列新闻发布会之霜降节气文字实录",
+        "url": "https://wjw.fujian.gov.cn/jggk/wsjsfc/tp/202510/t20251023_7024530.htm",
+        "publisher": "福建省卫生健康委员会"
+      }
+    ],
+    "verificationStatus": "verified"
+  },
+  {
+    "id": "zixing-bailu-rice-wine",
+    "title": "湖南资兴白露米酒（程酒）",
+    "solarTermIds": [
+      "bailu"
+    ],
+    "provinceCode": "430000",
+    "provinceName": "湖南省",
+    "regionName": "郴州市资兴市（兴宁、三都、蓼江一带）",
+    "category": "craft",
+    "description": "资兴兴宁、三都、蓼江、七里一带，每年白露节一到家家酿酒，待客必喝“土酒”，温中含热、略带甜味，称“白露米酒”。精品“程酒”因取程江水酿制得名，古为贡酒：先酿糯米甜酒糟，再按比例兑入米烧酒，掺糁子水后入坛密封，埋地下或窖藏数年乃至数十年。",
+    "relationNote": "“每年白露节一到，家家酿酒，待客接人必喝‘土酒’……称‘白露米酒’。白露米酒中的精品是‘程酒’，是因取程江水酿制而得名。”",
+    "sources": [
+      {
+        "title": "白露酒（又名程酒）",
+        "url": "http://www.zixing.gov.cn/btwh/fwzwhyc/content_2559196.html",
+        "publisher": "资兴市人民政府（市文化局整理）",
+        "accessNote": "2026-11-12复查：原站返回412安全防护页面，本次未能读取正文；另附可访问的中国农业大学同题资料供交叉参阅。"
+      },
+      {
+        "title": "［传统文化·二十四节气］白露",
+        "url": "https://news.cau.edu.cn/zhxwnew/584965.htm",
+        "publisher": "中国农业大学新闻中心（文化资料整理）"
       }
     ],
     "verificationStatus": "verified"

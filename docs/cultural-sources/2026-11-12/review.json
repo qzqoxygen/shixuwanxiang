@@ -1,0 +1,303 @@
+{
+  "reviewDate": "2026-11-12（北京时间）",
+  "intakeDigest": "44194454d66d8119d0d8ef96449c795a2c8adca422e60db64720d6a7ccaa36d3",
+  "baseline": "2026-11-06",
+  "policy": "旧明细47行除3个不计入状态外与上一批一致，保留已核实的44条及2条pending的正文、原有来源字段和稳定ID，另补本轮来源访问提示。补采33行逐一去重入库；所有原文、日期、整理状态与备注完整保留在intake.json。展示中的疗效、传说与占卜标为民俗或传统观念，不作科学保证。当前来源访问结果另见source-checks.json。",
+  "rows": [
+    {
+      "serial": 1,
+      "id": "shiqian-lichun-saying-spring",
+      "status": "verified",
+      "reason": "石阡县政府报道直接对应当地立春说春，保留完整简介及名录信息。"
+    },
+    {
+      "serial": 2,
+      "id": "beijing-kangling-spring-pancakes",
+      "status": "verified",
+      "reason": "京报网报道直接对应康陵村立春咬春；正德起源保留为当地传说。"
+    },
+    {
+      "serial": 3,
+      "id": "tianjin-jingzhe-pears",
+      "status": "verified",
+      "regionName": "天津市",
+      "reason": "上一版只有标题备注而没有明细，本次补齐独立资料。天津市本身为明确市级地区，不虚构区县。传统饮食观念不作医学保证。",
+      "replacements": [
+        [
+          "一是梨性寒味甘，润肺滋阴",
+          "一是传统饮食观念所说的梨“性寒味甘、润肺滋阴”（不作为医学功效保证）"
+        ]
+      ]
+    },
+    {
+      "serial": 4,
+      "id": "gannan-jingzhe-fried-seeds",
+      "status": "verified",
+      "reason": "当地媒体记载上犹、崇义惊蛰炒虫，保留象征性祈愿，不写为实际防虫技术。"
+    },
+    {
+      "serial": 5,
+      "id": "anren-chunfen-spring-fair",
+      "status": "verified",
+      "reason": "人民网湖南报道将安仁赶分社明确关联春分，保留春分前后三天范围。"
+    },
+    {
+      "serial": 6,
+      "id": "beijing-chunfen-sun-cakes",
+      "status": "verified",
+      "regionName": "北京市",
+      "reason": "新华社转载资料直接指明北京春分太阳糕；保留旧时祭日限定，不扩展为当代皇家礼制。"
+    },
+    {
+      "serial": 7,
+      "id": "xiangshan-chushu-fishing-festival",
+      "status": "verified",
+      "reason": "中国气象局处暑资料指向象山石浦，按表内备注保留“处暑前后”，不声称每年都在处暑日开捕。",
+      "relationSuffix": "此处按资料的“处暑前后”节令范围介绍，不代表每年实际开捕日固定在处暑当天。"
+    },
+    {
+      "serial": 8,
+      "id": "guangzhou-chushu-herbal-tea",
+      "status": "verified",
+      "reason": "佛山传媒资料明记广州处暑饮茶；养生用语仅作为传统饮食观念呈现。",
+      "replacements": [
+        [
+          "此时“外燥渐起，内暑未清”，暑湿与燥热交织易上火，凉茶既可清解体内暑湿，又能润初生秋燥。老广也常配百合“双雪”（雪梨、雪耳）糖水润燥。",
+          "原资料用“外燥渐起，内暑未清”说明传统饮食观念，把凉茶与“清暑湿、润秋燥”联系起来。老广也常配百合“双雪”（雪梨、雪耳）糖水。这些养生说法不作为医学功效保证。"
+        ]
+      ]
+    },
+    {
+      "serial": 9,
+      "id": "beijing-hanlu-fragrant-hills",
+      "status": "verified",
+      "reason": "人民网寒露专题直接记载香山等地登高赏红叶，不仅依据与重阳日期相近。"
+    },
+    {
+      "serial": 10,
+      "id": "xinghua-hanlu-chrysanthemums",
+      "status": "verified",
+      "reason": "央视寒露当日报道列出兴化千垛赏菊；把观赏期限制为报道当时，不能当作实时花情。",
+      "replacements": [
+        [
+          "寒露期间江苏兴化千垛景区菊花进入最佳观赏期",
+          "2026年寒露报道记述，江苏兴化千垛景区菊花当时进入最佳观赏期"
+        ]
+      ]
+    },
+    {
+      "serial": 11,
+      "id": "quanzhou-shuangjiang-persimmons",
+      "status": "verified",
+      "reason": "福建民俗博物馆直接记载泉州霜降吃丁柿，保留谚语并明确是民俗说法。",
+      "relationSuffix": "“不会流鼻涕”“补筋骨”等为民间饮食说法，不作为预防或治疗疾病的保证。"
+    },
+    {
+      "serial": 12,
+      "id": "zhangzhou-shuangjiang-taro",
+      "status": "verified",
+      "reason": "福建省卫健委节气发布会明确记述漳州霜降食芋头，传统食疗用语带来源归属。",
+      "replacements": [
+        [
+          "芋头益胃宽肠，适合秋燥转凉时调养，被当地视为霜降时令食疗。",
+          "发布会以“芋头益胃宽肠”介绍当地的霜降时令食疗观念，此处作为传统饮食文化记录，不作为医学功效保证。"
+        ]
+      ]
+    },
+    {
+      "serial": 13,
+      "id": "beijing-lidong-dumplings",
+      "status": "verified",
+      "regionName": "北京市丰台区",
+      "reason": "新华社报道在简介中明确落到北京丰台；避免把饺子护耳传说写成防冻功效。",
+      "relationSuffix": "“吃饺子耳朵不受冻”是民间说法，不是防冻功效。"
+    },
+    {
+      "serial": 14,
+      "id": "chaoshan-lidong-sugarcane",
+      "status": "verified",
+      "reason": "南方日报资料明确潮汕立冬食蔗；保留民谚而不保证护齿效果。",
+      "replacements": [
+        [
+          "立冬气候由湿润转干燥，甘蔗汁多生津润燥正合时令",
+          "传统饮食观念把甘蔗汁多与“生津润燥”联系起来"
+        ]
+      ],
+      "relationSuffix": "“食蔗齿不痛”是当地民谚，不是护齿或治疗牙痛的医学保证。"
+    },
+    {
+      "serial": 15,
+      "id": "lubei-daxue-sweet-potato-porridge",
+      "status": "verified",
+      "regionName": "鲁北地区（山东北部）",
+      "reason": "补采表独有、主明细漏合并。人民日报海外版大雪专题直接记载鲁北红黏粥，保留鲁北范围，不虚构县市。"
+    },
+    {
+      "serial": 16,
+      "id": "nanjing-daxue-radish-balls",
+      "status": "verified",
+      "reason": "补采表独有、主明细漏合并。人民日报海外版大雪专题直接记述南京萝卜圆子，与南京腌肉是不同食俗。"
+    },
+    {
+      "serial": 17,
+      "id": "beijing-dahan-cold-dispelling-cakes",
+      "status": "verified",
+      "regionName": "北京市",
+      "reason": "中新网报道直接记述北京大寒消寒糕；删除作为事实陈述的糖含量比较，保留年高寓意与传统饮食说法。",
+      "replacements": [
+        [
+          "糯米含糖量高于大米，食后全身暖和，被认为可温散风寒、润肺健脾胃",
+          "资料以传统饮食观念解释它与“暖身、温散风寒、润肺健脾胃”的联系（不作为营养比较或医学功效保证）"
+        ]
+      ]
+    },
+    {
+      "serial": 18,
+      "id": "foshan-dahan-sticky-rice",
+      "status": "verified",
+      "reason": "按素材组在补采表中的已核实记录收录，原表指向佛山传媒大寒顺德生炒糯米饭报道。本次访问原链进入网站升级页，未能独立复核正文，保留原链并明确访问限制，不能宣称本轮已打开核实。",
+      "accessNote": "2026-11-12复查：原链接进入网站升级页面，本次未能读取正文。按素材表既有核实记录收录，待原站恢复后复核。"
+    },
+    {
+      "serial": 19,
+      "id": "south-china-yushui-rice-divination",
+      "status": "verified",
+      "provinceName": "广东省",
+      "relatedProvinceCodes": [
+        "350000",
+        "450000"
+      ],
+      "regionName": "华南稻作区（含福建、广东、广西，未落实县市）",
+      "reason": "原表明确列广东及闽粤桂的华南范围。广东仅为兼容旧接口的主省锚点，福建/广西为关联省；没有声称逐省独立调查。保留区域限定，不能虚构村镇。",
+      "relationSuffix": "“占稻色”是民俗占卜，不是科学预测收成的方法；资料仅给出华南稻作区范围，没有具体县市调查。"
+    },
+    {
+      "serial": 20,
+      "id": "dujiangyan-qingming-water-release",
+      "status": "verified",
+      "reason": "国家非遗项目页明确都江堰清明放水节；2006是名录公布年，不冒充网页发布日期。"
+    },
+    {
+      "serial": 21,
+      "id": "nanjing-lixia-egg-fighting",
+      "status": "verified",
+      "reason": "南京本地报纸直接记述南京立夏斗蛋，有别于杭州立夏食俗。"
+    },
+    {
+      "serial": 22,
+      "id": "guanzhong-xiaoman-wheat-visits",
+      "status": "verified",
+      "reason": "光明网小满报道直接记述陕西关中看麦梢黄，保留区域范围而不虚构村镇。"
+    },
+    {
+      "serial": 23,
+      "id": "jiangnan-mangzhong-flower-farewell",
+      "status": "verified",
+      "provinceName": "江苏省",
+      "relatedProvinceCodes": [
+        "330000"
+      ],
+      "regionName": "江南地区（江苏、浙江一带，未落实县市）",
+      "reason": "原表明确列江苏、浙江的江南范围。江苏仅为兼容旧接口的主省锚点，浙江为关联省；没有声称逐省独立调查。保留文学与民俗限定，不虚构县市。",
+      "relationSuffix": "资料以江南地区介绍该习俗，并引《红楼梦》记载；尚未给出江苏或浙江具体县市的活动调查。"
+    },
+    {
+      "serial": 24,
+      "id": "xuzhou-xiaoshu-lamb-custom",
+      "status": "verified",
+      "reason": "本次正文复核发现原表“最核心民俗”并非逐字摘录，且一个月、山羊与烹饪细节未获该来源支持。展示收紧为原文明记的小暑江苏吃暑羊及2021年徐州伏羊非遗；原始完整简介和摘录仍保留在intake.json，不把未经核实的细节作为已核实事实。",
+      "descriptionOverride": "小暑时节，江苏等地有吃“暑羊”的食俗。光明网非遗频道《二十四节气之小暑》在介绍这些夏季食俗时，记述徐州伏羊食俗于2021年列入国家级非物质文化遗产代表性项目名录。这里将伏羊作为徐州的地方饮食文化介绍，不把民间“以热制热”等饮食观念写成医学功效。",
+      "relationOverride": "《二十四节气之小暑》在小暑食俗部分介绍江苏吃“暑羊”，并提及徐州伏羊食俗的国家级非遗记录。据此按小暑时节收录，不声称伏羊活动固定在小暑当天。"
+    },
+    {
+      "serial": 25,
+      "id": "guangdong-dashu-grass-jelly",
+      "status": "verified",
+      "reason": "中国气象局大暑专题明确广东吃仙草，保留具体称呼与做法，谚语不作为功效。",
+      "relationSuffix": "“活如神仙不会老”为民间谚语，不是抗衰老功效。"
+    },
+    {
+      "serial": 26,
+      "id": "beijing-liqiu-autumn-meat",
+      "status": "verified",
+      "regionName": "北京市",
+      "reason": "京报网立秋当日报道记录老北京贴秋膘；销量为当年报道个案，不当作实时数据。",
+      "relationSuffix": "店铺备货数量是2026年报道的当日记录；“贴秋膘”为饮食民俗，不是普遍增重建议。"
+    },
+    {
+      "serial": 27,
+      "id": "zixing-bailu-rice-wine",
+      "status": "verified",
+      "reason": "原表引资兴市政府的白露酒资料。本次原链受412安全防护阻拦，保留原链并补入已读正文的中国农业大学白露文化整理稿，其白露米酒段支持资兴地区、程江水与程酒及酿制做法。高校稿是文化资料整理，不表述为独立田野调查。",
+      "accessNote": "2026-11-12复查：原站返回412安全防护页面，本次未能读取正文；另附可访问的中国农业大学同题资料供交叉参阅。",
+      "extraSources": [
+        {
+          "title": "［传统文化·二十四节气］白露",
+          "url": "https://news.cau.edu.cn/zhxwnew/584965.htm",
+          "publisher": "中国农业大学新闻中心（文化资料整理）"
+        }
+      ]
+    },
+    {
+      "serial": 28,
+      "id": "suzhou-qiufen-autumn-ox",
+      "status": "verified",
+      "reason": "人民日报海外版节气报道直接记述苏州秋分送秋牛与说秋，不与贵州立春说春合并。"
+    },
+    {
+      "serial": 29,
+      "id": "shaoxing-guyu-yu-rites",
+      "status": "verified",
+      "reason": "新华社谷雨报道明确绍兴谷雨大禹祭典，与绍兴夏至祭祖及立冬冬酿为不同实体。"
+    },
+    {
+      "serial": 30,
+      "id": "beijing-xiazhi-earth-rites",
+      "status": "verified",
+      "reason": "补采表独有、主明细漏合并。人民网报道明确地坛历史夏至祭地，区别于现在春节庙会仿清表演。",
+      "relationSuffix": "夏至祭地是明清历史皇家礼制，现已不实行；今天春节庙会的仿清表演不能视为仍在夏至举行。"
+    },
+    {
+      "serial": 31,
+      "id": "chiayi-xiaoxue-dried-fish",
+      "status": "verified",
+      "reason": "中国气象局小雪资料明确台湾中南部及嘉义布袋，保留渔期与晒制方式。"
+    },
+    {
+      "serial": 32,
+      "id": "yinchuan-dongzhi-lamb-soup",
+      "status": "verified",
+      "reason": "央视冬至报道明确银川“头脑”为当地羊肉粉汤，不与其他同名食品混同。"
+    },
+    {
+      "serial": 33,
+      "id": "nanjing-xiaohan-plum-viewing",
+      "status": "verified",
+      "reason": "中山陵园管理局小寒期间报道明确梅花山探梅；本机直连返回403，经网页检索读取正文确认。花期是报道背景，不作为今日实时花情。",
+      "accessNote": "2026-11-12复查：本机直连返回403，已通过网页检索读取原文；不同网络直接访问可能受限。",
+      "relationSuffix": "花期与赏花地点为2026年1月报道的情况，不代表今天的开花状态。"
+    }
+  ],
+  "existingSourceNotes": [
+    {
+      "id": "huangling-harvest-drying",
+      "url": "https://www.wyhl.cc/site/wyhl/lyzx/rmhd/detail2025-08-17-400.html",
+      "accessNote": "2026-11-12本机复查连接异常，未重新读取正文；保留既有核查来源。"
+    },
+    {
+      "id": "nanjing-eel-and-new-rice",
+      "url": "http://dfz.nanjing.gov.cn/gzdt/202607/t20260706_5871977.html",
+      "accessNote": "2026-11-12本机复查返回403，访问可能受网站防护或网络限制；保留既有核查来源。"
+    },
+    {
+      "id": "nanjing-winter-cured-meat",
+      "url": "https://js.xuexi.cn/local/detail.html?FD0CA7A0771E7C74EA5F38101D0C3A49=1E43BFFBDC9BBC15A3E7A300ECB81016&6E9D852F0075DEF5A5B44097C3EBECDA=6A7AEF2591DA6A6F4C59B11C2A3E8CFA520A0D3939B62E746A607EED23D050D0&D33FA5C955359659FFCA6FA4AB1778C8=CFE4252BEE7064CA2E25278687200485C234EAF7EC308634B81DD33EFA0BA357&AC11F3C9EE565CEDC2B7AA9B8914E5A6=590715588EE0E46B5B6DF30A635AEBB1022E9731653A320542CCE7C34C95D583",
+      "accessNote": "2026-11-12本机复查仅取得动态页面，未重新读取正文；保留既有核查来源。"
+    },
+    {
+      "id": "taihu-yuwang-worship",
+      "url": "https://news.jstv.com/a/20220907/2700d3b003c54ac199deed961fa23d68.shtml",
+      "accessNote": "2026-11-12本机复查连接异常，未重新读取正文；保留既有核查来源。"
+    }
+  ]
+}

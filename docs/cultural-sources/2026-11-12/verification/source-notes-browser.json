@@ -1,0 +1,27 @@
+{
+  "testedAt": "2026-11-12T02:41:33.505Z",
+  "origin": "http://127.0.0.1:3112",
+  "checks": [
+    {
+      "id": "huangling-harvest-drying",
+      "accessNoteDisplayed": true,
+      "originalUrlPreserved": true
+    },
+    {
+      "id": "nanjing-eel-and-new-rice",
+      "accessNoteDisplayed": true,
+      "originalUrlPreserved": true
+    },
+    {
+      "id": "nanjing-winter-cured-meat",
+      "accessNoteDisplayed": true,
+      "originalUrlPreserved": true
+    },
+    {
+      "id": "taihu-yuwang-worship",
+      "accessNoteDisplayed": true,
+      "originalUrlPreserved": true
+    }
+  ],
+  "passed": true
+}

@@ -3,6 +3,7 @@
 import { useEffect, useId, useReducer, useRef, useState, useSyncExternalStore, type CSSProperties, type KeyboardEvent } from "react";
 import { ReadingPage, PhotoPage } from "@/components/seasons/BookPages";
 import BookDirectory from "@/components/seasons/BookDirectory";
+import SeasonalCases from "@/components/seasons/SeasonalCases";
 import { useBookSwipe } from "@/components/seasons/useBookSwipe";
 import { SOLAR_TERMS } from "@/lib/solar-terms";
 import { SOLAR_TERM_PHOTOS } from "@/lib/solar-term-photos";
@@ -165,6 +166,7 @@ export default function SolarTermsExplorer() {
     </section>
     {compact && directory}
     </div>
+    <SeasonalCases key={selected.id} term={selected} />
     <p className="seasons-announcement" role="status" aria-live="polite" aria-atomic="true">第{settledIndex + 1}个节气，{selected.name}。{compact ? "本页依次为节气介绍与对应照片。" : "左页为节气介绍，右页为对应照片。"}{selected.description}</p>
   </div>;
 }
