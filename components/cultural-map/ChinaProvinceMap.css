@@ -62,8 +62,30 @@
   .province-visual, .province-paper, .province-thickness, .province-tint, .province-case-link { transition: none; }
 }
 @media (min-width: 900px) {
-  .culture-map-spread { grid-template-columns: minmax(0, 9fr) minmax(0, 11fr); gap: clamp(18px, 2.4vw, 36px); }
-  .culture-map-viewport[data-enlarged="false"] .culture-map-canvas { max-width: 510px; }
+  .culture-map-spread { grid-template-columns: minmax(0, 11fr) minmax(0, 9fr); gap: clamp(18px, 2.4vw, 36px); }
+  .culture-map-viewport[data-enlarged="false"] .culture-map-canvas { max-width: 620px; }
+  /* Let the map set the row height; case content scrolls inside its own sheet. */
+  .culture-map-spread > .case-explorer {
+    contain: size;
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    overflow: hidden;
+  }
+  .culture-map-spread > .case-explorer > .case-explorer-heading { flex: none; }
+  .culture-map-spread > .case-explorer > :is(.case-list-panel, #culture-case-detail):not([hidden]) {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-width: thin;
+    scrollbar-color: #91b2ad transparent;
+  }
+  .culture-map-spread .case-list-results { display: flex; flex-direction: column; height: 100%; min-height: 0; }
+  .culture-map-spread .case-result-count { flex: none; }
+  .culture-map-spread .case-list { flex: 1; min-height: 0; overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; scrollbar-color: #91b2ad transparent; scrollbar-gutter: stable; }
+  .culture-map-spread .case-pagination { flex: none; margin: 12px 0 0; }
   .province-case-link span { transform: rotate(-90deg); }
 }
 @media (max-width: 640px) {
