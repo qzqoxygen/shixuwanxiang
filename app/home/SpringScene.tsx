@@ -134,8 +134,19 @@ export default function SpringScene() {
         className="spring-view-control"
         type="button"
         aria-label={near ? "退回窗前" : "走近窗边"}
+        aria-pressed={near}
         onClick={changeView}
-      />
+      >
+        <span className="spring-view-badge" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
+            <circle cx="10.5" cy="10.5" r="6.5" />
+            <path className="spring-view-handle" d="m15.5 15.5 5 5" />
+            <path d="M7.5 10.5h6" />
+            {!near && <path d="M10.5 7.5v6" />}
+          </svg>
+          <span>{near ? "退回窗前" : "走近看景"}</span>
+        </span>
+      </button>
 
       <div className="spring-picker">
         <div className="spring-switch" role="group" aria-label="切换季节">

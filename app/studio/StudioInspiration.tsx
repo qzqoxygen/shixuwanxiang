@@ -88,7 +88,7 @@ export default function StudioInspiration({ term, format, selectedCase, onApply 
         <summary>参考文化案例（{references.length} 则）</summary>
         <ul>{references.map(item => <li key={item.caseId}>
           <strong>{item.title}</strong><p>{item.provinceName} · {item.regionName}</p>
-          {item.sources.map(source => <div key={source.url}><a href={source.url} target="_blank" rel="noopener noreferrer">{source.title}{source.publisher ? `（${source.publisher}）` : ""} ↗</a>{source.accessNote && <span>{source.accessNote}</span>}</div>)}
+          {item.sources.map(source => <div key={source.url}><a href={source.url} target="_blank" rel="noopener noreferrer">{source.title}{source.publisher ? `（${source.publisher}）` : ""}</a>{source.accessNote && <span>{source.accessNote}</span>}</div>)}
         </li>)}</ul>
       </details>}
     </div>

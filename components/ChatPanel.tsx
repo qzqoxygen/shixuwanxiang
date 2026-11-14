@@ -38,19 +38,19 @@ function CaseReferences({ references, onShowOnMap }: { references: ChatCaseRefer
           <p className="chat-case-place">{place}</p>
           <div className="chat-case-actions">
             <button type="button" className="chat-case-map" aria-label={`在地图上查看：${reference.title}`} onClick={() => onShowOnMap(reference)}>
-              在地图上查看 <span aria-hidden="true">→</span>
+              在地图上查看
             </button>
             <a className="chat-case-original" href={primarySource.url} target="_blank" rel="noopener noreferrer" aria-label={`查看原文：${primarySource.title}`} title={primarySource.title}>
-              查看原文 <span aria-hidden="true">↗</span>
+              查看原文
             </a>
             <Link className="chat-case-create" href={studioCaseHref(reference)} prefetch={false} aria-label={`用这个案例做节气卡：${reference.title}`}>
-              做节气卡 <span aria-hidden="true">→</span>
+              做节气卡
             </Link>
           </div>
           {primarySource.accessNote && <span className="chat-case-source-note">{primarySource.accessNote}</span>}
           {otherSources.length > 0 && <ul className="chat-case-sources">
             {otherSources.map((source) => <li key={source.url}>
-              <a href={source.url} target="_blank" rel="noopener noreferrer">{source.title} <span aria-hidden="true">↗</span></a>
+              <a href={source.url} target="_blank" rel="noopener noreferrer">{source.title} </a>
               {source.accessNote && <span className="chat-case-source-note">{source.accessNote}</span>}
             </li>)}
           </ul>}
@@ -152,7 +152,7 @@ export default function ChatPanel({ onShowOnMap }: { onShowOnMap: (reference?: C
             {message.caseReferences && <CaseReferences references={message.caseReferences} onShowOnMap={onShowOnMap} />}
             {message.noLocalCaseMatch && <div className="chat-case-empty">
               <p>{message.caseLookup ? "已查询案例库，暂未找到匹配的已核验案例。" : "本站暂未找到匹配的已核验案例。"}</p>
-              <button type="button" className="chat-case-map" onClick={() => onShowOnMap()}>浏览地图 <span aria-hidden="true">→</span></button>
+              <button type="button" className="chat-case-map" onClick={() => onShowOnMap()}>浏览地图</button>
             </div>}
           </article>)}
           {busy && <><article className="chat-message chat-user"><p className="chat-speaker">你</p><div className="chat-message-text">{pending}</div></article><p className="chat-loading" role="status">正在整理回答…</p></>}

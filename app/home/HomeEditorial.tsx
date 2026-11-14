@@ -49,7 +49,7 @@ export default function HomeEditorial() {
           <h2 id="home-term-heading">认识二十四节气</h2>
           <div className="home-term-summary">
             <p>从地球上看，太阳在天空中的位置沿着一条叫作黄道的路径变化。每前进 15°，就到一个新节气。春夏秋冬各有六个，从立春排到大寒。</p>
-            <p>古人用节气记下昼夜、寒暑与草木的变化，安排播种和收获。这些时间标记也融进了各地的饮食和习俗。<a className="home-term-source" href="https://www.hko.gov.hk/tc/gts/time/24solarterms.htm" target="_blank" rel="noreferrer">历法说明<span className="sr-only">（新窗口打开）</span><span aria-hidden="true">↗</span></a></p>
+            <p>古人用节气记下昼夜、寒暑与草木的变化，安排播种和收获。这些时间标记也融进了各地的饮食和习俗。<a className="home-term-source" href="https://www.hko.gov.hk/tc/gts/time/24solarterms.htm" target="_blank" rel="noreferrer">历法说明<span className="sr-only">（新窗口打开）</span></a></p>
           </div>
         </header>
 
@@ -71,7 +71,7 @@ export default function HomeEditorial() {
                 </h3>
                 <p className="home-term-place">{scene}</p>
                 <p className="home-term-photo-note">{note}</p>
-                <span className="home-term-arrow" aria-hidden="true">↗</span>
+
               </figcaption>
             </figure>
           ))}
@@ -89,7 +89,7 @@ export default function HomeEditorial() {
         <div className="home-chapter-copy">
           <h2 id="home-seasons-heading">四时</h2>
           <p>从立春翻到大寒。一页读节气，一页看风物，也读一则当季的小识。</p>
-          <Link className="home-chapter-link" href="/seasons">翻开风物册<span aria-hidden="true">↗</span></Link>
+          <Link className="home-chapter-link" href="/seasons">翻开风物册</Link>
         </div>
       </section>
 
@@ -107,9 +107,9 @@ export default function HomeEditorial() {
         <div className="home-chapter-copy">
           <h2 id="home-explore-heading">知时</h2>
           <h3 className="home-chapter-case">春分 · 日坛祭日</h3>
-          <p>明清时，朝廷在春分这天到日坛祭日。<a className="home-term-source" href="https://yllhj.beijing.gov.cn/ztxx/lhysh/st/202304/t20230411_3003938.shtml" target="_blank" rel="noreferrer">史料出处<span className="sr-only">（新窗口打开）</span><span aria-hidden="true">↗</span></a></p>
+          <p>明清时，朝廷在春分这天到日坛祭日。<a className="home-term-source" href="https://yllhj.beijing.gov.cn/ztxx/lhysh/st/202304/t20230411_3003938.shtml" target="_blank" rel="noreferrer">史料出处<span className="sr-only">（新窗口打开）</span></a></p>
           <p>在知时，你可以按节气和地区查找各地的习俗与故事。</p>
-          <Link className="home-chapter-link" href="/explore?solarTermId=chunfen&provinceCode=110000">去知时看故事<span aria-hidden="true">↗</span></Link>
+          <Link className="home-chapter-link" href="/explore?solarTermId=chunfen&provinceCode=110000">去知时看故事</Link>
         </div>
       </section>
 
@@ -122,7 +122,7 @@ export default function HomeEditorial() {
         <div className="home-chapter-copy">
           <h2 id="home-studio-heading">造物</h2>
           <p>挑一个节气，换底色、贴图、写几句话，把它做成自己的节气卡、书签或画报。</p>
-          <Link className="home-chapter-link" href="/studio">做一张节气卡<span aria-hidden="true">↗</span></Link>
+          <Link className="home-chapter-link" href="/studio">做一张节气卡</Link>
         </div>
       </section>
       <div className="home-editorial-notes"><Link href="/about#home-photo-sources">影像鸣谢</Link></div>

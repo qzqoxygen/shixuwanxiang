@@ -107,7 +107,7 @@ export function ProvinceControls() {
         <option value="">全国</option>
         {provinces.map(province => <option key={province.id} value={province.id}>{province.name}</option>)}
       </select>
-      <a className="province-case-link" href="#cultural-case-explorer">查看案例 <span aria-hidden="true">↓</span></a>
+      <a className="province-case-link" href="#cultural-case-explorer">查看案例 </a>
     </div>
     {provinces.some(province => province.scenery) && <p className="province-scenery-note">纸雕山水为装饰意象，不代表真实地形。</p>}
   </div>;

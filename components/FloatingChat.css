@@ -26,9 +26,10 @@
   height: min(620px, calc(100dvh - 40px));
   display: flex;
   flex-direction: column;
-  border: 2px solid #45625a;
-  border-radius: 12px;
-  box-shadow: 0 8px 20px #253e3726;
+  border: 1px solid #82988a;
+  border-radius: 16px;
+  background: #f9f6ed;
+  box-shadow: 0 16px 48px #253e372b, 0 2px 8px #253e3714;
   color: #303b38;
 }
 .cloud-chat-window:not([hidden]) { animation: cloud-chat-surface-arrive 240ms ease-out both; }
@@ -38,9 +39,9 @@
   align-items: center;
   gap: 8px;
   padding: 15px 14px 15px 10px;
-  border-radius: 10px 10px 0 0;
-  border-bottom: 2px solid #b69a5c;
-  background: linear-gradient(115deg, rgb(10 37 31 / 65%), rgb(17 51 44 / 69%));
+  border-radius: 15px 15px 0 0;
+  border-bottom: 1px solid #b69a5c;
+  background: linear-gradient(115deg, #284c42, #3b6254);
   color: #fffaf0;
   touch-action: none;
   cursor: grab;
@@ -56,19 +57,19 @@
 .cloud-chat-header button:focus-visible { outline: 2px solid #f1d18a; outline-offset: 2px; }
 .cloud-chat-tools { display: flex; }
 .cloud-chat-tools button { transition: scale var(--chat-button-motion), background-color 160ms ease; }
-.cloud-chat-tools .cloud-chat-minimize { font-size: 14px; }
+.cloud-chat-tools :is(.cloud-chat-minimize, .cloud-chat-reset) { font-size: 13px; }
 .cloud-chat-content {
   position: relative;
   isolation: isolate;
   flex: 1;
   min-height: 0;
   padding: 14px 20px 12px;
-  overflow-y: auto;
+  overflow: hidden;
   overscroll-behavior: contain;
   scrollbar-width: thin;
   scrollbar-color: #8ca198 transparent;
   border-radius: 0 0 10px 10px;
-  background: linear-gradient(150deg, #f8f2e4bb, #fffaf0db 55%, #e8eee0b0), url("/images/xuan-paper.webp") center / cover #f9f4e8;
+  background: linear-gradient(150deg, #f8f5edee, #faf8f0f5 55%, #edf1e8ee), url("/images/xuan-paper.webp") center / cover #f9f4e8;
 }
 .cloud-chat-content::before {
   content: "";
