@@ -1,0 +1,1205 @@
+.spring-home {
+  --spring-ink: #24382d;
+  --spring-paper: #f9f5e9;
+  --spring-serif: "Noto Serif SC", "Songti SC", STSong, SimSun, serif;
+  --window-grain: url("/images/studio-sandalwood-grain.webp");
+  margin-block: clamp(14px, 2.4vh, 28px) 0;
+  color: var(--spring-ink);
+}
+
+.page-shell:has(.spring-home) {
+  max-width: 1600px;
+  padding-inline: clamp(18px, 3.3vw, 57px);
+}
+
+.page-shell:has(.spring-home) .site-header {
+  min-height: 77px;
+  border-color: #77634a38;
+}
+
+.page-shell:has(.spring-home) .site-footer {
+  margin-top: 16px;
+  border-color: #77634a38;
+}
+
+body:has(.spring-home:not([style*="display: none"])) {
+  background: linear-gradient(#f8f6efe8, #f8f6efe8), url("/images/xuan-paper.webp") center top / 1536px auto repeat;
+  background-color: #f8f6ef;
+}
+
+.spring-window {
+  --window-frame: clamp(9px, 1.28vw, 20px);
+  --window-casing: linear-gradient(135deg, #594133bd, #30241dec 52%, #483428d6), var(--window-grain) center / 430px auto;
+  border: 1px solid #513a2b;
+  padding: var(--window-frame) var(--window-frame) 9px;
+  background: var(--window-casing);
+  box-shadow: 0 17px 36px #39271b38, 0 3px 9px #372b2338, inset 0 0 0 1px #d6a47663, inset 0 0 0 4px #281a15a6, inset 0 0 0 5px #9e714a70;
+}
+
+.spring-scene {
+  border: 1px solid #261a14;
+  background: #eae2cd;
+  box-shadow: 0 0 0 1px #b3835469, 0 0 0 3px #22181180;
+}
+
+.spring-stage {
+  --view-duration: .72s;
+  --view-ease: cubic-bezier(.24, .74, .24, 1);
+  --picker-inset: 7%;
+  --window-jamb: clamp(26px, 3.3vw, 50px);
+  --window-head: clamp(28px, 4.3vh, 45px);
+  --window-sill: clamp(15px, 2.15vh, 25px);
+  --window-light: #e7bb8a;
+  position: relative;
+  height: clamp(475px, 65svh, 740px);
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.spring-stage[data-season="summer"] { --window-light: #c4c5a0; }
+.spring-stage[data-season="autumn"] { --window-light: #edb480; }
+.spring-stage[data-season="winter"] { --window-light: #c8c4bf; }
+
+.spring-window-trim {
+  position: absolute;
+  z-index: 6;
+  inset: 0;
+  pointer-events: none;
+}
+
+.spring-window-trim::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  box-shadow: inset 0 24px 30px -12px #2417109e, inset 0 -15px 28px -12px #281a1678, inset 18px 0 30px -20px #21150fb0, inset -18px 0 30px -20px #21150fc0;
+  transition: opacity var(--view-duration) ease;
+}
+
+.spring-window-transom,
+.spring-window-jamb,
+.spring-window-sill {
+  position: absolute;
+  transition: transform .48s var(--view-ease);
+}
+
+.spring-window-transom {
+  inset: -8px -12px auto;
+  height: calc(var(--window-head) + 8px);
+  display: grid;
+  grid-template-columns: 20% 30% 30% 20%;
+  border-top: 11px solid #402c21;
+  border-bottom: 7px solid #4b3225;
+  border-image: linear-gradient(#37251b, #6a4732 25%, #b58b63 31%, #4b3022 36%, #382419 82%, var(--window-light) 87%, #57392b 94%) 11 0 7;
+  background: linear-gradient(#412c2078, #684b3130 56%, #45302266);
+  box-shadow: 0 6px 13px -4px #24160f9e;
+  transform: translate(calc(var(--spring-x, 0px) * .30), calc(var(--spring-y, 0px) * .20));
+}
+
+.spring-window-transom span {
+  position: relative;
+  height: 100%;
+  border-right: 4px solid #66432f;
+  border-image: linear-gradient(90deg, #a87551, #4c3023) 1;
+  box-shadow: 2px 0 #34221885, 3px 1px 4px #31241855;
+}
+
+.spring-window-transom span::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -7px;
+  width: 10px;
+  aspect-ratio: 1;
+  border: 1px solid #b28560;
+  background: linear-gradient(135deg, #80563c, #432d21);
+  box-shadow: 1px 1px 3px #23160eb0;
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.spring-window-jamb {
+  inset-block: -12px;
+  width: calc(var(--window-jamb) + 10px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-block: calc(var(--window-head) + 12px) calc(var(--window-sill) + 12px);
+  padding-inline: 10px 8px;
+  background: linear-gradient(90deg, #291a13c7 10px, #76513930 12px, #67462e56 55%, #352218d9 100%);
+  box-shadow: inset 0 0 0 1px #21160f75, inset -1px 0 var(--window-light), inset -4px 0 #563724, inset -7px 0 #a17652, 6px 0 14px -5px #24190f8c;
+}
+
+.spring-window-jamb-left {
+  left: -10px;
+  transform: translateX(calc(var(--spring-x, 0px) * .40));
+}
+
+.spring-window-jamb-right {
+  right: -10px;
+  transform: translateX(calc(var(--spring-x, 0px) * .40)) scaleX(-1);
+}
+
+.spring-window-jamb span {
+  height: 25%;
+  border-block: 4px solid #64432e;
+  background:
+    repeating-linear-gradient(45deg, transparent 0 10px, #bc936c 10px 11px, #66422e 11px 13px, #301e16bb 13px 14px, transparent 14px 23px),
+    repeating-linear-gradient(-45deg, transparent 0 10px, #bc936c 10px 11px, #66422e 11px 13px, #301e16bb 13px 14px, transparent 14px 23px),
+    #69482e28;
+  box-shadow: inset 0 1px #c69c74ab, inset 0 -1px #281913b0, 0 2px 4px #2c1c1363;
+}
+
+.spring-window-sill {
+  inset: auto -14px -9px;
+  height: calc(var(--window-sill) + 9px);
+  background:
+    linear-gradient(180deg, var(--window-light) 0 1px, #916d4cd4 2px, #72513799 6px, #382419db 55%, #2c2018f5 71%),
+    var(--window-grain) center 46% / 460px auto;
+  box-shadow: 0 -6px 16px -5px #35221d75, inset 0 -1px #201611bf;
+  transform: translate(calc(var(--spring-x, 0px) * .40), calc(var(--spring-y, 0px) * .25));
+}
+
+.spring-landscape {
+  position: absolute;
+  inset: -8px;
+  transform: translate(calc(var(--spring-x, 0px) * -.15), calc(var(--spring-y, 0px) * -.15));
+  transform-origin: 62% 54%;
+  transition: transform .42s cubic-bezier(.2, .7, .3, 1);
+}
+
+.spring-landscape-layer {
+  position: absolute;
+  inset: 0;
+}
+
+.spring-landscape-layer:not([data-chapter="spring"]) {
+  opacity: 0;
+  transition: opacity .95s cubic-bezier(.33, 0, .28, 1);
+}
+
+.spring-stage:not([data-season="spring"]) .spring-landscape-layer[data-active="false"]:not([data-chapter="spring"]) {
+  transition: opacity .22s linear .86s;
+}
+
+.spring-landscape-layer:not([data-chapter="spring"])[data-active="true"] {
+  z-index: 1;
+  opacity: 1;
+}
+
+.spring-landscape img {
+  object-fit: cover;
+  object-position: 70% 57%;
+}
+
+.spring-landscape::after {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  background: linear-gradient(95deg, #fcf4e0b3 0%, #fcf5e368 34%, #fcf5e300 65%);
+  pointer-events: none;
+}
+
+.spring-copy {
+  position: absolute;
+  z-index: 3;
+  left: 8%;
+  top: 28%;
+  width: 43%;
+  transform-origin: bottom left;
+  transition: top var(--view-duration) var(--view-ease), transform var(--view-duration) var(--view-ease);
+}
+
+.spring-chapter {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 clamp(18px, 3vh, 35px);
+  color: #354737;
+  font-family: var(--spring-serif);
+  font-size: 17px;
+  letter-spacing: .21em;
+}
+
+.spring-chapter span:first-child {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 30px;
+  border: 1px solid #963f33;
+  box-shadow: inset 0 0 0 2px #f8efdc;
+  color: #fff7e7;
+  background: #963f33;
+  font-size: 16px;
+  letter-spacing: 0;
+  transform: rotate(-5deg);
+}
+
+.spring-copy h1 {
+  margin: 0;
+}
+
+.spring-copy h1 img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.spring-intro {
+  margin: clamp(17px, 3vh, 35px) 0 0 2px;
+  font-family: var(--spring-serif);
+  font-size: clamp(15px, 1.4vw, 20px);
+  letter-spacing: .11em;
+  max-height: 4em;
+  overflow: hidden;
+  transition: opacity .22s ease, max-height var(--view-duration) var(--view-ease), margin-top var(--view-duration) var(--view-ease);
+}
+
+.spring-foreground {
+  position: absolute;
+  z-index: 4;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  transform: translate(calc(var(--spring-x, 0px) * -1), calc(var(--spring-y, 0px) * -1));
+  transition: opacity .57s ease, transform .42s cubic-bezier(.2, .7, .3, 1);
+}
+
+.spring-foreground[data-active="true"] {
+  opacity: 1;
+  transition: opacity .77s ease-out .15s, transform .42s cubic-bezier(.2, .7, .3, 1);
+}
+
+.spring-branch,
+.autumn-maple,
+.winter-plum {
+  position: absolute;
+  max-width: none;
+  height: auto;
+}
+
+.spring-branch {
+  width: 56%;
+  right: -3%;
+  top: -13%;
+}
+
+.autumn-maple {
+  width: 56%;
+  right: -2%;
+  top: 6%;
+  transition: top var(--view-duration) var(--view-ease), right var(--view-duration) var(--view-ease), width var(--view-duration) var(--view-ease);
+}
+
+.winter-plum {
+  width: 53%;
+  right: -3%;
+  bottom: -4%;
+  transition: bottom var(--view-duration) var(--view-ease), right var(--view-duration) var(--view-ease), width var(--view-duration) var(--view-ease);
+}
+
+.spring-picker {
+  position: absolute;
+  z-index: 5;
+  left: 8%;
+  bottom: var(--picker-inset);
+}
+
+.spring-view-control {
+  position: absolute;
+  z-index: 5;
+  inset: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: zoom-in;
+}
+
+.spring-view-control:focus-visible {
+  outline: 2px solid #875d42;
+  outline-offset: -9px;
+}
+
+.spring-stage[data-view="near"] .spring-window-trim::before {
+  opacity: .20;
+}
+
+.spring-stage[data-view="near"] :is(.spring-window-transom, .spring-window-jamb, .spring-window-sill) {
+  transition-duration: var(--view-duration);
+}
+
+.spring-stage[data-view="near"] .spring-window-transom {
+  transform: translateY(calc(-1 * (var(--window-head) + 20px))) scaleX(1.12);
+}
+
+.spring-stage[data-view="near"] .spring-window-jamb-left {
+  transform: translateX(calc(-1 * (var(--window-jamb) + 16px)));
+}
+
+.spring-stage[data-view="near"] .spring-window-jamb-right {
+  transform: translateX(calc(var(--window-jamb) + 16px)) scaleX(-1);
+}
+
+.spring-stage[data-view="near"] .spring-window-sill {
+  transform: translateY(calc(var(--window-sill) + 16px)) scaleX(1.1);
+}
+
+.spring-stage[data-view="near"] .spring-landscape {
+  transform: translate(calc(var(--spring-x, 0px) * -1.72), calc(var(--spring-y, 0px) * -1.34)) scale(1.11);
+  transition-duration: var(--view-duration);
+}
+
+.spring-stage[data-view="near"] .spring-foreground {
+  transform: translate(calc(var(--spring-x, 0px) * -1.8), calc(var(--spring-y, 0px) * -1.65)) scale(1.12);
+  transform-origin: 66% 48%;
+}
+
+.spring-stage[data-view="near"] .spring-copy {
+  top: calc(100% - var(--picker-inset) - 65px);
+  transform: translateY(-100%) scale(.72);
+}
+
+.spring-stage[data-view="near"] .spring-intro {
+  max-height: 0;
+  margin-top: 0;
+  opacity: 0;
+}
+
+.spring-stage[data-view="near"] .spring-view-control {
+  cursor: zoom-out;
+}
+
+.spring-stage[data-season="spring"][data-view="near"] .spring-foreground[data-chapter="spring"] {
+  opacity: 0;
+  transform: translate(13%, -11%) scale(1.48);
+  transition: transform var(--view-duration) var(--view-ease), opacity .36s ease;
+}
+
+.spring-pond {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  opacity: 0;
+  transition: opacity .66s var(--view-ease);
+}
+
+.spring-pond[data-active="true"] {
+  opacity: 1;
+}
+
+.spring-pond > img,
+.spring-pond-water {
+  object-fit: cover;
+  object-position: 73% 59%;
+}
+
+.spring-pond-water,
+.spring-pond-air {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.spring-stage:is([data-season="spring"], [data-season="summer"])[data-view="near"] .spring-landscape::after {
+  background: linear-gradient(90deg, #f8ebd77d 0%, #f8ebd733 31%, transparent 57%);
+}
+
+.spring-stage[data-season="autumn"][data-view="near"] .spring-landscape::after {
+  background: linear-gradient(90deg, #f7e8ce85 0%, #f7e8ce36 31%, transparent 58%);
+}
+
+.autumn-pond > img,
+.autumn-pond .spring-pond-water {
+  object-position: 78% 29%;
+}
+
+.spring-stage[data-season="autumn"][data-view="near"] .autumn-maple {
+  top: -5%;
+  right: -7%;
+  width: 51%;
+  transform-origin: right 9%;
+  animation: autumn-maple-sway 9s ease-in-out -2s infinite;
+}
+
+@keyframes autumn-maple-sway {
+  0%, 100% { transform: rotate(-.85deg); }
+  47% { transform: rotate(1.05deg); }
+  72% { transform: rotate(.25deg); }
+}
+
+.autumn-falling-leaf,
+.autumn-floating-leaf {
+  position: absolute;
+  aspect-ratio: 1;
+}
+
+.autumn-falling-leaf {
+  width: calc(clamp(12px, 1.7cqw, 25px) * var(--leaf-size));
+  opacity: 0;
+  perspective: 80px;
+  animation: autumn-leaf-fall var(--leaf-duration) linear var(--leaf-delay) infinite;
+}
+
+.autumn-falling-leaf i,
+.autumn-floating-leaf i {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: url("/images/home/autumn-maple-leaf.webp") center / contain no-repeat;
+}
+
+.autumn-falling-leaf i {
+  animation: autumn-leaf-turn calc(var(--leaf-duration) * .3) ease-in-out var(--leaf-delay) infinite;
+}
+
+.autumn-falling-leaf:nth-of-type(even) i {
+  animation-direction: reverse;
+}
+
+.autumn-floating-leaf {
+  left: 55%;
+  top: 77%;
+  width: clamp(13px, 2.1cqw, 29px);
+  animation: autumn-leaf-float 16s ease-in-out infinite alternate;
+}
+
+.autumn-floating-leaf i {
+  position: relative;
+  transform: rotate(-18deg) scaleY(.36);
+  opacity: .84;
+}
+
+.autumn-floating-leaf::before {
+  content: "";
+  position: absolute;
+  inset: 35% -40%;
+  border: 1px solid #f7e3bb75;
+  border-radius: 50%;
+  animation: autumn-leaf-ripple 3.8s ease-out infinite;
+}
+
+@keyframes autumn-leaf-fall {
+  0% { transform: translate(0, 0); opacity: 0; }
+  10% { opacity: .92; }
+  28% { transform: translate(calc(var(--leaf-drift) * .17), calc(var(--leaf-fall) * .27)); animation-timing-function: ease-in-out; }
+  49% { transform: translate(calc(var(--leaf-drift) * .58), calc(var(--leaf-fall) * .44)); animation-timing-function: ease-out; }
+  73% { transform: translate(calc(var(--leaf-drift) * .69), calc(var(--leaf-fall) * .73)); opacity: .88; }
+  100% { transform: translate(var(--leaf-drift), var(--leaf-fall)); opacity: 0; }
+}
+
+@keyframes autumn-leaf-turn {
+  0%, 100% { transform: rotate(-32deg) rotateY(25deg); }
+  38% { transform: rotate(45deg) rotateY(101deg); }
+  72% { transform: rotate(113deg) rotateY(160deg); }
+}
+
+@keyframes autumn-leaf-float {
+  0% { transform: translate(0, 0) rotate(-4deg); }
+  55% { transform: translate(-4cqw, .7cqh) rotate(9deg); }
+  100% { transform: translate(-8cqw, 1.8cqh) rotate(-2deg); }
+}
+
+@keyframes autumn-leaf-ripple {
+  0% { transform: scale(.55); opacity: 0; }
+  24% { opacity: .65; }
+  100% { transform: scale(1.75); opacity: 0; }
+}
+
+.spring-stage[data-season="winter"][data-view="near"] .spring-landscape::after {
+  background: linear-gradient(90deg, #eee7d280 0%, #e9e8dc32 31%, transparent 56%);
+}
+
+.winter-pond > img,
+.winter-pond .spring-pond-water {
+  object-position: 78% 34%;
+}
+
+.spring-stage[data-season="winter"][data-view="near"] .winter-plum {
+  width: 45%;
+  right: -7%;
+  bottom: -13%;
+  transform-origin: right bottom;
+  animation: winter-plum-sway 11s ease-in-out -3s infinite;
+}
+
+@keyframes winter-plum-sway {
+  0%, 100% { transform: rotate(-.65deg); }
+  48% { transform: rotate(.7deg); }
+  72% { transform: rotate(.15deg); }
+}
+
+.winter-snowflake,
+.winter-plum-petal {
+  position: absolute;
+  opacity: 0;
+}
+
+.winter-snowflake {
+  top: -4%;
+  aspect-ratio: 1;
+  border-radius: 48% 52% 55% 44%;
+  background: radial-gradient(circle at 46% 42%, #fffef5 15%, #fafcfae8 45%, #e6edf280 72%, transparent 94%);
+  box-shadow: 0 0 3px #f9fbf56e;
+  animation: winter-snow-fall var(--snow-duration) linear var(--snow-delay) infinite;
+}
+
+.winter-snowflake:nth-child(3n + 2) {
+  filter: blur(.8px);
+}
+
+.winter-snowflake:nth-child(5n + 1) {
+  filter: blur(.25px) drop-shadow(0 1px 1px #5d6d78a0);
+}
+
+.winter-plum-petal {
+  --petal-alpha: .94;
+  perspective: 80px;
+  animation: spring-petal-fall var(--petal-duration) linear var(--petal-delay) infinite;
+}
+
+.winter-plum-petal i {
+  display: block;
+  width: 100%;
+  aspect-ratio: .86;
+  border-radius: 44% 53% 51% 18% / 46% 47% 63% 54%;
+  background: radial-gradient(ellipse at 66% 28%, #eea7aa 0%, #c1505b 38%, #9f263c 72%, #741d32 100%);
+  box-shadow: inset -1px -1px 2px #731b3890, 0 1px 2px #41273450;
+  animation: spring-petal-tumble 3.6s ease-in-out var(--petal-delay) infinite;
+}
+
+.winter-plum-petal:nth-of-type(even) i {
+  animation-duration: 4.4s;
+  animation-direction: reverse;
+}
+
+@keyframes winter-snow-fall {
+  0% { transform: translate(0, 0); opacity: 0; }
+  11% { opacity: var(--snow-opacity); }
+  33% { transform: translate(calc(var(--snow-drift) * .53), 35cqh); animation-timing-function: ease-in-out; }
+  62% { transform: translate(calc(var(--snow-drift) * .47), 68cqh); }
+  88% { opacity: var(--snow-opacity); }
+  100% { transform: translate(var(--snow-drift), 110cqh); opacity: 0; }
+}
+
+.summer-pond-plants {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  container-type: size;
+}
+
+.summer-lotus-cluster {
+  --lotus-waterline: 84%;
+  position: absolute;
+  left: 46%;
+  bottom: 11%;
+  width: min(46cqw, 83cqh);
+  aspect-ratio: 3 / 2;
+}
+
+.summer-lotus-sway,
+.summer-lotus-reflection img {
+  display: block;
+  width: 100%;
+  height: auto;
+  transform-origin: 55% var(--lotus-waterline);
+  animation: summer-lotus-sway 6.4s ease-in-out -1.4s infinite;
+  animation-play-state: paused;
+}
+
+.summer-lotus-sway {
+  filter: saturate(.89) contrast(.94);
+  mask-image: linear-gradient(#000 0 77%, #000e 85%, #000b 93%, transparent 100%);
+}
+
+.summer-pond[data-active="true"] :is(.summer-lotus-sway, .summer-lotus-reflection img, .summer-lotus-wake) {
+  animation-play-state: running;
+}
+
+.summer-lotus-reflection {
+  position: absolute;
+  inset: 0;
+  transform-origin: 55% var(--lotus-waterline);
+  transform: scaleY(-.38) skewX(-5deg);
+  mask-image:
+    linear-gradient(to top, transparent calc(100% - var(--lotus-waterline)), #000 22%, #000a 47%, transparent 91%),
+    repeating-linear-gradient(0deg, #000 0 3px, #0006 4px, #000 6px 9px);
+  mask-composite: intersect;
+  filter: blur(1.5px) saturate(.7);
+  opacity: .45;
+}
+
+.summer-lotus-wake {
+  position: absolute;
+  top: calc(var(--lotus-waterline) - 4%);
+  left: 26%;
+  width: 60%;
+  height: 9%;
+  border-radius: 50%;
+  background: repeating-radial-gradient(ellipse, transparent 0 16%, #ebf3d632 19%, transparent 24% 29%);
+  mask-image: radial-gradient(ellipse, transparent 12%, #000 49%, transparent 73%);
+  animation: summer-lotus-wake 5.8s ease-out -2s infinite paused;
+}
+
+@keyframes summer-lotus-sway {
+  0%, 100% { transform: skewX(-3deg) scaleX(.995); }
+  47% { transform: skewX(3.8deg) scaleX(1.005); }
+  75% { transform: skewX(.9deg); }
+}
+
+@keyframes summer-lotus-wake {
+  0% { transform: scale(.81); opacity: .25; }
+  38% { opacity: .56; }
+  100% { transform: scale(1.18, 1.25); opacity: 0; }
+}
+
+.summer-dragonfly {
+  position: absolute;
+  top: 27%;
+  left: 16%;
+  width: clamp(26px, 3.3cqw, 45px);
+  aspect-ratio: 1;
+  color: #406853;
+  transform: rotate(38deg);
+  animation: summer-dragonfly-upper 10.4s -2.6s infinite;
+}
+
+.summer-dragonfly[data-flight="lower"] {
+  top: 51%;
+  left: 83%;
+  width: clamp(22px, 2.75cqw, 37px);
+  color: #80513b;
+  transform: rotate(-36deg);
+  animation: summer-dragonfly-lower 12.1s -5.6s infinite;
+}
+
+.summer-dragonfly-body {
+  position: absolute;
+  top: 26%;
+  left: 46%;
+  width: 9%;
+  height: 56%;
+  border-radius: 46% 46% 60% 60%;
+  background: repeating-linear-gradient(0deg, #1f2b239c 0 1px, transparent 1px 3px), currentColor;
+  clip-path: polygon(13% 0, 87% 0, 94% 27%, 72% 55%, 60% 100%, 40% 100%, 23% 55%, 6% 27%);
+}
+
+.summer-dragonfly-wings {
+  position: absolute;
+  top: 24%;
+  right: 50%;
+  width: 49%;
+  height: 34%;
+  transform-origin: 100% 43%;
+  animation: summer-dragonfly-wings .12s ease-in-out infinite alternate;
+}
+
+.summer-dragonfly-wings:nth-child(2) {
+  left: 50%;
+  transform-origin: 0 43%;
+  scale: -1 1;
+  animation-delay: -.06s;
+}
+
+.summer-dragonfly-wings::before,
+.summer-dragonfly-wings::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  width: 100%;
+  height: 44%;
+  border: 1px solid #d8e4c996;
+  border-radius: 55% 35% 22% 43% / 73% 75% 20% 39%;
+  background: linear-gradient(168deg, transparent 41%, #f1f1dcb0 49%, #8ba18863 55%, transparent 62%), #dae8cc57;
+  box-shadow: 0 0 1px #38514180;
+  transform-origin: right center;
+}
+
+.summer-dragonfly-wings::before { transform: rotate(16deg); }
+.summer-dragonfly-wings::after { width: 87%; transform: rotate(-17deg); }
+
+@keyframes summer-dragonfly-wings {
+  from { transform: scaleY(.48); }
+  to { transform: scaleY(1); }
+}
+
+@keyframes summer-dragonfly-upper {
+  0%, 100% { transform: translate(0, 0) rotate(38deg); animation-timing-function: ease-in-out; }
+  19% { transform: translate(4cqw, -3cqh) rotate(63deg); animation-timing-function: ease-out; }
+  35% { transform: translate(9cqw, -4cqh) rotate(81deg); animation-timing-function: ease-in-out; }
+  50% { transform: translate(8.5cqw, -3.4cqh) rotate(43deg); animation-timing-function: ease-in; }
+  70% { transform: translate(4.5cqw, -1cqh) rotate(-96deg); animation-timing-function: ease-out; }
+  88% { transform: translate(-.8cqw, 1.2cqh) rotate(-47deg); }
+}
+
+@keyframes summer-dragonfly-lower {
+  0%, 100% { transform: translate(0, 0) rotate(-36deg); animation-timing-function: ease-in-out; }
+  18% { transform: translate(-2cqw, -3.5cqh) rotate(-21deg); animation-timing-function: ease-out; }
+  36% { transform: translate(-4.8cqw, -6cqh) rotate(-50deg); animation-timing-function: ease-in-out; }
+  53% { transform: translate(-5.2cqw, -5.6cqh) rotate(-65deg); animation-timing-function: ease-in; }
+  74% { transform: translate(-3.2cqw, -1cqh) rotate(133deg); animation-timing-function: ease-out; }
+  91% { transform: translate(.5cqw, .7cqh) rotate(48deg); }
+}
+
+.spring-swallow {
+  position: absolute;
+  left: -8%;
+  top: var(--flight-height);
+  width: clamp(24px, 4vw, 54px);
+  aspect-ratio: 1;
+  opacity: 0;
+  animation: spring-swallow-flight var(--flight-time) linear var(--flight-delay) infinite;
+}
+
+.spring-swallow i {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: url("/images/studio-stickers/flying-swallow.webp") center / contain no-repeat;
+  animation: spring-swallow-wing .39s ease-in-out infinite alternate;
+}
+
+.spring-swallow-near {
+  --flight-height: 58%;
+  --flight-time: 12s;
+  --flight-delay: -.3s;
+  --bird-size: 1;
+}
+
+.spring-swallow-far {
+  --flight-height: 48%;
+  --flight-time: 16s;
+  --flight-delay: -4.4s;
+  --bird-size: .53;
+}
+
+@keyframes spring-swallow-flight {
+  0% { transform: translate(0, 2vh) rotate(-9deg) scale(var(--bird-size)); opacity: 0; }
+  6% { opacity: .93; }
+  22% { transform: translate(26vw, -2vh) rotate(-4deg) scale(var(--bird-size)); }
+  40% { transform: translate(53vw, 0) rotate(5deg) scale(var(--bird-size)); }
+  56% { transform: translate(80vw, -4vh) rotate(-11deg) scale(var(--bird-size)); opacity: .93; }
+  74%, 100% { transform: translate(113vw, -11vh) rotate(-14deg) scale(var(--bird-size)); opacity: 0; }
+}
+
+@keyframes spring-swallow-wing {
+  from { transform: scaleY(.73) rotate(5deg); }
+  to { transform: scaleY(1.04) rotate(-4deg); }
+}
+
+.spring-petal {
+  position: absolute;
+  opacity: 0;
+  perspective: 90px;
+  animation: spring-petal-fall var(--petal-duration) linear var(--petal-delay) infinite;
+}
+
+.spring-pond-air {
+  container-type: size;
+}
+
+.spring-petal i {
+  display: block;
+  width: 100%;
+  aspect-ratio: .82;
+  border-radius: 47% 55% 51% 16% / 36% 50% 64% 68%;
+  background: radial-gradient(ellipse at 63% 26%, #fff2e0, #f4b9b1 53%, #ae605d 97%);
+  box-shadow: inset -1px -1px 2px #a85b5670;
+  animation: spring-petal-tumble 2.5s ease-in-out var(--petal-delay) infinite;
+}
+
+.spring-petal-near {
+  --petal-alpha: .94;
+  width: clamp(10px, 1.28vw, 18px);
+}
+
+.spring-petal-far {
+  --petal-alpha: .69;
+  width: clamp(5px, .72vw, 10px);
+}
+
+.spring-petal-far i {
+  animation-duration: 3.6s;
+  animation-direction: reverse;
+}
+
+.spring-petal-near:nth-of-type(even) i {
+  animation-duration: 3s;
+}
+
+@keyframes spring-petal-fall {
+  0% { transform: translate(0, 0); opacity: 0; }
+  13% { opacity: var(--petal-alpha); }
+  30% { transform: translate(calc(var(--petal-drift) * .17), calc(var(--petal-fall) * .24)); animation-timing-function: ease-in-out; }
+  52% { transform: translate(calc(var(--petal-drift) * .55), calc(var(--petal-fall) * .48)); animation-timing-function: ease-out; }
+  76% { transform: translate(calc(var(--petal-drift) * .68), calc(var(--petal-fall) * .76)); opacity: var(--petal-alpha); }
+  100% { transform: translate(var(--petal-drift), var(--petal-fall)); opacity: 0; }
+}
+
+@keyframes spring-petal-tumble {
+  0%, 100% { transform: rotate(-19deg) rotateY(27deg); }
+  38% { transform: rotate(42deg) rotateY(70deg); }
+  70% { transform: rotate(98deg) rotateY(153deg); }
+}
+
+.spring-switch {
+  --season-button-width: clamp(46px, 3.85vw, 56px);
+  --season-gap: 3px;
+  --season-inset: 4px;
+  --season-index: 0;
+  --spring-seal: #345b43;
+  --summer-seal: #864b41;
+  --autumn-seal: #785833;
+  --winter-seal: #3f5c66;
+  --active-seal: var(--spring-seal);
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  grid-template-columns: repeat(4, var(--season-button-width));
+  width: max-content;
+  gap: var(--season-gap);
+  padding: var(--season-inset);
+  border: 1px solid #b4a889;
+  border-radius: 9px 12px 8px 11px;
+  background: #f7f0e1 url("/images/xuan-paper.webp") center / 350px auto;
+  box-shadow: 0 5px 15px #303c2833, inset 0 0 0 1px #fff9ea;
+}
+
+.spring-stage[data-season="summer"] .spring-switch { --season-index: 1; --active-seal: var(--summer-seal); }
+.spring-stage[data-season="autumn"] .spring-switch { --season-index: 2; --active-seal: var(--autumn-seal); }
+.spring-stage[data-season="winter"] .spring-switch { --season-index: 3; --active-seal: var(--winter-seal); }
+
+.spring-switch::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: var(--season-inset) auto var(--season-inset) var(--season-inset);
+  width: var(--season-button-width);
+  border-radius: 6px 8px 5px 7px;
+  background: linear-gradient(152deg, #fff8e019, transparent 62%), var(--active-seal);
+  box-shadow: inset 0 0 0 1px #fff5dc33, 0 2px 4px #39312538;
+  transform: translateX(calc(var(--season-index) * (var(--season-button-width) + var(--season-gap))));
+  transition: transform .42s cubic-bezier(.22, .8, .28, 1), background-color .3s ease;
+}
+
+.spring-switch button {
+  --season-ink: var(--spring-seal);
+  position: relative;
+  display: grid;
+  place-items: center;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  border-radius: 6px 8px 5px 7px;
+  background: transparent;
+  color: var(--season-ink);
+  font: 400 22px/1 "Shixu Brush", KaiTi, STKaiti, var(--spring-serif);
+  cursor: pointer;
+  transition: color .18s ease;
+}
+
+.spring-switch button[data-season="summer"] { --season-ink: var(--summer-seal); }
+.spring-switch button[data-season="autumn"] { --season-ink: var(--autumn-seal); }
+.spring-switch button[data-season="winter"] { --season-ink: var(--winter-seal); }
+
+.spring-switch button::before {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  border-radius: inherit;
+  background: color-mix(in srgb, var(--season-ink) 17%, transparent);
+  opacity: 0;
+  transform: translateY(3px) scale(.9);
+  transition: opacity .2s ease, transform .28s var(--view-ease);
+}
+
+.spring-switch button span {
+  position: relative;
+  display: block;
+  transition: transform .32s cubic-bezier(.24, 1.45, .45, 1);
+}
+
+.spring-switch button[aria-pressed="true"] {
+  color: #fff7e5;
+  text-shadow: 0 1px 3px #221a0ea8;
+}
+
+.spring-switch button:focus-visible {
+  outline: 2px solid var(--season-ink);
+  outline-offset: 2px;
+}
+
+.spring-switch button[aria-pressed="false"]:focus-visible::before {
+  opacity: 1;
+  transform: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .spring-switch button[aria-pressed="false"]:hover::before {
+    opacity: 1;
+    transform: none;
+  }
+
+  .spring-switch button:hover span { transform: translateY(-2px) scale(1.08); }
+}
+
+.spring-switch button:active span { transform: translateY(1px) scale(.89); }
+
+@media (prefers-reduced-motion: no-preference) {
+  .spring-switch button span { animation: spring-season-arrive .48s var(--view-ease) both; }
+  .spring-switch button:nth-child(2) span { animation-delay: .055s; }
+  .spring-switch button:nth-child(3) span { animation-delay: .11s; }
+  .spring-switch button:nth-child(4) span { animation-delay: .165s; }
+
+  @keyframes spring-season-arrive {
+    from { opacity: 0; translate: 0 8px; }
+    to { opacity: 1; translate: 0 0; }
+  }
+}
+
+.spring-scene-error {
+  margin: 6px 0 0;
+  padding: 2px 6px;
+  background: var(--spring-paper);
+  color: #854537;
+  font-size: 12px;
+}
+
+@media (max-width: 900px) {
+  .spring-copy {
+    top: 24%;
+    width: 48%;
+  }
+
+  .spring-branch {
+    top: -6%;
+    right: -8%;
+    width: 64%;
+  }
+
+  .autumn-maple {
+    width: 61%;
+    top: 7%;
+    right: -3%;
+  }
+
+  .winter-plum {
+    width: 58%;
+    right: -3%;
+    bottom: 0;
+  }
+
+}
+
+@media (max-width: 640px) {
+  .page-shell:has(.spring-home) {
+    padding-inline: 12px;
+  }
+
+  .spring-window {
+    padding-bottom: 5px;
+  }
+
+  .spring-stage {
+    --picker-inset: 5%;
+    --window-jamb: 17px;
+    --window-head: 25px;
+    --window-sill: 12px;
+    height: clamp(370px, 55svh, 530px);
+  }
+
+  .spring-window-jamb {
+    padding-right: 5px;
+    box-shadow: inset 0 0 0 1px #21160f75, inset -1px 0 var(--window-light), inset -3px 0 #563724, inset -5px 0 #a17652, 4px 0 10px -3px #24190f80;
+  }
+
+  .spring-window-jamb span {
+    height: 20%;
+    border-block-width: 3px;
+    background-size: 16px 16px;
+  }
+
+  .spring-window-transom {
+    border-bottom-width: 5px;
+  }
+
+  .spring-window-transom span {
+    border-right-width: 2px;
+  }
+
+  .spring-window-transom span::after {
+    right: -4px;
+    width: 6px;
+  }
+
+  .spring-landscape img {
+    object-position: 59% center;
+  }
+
+  .spring-landscape-layer[data-chapter="summer"] img {
+    object-position: 66% center;
+  }
+
+  .spring-landscape::after {
+    background: linear-gradient(135deg, #fff6e2de 3%, #fff6e27d 34%, #fff6e200 63%);
+  }
+
+  .spring-copy {
+    top: 19%;
+    width: min(68%, 370px);
+    left: 9%;
+  }
+
+  .spring-chapter {
+    margin-bottom: 17px;
+    font-size: 14px;
+  }
+
+  .spring-chapter span:first-child {
+    width: 24px;
+    height: 26px;
+    font-size: 14px;
+  }
+
+  .spring-intro {
+    margin-top: 13px;
+    font-size: 14px;
+    letter-spacing: .06em;
+  }
+
+  .spring-branch {
+    width: 88%;
+    top: -8%;
+    right: -27%;
+  }
+
+  .autumn-maple {
+    width: 79%;
+    top: 4.5%;
+    right: -3%;
+  }
+
+  .winter-plum {
+    width: 81%;
+    right: -3%;
+    bottom: 5%;
+  }
+
+  .spring-picker {
+    left: 8%;
+  }
+
+  .spring-pond > img,
+  .spring-pond-water {
+    object-position: 68% 59%;
+  }
+
+  .autumn-pond > img,
+  .autumn-pond .spring-pond-water {
+    object-position: 86% 55%;
+  }
+
+  .spring-stage[data-season="autumn"][data-view="near"] .autumn-maple {
+    top: -3%;
+    right: -10%;
+    width: 80%;
+  }
+
+  .winter-pond > img,
+  .winter-pond .spring-pond-water {
+    object-position: 83% 55%;
+  }
+
+  .spring-stage[data-season="winter"][data-view="near"] .winter-plum {
+    width: 76%;
+    right: -19%;
+    bottom: -2%;
+  }
+
+  .winter-plum-petal {
+    translate: 6cqw 3cqh;
+  }
+
+  .summer-lotus-cluster {
+    left: 7%;
+    bottom: 28%;
+    width: 88%;
+  }
+
+  .spring-switch {
+    --season-gap: 2px;
+  }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spring-landscape,
+  .spring-foreground {
+    transform: none;
+  }
+
+  .spring-stage[data-view="near"] .spring-landscape {
+    transform: scale(1.11);
+  }
+
+  .spring-stage[data-view="near"] .spring-foreground {
+    transform: scale(1.12);
+  }
+
+  .summer-lotus-sway,
+  .summer-lotus-reflection img,
+  .summer-lotus-wake,
+  .summer-dragonfly,
+  .summer-dragonfly[data-flight="lower"],
+  .summer-dragonfly-wings,
+  .spring-stage[data-season="autumn"][data-view="near"] .autumn-maple,
+  .spring-stage[data-season="winter"][data-view="near"] .winter-plum {
+    animation: none;
+  }
+
+  .spring-pond-air,
+  .spring-pond-water {
+    display: none;
+  }
+
+  .spring-landscape,
+  .spring-landscape-layer:not([data-chapter="spring"]),
+  .spring-stage:not([data-season="spring"]) .spring-landscape-layer[data-active="false"]:not([data-chapter="spring"]),
+  .spring-foreground,
+  .spring-foreground[data-active="true"],
+  .spring-window-trim::before,
+  .spring-window-transom,
+  .spring-window-jamb,
+  .spring-window-sill,
+  .spring-copy,
+  .spring-intro,
+  .spring-pond,
+  .autumn-maple,
+  .winter-plum,
+  .spring-stage[data-season="spring"][data-view="near"] .spring-foreground[data-chapter="spring"],
+  .spring-switch button {
+    transition: none;
+  }
+
+  .spring-stage[data-view="window"] .spring-window-transom,
+  .spring-stage[data-view="window"] .spring-window-jamb-left,
+  .spring-stage[data-view="window"] .spring-window-sill {
+    transform: none;
+  }
+
+  .spring-stage[data-view="window"] .spring-window-jamb-right {
+    transform: scaleX(-1);
+  }
+
+  .spring-switch::before,
+  .spring-switch button::before,
+  .spring-switch button span {
+    transition: none;
+  }
+
+  .spring-switch button::before,
+  .spring-switch button:is(:hover, :active) span {
+    transform: none;
+  }
+}

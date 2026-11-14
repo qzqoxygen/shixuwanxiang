@@ -25,6 +25,7 @@ export default function ChatPanel() {
   const inputRef = useRef<HTMLTextAreaElement>(null);
   const inputId = useId();
   const busy = pending !== null;
+  const isEmpty = messages.length === 0 && !busy;
 
   useEffect(() => () => controllerRef.current?.abort(), []);
   useEffect(() => {
@@ -77,24 +78,27 @@ export default function ChatPanel() {
   }
 
   return (
-    <section className="chat-panel" aria-labelledby={`${inputId}-heading`}>
-      <header className="chat-heading">
-        <div><p className="eyebrow">问四时 · 知所以</p><h2 id={`${inputId}-heading`}>AI 文化讲解员</h2></div>
-        <span className="chat-seal" aria-hidden="true">四时<br />问答</span>
-      </header>
-      <p className="chat-intro">DeepSeek AI · 节气与地方风物</p>
-      <div className="chat-transcript" ref={transcriptRef} role="log" aria-label="节气聊天记录" aria-live="polite" aria-relevant="additions text" tabIndex={0}>
-        {messages.length === 0 && !busy && <div className="chat-empty"><p>试试下方的问题，或直接提问。</p></div>}
-        {discardedMessages > 0 && <p className="chat-small">更早的对话已移出，仅保留最近 5 轮。</p>}
-        {messages.map((message, index) => <article className={`chat-message chat-${message.role}`} key={discardedMessages + index}>
-          <p className="chat-speaker">{message.role === "user" ? "你" : "DeepSeek · 节气讲解"}</p>
-          <div className="chat-message-text">{message.role === "assistant" ? linkedText(message.content) : message.content}</div>
-          {message.truncated && <p className="chat-small">回答已达到长度上限，可追问“请继续”。</p>}
-        </article>)}
-        {busy && <><article className="chat-message chat-user"><p className="chat-speaker">你</p><div className="chat-message-text">{pending}</div></article><p className="chat-loading" role="status">正在等待 DeepSeek 回答…</p></>}
+    <div className="chat-panel" data-empty={isEmpty}>
+      <div className="chat-body">
+        {isEmpty && <p className="chat-empty">你想了解哪个节气？</p>}
+        <div className="chat-transcript" ref={transcriptRef} role="log" aria-label="节气聊天记录" aria-live="polite" aria-relevant="additions text" tabIndex={isEmpty ? undefined : 0}>
+          {discardedMessages > 0 && <p className="chat-small">更早的对话已移出，仅保留最近 5 轮。</p>}
+          {messages.map((message, index) => <article className={`chat-message chat-${message.role}`} key={discardedMessages + index}>
+            <p className="chat-speaker">{message.role === "user" ? "你" : "四时助手"}</p>
+            <div className="chat-message-text">{message.role === "assistant" ? linkedText(message.content) : message.content}</div>
+            {message.truncated && <p className="chat-small">回答已达到长度上限，可追问“请继续”。</p>}
+          </article>)}
+          {busy && <><article className="chat-message chat-user"><p className="chat-speaker">你</p><div className="chat-message-text">{pending}</div></article><p className="chat-loading" role="status">正在整理回答…</p></>}
+        </div>
+        <div className="chat-suggestions" role="group" aria-label="推荐问题">
+          {SUGGESTIONS.map((suggestion) => (
+            <button type="button" key={suggestion} disabled={busy} onClick={() => { setInput(suggestion); setError(""); inputRef.current?.focus(); }}>
+              {suggestion}<span aria-hidden="true">＋</span>
+            </button>
+          ))}
+        </div>
       </div>
       {error && <p className="chat-error" role="alert">{error}</p>}
-      <div className="chat-suggestions" aria-label="推荐问题">{SUGGESTIONS.map((suggestion) => <button type="button" key={suggestion} disabled={busy} onClick={() => { setInput(suggestion); setError(""); inputRef.current?.focus(); }}>{suggestion}</button>)}</div>
       <form className="chat-form" onSubmit={send}>
         <label htmlFor={inputId}>提问</label>
         <div className="chat-composer">
@@ -107,6 +111,6 @@ export default function ChatPanel() {
         <div className="chat-actions"><span className="chat-form-meta">Enter 发送 · Shift+Enter 换行</span><button type="button" className="chat-clear" disabled={busy || (messages.length === 0 && !error)} onClick={() => { setMessages([]); setError(""); setDiscardedMessages(0); }}>清空对话</button></div>
         <p id={`${inputId}-help`} className="chat-small">刷新会清空对话。AI 回答请结合资料来源判断。</p>
       </form>
-    </section>
+    </div>
   );
 }
