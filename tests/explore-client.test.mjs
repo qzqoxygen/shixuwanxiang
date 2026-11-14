@@ -25,6 +25,9 @@ test("opening a case selects its province; paging and close cannot leave an old 
   assert.deepEqual(reduce(open, { type: "close" }), { ...open, caseId: null });
   assert.deepEqual(reduce(open, { type: "page", value: 6 }), { ...open, caseId: null, offset: 6 });
   assert.deepEqual(reduce(open, { type: "reset" }), initial);
+  assert.deepEqual(reduce({ ...open, offset: 6 }, { type: "locate", caseId: "case-b", provinceCode: "330000", solarTermId: "dongzhi" }), {
+    solarTermId: "dongzhi", provinceCode: "330000", caseId: "case-b", offset: 0,
+  });
 });
 
 test("list requests forward cancellation and no-store, serialize only selected filters, and validate real responses", async () => {

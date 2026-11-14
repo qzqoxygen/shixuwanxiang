@@ -1,7 +1,9 @@
 "use client";
 
 import { useEffect, useId, useRef, useState, type KeyboardEvent, type PointerEvent, type RefObject } from "react";
+import type { ChatCaseReference } from "@/lib/contracts/cultural-case";
 import ChatPanel from "./ChatPanel";
+import { useProvinces } from "./cultural-map/ProvinceInteraction";
 import "./FloatingChat.css";
 
 type Point = { x: number; y: number };
@@ -98,6 +100,7 @@ function useFloatingPosition<T extends HTMLElement>(elementRef: RefObject<T | nu
 }
 
 export default function FloatingChat() {
+  const { dispatch, setHovered, setFocused } = useProvinces();
   const [open, setOpen] = useState(false);
   const panelRef = useRef<HTMLDivElement>(null);
   const launcherRef = useRef<HTMLButtonElement>(null);
@@ -117,8 +120,6 @@ export default function FloatingChat() {
       }
       const input = element?.querySelector<HTMLTextAreaElement>("textarea:not(:disabled)");
       (input ?? element)?.focus({ preventScroll: true });
-      const transcript = element?.querySelector<HTMLElement>(".chat-transcript");
-      if (transcript) transcript.scrollTop = transcript.scrollHeight;
     });
     return () => cancelAnimationFrame(frame);
   }, [open, setPanelPosition]);
@@ -126,6 +127,17 @@ export default function FloatingChat() {
   function close() {
     setOpen(false);
     requestAnimationFrame(() => launcherRef.current?.focus({ preventScroll: true }));
+  }
+
+  function showOnMap(reference?: ChatCaseReference) {
+    if (reference) {
+      const { caseId, solarTermId, provinceCode } = reference;
+      setHovered(null);
+      setFocused(null);
+      dispatch({ type: "locate", caseId, solarTermId, provinceCode });
+    }
+    setOpen(false);
+    requestAnimationFrame(() => document.getElementById(reference ? "case-detail-title" : "culture-map-heading")?.focus());
   }
 
   return <>
@@ -151,7 +163,7 @@ export default function FloatingChat() {
         </div>
         <div className="cloud-chat-tools"><button type="button" className="cloud-chat-reset" aria-label="恢复聊天窗口位置" title="恢复位置" onClick={() => setPanelPosition(null)}>↺</button><button type="button" className="cloud-chat-minimize" aria-label="收起 AI 助手" title="收起，保留对话" onClick={close}>收起</button></div>
       </header>
-      <div className="cloud-chat-content"><ChatPanel /></div>
+      <div className="cloud-chat-content"><ChatPanel onShowOnMap={showOnMap} /></div>
     </div>
   </>;
 }

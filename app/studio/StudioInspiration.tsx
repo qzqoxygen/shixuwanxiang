@@ -1,13 +1,14 @@
 import { useEffect, useRef, useState } from "react";
-import { readStudioReferences, readStudioSuggestions, type StudioFormat, type StudioReference, type StudioSuggestion } from "@/lib/studio-inspiration";
+import { readStudioReferences, readStudioSuggestions, type StudioCaseSeed, type StudioFormat, type StudioReference, type StudioSuggestion } from "@/lib/studio-inspiration";
 
 type Props = {
   term: { id: string; name: string };
   format: StudioFormat;
+  selectedCase?: StudioCaseSeed;
   onApply: (field: keyof StudioSuggestion, value: string) => void;
 };
 
-export default function StudioInspiration({ term, format, onApply }: Props) {
+export default function StudioInspiration({ term, format, selectedCase, onApply }: Props) {
   const request = useRef<AbortController | null>(null);
   const [loading, setLoading] = useState(false);
   const [suggestions, setSuggestions] = useState<StudioSuggestion[]>([]);
@@ -24,6 +25,7 @@ export default function StudioInspiration({ term, format, onApply }: Props) {
     setStatus(`正在为${term.name}生成灵感…`);
     try {
       const query = new URLSearchParams({ term: term.id, format });
+      if (selectedCase) query.set("caseId", selectedCase.caseId);
       const response = await fetch(`/api/studio/inspiration?${query}`, {
         method: "POST",
         headers: { "Idempotency-Key": crypto.getRandomValues(new Uint32Array(4)).join("-") },
@@ -63,6 +65,10 @@ export default function StudioInspiration({ term, format, onApply }: Props) {
           </svg>
         </button>
       </div>
+      {selectedCase && <p className="studio-inspiration-case">
+        <span>来自知时</span><strong>{selectedCase.title}</strong>
+        <small>{[...new Set([selectedCase.provinceName, selectedCase.regionName])].join(" · ")}</small>
+      </p>}
       <p className="studio-inspiration-status" role="status">{status}</p>
       {suggestions.length > 0 && (
         <ul className="studio-inspiration-list">

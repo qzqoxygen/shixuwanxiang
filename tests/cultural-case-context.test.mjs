@@ -2,16 +2,28 @@ import "./register-ts.mjs";
 import assert from "node:assert/strict";
 import { test } from "node:test";
 
-const { retrieveChatCases, studioCulturalCases, culturalCaseContext, culturalSourceNotes } = await import("../lib/server/cultural-case-context.ts");
+const { retrieveChatCases: searchLocalCases, studioCulturalCases, culturalCaseContext, culturalAnswerSources } = await import("../lib/server/cultural-case-context.ts");
+const { ChatCaseReferencesSchema } = await import("../lib/contracts/cultural-case.ts");
 const { readCulturalCases } = await import("../lib/server/cultural-cases.ts");
 const { SOLAR_TERMS } = await import("../lib/solar-terms.ts");
 const { runChatAgent } = await import("../lib/ai-agent.ts");
 const { readStudioReferences } = await import("../lib/studio-inspiration.ts");
 const { POST } = await import("../app/api/chat/route.ts");
+const { createChatCaseTool } = await import("../lib/server/chat-case-tool.ts");
 const user = (content) => ({ role: "user", content });
+const retrieveChatCases = (history, cases) => searchLocalCases(history, cases).cases;
 const completion = (content) => ({ id: "test", object: "chat.completion", created: 1, model: "test", choices: [
   { index: 0, finish_reason: "stop", message: { role: "assistant", content } },
 ] });
+const toolCompletion = (...queries) => {
+  const result = completion(null);
+  const choice = result.choices[0];
+  choice.finish_reason = "tool_calls";
+  choice.message.tool_calls = queries.map((query, index) => ({
+    id: `search-${index}`, type: "function", function: { name: "search_cultural_cases", arguments: JSON.stringify({ query }) },
+  }));
+  return result;
+};
 
 test("each published case is discoverable by its title and all 24 terms feed studio from the API data", () => {
   const cases = readCulturalCases();
@@ -60,7 +72,7 @@ test("cross-province cases are retrieved for related map provinces without inven
   const base = readCulturalCases().find(({ verificationStatus }) => verificationStatus === "verified");
   const cases = [{ ...base, id: "test-cross-region", title: "芒种送花神", solarTermIds: ["mangzhong"], provinceCode: "320000", provinceName: "江苏省", regionName: "江苏、浙江", relatedProvinceCodes: ["330000"] }];
   assert.equal(retrieveChatCases([user("浙江芒种有哪些习俗？")], cases)[0]?.id, "test-cross-region");
-  assert.deepEqual(JSON.parse(culturalCaseContext(cases))[0].relatedProvinces, ["浙江省"]);
+  assert.deepEqual(culturalCaseContext(cases)[0].relatedProvinces, ["浙江省"]);
 });
 
 test("local context retains descriptions and sources without turning archives into live search", async () => {
@@ -77,27 +89,37 @@ test("local context retains descriptions and sources without turning archives in
     assert.deepEqual(params.messages.at(-1), question[0]);
     return completion("北京有夏至吃面的习俗。[案例1]");
   }, question, [], undefined, cases);
-  const notes = culturalSourceNotes("北京有夏至吃面的习俗。[案例1]", cases);
+  const { notes, references } = culturalAnswerSources("北京有夏至吃面的习俗。[案例1]", cases);
   assert.match(notes, /本地已核验资料，并非本轮联网结果/);
   for (const source of cases[0].sources) assert.ok(notes.includes(source.url));
-  assert.equal(culturalSourceNotes("冬至不一定最冷。", cases), "");
+  assert.deepEqual(references.map(({ caseId, solarTermId, provinceCode }) => ({ caseId, solarTermId, provinceCode })), [
+    { caseId: "beijing-xiazhi-noodles", solarTermId: "xiazhi", provinceCode: "110000" },
+  ]);
+  assert.deepEqual(culturalAnswerSources("冬至不一定最冷。", cases), { notes: "", references: [] });
   for (const answer of ["不实引用[案例0]", "不实引用[案例99]", "无编号[案例]", "文字编号[案例一]", "未闭合[案例1", "模型网址 https://made-up.example/ [案例1]"]) {
-    assert.throws(() => culturalSourceNotes(answer, cases), { code: "CASE_ANSWER_UNSUPPORTED" });
+    assert.throws(() => culturalAnswerSources(answer, cases), { code: "CASE_ANSWER_UNSUPPORTED" });
   }
-  assert.throws(() => culturalSourceNotes("不存在[案例1]", []), { code: "CASE_ANSWER_UNSUPPORTED" });
+  assert.throws(() => culturalAnswerSources("不存在[案例1]", []), { code: "CASE_ANSWER_UNSUPPORTED" });
   const withNote = [{ ...cases[0], sources: [{ ...cases[0].sources[0], accessNote: "原文当前无法直达，保留原始来源待复核。" }] }];
-  assert.match(culturalSourceNotes("历史习俗。[案例1]", withNote), /来源访问说明：原文当前无法直达/);
+  assert.match(culturalAnswerSources("历史习俗。[案例1]", withNote).notes, /来源访问说明：原文当前无法直达/);
 });
 
-test("ordinary local-case questions call DeepSeek once and receive server-attached source links", async (t) => {
+test("a model-selected lookup passes real case evidence back and exposes server-attached sources", async (t) => {
   const oldKey = process.env.DEEPSEEK_API_KEY;
   process.env.DEEPSEEK_API_KEY = "test-only-local-cases";
   t.after(() => { if (oldKey === undefined) delete process.env.DEEPSEEK_API_KEY; else process.env.DEEPSEEK_API_KEY = oldKey; });
   const fetch = t.mock.method(globalThis, "fetch", async (url, init) => {
     assert.equal(String(url), "https://api.deepseek.com/chat/completions");
-    const messages = JSON.parse(init.body).messages;
-    assert.ok(messages.some(({ content }) => content.includes("beijing-xiazhi-noodles")));
-    assert.ok(!messages.some(({ content }) => content.includes("huangling-flower-buns")));
+    const { messages, tools, tool_choice } = JSON.parse(init.body);
+    assert.equal(tools[0].function.name, "search_cultural_cases");
+    const output = messages.find(({ role }) => role === "tool");
+    if (!output) {
+      assert.equal(tool_choice, "auto");
+      assert.ok(!messages.some(({ content }) => content?.includes("beijing-xiazhi-noodles")));
+      return Response.json(toolCompletion("北京 夏至 吃面"));
+    }
+    assert.equal(output.tool_call_id, "search-0");
+    assert.deepEqual(JSON.parse(output.content).result.cases.map(({ caseId }) => caseId), ["beijing-xiazhi-noodles"]);
     return Response.json(completion("北京有夏至吃面的习俗。[案例1]"));
   });
   const response = await POST(new Request("http://localhost:3000/api/chat", {
@@ -106,8 +128,59 @@ test("ordinary local-case questions call DeepSeek once and receive server-attach
   assert.equal(response.status, 200);
   const data = await response.json();
   assert.match(data.answer, /文化案例来源/);
+  assert.equal(data.answerText, "北京有夏至吃面的习俗。[案例1]");
+  assert.equal(ChatCaseReferencesSchema.parse(data.caseReferences)[0].caseId, "beijing-xiazhi-noodles");
+  assert.deepEqual(data.caseLookup.matchedTitles, [searchLocalCases([user("北京夏至吃面")]).cases[0].title]);
   assert.doesNotMatch(data.answer, /检索于|test-only-local-cases/);
-  assert.equal(fetch.mock.callCount(), 1);
+  assert.equal(fetch.mock.callCount(), 2);
+});
+
+test("the winter-solstice comparison exposes only cited case cards and preserves their true numbers", () => {
+  const { cases, terms, noMatch } = searchLocalCases([user("江苏和浙江的冬至习俗有什么不同？")]);
+  assert.equal(noMatch, false);
+  assert.deepEqual(terms, ["dongzhi"]);
+  const { references } = culturalAnswerSources("江苏冬酿酒。[案例2] 浙江祭冬。[案例1] 两地不同。[案例2]", cases, terms);
+  assert.deepEqual(ChatCaseReferencesSchema.parse(references).map(({ citation, caseId, solarTermId, provinceCode }) =>
+    [citation, caseId, solarTermId, provinceCode]), [
+    [2, "suzhou-dongzhi-winter-wine", "dongzhi", "320000"],
+    [1, "sanmen-jidong", "dongzhi", "330000"],
+  ]);
+  const partial = culturalAnswerSources("浙江三门祭冬。[案例1]", cases, terms);
+  assert.deepEqual(partial.references.map(({ caseId }) => caseId), ["sanmen-jidong"]);
+  assert.equal(searchLocalCases([user("海南冬至有哪些习俗？")]).noMatch, true);
+  assert.equal(searchLocalCases([user("什么是冬至？")]).noMatch, false);
+});
+
+test("chat retries one malformed local citation without exposing it as a case card", async (t) => {
+  const oldKey = process.env.DEEPSEEK_API_KEY;
+  process.env.DEEPSEEK_API_KEY = "test-only-case-citation-retry";
+  t.after(() => { if (oldKey === undefined) delete process.env.DEEPSEEK_API_KEY; else process.env.DEEPSEEK_API_KEY = oldKey; });
+  const fetch = t.mock.method(globalThis, "fetch", async (_url, init) => {
+    const body = JSON.parse(init.body);
+    if (!body.tools) return Response.json(completion("三门祭冬。[案例1] 苏州冬酿酒。[案例2]"));
+    if (body.messages.at(-1).role === "tool") return Response.json(completion("三门祭冬和苏州冬酿酒。[案例1、案例2]"));
+    return Response.json(toolCompletion("江苏 浙江 冬至 习俗"));
+  });
+  const response = await POST(new Request("http://localhost:3000/api/chat", {
+    method: "POST", headers: { "content-type": "application/json" },
+    body: JSON.stringify({ messages: [user("江苏和浙江的冬至习俗有什么不同？")] }),
+  }));
+  assert.equal(response.status, 200);
+  const result = await response.json();
+  assert.deepEqual(result.caseReferences.map(({ caseId }) => caseId), ["sanmen-jidong", "suzhou-dongzhi-winter-wine"]);
+  assert.equal(fetch.mock.callCount(), 3);
+});
+
+test("model queries use stable per-turn citations and return an empty list for a different unmatched region", () => {
+  const lookup = createChatCaseTool([user("江苏和浙江的冬至习俗有什么不同？")]);
+  assert.throws(() => lookup.tool.execute({ query: " ", source: "override" }));
+  assert.equal(lookup.searched, false);
+  assert.deepEqual(lookup.tool.execute({ query: "江苏 冬至 习俗" }).cases.map(({ citation, caseId }) =>
+    [citation, caseId]), [["案例1", "suzhou-dongzhi-winter-wine"]]);
+  assert.deepEqual(lookup.tool.execute({ query: "浙江 冬至 习俗" }).cases.map(({ citation, caseId }) =>
+    [citation, caseId]), [["案例2", "sanmen-jidong"]]);
+  assert.deepEqual(lookup.tool.execute({ query: "海南 冬至 习俗" }), { cases: [] });
+  assert.equal(lookup.searched, true);
 });
 
 test("studio reference reader accepts only documented catalog fields and HTTP links", () => {
@@ -132,7 +205,9 @@ test("fresh searches and archived cases have separate citations, including when 
     }
     assert.equal(String(url), "https://api.deepseek.com/chat/completions");
     const messages = JSON.parse(init.body).messages;
-    assert.ok(messages.some(({ content }) => content.includes("beijing-xiazhi-noodles")));
+    const output = messages.find(({ role }) => role === "tool");
+    if (!output) return Response.json(toolCompletion("北京 夏至 吃面"));
+    assert.ok(output.content.includes("beijing-xiazhi-noodles"));
     return Response.json(completion(failSearch ? "当前安排无法确认；北京夏至吃面属于历史习俗。[案例1]"
       : "最新情况需要核对所查报道。[1] 北京夏至吃面属于历史习俗。[案例1]"));
   });
@@ -152,5 +227,5 @@ test("fresh searches and archived cases have separate citations, including when 
   assert.match(fallbackAnswer, /^本次未能核实实时信息/);
   assert.match(fallbackAnswer, /文化案例来源（本地已核验资料/);
   assert.ok(!fallbackAnswer.includes(liveUrl));
-  assert.equal(fetch.mock.callCount(), 4);
+  assert.equal(fetch.mock.callCount(), 6);
 });

@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
-import FloatingChat from "@/components/FloatingChat";
 import ChinaProvinceMap from "@/components/cultural-map/ChinaProvinceMap";
 import ExploreMotion from "@/components/ExploreMotion";
 import { ProvinceCodeSchema, SolarTermIdSchema } from "@/lib/contracts/cultural-case";
@@ -30,6 +29,5 @@ export default function ExplorePage({ searchParams }: { searchParams: SearchPara
       <span className="explore-intro-seal" aria-hidden="true">知时</span>
     </div>
     <div className="explore-map-layout"><Suspense fallback={<p className="muted" role="status">正在展开山河风物…</p>}><SelectedMap searchParams={searchParams} /></Suspense></div>
-    <FloatingChat />
   </ExploreMotion>;
 }

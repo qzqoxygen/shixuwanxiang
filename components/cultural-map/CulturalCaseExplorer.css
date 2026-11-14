@@ -51,6 +51,21 @@
 .case-detail-top { display: flex; justify-content: space-between; gap: 8px 12px; align-items: center; flex-wrap: wrap; padding: 6px 0; border-bottom: 1px solid #b69a5c35; }
 .case-detail-top button { min-height: 44px; padding: 8px 6px; border: 1px solid transparent; background: transparent; color: #305f65; font-size: 14px; cursor: pointer; }
 .case-detail-name { color: #305f65; font: 30px/1.5 KaiTi, SimSun, serif; margin: 16px 0 4px; text-wrap: pretty; }
+.case-studio-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  margin: 5px 0 10px;
+  padding: 4px 12px;
+  border: 1px solid #8aa398;
+  border-radius: 5px 11px;
+  background: #e0ebe1;
+  color: #254c43;
+  font-size: 13px;
+  text-decoration: none;
+}
+.case-studio-link:hover { border-color: #59786c; background: #d1e3d6; }
 .case-detail-meta { color: #626f68; font-size: 13px; line-height: 1.85; margin: 0 0 16px; }
 .case-detail-image { width: 100%; height: auto; }
 .case-detail-description, .case-detail-relation { max-width: 38em; white-space: pre-wrap; color: #45574d; font-size: 15px; line-height: 2; margin: 16px 0; }

@@ -5,6 +5,7 @@ import MapViewport from "./MapViewport";
 import { ProvinceControls, ProvinceInteraction, ProvinceLayers, type ProvinceView } from "./ProvinceInteraction";
 import CulturalCaseExplorer, { SolarTermFilter } from "./CulturalCaseExplorer";
 import { INITIAL_EXPLORE_SELECTION, type ExploreSelection } from "@/lib/explore-selection";
+import FloatingChat from "../FloatingChat";
 
 const features = mapData.features as unknown as ProvinceFeature[];
 const provinces = features.filter((feature) => /^\d{6}$/.test(String(feature.properties.adcode)));
@@ -46,7 +47,7 @@ export default function ChinaProvinceMap({ initialSelection = INITIAL_EXPLORE_SE
         <div className="culture-map-spread">
           <div className="culture-map-sheet">
             <header className="culture-map-header">
-              <h2 id="culture-map-heading">山河风物志</h2>
+              <h2 id="culture-map-heading" tabIndex={-1}>山河风物志</h2>
             </header>
 
             <SolarTermFilter />
@@ -101,6 +102,7 @@ export default function ChinaProvinceMap({ initialSelection = INITIAL_EXPLORE_SE
           </div>
           <CulturalCaseExplorer />
         </div>
+        <FloatingChat />
       </ProvinceInteraction>
     </section>
   );

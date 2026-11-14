@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useRef, useState, type CSSProperties, type FocusEvent, type KeyboardEvent, type PointerEvent } from "react";
 import { SEASONS, SOLAR_TERMS } from "@/lib/solar-terms";
 import { parseStudioDraft, STUDIO_DECORATIONS as decorations, STUDIO_PALETTES as palettes, type StudioDraft, type StudioPlacement } from "@/lib/studio-draft";
-import { STUDIO_FORMATS, STUDIO_LINE_LIMIT, STUDIO_TITLE_LIMIT } from "@/lib/studio-inspiration";
+import { STUDIO_FORMATS, STUDIO_LINE_LIMIT, STUDIO_TITLE_LIMIT, type StudioCaseSeed } from "@/lib/studio-inspiration";
 import stickerCatalog from "@/public/images/studio-stickers/manifest.json";
 import { renderPosterPng } from "./export-poster";
 import StudioInspiration from "./StudioInspiration";
@@ -130,26 +130,28 @@ function StudioBreeze() {
   </>;
 }
 
-export default function StudioWorkbench() {
-  const snapshot = useInitialStudioDraft();
-  if (snapshot === undefined) {
-    return (
-      <section className="studio-workbench" aria-labelledby="studio-heading" aria-busy="true">
-        <header className="studio-heading">
-          <div className="studio-heading-caption">
-            <StudioTitle />
-            <p>正在打开工坊…</p>
-          </div>
-        </header>
-      </section>
-    );
-  }
-  return <StudioEditor initialDraft={parseStudioDraft(snapshot)} />;
+export function StudioLoading() {
+  return <section className="studio-workbench" aria-labelledby="studio-heading" aria-busy="true">
+    <header className="studio-heading">
+      <div className="studio-heading-caption">
+        <StudioTitle />
+        <p>正在打开工坊…</p>
+      </div>
+    </header>
+  </section>;
 }
 
-function StudioEditor({ initialDraft }: { initialDraft: StudioDraft | null }) {
+export default function StudioWorkbench({ seed, invalidCase }: { seed?: StudioCaseSeed; invalidCase: boolean }) {
+  const snapshot = useInitialStudioDraft();
+  if (snapshot === undefined) return <StudioLoading />;
+  return <StudioEditor initialDraft={parseStudioDraft(snapshot)} seed={seed} invalidCase={invalidCase} />;
+}
+
+function StudioEditor({ initialDraft, seed, invalidCase }: { initialDraft: StudioDraft | null; seed?: StudioCaseSeed; invalidCase: boolean }) {
+  const seedTermIndex = seed ? SOLAR_TERMS.findIndex(({ id }) => id === seed.solarTermId) : 4;
+  const [caseState, setCaseState] = useState(() => seed && initialDraft && initialDraft.termId !== seed.solarTermId ? "pending" : "accepted");
   const [activeTab, setActiveTab] = useState<EditorTab>("content");
-  const [termIndex, setTermIndex] = useState(() => initialDraft ? SOLAR_TERMS.findIndex(({ id }) => id === initialDraft.termId) : 4);
+  const [termIndex, setTermIndex] = useState(() => initialDraft ? SOLAR_TERMS.findIndex(({ id }) => id === initialDraft.termId) : seedTermIndex);
   const [templateIndex, setTemplateIndex] = useState(() => initialDraft ? templates.findIndex(({ id }) => id === initialDraft.templateId) : 0);
   const [paletteIndex, setPaletteIndex] = useState(() => initialDraft ? palettes.findIndex(({ id }) => id === initialDraft.paletteId) : 0);
   const [decoration, setDecoration] = useState(initialDraft?.decoration ?? "template");
@@ -168,10 +170,12 @@ function StudioEditor({ initialDraft }: { initialDraft: StudioDraft | null }) {
   const [selection, setSelection] = useState<PlacedItem["id"] | null>(null);
   const nextStickerId = useRef(stickers.reduce((next, { id }) => Math.max(next, id + 1), 1));
   const poster = useRef<HTMLElement>(null);
+  const termSelect = useRef<HTMLSelectElement>(null);
   const gesture = useRef<Gesture | null>(null);
   const actionPress = useRef<{ pointer: number; button: HTMLButtonElement; x: number; y: number } | null>(null);
 
   const term = SOLAR_TERMS[termIndex];
+  const activeCase = caseState === "accepted" && seed?.solarTermId === term.id ? seed : undefined;
   const season = SEASONS[Math.floor(termIndex / 6)];
   const template = templates[templateIndex];
   const bookmark = template.id === "bookmark";
@@ -543,11 +547,27 @@ function StudioEditor({ initialDraft }: { initialDraft: StudioDraft | null }) {
           </div>
         </div>
         <div className="studio-fields" role="tabpanel" id="studio-panel-content" aria-labelledby="studio-tab-content" hidden={activeTab !== "content"}>
+          {invalidCase && <p className="studio-case-import" role="status">这则案例无法用于当前节气。你可以继续编辑，或回知时重新选一则。</p>}
+          {seed && caseState === "pending" && <div className="studio-case-import" role="group" aria-label="导入知时案例">
+            <strong>{seed.title}</strong>
+            <p>将草稿节气切换到{SOLAR_TERMS[seedTermIndex].name}后，即可用这则案例生成灵感。草稿文字、版式和贴纸会保留。</p>
+            <div>
+              <button type="button" onClick={() => {
+                setTermIndex(seedTermIndex);
+                setCaseState("accepted");
+                requestAnimationFrame(() => termSelect.current?.focus());
+              }}>切换到{SOLAR_TERMS[seedTermIndex].name}</button>
+              <button type="button" onClick={() => {
+                setCaseState("dismissed");
+                requestAnimationFrame(() => termSelect.current?.focus());
+              }}>继续原草稿</button>
+            </div>
+          </div>}
           <fieldset>
             <legend><span aria-hidden="true">一</span>节气与版式</legend>
             <label>
               节气
-              <select value={termIndex} onChange={(event) => setTermIndex(Number(event.currentTarget.value))}>
+              <select ref={termSelect} value={termIndex} onChange={(event) => setTermIndex(Number(event.currentTarget.value))}>
                 {SEASONS.map(({ id, name }, seasonIndex) => (
                   <optgroup key={id} label={`${name}季`}>
                     {SOLAR_TERMS.slice(seasonIndex * 6, seasonIndex * 6 + 6).map((option, index) => (
@@ -578,9 +598,10 @@ function StudioEditor({ initialDraft }: { initialDraft: StudioDraft | null }) {
               <textarea rows={2} value={line} maxLength={STUDIO_LINE_LIMIT} onChange={(event) => setCustomLine(event.currentTarget.value)} />
             </label>
             <StudioInspiration
-              key={`${term.id}:${template.id}`}
+              key={`${term.id}:${template.id}:${activeCase?.caseId ?? ""}`}
               term={term}
               format={template.id}
+              selectedCase={activeCase}
               onApply={(field, value) => field === "title" ? setCustomTitle(value) : setCustomLine(value)}
             />
           </fieldset>

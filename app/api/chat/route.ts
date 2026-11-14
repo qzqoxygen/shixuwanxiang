@@ -3,7 +3,8 @@ import { beginAiRequest } from "@/lib/server/ai-access";
 import { MAX_ASSISTANT_LENGTH, MAX_BODY_BYTES, validateMessages } from "@/lib/chat";
 import { AgentError, runChatAgent } from "@/lib/ai-agent";
 import { type SearchContext, SearchError, needsWebSearch, buildSearchQuery, searchWeb, attachSearchSources } from "@/lib/server/web-search";
-import { CulturalContextError, retrieveChatCases, culturalSourceNotes } from "@/lib/server/cultural-case-context";
+import { CulturalContextError, culturalAnswerSources } from "@/lib/server/cultural-case-context";
+import { createChatCaseTool } from "@/lib/server/chat-case-tool";
 
 // Cache Components uses the default Node.js runtime. Leave time to return a JSON error.
 export const maxDuration = 60;
@@ -92,15 +93,35 @@ export async function POST(request: Request) {
       }
     }
     const client = createDeepSeekClient(apiKey);
-    const cases = retrieveChatCases(messages);
-    const result = await runChatAgent((params) => completeDeepSeek(client, params, signal), messages, undefined, search, cases);
-    const caseSources = culturalSourceNotes(result.answer, cases);
-    let answer = result.answer;
-    if (search) answer = attachSearchSources(answer, search);
-    if (search === null) answer = "本次未能核实实时信息。以下仅供了解相关背景。\n\n" + answer;
-    answer += caseSources;
+    const lookup = createChatCaseTool(messages);
+    const complete = (params: Parameters<typeof completeDeepSeek>[1]) => completeDeepSeek(client, params, signal);
+    let result = await runChatAgent(complete, messages, [lookup.tool], search);
+    const terms = [...lookup.terms];
+    const cases = lookup.searched ? lookup.cases : lookup.fallback.cases;
+    let sources;
+    try {
+      sources = culturalAnswerSources(result.answer, lookup.cases, terms);
+      if (search === undefined && lookup.fallback.cases.length && cases.length && !sources.references.length) {
+        throw new CulturalContextError("本轮回答缺少对应的文化案例引用。");
+      }
+    } catch (error) {
+      if (!(error instanceof CulturalContextError) || !cases.length || signal.aborted) throw error;
+      // Recover with the same case IDs when the model skips lookup or formats a citation incorrectly.
+      result = await runChatAgent(complete, messages, [], search, cases);
+      sources = culturalAnswerSources(result.answer, cases, terms);
+    }
+    const { notes, references } = sources;
+    let answerText = result.answer;
+    if (search) answerText = attachSearchSources(answerText, search);
+    if (search === null) answerText = "本次未能核实实时信息。以下仅供了解相关背景。\n\n" + answerText;
+    const answer = answerText + notes;
     if (answer.length > MAX_ASSISTANT_LENGTH) throw new AgentError("INVALID_RESPONSE", "回答及来源过长，请简化问题后重试。");
-    return Response.json({ ...result, answer }, { headers: { "Cache-Control": "no-store" } });
+    return Response.json({
+      ...result, answer,
+      ...(references.length ? { answerText, caseReferences: references } : {}),
+      ...(lookup.searched ? { caseLookup: { matchedTitles: lookup.cases.map(({ title }) => title) } } : {}),
+      ...((lookup.searched ? lookup.cases.length === 0 : lookup.fallback.noMatch) ? { noLocalCaseMatch: true } : {}),
+    }, { headers: { "Cache-Control": "no-store" } });
   } catch (error) {
     const issue = error instanceof AgentError || error instanceof SearchError || error instanceof CulturalContextError
       ? { status: 502, code: error.code, message: error.message }
