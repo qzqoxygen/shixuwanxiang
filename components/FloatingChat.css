@@ -28,7 +28,7 @@
   flex-direction: column;
   border: 1px solid #82988a;
   border-radius: 16px;
-  background: #f9f6ed;
+  background: transparent;
   box-shadow: 0 16px 48px #253e372b, 0 2px 8px #253e3714;
   color: #303b38;
 }
@@ -41,7 +41,7 @@
   padding: 15px 14px 15px 10px;
   border-radius: 15px 15px 0 0;
   border-bottom: 1px solid #b69a5c;
-  background: linear-gradient(115deg, #284c42, #3b6254);
+  background: linear-gradient(115deg, rgb(10 37 31 / 65%), rgb(17 51 44 / 69%));
   color: #fffaf0;
   touch-action: none;
   cursor: grab;
@@ -55,8 +55,8 @@
 .cloud-chat-header button:hover { background: #f7efda28; }
 .cloud-chat-header .cloud-chat-grip { width: 30px; flex: none; padding: 0; fill: #d5e0c9; cursor: grab; touch-action: none; }
 .cloud-chat-header button:focus-visible { outline: 2px solid #f1d18a; outline-offset: 2px; }
-.cloud-chat-tools { display: flex; }
-.cloud-chat-tools button { transition: scale var(--chat-button-motion), background-color 160ms ease; }
+.cloud-chat-tools { display: flex; gap: 4px; }
+.cloud-chat-tools button { border: 1px solid #d9e5c72b; border-radius: 9px; background: #f7efda0a; transition: scale var(--chat-button-motion), background-color 160ms ease; }
 .cloud-chat-tools :is(.cloud-chat-minimize, .cloud-chat-reset) { font-size: 13px; }
 .cloud-chat-content {
   position: relative;

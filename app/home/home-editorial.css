@@ -320,22 +320,26 @@
 .home-chapter-link {
   display: inline-flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 20px;
+  justify-content: center;
+  gap: 10px;
   min-height: 45px;
   margin-top: clamp(19px, 2.3vw, 33px);
-  padding: 6px 15px;
+  padding: 10px 20px;
   border: 1px solid var(--chapter-accent);
+  border-radius: 10px 10px 10px 3px;
+  background: #fffdf5;
+  box-shadow: inset 0 1px 0 #ffffffc7, 0 2px 4px #544b2e0a;
   color: var(--chapter-accent);
   font-size: 14px;
 }
 
 .home-chapter-link:hover {
   background: var(--chapter-accent);
+  box-shadow: 0 3px 9px #3d5a4220;
   color: #fffaf1;
 }
 
-.home-chapter-link:focus-visible { outline-color: var(--chapter-accent); }
+.home-chapter-link:focus-visible { outline: 2px solid var(--chapter-accent); outline-offset: 4px; }
 
 .home-chapter-seasons {
   grid-template-columns: minmax(0, 1fr) minmax(0, 1.52fr);
@@ -546,13 +550,11 @@
   }
 
   .home-chapter-link {
-    transition: background-color .22s ease, color .22s ease, scale .16s var(--editorial-depth-ease);
+    transition: background-color .22s ease, color .22s ease, box-shadow .22s ease, scale .16s var(--editorial-depth-ease);
   }
 
   .home-chapter-link:active { scale: .96; }
 
-  .home-chapter-link > span { transition: translate .26s var(--editorial-depth-ease); }
-  .home-chapter-link:is(:hover, :focus-visible) > span { translate: 2px -2px; }
 
   @keyframes home-editorial-appear {
     from { opacity: .15; translate: 0 var(--editorial-reveal-offset); }

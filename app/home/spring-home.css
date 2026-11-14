@@ -319,37 +319,15 @@ body:has(.spring-home:not([style*="display: none"])) {
   outline-offset: -9px;
 }
 
-.spring-view-badge {
-  position: absolute;
-  right: max(8%, 20px);
-  bottom: var(--picker-inset);
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  min-height: 44px;
-  padding: 8px 14px;
-  border: 1px solid #9aa98b;
-  border-radius: 24px;
-  background: #f8f5e9;
-  color: #365e51;
-  box-shadow: 0 2px 8px #273d2d18;
-  font: 14px/1.4 var(--spring-serif);
-  transition: background-color .2s ease, border-color .2s ease;
+/* Native cursors follow the pointer without animation delay or React updates. */
+@media (hover: hover) and (pointer: fine) {
+  .spring-view-control { cursor: url("/images/home/window-magnifier-in.svg") 14 14, zoom-in; }
+  .spring-stage[data-view="near"] .spring-view-control { cursor: url("/images/home/window-magnifier-out.svg") 14 14, zoom-out; }
 }
-.spring-view-badge svg { width: 23px; height: 23px; flex: none; }
-.spring-view-handle { stroke: #a38550; stroke-width: 2; }
-.spring-view-control:is(:hover, :focus-visible) .spring-view-badge {
-  background: #e7eee0;
-  border-color: #527666;
+@media (forced-colors: active) and (hover: hover) and (pointer: fine) {
+  .spring-view-control { cursor: zoom-in; }
+  .spring-stage[data-view="near"] .spring-view-control { cursor: zoom-out; }
 }
-@media (max-width: 480px) {
-  .spring-view-badge { right: 6%; justify-content: center; width: 44px; padding: 8px; }
-  .spring-view-badge > span { display: none; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .spring-view-badge { transition: none; }
-}
-
 .spring-stage[data-view="near"] .spring-window-trim::before {
   opacity: .20;
 }
@@ -393,10 +371,6 @@ body:has(.spring-home:not([style*="display: none"])) {
   max-height: 0;
   margin-top: 0;
   opacity: 0;
-}
-
-.spring-stage[data-view="near"] .spring-view-control {
-  cursor: pointer;
 }
 
 .spring-stage[data-season="spring"][data-view="near"] .spring-foreground[data-chapter="spring"] {
