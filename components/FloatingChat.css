@@ -28,7 +28,7 @@
   flex-direction: column;
   border: 1px solid #82988a;
   border-radius: 16px;
-  background: #f9f6ed;
+  background: transparent;
   box-shadow: 0 16px 48px #253e372b, 0 2px 8px #253e3714;
   color: #303b38;
 }
@@ -41,7 +41,7 @@
   padding: 15px 14px 15px 10px;
   border-radius: 15px 15px 0 0;
   border-bottom: 1px solid #b69a5c;
-  background: linear-gradient(115deg, #284c42, #3b6254);
+  background: linear-gradient(115deg, rgb(10 37 31 / 65%), rgb(17 51 44 / 69%));
   color: #fffaf0;
   touch-action: none;
   cursor: grab;
