@@ -3,10 +3,11 @@
 import { useEffect, useId, useReducer, useRef, useState, useSyncExternalStore, type CSSProperties, type KeyboardEvent } from "react";
 import { ReadingPage, PhotoPage } from "@/components/seasons/BookPages";
 import BookDirectory from "@/components/seasons/BookDirectory";
-import SeasonalCases from "@/components/seasons/SeasonalCases";
 import { useBookSwipe } from "@/components/seasons/useBookSwipe";
 import { SOLAR_TERMS } from "@/lib/solar-terms";
 import { SOLAR_TERM_PHOTOS } from "@/lib/solar-term-photos";
+import { getSeasonGuide, type GuideCaseSources, type GuideMode } from "@/lib/season-guides";
+import PhotoGuide from "@/components/seasons/PhotoGuide";
 
 import { bookReducer, INITIAL_BOOK } from "@/lib/book-navigation";
 import { BOOK_SLIDE_DURATION, BOOK_TURN_DURATION, startBookSlide, startBookTurn } from "@/lib/book-turn-animation";
@@ -25,9 +26,10 @@ function subscribeCompact(callback: () => void) {
 const readCompact = () => window.matchMedia("(max-width: 1000px)").matches;
 const number = (value: number) => String(value).padStart(2, "0");
 
-export default function SolarTermsExplorer() {
+export default function SolarTermsExplorer({ caseSources }: { caseSources: GuideCaseSources }) {
   const [book, dispatch] = useReducer(bookReducer, INITIAL_BOOK);
   const [paused, setPaused] = useState(false);
+  const [guideMode, setGuideMode] = useState<GuideMode>("brief");
   const rootRef = useRef<HTMLDivElement>(null);
   const leafRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
@@ -118,6 +120,15 @@ export default function SolarTermsExplorer() {
     <button type="button" className="seasons-book-next seasons-book-button" disabled={book.requested === 23} onClick={() => navigate(1, "step")} aria-label={book.requested === 23 ? "已是最后一页" : `下一节气：${next.name}`}><span><small>下一节气</small>{book.requested === 23 ? "卷末" : next.name}</span></button>
   </div>;
   const directory = <BookDirectory bookId={`${id}-book`} currentIndex={settledIndex} requestedIndex={book.requested} activeIndex={turn?.to ?? settledIndex} motion={!still} duration={duration} onNavigate={index => { navigate(index); if (compact) { bookRef.current?.focus({ preventScroll: true }); bookRef.current?.scrollIntoView({ behavior: still ? "instant" : "smooth", block: "start" }); } }} />;
+  function photo(index: number, key: string, interactive = false) {
+    const termId = SOLAR_TERMS[index].id;
+    const guide = getSeasonGuide(termId)[guideMode];
+    return <PhotoPage key={key} index={index} guide={<PhotoGuide
+      termId={termId} mode={guideMode} intro={guide.intro} source={caseSources[termId]}
+      interactive={interactive} onModeChange={setGuideMode}
+    />} />;
+  }
+
   return <div className="seasons-explorer" ref={rootRef} data-season={selected.season} data-still={still}>
     <div className="seasons-book-toolbar">
       <div>
@@ -150,14 +161,14 @@ export default function SolarTermsExplorer() {
       <div className="seasons-book-viewport" {...swipeHandlers}><div className="seasons-book-cover">
         <div className="seasons-book-stage" ref={stageRef}>
           <div key={compact ? turn?.serial ?? `idle-${settledIndex}` : "spread"} className="seasons-book-track" ref={trackRef}>
-          <div className="seasons-book-base" aria-hidden={Boolean(turn)} inert={Boolean(turn)} aria-busy={Boolean(book.turn)}><ReadingPage index={leftIndex} titleId={`${id}-term-title`} /><PhotoPage key={`base-${rightIndex}`} index={rightIndex} /></div>
-          {compact && turn && <div className="seasons-book-mobile-incoming" data-direction={turn.direction === 1 ? "next" : "previous"} aria-hidden="true" inert><ReadingPage index={turn.to} /><PhotoPage key={`incoming-${turn.to}`} index={turn.to} /></div>}
+          <div className="seasons-book-base" aria-hidden={Boolean(turn)} inert={Boolean(turn)} aria-busy={Boolean(book.turn)}><ReadingPage index={leftIndex} titleId={`${id}-term-title`} />{photo(rightIndex, `base-${rightIndex}`, !turn)}</div>
+          {compact && turn && <div className="seasons-book-mobile-incoming" data-direction={turn.direction === 1 ? "next" : "previous"} aria-hidden="true" inert><ReadingPage index={turn.to} />{photo(turn.to, `incoming-${turn.to}`)}</div>}
           </div>
           {!compact && turn && <span key={`shadow-${turn.serial}`} className="seasons-book-turn-shadow" data-direction={turn.direction === 1 ? "next" : "previous"} aria-hidden="true" />}
           {!compact && <span className="seasons-book-spine" aria-hidden="true" />}
           {!compact && turn && <div key={turn.serial} className="seasons-book-leaf" data-direction={turn.direction === 1 ? "next" : "previous"} ref={leafRef} aria-hidden="true" inert>
-            <div className="seasons-book-leaf-face seasons-book-leaf-front">{turn.direction === 1 ? <PhotoPage key={`front-${turn.from}`} index={turn.from} /> : <ReadingPage index={turn.from} />}</div>
-            <div className="seasons-book-leaf-face seasons-book-leaf-back">{turn.direction === 1 ? <ReadingPage index={turn.to} /> : <PhotoPage key={`back-${turn.to}`} index={turn.to} />}</div>
+            <div className="seasons-book-leaf-face seasons-book-leaf-front">{turn.direction === 1 ? photo(turn.from, `front-${turn.from}`) : <ReadingPage index={turn.from} />}</div>
+            <div className="seasons-book-leaf-face seasons-book-leaf-back">{turn.direction === 1 ? <ReadingPage index={turn.to} /> : photo(turn.to, `back-${turn.to}`)}</div>
           </div>}
         </div>
       </div>
@@ -166,7 +177,6 @@ export default function SolarTermsExplorer() {
     </section>
     {compact && directory}
     </div>
-    <SeasonalCases key={selected.id} term={selected} />
     <p className="seasons-announcement" role="status" aria-live="polite" aria-atomic="true">第{settledIndex + 1}个节气，{selected.name}。{compact ? "本页依次为节气介绍与对应照片。" : "左页为节气介绍，右页为对应照片。"}{selected.description}</p>
   </div>;
 }

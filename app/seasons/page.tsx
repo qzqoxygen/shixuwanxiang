@@ -1,18 +1,27 @@
 import type { Metadata } from "next";
 import InkLandscape from "@/components/InkLandscape";
 import SolarTermsExplorer from "@/components/SolarTermsExplorer";
+import { getSeasonGuide, type GuideCaseSources } from "@/lib/season-guides";
+import { SOLAR_TERMS } from "@/lib/solar-terms";
+import { studioCaseForTerm } from "@/lib/server/cultural-case-context";
 import "./seasons.css";
 import "./book.css";
 import "./reading-room.css";
 import "./mobile.css";
 import "./finishing.css";
 import "./vignette.css";
+import "./guide.css";
 export const metadata: Metadata = { title: "四时" };
 export default function SeasonsPage() {
+  const caseSources: GuideCaseSources = {};
+  for (const { id } of SOLAR_TERMS) {
+    const item = studioCaseForTerm(getSeasonGuide(id).caseId, id);
+    if (item) caseSources[id] = { title: item.title, url: item.sources[0].url };
+  }
   return <div className="seasons-page seasons-reading-room">
     <InkLandscape />
     <h1 className="seasons-sr-only">四时：二十四节气风物册</h1>
-    <SolarTermsExplorer />
+    <SolarTermsExplorer caseSources={caseSources} />
     <aside className="seasons-source">
       <span className="seasons-source-mark" aria-hidden="true">记</span>
       <p>

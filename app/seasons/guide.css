@@ -1,0 +1,172 @@
+.seasons-photo-guide {
+  --guide-rule: color-mix(in srgb, var(--season-accent) 32%, #f8f6ef);
+  --guide-wash: color-mix(in srgb, var(--season-accent) 10%, #fcfaf2);
+  --guide-reading-height: 144px;
+  display: grid;
+  gap: 8px;
+  min-width: 0;
+  padding: 8px 12px 7px;
+  border: 1px solid var(--guide-rule);
+  border-top: 2px solid var(--season-accent);
+  border-radius: 4px 14px 6px 10px;
+  background: linear-gradient(145deg, var(--guide-wash), #fbf8ef 75%);
+  box-shadow: 0 3px 9px #283b3020, inset 0 0 0 1px #fff9;
+}
+.seasons-guide-header, .seasons-guide-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 4px 8px;
+}
+.seasons-guide-header h4 {
+  margin: 0;
+  color: var(--season-accent);
+  font: 400 19px/1.3 KaiTi, STKaiti, SimSun, serif;
+  letter-spacing: .02em;
+}
+.seasons-guide-mode {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  padding: 2px;
+  border-radius: 7px;
+  background: color-mix(in srgb, var(--season-accent) 9%, #f8f6ef);
+}
+.seasons-guide-mode button, .seasons-guide-actions :is(button, a) {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  gap: 4px;
+  border-radius: 5px;
+  color: var(--season-accent);
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+.seasons-guide-mode button {
+  padding: 3px 8px;
+  border: 1px solid transparent;
+  background: transparent;
+}
+.seasons-guide-mode button[aria-pressed="true"] {
+  border-color: var(--guide-rule);
+  background: #fffcf5;
+  box-shadow: 0 1px 2px #283b301c;
+}
+.seasons-guide-copy {
+  max-height: var(--guide-reading-height);
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in srgb, var(--season-accent) 65%, #f8f6ef) transparent;
+  padding-inline-end: 6px;
+  scrollbar-gutter: stable;
+}
+.seasons-guide-copy:focus-visible { outline-offset: 1px; }
+.seasons-guide-copy p {
+  margin: 0;
+  color: var(--seasons-ink);
+  font-size: 14px;
+  line-height: 1.7;
+}
+.seasons-guide-copy > p + p { margin-top: 8px; }
+.seasons-guide-live {
+  min-height: var(--guide-reading-height);
+  margin-top: 8px;
+  padding-top: 7px;
+  border-top: 1px solid var(--guide-rule);
+}
+.seasons-guide-live-heading {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2px 8px;
+  margin-bottom: 3px;
+  color: var(--season-accent);
+  font-size: 12px;
+  font-weight: 600;
+}
+.seasons-guide-meta { color: #435950; font-weight: 400; }
+.seasons-guide-error { margin: 0; color: #8a4434; font-size: 12px; line-height: 1.5; }
+.seasons-guide-primary {
+  justify-content: space-between;
+  min-width: min(100%, 124px);
+  padding: 4px 10px;
+  border: 1px solid var(--season-accent);
+  background: var(--season-accent);
+  box-shadow: 0 2px 0 color-mix(in srgb, var(--season-accent) 70%, #182624);
+}
+.seasons-guide-actions .seasons-guide-primary { color: #fffdf4; }
+.seasons-guide-primary[aria-disabled="true"] { cursor: wait; box-shadow: none; }
+.seasons-guide-source { padding-inline: 4px; text-underline-offset: 3px; }
+.seasons-guide-repeat { padding: 4px 8px; border: 1px solid var(--guide-rule); background: transparent; }
+.seasons-guide-repeat[aria-disabled="true"] { cursor: wait; }
+.seasons-guide-arrow { font-size: 15px; line-height: 1; }
+.seasons-guide-dots { display: inline-flex; gap: 3px; }
+.seasons-guide-dots i { width: 3px; height: 3px; border-radius: 50%; background: currentColor; }
+
+@media (min-width: 1001px) {
+  .seasons-reading-room .seasons-book { --reading-page-height: clamp(590px, calc(100svh - 190px), 735px); }
+  .seasons-reading-room .seasons-book .seasons-photo-card {
+    display: grid;
+    grid-template-rows: auto minmax(0, 1fr) auto;
+  }
+  .seasons-photo-card .seasons-photo-heading { margin-bottom: 10px; }
+  .seasons-reading-room .seasons-photo-card .seasons-photo-mat {
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 100%;
+    container-type: size;
+  }
+  .seasons-reading-room .seasons-photo-card .seasons-photo-frame {
+    width: min(100%, calc(100cqh * 4 / 3));
+  }
+  .seasons-reading-room .seasons-photo-card figcaption {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    width: 100%;
+    align-items: center;
+    column-gap: 10px;
+  }
+  .seasons-photo-card figcaption > :is(strong, .seasons-photo-guide) { grid-column: 1 / -1; }
+}
+@media (max-width: 1000px) {
+  .seasons-photo-guide { --guide-reading-height: 164px; }
+  .seasons-photo-card .seasons-photo-mat {
+    width: auto;
+    margin-inline: -10px;
+  }
+}
+@media (hover: hover) {
+  .seasons-guide-mode button:enabled:hover { border-color: var(--guide-rule); background: #fffcf5; }
+  .seasons-guide-primary:enabled:hover:not([aria-disabled="true"]) { background: color-mix(in srgb, var(--season-accent) 88%, #182624); }
+  .seasons-guide-source:hover, .seasons-guide-repeat:enabled:hover:not([aria-disabled="true"]) { background: var(--guide-wash); }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .seasons-explorer[data-still="false"] .seasons-photo-guide :is(button, a) {
+    transition: scale 260ms cubic-bezier(.22, 1.65, .42, 1), translate 200ms ease, background-color 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
+  }
+  .seasons-explorer[data-still="false"] .seasons-photo-guide :is(button:enabled:not([aria-disabled="true"]), a):active {
+    scale: .94;
+    translate: 0 1px;
+    transition-duration: 90ms;
+  }
+  .seasons-explorer[data-still="false"] .seasons-guide-copy { scroll-behavior: smooth; }
+  .seasons-explorer[data-still="false"] .seasons-guide-copy > p { animation: seasons-guide-arrive 220ms ease-out; }
+  .seasons-explorer[data-still="false"] .seasons-guide-live { animation: seasons-guide-arrive 280ms ease-out; }
+  .seasons-explorer[data-still="false"] .seasons-guide-dots i { animation: seasons-guide-dot 900ms ease-in-out infinite alternate; }
+  .seasons-explorer[data-still="false"] .seasons-guide-dots i:nth-child(2) { animation-delay: 120ms; }
+  .seasons-explorer[data-still="false"] .seasons-guide-dots i:nth-child(3) { animation-delay: 240ms; }
+}
+@media (prefers-reduced-motion: no-preference) and (hover: hover) {
+  .seasons-explorer[data-still="false"] .seasons-guide-primary:enabled:hover:not(:active, [aria-disabled="true"]) { translate: 0 -1px; }
+}
+@keyframes seasons-guide-arrive {
+  from { opacity: .35; translate: 0 3px; }
+}
+@keyframes seasons-guide-dot {
+  from { opacity: .45; }
+  to { opacity: 1; translate: 0 -2px; }
+}

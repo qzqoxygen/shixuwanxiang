@@ -29,7 +29,7 @@ export function ReadingPage({ index, titleId }: { index: number; titleId?: strin
 }
 
 // The prepared HD WebP assets are served directly to avoid another lossy encode.
-export function PhotoPage({ index }: { index: number }) {
+export function PhotoPage({ index, guide }: { index: number; guide: React.ReactNode }) {
   const term = SOLAR_TERMS[index];
   const photo: SolarTermPhoto = SOLAR_TERM_PHOTOS[term.id];
   const [failed, setFailed] = useState(false);
@@ -40,7 +40,12 @@ export function PhotoPage({ index }: { index: number }) {
       {!failed && !loaded && <span className="seasons-photo-loading" role="status">影像加载中</span>}
       {failed ? <div className="seasons-photo-error" role="status"><span>照片暂未加载</span><a href={photo.sourceUrl} target="_blank" rel="noopener noreferrer">前往来源页查看 </a></div> : <a className="seasons-photo-open" href={photo.src} target="_blank" rel="noopener noreferrer" draggable={false} aria-label={`查看${term.name}高清大图（新窗口打开）`}><Image src={photo.src} alt={`${term.name}：${photo.caption}`} width={photo.width} height={photo.height} unoptimized loading="eager" draggable={false} onLoad={() => setLoaded(true)} onError={() => setFailed(true)} /></a>}
     </div></div>
-    <figcaption><strong>{photo.caption}</strong><div className="seasons-photo-credits"><span className="seasons-photo-credit">{photo.credit}</span><a className="seasons-photo-license" href={photo.licenseUrl} target="_blank" rel="noopener noreferrer" aria-label={`照片许可：${photo.license}（新窗口打开）`}>{photo.license}</a></div><a className="seasons-photo-source" href={photo.sourceUrl} target="_blank" rel="noopener noreferrer" aria-label={`查看${term.name}照片来源：${photo.sourceName}（新窗口打开）`}>来源：{photo.sourceName} </a></figcaption>
+    <figcaption>
+      <strong>{photo.caption}</strong>
+      {guide}
+      <div className="seasons-photo-credits"><span className="seasons-photo-credit">{photo.credit}</span><a className="seasons-photo-license" href={photo.licenseUrl} target="_blank" rel="noopener noreferrer" aria-label={`照片许可：${photo.license}（新窗口打开）`}>{photo.license}</a></div>
+      <a className="seasons-photo-source" href={photo.sourceUrl} target="_blank" rel="noopener noreferrer" aria-label={`查看${term.name}照片来源：${photo.sourceName}（新窗口打开）`}>来源：{photo.sourceName} </a>
+    </figcaption>
     <span className="book-page-number" aria-label={`右页，第${index * 2 + 2}页`}>{number(index * 2 + 2)}</span>
   </figure>;
 }
