@@ -71,7 +71,7 @@ export default function BookDirectory({ bookId, currentIndex, requestedIndex, ac
     <div className="book-directory-seasons" ref={gridRef} data-active-term={SOLAR_TERMS[activeIndex].id}>
       <span ref={markerRef} className="book-directory-selection" aria-hidden="true" />
       {SEASONS.map((season, seasonIndex) => <section className="book-directory-season" data-season={season.id} data-active={SOLAR_TERMS[activeIndex].season === season.id} key={season.id} aria-label={`${season.name}季节气`}>
-        <button type="button" className="book-directory-season-entry seasons-book-button" aria-label={`${season.name}季：从${SOLAR_TERMS[seasonIndex * 6].name}开始`} aria-controls={bookId} onClick={() => onNavigate(seasonIndex * 6)}><strong>{season.name}</strong><span>{season.subtitle}</span><span aria-hidden="true">↗</span></button>
+        <button type="button" className="book-directory-season-entry seasons-book-button" aria-label={`${season.name}季：从${SOLAR_TERMS[seasonIndex * 6].name}开始`} aria-controls={bookId} onClick={() => onNavigate(seasonIndex * 6)}><strong>{season.name}</strong><span>{season.subtitle}</span></button>
         <div className="book-directory-terms">
           {SOLAR_TERMS.slice(seasonIndex * 6, seasonIndex * 6 + 6).map((term, position) => {
             const index = seasonIndex * 6 + position;

@@ -255,13 +255,6 @@
   text-wrap: pretty;
 }
 
-.home-term-arrow {
-  justify-self: end;
-  color: var(--term-ink);
-  font-size: 19px;
-  line-height: 1;
-}
-
 .home-term-photo:focus-within figcaption { background-color: var(--term-wash); }
 .home-term-photo:focus-within .home-term-season { color: #fff9e9; background: var(--term-ink); }
 
@@ -492,10 +485,6 @@
   .home-term-photo figcaption { transition: background-color .28s ease; }
   .home-term-image { transition: transform .46s var(--editorial-depth-ease), box-shadow .46s var(--editorial-depth-ease); }
   .home-term-season { transition: color .25s ease, background-color .25s ease, transform .46s var(--editorial-depth-ease); }
-  .home-term-arrow { transition: transform .28s var(--editorial-depth-ease); }
-
-  .home-term-photo:focus-within .home-term-arrow { transform: translate(3px, -3px); }
-
   @media (hover: hover) and (pointer: fine) {
     .home-term-photo:hover .home-term-image {
       transform: translateY(-6px) rotate(-.65deg);
@@ -503,7 +492,6 @@
     }
 
     .home-term-photo:hover .home-term-season { transform: translateY(-4px); }
-    .home-term-photo:hover .home-term-arrow { transform: translate(3px, -3px); }
 
     .home-term-photo:has(.home-term-cutout):hover .home-term-image { box-shadow: none; }
   }

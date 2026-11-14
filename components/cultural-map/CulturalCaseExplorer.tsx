@@ -33,7 +33,7 @@ export function SolarTermFilter() {
         </div>
       </div>)}
     </div>
-    {selectedTerm && <details className="case-term-insight" key={selectedTerm.id}><summary>了解{selectedTerm.name}<svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.4" aria-hidden="true"><path d="m4 6 4 4 4-4" /></svg></summary><p>{selectedTerm.description}</p></details>}
+    {selectedTerm && <details className="case-term-insight" key={selectedTerm.id}><summary>了解{selectedTerm.name}</summary><p>{selectedTerm.description}</p></details>}
   </section>;
 }
 
@@ -67,7 +67,7 @@ function CaseResults({ query }: { query: CaseListQuery }) {
       <ul className="case-list">
         {items.map(item => <li key={item.id}><button type="button" className="case-card" id={`case-card-${item.id}`} aria-pressed={selection.caseId === item.id} aria-controls="culture-case-detail" onClick={() => open(item)}>
           <span className="case-card-meta"><span>{CATEGORY_LABELS[item.category]}</span><span>{item.provinceName}</span><span className="case-card-source">{item.sources.length} 条来源</span></span>
-          <h4>{item.title}<svg className="case-card-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.3" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4" /></svg></h4>
+          <h4>{item.title}</h4>
           <p>{item.description}</p>
         </button></li>)}
       </ul>
@@ -95,14 +95,14 @@ function CaseDetail({ caseId }: { caseId: string }) {
       <button type="button" onClick={() => {
         dispatch({ type: "close" });
         requestAnimationFrame(() => (document.getElementById(`case-card-${caseId}`) ?? document.getElementById("cultural-case-explorer"))?.focus());
-      }}><span aria-hidden="true">← </span>返回列表</button>
+      }}>返回列表</button>
     </div>
     <h3 className="case-detail-name" id="case-detail-title" ref={headingRef} tabIndex={-1}>{resource.status === "success" ? resource.data.title : "案例详情"}</h3>
     {resource.status === "loading" && <CaseLoading detail />}
     {resource.status === "error" && <RequestError message={resource.message} retry={retry} />}
     {resource.status === "success" && <>
       <Link className="case-studio-link" href={studioCaseHref({ caseId, solarTermId: selection.solarTermId ?? resource.data.solarTermIds[0] })} prefetch={false}>
-        用这个案例做节气卡 <span aria-hidden="true">→</span>
+        用这个案例做节气卡
       </Link>
       <CulturalCaseContent item={resource.data} />
     </>}

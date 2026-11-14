@@ -161,7 +161,7 @@ export default function FloatingChat() {
           <h2 id={`${id}-title`}>云间问四时</h2>
           <p>DeepSeek AI · 节气与地方风物</p>
         </div>
-        <div className="cloud-chat-tools"><button type="button" className="cloud-chat-reset" aria-label="恢复聊天窗口位置" title="恢复位置" onClick={() => setPanelPosition(null)}>↺</button><button type="button" className="cloud-chat-minimize" aria-label="收起 AI 助手" title="收起，保留对话" onClick={close}>收起</button></div>
+        <div className="cloud-chat-tools"><button type="button" className="cloud-chat-reset" aria-label="恢复聊天窗口位置" title="恢复位置" onClick={() => setPanelPosition(null)}>复位</button><button type="button" className="cloud-chat-minimize" aria-label="收起 AI 助手" title="收起，保留对话" onClick={close}>收起</button></div>
       </header>
       <div className="cloud-chat-content"><ChatPanel onShowOnMap={showOnMap} /></div>
     </div>

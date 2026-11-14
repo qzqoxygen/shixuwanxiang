@@ -10,6 +10,6 @@ export default function CulturalCaseContent({ item }: { item: VerifiedCulturalCa
     {item.imageUrl && <Image className="case-detail-image" src={item.imageUrl} alt={item.title} width={720} height={480} />}
     <p className="case-detail-description">{item.description}</p>
     <h4 className="case-detail-section-title">节气关联</h4><p className="case-detail-relation">{item.relationNote}</p>
-    <div className="case-sources"><h4 className="case-detail-section-title">资料来源</h4><ul>{item.sources.map(source => <li key={source.url}><a href={source.url} target="_blank" rel="noopener noreferrer">{source.title} <span aria-hidden="true">↗</span></a>{source.publisher && <span>{source.publisher}</span>}{source.accessNote && <span>{source.accessNote}</span>}</li>)}</ul></div>
+    <div className="case-sources"><h4 className="case-detail-section-title">资料来源</h4><ul>{item.sources.map(source => <li key={source.url}><a href={source.url} target="_blank" rel="noopener noreferrer">{source.title} </a>{source.publisher && <span>{source.publisher}</span>}{source.accessNote && <span>{source.accessNote}</span>}</li>)}</ul></div>
   </>;
 }

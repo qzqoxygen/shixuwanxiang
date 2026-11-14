@@ -23,7 +23,7 @@ export function ReadingPage({ index, titleId }: { index: number; titleId?: strin
       <span>节气小识</span>
       <p>{SOLAR_TERM_NOTES[term.id]}</p>
     </div>
-    <div className="seasons-reading-links"><Link className="seasons-explore-link" href={`/explore?solarTermId=${term.id}`} aria-label={`去知时，寻访${term.name}风物`}>去知时<span className="book-wide-copy">，寻访山河风物</span> <span aria-hidden="true">↗</span></Link><a className="seasons-article-link" href={photo.articleUrl} target="_blank" rel="noopener noreferrer">阅读<span className="book-wide-copy">{term.name}</span>专题 <span aria-hidden="true">↗</span><span className="seasons-sr-only">（中国非遗网，新窗口打开）</span></a></div>
+    <div className="seasons-reading-links"><Link className="seasons-explore-link" href={`/explore?solarTermId=${term.id}`} aria-label={`去知时，寻访${term.name}风物`}>去知时<span className="book-wide-copy">，寻访山河风物</span> </Link><a className="seasons-article-link" href={photo.articleUrl} target="_blank" rel="noopener noreferrer">阅读<span className="book-wide-copy">{term.name}</span>专题 <span className="seasons-sr-only">（中国非遗网，新窗口打开）</span></a></div>
     <span className="book-page-number" aria-label={`左页，第${index * 2 + 1}页`}>{number(index * 2 + 1)}</span>
   </article>;
 }
@@ -38,9 +38,9 @@ export function PhotoPage({ index }: { index: number }) {
     <div className="seasons-photo-heading"><span>{term.name}影像</span><span>点图看大图</span></div>
     <div className="seasons-photo-mat"><div className="seasons-photo-frame" data-failed={failed} aria-busy={!loaded && !failed}>
       {!failed && !loaded && <span className="seasons-photo-loading" role="status">影像加载中</span>}
-      {failed ? <div className="seasons-photo-error" role="status"><span>照片暂未加载</span><a href={photo.sourceUrl} target="_blank" rel="noopener noreferrer">前往来源页查看 <span aria-hidden="true">↗</span></a></div> : <a className="seasons-photo-open" href={photo.src} target="_blank" rel="noopener noreferrer" draggable={false} aria-label={`查看${term.name}高清大图（新窗口打开）`}><Image src={photo.src} alt={`${term.name}：${photo.caption}`} width={photo.width} height={photo.height} unoptimized loading="eager" draggable={false} onLoad={() => setLoaded(true)} onError={() => setFailed(true)} /></a>}
+      {failed ? <div className="seasons-photo-error" role="status"><span>照片暂未加载</span><a href={photo.sourceUrl} target="_blank" rel="noopener noreferrer">前往来源页查看 </a></div> : <a className="seasons-photo-open" href={photo.src} target="_blank" rel="noopener noreferrer" draggable={false} aria-label={`查看${term.name}高清大图（新窗口打开）`}><Image src={photo.src} alt={`${term.name}：${photo.caption}`} width={photo.width} height={photo.height} unoptimized loading="eager" draggable={false} onLoad={() => setLoaded(true)} onError={() => setFailed(true)} /></a>}
     </div></div>
-    <figcaption><strong>{photo.caption}</strong><div className="seasons-photo-credits"><span className="seasons-photo-credit">{photo.credit}</span><a className="seasons-photo-license" href={photo.licenseUrl} target="_blank" rel="noopener noreferrer" aria-label={`照片许可：${photo.license}（新窗口打开）`}>{photo.license}</a></div><a className="seasons-photo-source" href={photo.sourceUrl} target="_blank" rel="noopener noreferrer" aria-label={`查看${term.name}照片来源：${photo.sourceName}（新窗口打开）`}>来源：{photo.sourceName} <span aria-hidden="true">↗</span></a></figcaption>
+    <figcaption><strong>{photo.caption}</strong><div className="seasons-photo-credits"><span className="seasons-photo-credit">{photo.credit}</span><a className="seasons-photo-license" href={photo.licenseUrl} target="_blank" rel="noopener noreferrer" aria-label={`照片许可：${photo.license}（新窗口打开）`}>{photo.license}</a></div><a className="seasons-photo-source" href={photo.sourceUrl} target="_blank" rel="noopener noreferrer" aria-label={`查看${term.name}照片来源：${photo.sourceName}（新窗口打开）`}>来源：{photo.sourceName} </a></figcaption>
     <span className="book-page-number" aria-label={`右页，第${index * 2 + 2}页`}>{number(index * 2 + 2)}</span>
   </figure>;
 }
