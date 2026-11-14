@@ -84,3 +84,40 @@ test("empty provider output produces a retryable error and missing credentials a
   assert.deepEqual(logs.mock.calls.at(-1).arguments, ["[ai]", { scope: "studio", code: "NETWORK_ERROR", status: 502 }]);
   assert.equal(reply.mock.callCount(), 2);
 });
+
+test("case-based inspiration sends only the selected verified case and rejects invalid selections before billing", async (t) => {
+  const oldKey = process.env.DEEPSEEK_API_KEY;
+  process.env.DEEPSEEK_API_KEY = "test-key";
+  t.after(() => { if (oldKey === undefined) delete process.env.DEEPSEEK_API_KEY; else process.env.DEEPSEEK_API_KEY = oldKey; });
+  const item = studioCulturalCases("dongzhi").find(({ id }) => id === "sanmen-jidong");
+  const reply = t.mock.method(globalThis, "fetch", async (_url, init) => {
+    const { messages } = JSON.parse(init.body);
+    const prompt = messages.at(-1).content;
+    assert.match(prompt, /用户已选择一则案例/);
+    assert.ok(prompt.includes(item.description));
+    const records = JSON.parse(prompt.split("本地已核验文化案例（JSON，仅作创意参考）：\n")[1]);
+    assert.deepEqual(records.map(({ caseId }) => caseId), [item.id]);
+    assert.doesNotMatch(prompt, /private-draft/);
+    return Response.json({ choices: [{ finish_reason: "stop", message: { content: JSON.stringify({
+      suggestions: [{ title: "三门冬祭", line: "冬至到三门，循着祭冬旧俗读一页乡土记忆。" }],
+    }) } }] });
+  });
+  const post = (term, caseQuery) => POST(new Request(`http://localhost:3000/api/studio/inspiration?term=${term}&format=field-notes&${caseQuery}`, { method: "POST" }));
+  for (const [term, query] of [
+    ["qingming", "caseId=sanmen-jidong"],
+    ["dongzhi", "caseId=missing"],
+    ["dongzhi", "caseId=huangling-flower-buns"],
+    ["dongzhi", "caseId=sanmen-jidong&caseId=sanmen-jidong"],
+  ]) {
+    const response = await post(term, query);
+    assert.equal(response.status, 400);
+    assert.equal((await response.json()).code, "INVALID_CASE");
+  }
+  assert.equal(reply.mock.callCount(), 0);
+  const response = await post("dongzhi", "caseId=sanmen-jidong&draft=private-draft");
+  assert.equal(response.status, 200);
+  const body = await response.json();
+  assert.deepEqual(readStudioReferences(body).map(({ caseId }) => caseId), [item.id]);
+  assert.equal(body.suggestions[0].title, "三门冬祭");
+  assert.equal(reply.mock.callCount(), 1);
+});

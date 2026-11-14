@@ -1,4 +1,5 @@
 import type { CulturalSource } from "./contracts/cultural-case";
+import type { SolarTermId } from "./solar-terms";
 
 export const STUDIO_TITLE_LIMIT = 12;
 export const STUDIO_LINE_LIMIT = 56;
@@ -13,6 +14,11 @@ export const STUDIO_FORMATS = {
 export type StudioFormat = keyof typeof STUDIO_FORMATS;
 export type StudioSuggestion = { title: string; line: string };
 export type StudioReference = { caseId: string; title: string; provinceName: string; regionName: string; sources: CulturalSource[] };
+export type StudioCaseSeed = Pick<StudioReference, "caseId" | "title" | "provinceName" | "regionName"> & { solarTermId: SolarTermId };
+
+export function studioCaseHref({ caseId, solarTermId }: Pick<StudioCaseSeed, "caseId" | "solarTermId">) {
+  return `/studio?${new URLSearchParams({ caseId, solarTermId })}`;
+}
 
 export function isStudioFormat(value: string | null): value is StudioFormat {
   return value !== null && Object.hasOwn(STUDIO_FORMATS, value);

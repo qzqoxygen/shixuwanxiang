@@ -1,8 +1,10 @@
 "use client";
 
+import Link from "next/link";
 import { useCallback, useEffect, useId, useRef } from "react";
 import { fetchCaseDetail, fetchCaseList } from "@/lib/cultural-case-client";
 import { CASE_PAGE_SIZE } from "@/lib/explore-selection";
+import { studioCaseHref } from "@/lib/studio-inspiration";
 import { SEASONS, SOLAR_TERMS, type SolarTermId } from "@/lib/solar-terms";
 import type { CaseListQuery, VerifiedCulturalCase } from "@/lib/contracts/cultural-case";
 import { useProvinces } from "./ProvinceInteraction";
@@ -98,7 +100,12 @@ function CaseDetail({ caseId }: { caseId: string }) {
     <h3 className="case-detail-name" id="case-detail-title" ref={headingRef} tabIndex={-1}>{resource.status === "success" ? resource.data.title : "案例详情"}</h3>
     {resource.status === "loading" && <CaseLoading detail />}
     {resource.status === "error" && <RequestError message={resource.message} retry={retry} />}
-    {resource.status === "success" && <CulturalCaseContent item={resource.data} />}
+    {resource.status === "success" && <>
+      <Link className="case-studio-link" href={studioCaseHref({ caseId, solarTermId: selection.solarTermId ?? resource.data.solarTermIds[0] })} prefetch={false}>
+        用这个案例做节气卡 <span aria-hidden="true">→</span>
+      </Link>
+      <CulturalCaseContent item={resource.data} />
+    </>}
   </section>;
 }
 

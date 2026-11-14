@@ -1,7 +1,7 @@
 import "./register-ts.mjs";
 import assert from "node:assert/strict";
 import { test } from "node:test";
-const { runChatAgent, CULTURE_TOOLS, MAX_TOOL_ROUNDS } = await import("../lib/ai-agent.ts");
+const { runChatAgent, MAX_TOOL_ROUNDS } = await import("../lib/ai-agent.ts");
 const { validateMessages } = await import("../lib/chat.ts");
 const { POST } = await import("../app/api/chat/route.ts");
 const history = [{ role: "user", content: "什么是冬至？" }];
@@ -12,8 +12,7 @@ const fixture = { definition: { type: "function", function: { name: "test_only",
   if (!input || typeof input.value !== "number") throw new Error("private error");
   return input.value * 2;
 } };
-test("normal and multi-turn chat use the configured model without product tools", async () => {
-  assert.deepEqual(CULTURE_TOOLS, []);
+test("the runner supports normal and multi-turn chat without a tool registry", async () => {
   const multi = [...history, { role: "assistant", content: "冬至是一个节气。" }, { role: "user", content: "它和夏至有什么区别？" }];
   const result = await runChatAgent(async (params) => {
     assert.equal(params.model, "deepseek-flash");
@@ -114,12 +113,13 @@ test("real SDK serialization and error mapping work with isolated fake transport
       assert.equal(body.model, "deepseek-flash");
       assert.deepEqual(body.thinking, { type: "disabled" });
       assert.equal(body.stream, false);
-      assert.equal(body.tools, undefined);
+      assert.equal(body.tools[0].function.name, "search_cultural_cases");
+      assert.equal(body.tool_choice, "auto");
       return Response.json(completion());
     };
     const good = await POST(request());
     assert.equal(good.status, 200);
-    assert.equal((await good.json()).answer, "测试回答");
+    assert.deepEqual(await good.json(), { answer: "测试回答", truncated: false });
     for (const [status, code] of [[401,"API_KEY_INVALID"],[402,"INSUFFICIENT_BALANCE"],[403,"ACCESS_DENIED"],[429,"RATE_LIMITED"],[400,"PROVIDER_REQUEST_ERROR"],[404,"MODEL_UNAVAILABLE"],[503,"MODEL_UNAVAILABLE"],[500,"PROVIDER_UNAVAILABLE"]]) {
       globalThis.fetch = async () => Response.json({ error: { message: "private-provider-detail", type: "test" } }, { status });
       const data = await (await POST(request())).json();

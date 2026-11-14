@@ -24,6 +24,23 @@ export const CulturalSourceSchema = z.strictObject({
   accessNote: text(300).optional(),
 });
 
+export const MAX_CHAT_CASE_REFERENCES = 6;
+export const ChatCaseReferencesSchema = z.array(z.strictObject({
+  citation: z.number().int().min(1).max(MAX_CHAT_CASE_REFERENCES),
+  caseId: CulturalCaseIdSchema,
+  title: text(100),
+  solarTermId: SolarTermIdSchema,
+  provinceCode: ProvinceCodeSchema,
+  provinceName: text(100),
+  regionName: text(100),
+  sources: z.array(CulturalSourceSchema).min(1).max(5),
+})).max(MAX_CHAT_CASE_REFERENCES);
+export type ChatCaseReference = z.infer<typeof ChatCaseReferencesSchema>[number];
+export const ChatCaseLookupSchema = z.strictObject({
+  matchedTitles: z.array(text(100)).max(MAX_CHAT_CASE_REFERENCES),
+});
+export type ChatCaseLookup = z.infer<typeof ChatCaseLookupSchema>;
+
 // No external image domains have been approved for this batch.
 const ImageUrlSchema = text(2048).refine((value) => {
   if (!value.startsWith("/images/") || value.includes("\\")) return false;

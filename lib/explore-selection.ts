@@ -14,6 +14,7 @@ export type ExploreSelectionAction =
   | { type: "province"; value: ProvinceCode | null }
   | { type: "page"; value: number }
   | { type: "open"; caseId: string; provinceCode: ProvinceCode }
+  | { type: "locate"; caseId: string; solarTermId: SolarTermId; provinceCode: ProvinceCode }
   | { type: "close" }
   | { type: "reset" };
 
@@ -23,6 +24,7 @@ export function exploreSelectionReducer(state: ExploreSelection, action: Explore
     case "province": return action.value === state.provinceCode ? state : { ...state, provinceCode: action.value, caseId: null, offset: 0 };
     case "page": return { ...state, offset: action.value, caseId: null };
     case "open": return { ...state, provinceCode: action.provinceCode, caseId: action.caseId, offset: action.provinceCode === state.provinceCode ? state.offset : 0 };
+    case "locate": return { solarTermId: action.solarTermId, provinceCode: action.provinceCode, caseId: action.caseId, offset: 0 };
     case "close": return { ...state, caseId: null };
     case "reset": return INITIAL_EXPLORE_SELECTION;
   }
