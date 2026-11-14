@@ -47,6 +47,8 @@
 .province-visual[data-matched="true"] .culture-map-province { stroke: #3f7778; stroke-width: 1.6; }
 .province-visual[data-selected="true"] .culture-map-province { stroke: #b69a5c; stroke-width: 1.9; }
 .province-visual[data-selected="true"] .province-tint { opacity: .25; }
+.province-visual[data-ai-highlighted="true"] .culture-map-province { stroke: #947537; stroke-width: 2.6; stroke-dasharray: 5 2; }
+.province-visual[data-ai-highlighted="true"] .province-tint { fill: #d7bc7e; opacity: .42; }
 .province-landscape { filter: drop-shadow(1px 3px 1px #364e3b33); }
 .province-target { cursor: pointer; outline: none; }
 .province-target > path, .province-target > rect { fill: transparent; stroke: none; pointer-events: all; }
@@ -58,6 +60,7 @@
 .province-case-link { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; padding: 6px 8px; border-bottom: 1px solid #b69a5c; color: #305f65; font-size: 13px; transition: background-color 160ms ease; }
 .province-case-link:hover { background: #dde8dc70; }
 .province-scenery-note { color: #716c5c; font-size: 10px; margin: 4px 0 0; }
+.province-ai-highlight-note { margin: 8px 0 0; padding-left: 9px; border-left: 2px dashed #947537; color: #796033; font-size: 12px; line-height: 1.6; }
 @media (prefers-reduced-motion: reduce) {
   .province-visual, .province-paper, .province-thickness, .province-tint, .province-case-link { transition: none; }
 }

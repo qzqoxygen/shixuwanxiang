@@ -6,7 +6,7 @@
 
 [前后端技术约束与接口协议 V1.0](docs/contracts/v1.0.md) 是基于现有代码整理的下一阶段开发草案，待团队共同确认。文档包含旧聊天接口兼容规则、文化案例只读 API、四个业务工具、地图操作与状态同步规则、职责和验收清单。
 
-知时问答已接通「查询已核验案例」工具。用户可以从回答里的案例卡定位到地图、打开详情和查看原文。地图支持放大浏览、省份悬浮预览和键盘选择。选择状态保存在当前页面，案例通过只读 API 查询。
+知时问答已接通六个真实工具：案例查询、地图展示、省份高亮、案例打开、节气信息与跨地区比较。V1聊天携带地图上下文，回答显示实际工具记录和分省案例来源；用户点击“在地图中查看”后才校验并原子应用操作，过期批次不会覆盖新选择。原案例卡、原文和造物入口保留。见[Agent V1 联调](docs/integration/agent-v1.md)与[当前项目进度](docs/PROJECT_STATUS.md)。
 
 ### 全站文化案例（11 月 12 日补采批次）
 
@@ -82,10 +82,10 @@ npm.cmd run build
 - lib/contracts/cultural-case.ts、lib/provinces.ts：客户端可复用的案例 schema、请求/响应类型和 34 省级编码映射。
 - lib/server/cultural-cases.ts、cultural-case-query.ts：本地集合校验及 verified 查询；运行数据单独位于 data/cultural-cases/cases.json，草稿不参与读取。
 - components/ChatPanel.tsx：多轮聊天、加载、取消及错误提示。
-- lib/ai-agent.ts：执行有限轮次的模型工具调用。知时接入 `search_cultural_cases`，校验参数后查询本地已核验案例。
+- lib/ai-agent.ts：执行有限轮次的真实工具调用，保留取消、输出上限及脱敏事件；知时V1注册案例查询、地图、高亮、打开、节气信息和地区比较六工具。
 - app/explore/page.tsx：全宽中国省级地图与案例探索，以及独立的云朵聊天入口。
 - components/FloatingChat.tsx、FloatingChat.css：保留原 ChatPanel 的可开关云朵悬浮窗，含拖动、键盘移动、屏幕边界和手机底部布局。
-- components/cultural-map/：省界、地名、南海诸岛附图、缩放与省份浮起/选定；ProvinceInteraction.tsx 管理鼠标、触屏和键盘交互。PaperLandscape.tsx 为保留的装饰组件，目前未在省份中启用。尚无 AI 地图操作。
+- components/cultural-map/：省界、地名、南海诸岛附图、缩放与省份浮起/选定；ProvinceInteraction.tsx 管理鼠标、触屏、键盘及已校验AI地图批次，revision防止旧回答覆盖新选择。PaperLandscape.tsx 为保留的装饰组件，目前未在省份中启用。
 - components/cultural-map/CulturalCaseExplorer.tsx：节气筛选、案例列表、分页、详情与来源，复用 ProvinceInteraction 的共享选择状态。
 - lib/explore-selection.ts、lib/cultural-case-client.ts：手动选择状态转换、案例 HTTP 请求及返回校验；客户端不导入案例运行数据或凭据。
 - app/explore/explore.css：知时页面的全宽布局、浅宣纸、青绿云带与金褐线条样式。地图内部保持浅宣纸；素材及生成说明见 [ARTWORK.md](public/images/ARTWORK.md)，字体许可见 [字体说明](public/fonts/README.md)。

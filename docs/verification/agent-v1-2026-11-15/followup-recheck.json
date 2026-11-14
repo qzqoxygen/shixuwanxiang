@@ -1,0 +1,81 @@
+{
+  "testedAt": "2026-11-14T17:54:50.272Z",
+  "origin": "http://127.0.0.1:3115",
+  "method": "Real server POST requests, real DeepSeek, no mocked transport, no automatic retry",
+  "dataBoundary": {
+    "verified": 77,
+    "pending": 2,
+    "unchangedFromGitBaseline": true,
+    "normalizedSha256": "b2443abb1c94fb9b6391cd191a8659bd0664b82119984d3b9ce36c9ffef50f4c"
+  },
+  "checks": [
+    {
+      "index": 3,
+      "question": "那只看饮食类，继续比较这两个地区，并提供已核实来源。",
+      "status": 200,
+      "response": {
+        "version": "1.0",
+        "reply": "按“饮食类”筛选后，结果如下：\n\n江苏：已收录1则案例——苏州（姑苏）“冬至喝冬酿酒”。姑苏人家冬至夜饭桌上会有冬酿酒，一种带桂花香的米酒，传统上可配卤牛肉、卤羊肉等菜肴[案例1]。来源标注为中国非物质文化遗产网《冬至阳生春又来——二十四节气之冬至》，以及中国农业大学新闻网《［传统文化·节气］冬至开启“三九歌”》[案例1]。\n\n浙江：饮食类暂无已核验案例，因此本次无法对浙江做饮食类比较，不能凭印象补写地方吃食。此前浙江的“三门祭冬”属于祭祖、敬老与演戏设宴的民俗活动类案例，不在饮食分类内，也不宜当作饮食习俗引用。空结果只表示本站未收录，不代表当地没有冬至饮食传统。\n\n所以严格按本轮资料，只能确认江苏一则饮食案例[案例1]，浙江饮食类为“未找到匹配案例”；两地的饮食异同暂无法基于已核验来源下结论。若你愿意，我可以放宽到“民俗类”再比较，或说明需要联网核实浙江冬至饮食的具体情况。\n\n文化案例来源（本地已核验资料，并非本轮联网结果）\n[案例1] 姑苏冬至喝冬酿酒（江苏省·苏州市（姑苏））\n冬至阳生春又来——二十四节气之冬至｜中国非物质文化遗产网\nhttps://www.ihchina.cn/Article/Index/detail?id=9743\n［传统文化·节气］冬至开启“三九歌”｜中国农业大学新闻网\nhttps://news.cau.edu.cn/zhxwnew/601643.htm",
+        "answer": "按“饮食类”筛选后，结果如下：\n\n江苏：已收录1则案例——苏州（姑苏）“冬至喝冬酿酒”。姑苏人家冬至夜饭桌上会有冬酿酒，一种带桂花香的米酒，传统上可配卤牛肉、卤羊肉等菜肴[案例1]。来源标注为中国非物质文化遗产网《冬至阳生春又来——二十四节气之冬至》，以及中国农业大学新闻网《［传统文化·节气］冬至开启“三九歌”》[案例1]。\n\n浙江：饮食类暂无已核验案例，因此本次无法对浙江做饮食类比较，不能凭印象补写地方吃食。此前浙江的“三门祭冬”属于祭祖、敬老与演戏设宴的民俗活动类案例，不在饮食分类内，也不宜当作饮食习俗引用。空结果只表示本站未收录，不代表当地没有冬至饮食传统。\n\n所以严格按本轮资料，只能确认江苏一则饮食案例[案例1]，浙江饮食类为“未找到匹配案例”；两地的饮食异同暂无法基于已核验来源下结论。若你愿意，我可以放宽到“民俗类”再比较，或说明需要联网核实浙江冬至饮食的具体情况。\n\n文化案例来源（本地已核验资料，并非本轮联网结果）\n[案例1] 姑苏冬至喝冬酿酒（江苏省·苏州市（姑苏））\n冬至阳生春又来——二十四节气之冬至｜中国非物质文化遗产网\nhttps://www.ihchina.cn/Article/Index/detail?id=9743\n［传统文化·节气］冬至开启“三九歌”｜中国农业大学新闻网\nhttps://news.cau.edu.cn/zhxwnew/601643.htm",
+        "truncated": false,
+        "mapActions": [],
+        "references": [
+          {
+            "title": "冬至阳生春又来——二十四节气之冬至",
+            "url": "https://www.ihchina.cn/Article/Index/detail?id=9743",
+            "publisher": "中国非物质文化遗产网",
+            "caseId": "suzhou-dongzhi-winter-wine",
+            "caseTitle": "姑苏冬至喝冬酿酒"
+          },
+          {
+            "title": "［传统文化·节气］冬至开启“三九歌”",
+            "url": "https://news.cau.edu.cn/zhxwnew/601643.htm",
+            "publisher": "中国农业大学新闻网",
+            "caseId": "suzhou-dongzhi-winter-wine",
+            "caseTitle": "姑苏冬至喝冬酿酒"
+          }
+        ],
+        "toolEvents": [
+          {
+            "toolCallId": "call_00_Uw4NEabiWyK9ZtGuLAP79301",
+            "toolName": "compare_cultural_cases",
+            "status": "success"
+          }
+        ],
+        "answerText": "按“饮食类”筛选后，结果如下：\n\n江苏：已收录1则案例——苏州（姑苏）“冬至喝冬酿酒”。姑苏人家冬至夜饭桌上会有冬酿酒，一种带桂花香的米酒，传统上可配卤牛肉、卤羊肉等菜肴[案例1]。来源标注为中国非物质文化遗产网《冬至阳生春又来——二十四节气之冬至》，以及中国农业大学新闻网《［传统文化·节气］冬至开启“三九歌”》[案例1]。\n\n浙江：饮食类暂无已核验案例，因此本次无法对浙江做饮食类比较，不能凭印象补写地方吃食。此前浙江的“三门祭冬”属于祭祖、敬老与演戏设宴的民俗活动类案例，不在饮食分类内，也不宜当作饮食习俗引用。空结果只表示本站未收录，不代表当地没有冬至饮食传统。\n\n所以严格按本轮资料，只能确认江苏一则饮食案例[案例1]，浙江饮食类为“未找到匹配案例”；两地的饮食异同暂无法基于已核验来源下结论。若你愿意，我可以放宽到“民俗类”再比较，或说明需要联网核实浙江冬至饮食的具体情况。",
+        "caseReferences": [
+          {
+            "citation": 1,
+            "caseId": "suzhou-dongzhi-winter-wine",
+            "title": "姑苏冬至喝冬酿酒",
+            "solarTermId": "dongzhi",
+            "provinceCode": "320000",
+            "provinceName": "江苏省",
+            "regionName": "苏州市（姑苏）",
+            "sources": [
+              {
+                "title": "冬至阳生春又来——二十四节气之冬至",
+                "url": "https://www.ihchina.cn/Article/Index/detail?id=9743",
+                "publisher": "中国非物质文化遗产网"
+              },
+              {
+                "title": "［传统文化·节气］冬至开启“三九歌”",
+                "url": "https://news.cau.edu.cn/zhxwnew/601643.htm",
+                "publisher": "中国农业大学新闻网"
+              }
+            ]
+          }
+        ],
+        "caseLookup": {
+          "matchedTitles": [
+            "姑苏冬至喝冬酿酒"
+          ]
+        }
+      },
+      "passed": true,
+      "ms": 5928
+    }
+  ],
+  "passed": true,
+  "historyEvidence": "docs/verification/agent-v1-2026-11-15/ai-live-recheck.json"
+}
