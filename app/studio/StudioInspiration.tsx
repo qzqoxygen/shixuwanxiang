@@ -10,12 +10,16 @@ type Props = {
 
 export default function StudioInspiration({ term, format, selectedCase, onApply }: Props) {
   const request = useRef<AbortController | null>(null);
+  const resultsPanel = useRef<HTMLDivElement>(null);
   const [loading, setLoading] = useState(false);
   const [suggestions, setSuggestions] = useState<StudioSuggestion[]>([]);
   const [references, setReferences] = useState<StudioReference[]>([]);
   const [status, setStatus] = useState("生成标题和短句，选中后再填入作品。");
 
   useEffect(() => () => request.current?.abort(), []);
+  useEffect(() => {
+    resultsPanel.current?.scrollTo({ top: 0 });
+  }, [suggestions]);
 
   async function generate() {
     if (request.current) return;
@@ -51,7 +55,7 @@ export default function StudioInspiration({ term, format, selectedCase, onApply 
 
   function apply(field: keyof StudioSuggestion, value: string) {
     onApply(field, value);
-    setStatus(`已填入${field === "title" ? "标题" : "短句"}：${value}`);
+    setStatus(field === "title" ? "已填入卡片标题。" : "已填入卡片短句。");
   }
 
   return (
@@ -71,26 +75,28 @@ export default function StudioInspiration({ term, format, selectedCase, onApply 
       </p>}
       <p className="studio-inspiration-status" role="status">{status}</p>
       {suggestions.length > 0 && (
-        <ul className="studio-inspiration-list">
-          {suggestions.map(({ title, line }) => (
-            <li key={title}>
-              <button type="button" onClick={() => apply("title", title)}>
-                <strong>{title}</strong><span>用作标题</span>
-              </button>
-              <button type="button" onClick={() => apply("line", line)}>
-                <span>{line}</span><span>用作短句</span>
-              </button>
-            </li>
-          ))}
-        </ul>
+        <div ref={resultsPanel} className="studio-inspiration-results" role="region" aria-label="灵感结果" tabIndex={0}>
+          <ul className="studio-inspiration-list">
+            {suggestions.map(({ title, line }) => (
+              <li key={title}>
+                <button type="button" onClick={() => apply("title", title)}>
+                  <strong>{title}</strong><span>用作标题</span>
+                </button>
+                <button type="button" onClick={() => apply("line", line)}>
+                  <span>{line}</span><span>用作短句</span>
+                </button>
+              </li>
+            ))}
+          </ul>
+          {references.length > 0 && <details className="studio-inspiration-references">
+            <summary>参考文化案例（{references.length} 则）</summary>
+            <ul>{references.map(item => <li key={item.caseId}>
+              <strong>{item.title}</strong><p>{item.provinceName} · {item.regionName}</p>
+              {item.sources.map(source => <div key={source.url}><a href={source.url} target="_blank" rel="noopener noreferrer">{source.title}{source.publisher ? `（${source.publisher}）` : ""}</a>{source.accessNote && <span>{source.accessNote}</span>}</div>)}
+            </li>)}</ul>
+          </details>}
+        </div>
       )}
-      {references.length > 0 && <details className="studio-inspiration-references">
-        <summary>参考文化案例（{references.length} 则）</summary>
-        <ul>{references.map(item => <li key={item.caseId}>
-          <strong>{item.title}</strong><p>{item.provinceName} · {item.regionName}</p>
-          {item.sources.map(source => <div key={source.url}><a href={source.url} target="_blank" rel="noopener noreferrer">{source.title}{source.publisher ? `（${source.publisher}）` : ""}</a>{source.accessNote && <span>{source.accessNote}</span>}</div>)}
-        </li>)}</ul>
-      </details>}
     </div>
   );
 }
