@@ -589,6 +589,13 @@ function StudioEditor({ initialDraft, seed, invalidCase }: { initialDraft: Studi
           </fieldset>
           <fieldset className="studio-writing">
             <legend><span aria-hidden="true">二</span>卡片文字</legend>
+            <StudioInspiration
+              key={`${term.id}:${template.id}:${activeCase?.caseId ?? ""}`}
+              term={term}
+              format={template.id}
+              selectedCase={activeCase}
+              onApply={(field, value) => field === "title" ? setCustomTitle(value) : setCustomLine(value)}
+            />
             <label>
               标题
               <input type="text" value={title} maxLength={STUDIO_TITLE_LIMIT} onChange={(event) => setCustomTitle(event.currentTarget.value)} />
@@ -597,13 +604,6 @@ function StudioEditor({ initialDraft, seed, invalidCase }: { initialDraft: Studi
               短句
               <textarea rows={2} value={line} maxLength={STUDIO_LINE_LIMIT} onChange={(event) => setCustomLine(event.currentTarget.value)} />
             </label>
-            <StudioInspiration
-              key={`${term.id}:${template.id}:${activeCase?.caseId ?? ""}`}
-              term={term}
-              format={template.id}
-              selectedCase={activeCase}
-              onApply={(field, value) => field === "title" ? setCustomTitle(value) : setCustomLine(value)}
-            />
           </fieldset>
         </div>
         <div className="studio-fields" role="tabpanel" id="studio-panel-style" aria-labelledby="studio-tab-style" hidden={activeTab !== "style"}>

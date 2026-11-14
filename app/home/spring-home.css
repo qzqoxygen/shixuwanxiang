@@ -8,8 +8,9 @@
 }
 
 .page-shell:has(.spring-home) {
+  --home-shell-inset: clamp(18px, 3.3vw, 57px);
   max-width: 1600px;
-  padding-inline: clamp(18px, 3.3vw, 57px);
+  padding-inline: var(--home-shell-inset);
 }
 
 .page-shell:has(.spring-home) .site-header {
@@ -999,7 +1000,8 @@ body:has(.spring-home:not([style*="display: none"])) {
 
 @media (max-width: 640px) {
   .page-shell:has(.spring-home) {
-    padding-inline: 12px;
+    --home-shell-inset: 12px;
+    padding-inline: var(--home-shell-inset);
   }
 
   .spring-window {
