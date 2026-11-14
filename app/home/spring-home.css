@@ -342,6 +342,17 @@ body:has(.spring-home:not([style*="display: none"])) {
   background: #e7eee0;
   border-color: #527666;
 }
+/* Native cursors follow the pointer without animation delay or React updates. */
+@media (hover: hover) and (pointer: fine) {
+  .spring-view-control { cursor: url("/images/home/window-magnifier-in.svg") 14 14, zoom-in; }
+  .spring-stage[data-view="near"] .spring-view-control { cursor: url("/images/home/window-magnifier-out.svg") 14 14, zoom-out; }
+  .spring-view-badge { opacity: 0; pointer-events: none; }
+  .spring-view-control:focus-visible .spring-view-badge { opacity: 1; }
+}
+@media (forced-colors: active) and (hover: hover) and (pointer: fine) {
+  .spring-view-control { cursor: zoom-in; }
+  .spring-stage[data-view="near"] .spring-view-control { cursor: zoom-out; }
+}
 @media (max-width: 480px) {
   .spring-view-badge { right: 6%; justify-content: center; width: 44px; padding: 8px; }
   .spring-view-badge > span { display: none; }
@@ -393,10 +404,6 @@ body:has(.spring-home:not([style*="display: none"])) {
   max-height: 0;
   margin-top: 0;
   opacity: 0;
-}
-
-.spring-stage[data-view="near"] .spring-view-control {
-  cursor: pointer;
 }
 
 .spring-stage[data-season="spring"][data-view="near"] .spring-foreground[data-chapter="spring"] {
