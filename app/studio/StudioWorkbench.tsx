@@ -108,7 +108,8 @@ function StudioTitle() {
         <path d="M4 39c-.4-9 .2-21 1-30 8-1 16-1.3 25-1M70 9l23 .5-.4 9" />
         <path d="M4 48v11m88 10c.5 14 0 29-1 42-7 1-13 1-21 1m-7 0h-7" />
       </svg>
-      <Image src="/images/studio-title-calligraphy.webp" alt="造物" width={394} height={480} loading="eager" unoptimized />
+      <span className="sr-only">造物</span>
+      <span className="studio-title-lettering" aria-hidden="true" />
       <span className="studio-title-seal studio-title-seal--season" aria-hidden="true">四时</span>
       <span className="studio-title-seal studio-title-seal--note" aria-hidden="true">笺</span>
     </h1>

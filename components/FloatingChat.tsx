@@ -118,7 +118,7 @@ export default function FloatingChat() {
       const input = element?.querySelector<HTMLTextAreaElement>("textarea:not(:disabled)");
       (input ?? element)?.focus({ preventScroll: true });
       const transcript = element?.querySelector<HTMLElement>(".chat-transcript");
-      if (transcript) transcript.scrollTop = transcript.querySelector(".chat-empty") ? 0 : transcript.scrollHeight;
+      if (transcript) transcript.scrollTop = transcript.scrollHeight;
     });
     return () => cancelAnimationFrame(frame);
   }, [open, setPanelPosition]);
@@ -143,10 +143,12 @@ export default function FloatingChat() {
     </button>
     {/* Hiding, rather than unmounting, retains the conversation and any draft. */}
     <div className="cloud-chat-window" id={`${id}-window`} ref={panelRef} hidden={!open} role="dialog" aria-modal="false" aria-labelledby={`${id}-title`} tabIndex={-1} data-dragging={panel.dragging} style={panel.style} onKeyDown={event => { if (event.key === "Escape" && !event.nativeEvent.isComposing) { event.stopPropagation(); close(); } }}>
-      {["north", "east", "south", "west"].map(side => <span key={side} className={`cloud-chat-mist cloud-chat-mist-${side}`} aria-hidden="true" />)}
       <header className="cloud-chat-header" {...panel.pointerHandlers} onPointerDown={event => { const button = (event.target as Element).closest("button"); if (!button || button.classList.contains("cloud-chat-grip")) panel.pointerHandlers.onPointerDown(event); }}>
         <button type="button" className="cloud-chat-grip" aria-label="移动聊天窗口，方向键调整位置" title="拖动标题栏，或用方向键移动" onKeyDown={panel.moveWithKeys}><svg width="14" height="22" viewBox="0 0 14 22" aria-hidden="true">{[5, 11, 17].map(y => <g key={y}><circle cx="4" cy={y} r="1.3" /><circle cx="10" cy={y} r="1.3" /></g>)}</svg></button>
-        <div className="cloud-chat-title"><h2 id={`${id}-title`}>云间问四时</h2></div>
+        <div className="cloud-chat-title">
+          <h2 id={`${id}-title`}>云间问四时</h2>
+          <p>DeepSeek AI · 节气与地方风物</p>
+        </div>
         <div className="cloud-chat-tools"><button type="button" className="cloud-chat-reset" aria-label="恢复聊天窗口位置" title="恢复位置" onClick={() => setPanelPosition(null)}>↺</button><button type="button" className="cloud-chat-minimize" aria-label="收起 AI 助手" title="收起，保留对话" onClick={close}>收起</button></div>
       </header>
       <div className="cloud-chat-content"><ChatPanel /></div>
