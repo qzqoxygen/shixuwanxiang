@@ -2,7 +2,8 @@
 
 import Image from "next/image";
 import { useRef, useState, type CSSProperties, type FocusEvent, type KeyboardEvent, type PointerEvent } from "react";
-import { SEASONS, SOLAR_TERMS } from "@/lib/solar-terms";
+import { SEASONS, SOLAR_TERMS, type Season } from "@/lib/solar-terms";
+import { STUDIO_CALENDAR_YEAR, STUDIO_LUNAR_DATES } from "@/lib/studio-lunar-dates";
 import { parseStudioDraft, STUDIO_DECORATIONS as decorations, STUDIO_PALETTES as palettes, type StudioDraft, type StudioPlacement } from "@/lib/studio-draft";
 import { STUDIO_FORMATS, STUDIO_LINE_LIMIT, STUDIO_TITLE_LIMIT, type StudioCaseSeed } from "@/lib/studio-inspiration";
 import stickerCatalog from "@/public/images/studio-stickers/manifest.json";
@@ -17,9 +18,10 @@ const templates = [
   { id: "poster", name: STUDIO_FORMATS.poster, ratio: 3 / 4, format: "画报 3:4" },
 ] as const;
 const editorTabs = [
-  { id: "content", name: "内容", mark: "壹" },
-  { id: "style", name: "样式", mark: "贰" },
-  { id: "stickers", name: "贴纸", mark: "叁" },
+  { id: "layout", name: "节气与版式" },
+  { id: "writing", name: "卡片文字" },
+  { id: "style", name: "样式" },
+  { id: "stickers", name: "贴纸" },
 ] as const;
 type EditorTab = (typeof editorTabs)[number]["id"];
 const sampleLines = {
@@ -82,7 +84,7 @@ function fitSticker(sticker: PlacedSticker, ratio: number): PlacedSticker {
 function fitDate(date: PlacedDate, ratio: number, baseWidth: number): PlacedDate {
   const size = clamp(date.size, 60, 220);
   const width = size * baseWidth / 100;
-  const height = width * 3 / 8;
+  const height = width / 4;
   const radians = date.angle * Math.PI / 180;
   const cos = Math.abs(Math.cos(radians));
   const sin = Math.abs(Math.sin(radians));
@@ -150,8 +152,11 @@ export default function StudioWorkbench({ seed, invalidCase }: { seed?: StudioCa
 function StudioEditor({ initialDraft, seed, invalidCase }: { initialDraft: StudioDraft | null; seed?: StudioCaseSeed; invalidCase: boolean }) {
   const seedTermIndex = seed ? SOLAR_TERMS.findIndex(({ id }) => id === seed.solarTermId) : 4;
   const [caseState, setCaseState] = useState(() => seed && initialDraft && initialDraft.termId !== seed.solarTermId ? "pending" : "accepted");
-  const [activeTab, setActiveTab] = useState<EditorTab>("content");
+  const [activeTab, setActiveTab] = useState<EditorTab>(() =>
+    seed && (!initialDraft || initialDraft.termId === seed.solarTermId) ? "writing" : "layout"
+  );
   const [termIndex, setTermIndex] = useState(() => initialDraft ? SOLAR_TERMS.findIndex(({ id }) => id === initialDraft.termId) : seedTermIndex);
+  const [termSeason, setTermSeason] = useState<Season | null>(null);
   const [templateIndex, setTemplateIndex] = useState(() => initialDraft ? templates.findIndex(({ id }) => id === initialDraft.templateId) : 0);
   const [paletteIndex, setPaletteIndex] = useState(() => initialDraft ? palettes.findIndex(({ id }) => id === initialDraft.paletteId) : 0);
   const [decoration, setDecoration] = useState(initialDraft?.decoration ?? "template");
@@ -170,16 +175,20 @@ function StudioEditor({ initialDraft, seed, invalidCase }: { initialDraft: Studi
   const [selection, setSelection] = useState<PlacedItem["id"] | null>(null);
   const nextStickerId = useRef(stickers.reduce((next, { id }) => Math.max(next, id + 1), 1));
   const poster = useRef<HTMLElement>(null);
-  const termSelect = useRef<HTMLSelectElement>(null);
+  const selectedTermButton = useRef<HTMLButtonElement>(null);
+  const writingTab = useRef<HTMLButtonElement>(null);
   const gesture = useRef<Gesture | null>(null);
   const actionPress = useRef<{ pointer: number; button: HTMLButtonElement; x: number; y: number } | null>(null);
 
   const term = SOLAR_TERMS[termIndex];
+  const lunarDate = STUDIO_LUNAR_DATES[term.id];
+  const lunarDateLabel = `${STUDIO_CALENDAR_YEAR} 年${term.name}对应的农历日期：${lunarDate}`;
+  const termPickerSeason = termSeason ?? term.season;
   const activeCase = caseState === "accepted" && seed?.solarTermId === term.id ? seed : undefined;
   const season = SEASONS[Math.floor(termIndex / 6)];
   const template = templates[templateIndex];
   const bookmark = template.id === "bookmark";
-  const dateBaseWidth = bookmark ? 28 : 14.4;
+  const dateBaseWidth = bookmark ? 39 : 21.6;
   const date = fitDate(datePlacement ?? {
     id: "date", x: bookmark ? 72 : 84.1, y: bookmark ? 11.75 : 9.16, size: 100, angle: 0,
   }, template.ratio, dateBaseWidth);
@@ -244,7 +253,7 @@ function StudioEditor({ initialDraft, seed, invalidCase }: { initialDraft: Studi
     event.preventDefault();
     const { id } = editorTabs[next];
     setActiveTab(id);
-    event.currentTarget.parentElement?.querySelector<HTMLButtonElement>(`#studio-tab-${id}`)?.focus();
+    event.currentTarget.parentElement?.querySelector<HTMLButtonElement>(`#studio-tab-${id}`)?.focus({ preventScroll: true });
   }
 
   function removeSticker(id: number) {
@@ -424,14 +433,14 @@ function StudioEditor({ initialDraft, seed, invalidCase }: { initialDraft: Studi
           >
             <button type="button" className="studio-poster-date"
               aria-pressed={selection === "date"}
-              aria-label={`日期 ${String(termIndex + 1).padStart(2, "0")} / ${SOLAR_TERMS.length}`}
-              title="拖动日期调整位置"
-              style={{ left: `${date.x}%`, top: `${date.y}%`, fontSize: `${dateWidth / 4}cqw`, rotate: `${date.angle}deg` }}
+              aria-label={lunarDateLabel}
+              title={`${lunarDateLabel}（可拖动）`}
+              style={{ left: `${date.x}%`, top: `${date.y}%`, fontSize: `${dateWidth / 6}cqw`, rotate: `${date.angle}deg` }}
               onClick={() => setSelection("date")}
               onPointerDown={(event) => startGesture(event, date, "move")}
               onKeyDown={(event) => handleItemKey(event, date)}
             >
-              {String(termIndex + 1).padStart(2, "0")} / {SOLAR_TERMS.length}
+              {lunarDate}
             </button>
             <div className="studio-poster-title" data-length={titleLength > 8 ? "long" : titleLength > 4 ? "medium" : "short"}>
               <span>{title}</span><span className="studio-poster-seal" aria-hidden="true">{season.name}</span>
@@ -464,7 +473,7 @@ function StudioEditor({ initialDraft, seed, invalidCase }: { initialDraft: Studi
                 "--selection-x": `${selected.x}%`,
                 "--selection-y": `${selected.y}%`,
                 "--selection-size": `${selected.id === "date" ? dateWidth : selected.size}%`,
-                "--selection-height": selected.id === "date" ? `max(${dateWidth * 3 / 8}cqw, 28px)` : undefined,
+                "--selection-height": selected.id === "date" ? `max(${dateWidth / 4}cqw, 28px)` : undefined,
                 "--selection-edge": selectedSticker && `calc(max(${selectedSticker.size}cqi, 44px) * ${rotationExtent(selectedSticker.angle) / 2})`,
                 "--selection-angle": `${selected.angle}deg`,
               } as CSSProperties}
@@ -531,22 +540,23 @@ function StudioEditor({ initialDraft, seed, invalidCase }: { initialDraft: Studi
                   : draftStatus === "error" ? "草稿保存失败，可先保存图片" : "编辑后自动保存草稿"}
               </p>
             </div>
-            <span className="studio-editor-stamp" aria-hidden="true">
+            <span className="studio-editor-stamp" title={lunarDateLabel}>
               {term.name}
-              <small>{String(termIndex + 1).padStart(2, "0")} / 24</small>
+              <small>{lunarDate}</small>
             </span>
           </div>
           <div className="studio-editor-tabs" role="tablist" aria-label="作品编辑分类">
-            {editorTabs.map(({ id, name, mark }, index) => (
+            {editorTabs.map(({ id, name }, index) => (
               <button key={id} type="button" role="tab" id={`studio-tab-${id}`} aria-controls={`studio-panel-${id}`}
+                ref={id === "writing" ? writingTab : undefined}
                 aria-selected={activeTab === id} tabIndex={activeTab === id ? 0 : -1}
                 onClick={() => setActiveTab(id)} onKeyDown={(event) => handleEditorTabKey(event, index)}>
-                <span aria-hidden="true">{mark}</span>{name}
+                {name}
               </button>
             ))}
           </div>
         </div>
-        <div className="studio-fields" role="tabpanel" id="studio-panel-content" aria-labelledby="studio-tab-content" hidden={activeTab !== "content"}>
+        <div className="studio-fields" role="tabpanel" id="studio-panel-layout" aria-labelledby="studio-tab-layout" tabIndex={0} hidden={activeTab !== "layout"}>
           {invalidCase && <p className="studio-case-import" role="status">这则案例无法用于当前节气。你可以继续编辑，或回知时重新选一则。</p>}
           {seed && caseState === "pending" && <div className="studio-case-import" role="group" aria-label="导入知时案例">
             <strong>{seed.title}</strong>
@@ -554,29 +564,33 @@ function StudioEditor({ initialDraft, seed, invalidCase }: { initialDraft: Studi
             <div>
               <button type="button" onClick={() => {
                 setTermIndex(seedTermIndex);
+                setTermSeason(null);
                 setCaseState("accepted");
-                requestAnimationFrame(() => termSelect.current?.focus());
+                setActiveTab("writing");
+                requestAnimationFrame(() => writingTab.current?.focus({ preventScroll: true }));
               }}>切换到{SOLAR_TERMS[seedTermIndex].name}</button>
               <button type="button" onClick={() => {
                 setCaseState("dismissed");
-                requestAnimationFrame(() => termSelect.current?.focus());
+                setTermSeason(null);
+                requestAnimationFrame(() => selectedTermButton.current?.focus());
               }}>继续原草稿</button>
             </div>
           </div>}
           <fieldset>
             <legend><span aria-hidden="true">一</span>节气与版式</legend>
-            <label>
-              节气
-              <select ref={termSelect} value={termIndex} onChange={(event) => setTermIndex(Number(event.currentTarget.value))}>
-                {SEASONS.map(({ id, name }, seasonIndex) => (
-                  <optgroup key={id} label={`${name}季`}>
-                    {SOLAR_TERMS.slice(seasonIndex * 6, seasonIndex * 6 + 6).map((option, index) => (
-                      <option key={option.id} value={seasonIndex * 6 + index}>{option.name}</option>
-                    ))}
-                  </optgroup>
+            <div className="studio-picker">
+              <div className="studio-picker-options studio-picker-seasons" role="group" aria-label="节气季节">
+                {SEASONS.map(({ id, name }) => (
+                  <button key={id} type="button" aria-pressed={termPickerSeason === id} onClick={() => setTermSeason(id)}>{name}季</button>
                 ))}
-              </select>
-            </label>
+              </div>
+              <div className="studio-picker-options studio-picker-terms" role="group" aria-label="选择节气">
+                {SOLAR_TERMS.map((option, index) => option.season === termPickerSeason && (
+                  <button key={option.id} ref={termIndex === index ? selectedTermButton : undefined} type="button"
+                    aria-pressed={termIndex === index} onClick={() => setTermIndex(index)}>{option.name}</button>
+                ))}
+              </div>
+            </div>
             <div className="studio-template-options" role="group" aria-label="选择版式">
               {templates.map((option, index) => (
                 <button key={option.id} type="button" data-template={option.id} title={option.format}
@@ -587,8 +601,10 @@ function StudioEditor({ initialDraft, seed, invalidCase }: { initialDraft: Studi
               ))}
             </div>
           </fieldset>
+        </div>
+        <div className="studio-fields" role="tabpanel" id="studio-panel-writing" aria-labelledby="studio-tab-writing" tabIndex={0} hidden={activeTab !== "writing"}>
           <fieldset className="studio-writing">
-            <legend><span aria-hidden="true">二</span>卡片文字</legend>
+            <legend><span aria-hidden="true">一</span>卡片文字</legend>
             <StudioInspiration
               key={`${term.id}:${template.id}:${activeCase?.caseId ?? ""}`}
               term={term}
@@ -606,7 +622,7 @@ function StudioEditor({ initialDraft, seed, invalidCase }: { initialDraft: Studi
             </label>
           </fieldset>
         </div>
-        <div className="studio-fields" role="tabpanel" id="studio-panel-style" aria-labelledby="studio-tab-style" hidden={activeTab !== "style"}>
+        <div className="studio-fields" role="tabpanel" id="studio-panel-style" aria-labelledby="studio-tab-style" tabIndex={0} hidden={activeTab !== "style"}>
           <fieldset className="studio-colorway">
             <legend><span aria-hidden="true">一</span>底色</legend>
             <div className="studio-palette-options">
@@ -630,7 +646,7 @@ function StudioEditor({ initialDraft, seed, invalidCase }: { initialDraft: Studi
             </div>
           </fieldset>
         </div>
-        <div className="studio-fields" role="tabpanel" id="studio-panel-stickers" aria-labelledby="studio-tab-stickers" hidden={activeTab !== "stickers"}>
+        <div className="studio-fields" role="tabpanel" id="studio-panel-stickers" aria-labelledby="studio-tab-stickers" tabIndex={0} hidden={activeTab !== "stickers"}>
           <fieldset className="studio-library">
             <legend><span aria-hidden="true">一</span>贴纸素材</legend>
             {stickers.length > 1 && (
@@ -645,12 +661,11 @@ function StudioEditor({ initialDraft, seed, invalidCase }: { initialDraft: Studi
                 </select>
               </label>
             )}
-            <label>
-              素材分类
-              <select value={category} onChange={(event) => setFilter(event.currentTarget.value)}>
-                {categories.map(({ id, name }) => <option key={id} value={id}>{name}</option>)}
-              </select>
-            </label>
+            <div className="studio-picker-options studio-picker-categories" role="group" aria-label="素材分类">
+              {categories.map(({ id, name }) => (
+                <button key={id} type="button" aria-pressed={category === id} onClick={() => setFilter(id)}>{name}</button>
+              ))}
+            </div>
             <div className="studio-library-grid">
               {shownAssets.map((asset) => (
                 <button key={asset.id} type="button" aria-label={`添加${asset.name}`} onClick={(event) => addSticker(asset, event.detail === 0)}>

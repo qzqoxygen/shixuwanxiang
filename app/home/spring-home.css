@@ -240,9 +240,10 @@ body:has(.spring-home:not([style*="display: none"])) {
 }
 
 .spring-copy h1 img {
-  width: 100%;
+  width: 92%;
   height: auto;
   display: block;
+  margin-inline: auto;
 }
 
 .spring-intro {
