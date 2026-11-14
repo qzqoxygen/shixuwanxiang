@@ -87,6 +87,6 @@ const logCodes = new Set([
   "SEARCH_ANSWER_UNSUPPORTED", "UNVERIFIED_ANSWER",
 ]);
 
-export function logAiError(scope: "chat" | "studio" | "search", code: string, status: number) {
+export function logAiError(scope: "chat" | "studio" | "search" | "season-guide", code: string, status: number) {
   console.warn("[ai]", { scope, code: logCodes.has(code) ? code : "INTERNAL_ERROR", status });
 }
