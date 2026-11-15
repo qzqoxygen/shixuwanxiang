@@ -8,6 +8,7 @@ import { prepareChatMapActions, selectionMapState } from "@/lib/chat-map-client"
 import type { ChatContext, MapAction } from "@/lib/contracts/chat-api";
 import type { VisitQuery } from "@/lib/solar-visit";
 import { visitHref } from "@/lib/visit-links";
+import { MAP_GEOMETRY_URL } from "@/lib/map-assets";
 import PaperLandscape from "./PaperLandscape";
 import { useProvinceCases, type ProvinceCases } from "./useProvinceCases";
 
@@ -15,7 +16,6 @@ export type ProvinceView = {
   id: string;
   name: string;
   shortName: string;
-  path: string;
   anchor: readonly [number, number];
   label: readonly [number, number];
   scenery?: { x: number; y: number; scale: number };
@@ -100,16 +100,17 @@ export function ProvinceLayers() {
   // Only visual groups change stacking order. Hit regions and keyboard focus stay
   // in place, so lifting a province cannot move its pointer target away.
   const ordered = [...provinces].sort((a, b) => order(a.id) - order(b.id));
+  const pathFor = (id: string) => `${MAP_GEOMETRY_URL}#shape-${id}`;
   return <g className="province-layers" data-match-status={matchingCases.status} aria-busy={matchingCases.status === "loading"}>
     <g className="province-art" pointerEvents="none" aria-hidden="true">
       {ordered.map(province => <g key={province.id} className="province-visual" data-visual-province={province.id} data-raised={isRaised(province.id)} data-matched={countFor(province.id) > 0} data-selected={province.id === selected} data-ai-highlighted={highlightedProvinceCodes.includes(province.id as ProvinceCode)}>
         <g className="province-paper">
-          <path className="province-thickness" d={province.path} fillRule="evenodd" transform="translate(0 5)" />
-          <path className="culture-map-province" d={province.path} fillRule="evenodd" vectorEffect="non-scaling-stroke" />
-          <path className="province-tint" d={province.path} fillRule="evenodd" />
+          <use className="province-thickness" href={pathFor(province.id)} transform="translate(0 5)" />
+          <use className="culture-map-province" href={pathFor(province.id)} />
+          <use className="province-tint" href={pathFor(province.id)} />
         </g>
         {province.scenery && <>
-          <clipPath id={`province-scenery-${province.id}`}><path d={province.path} fillRule="evenodd" /></clipPath>
+          <clipPath id={`province-scenery-${province.id}`}><use href={pathFor(province.id)} clipRule="evenodd" /></clipPath>
           <g clipPath={`url(#province-scenery-${province.id})`}><PaperLandscape {...province.scenery} /></g>
         </>}
       </g>)}
@@ -130,7 +131,7 @@ export function ProvinceLayers() {
           if (event.key === "Enter" || event.key === " ") { event.preventDefault(); setSelected(province.id); }
           if (event.key === "Escape") { event.preventDefault(); setSelected(null); setHovered(null); }
         }}>
-        <path d={province.path} fillRule="evenodd" />
+        <use href={pathFor(province.id)} />
         {province.anchor[0] !== province.label[0] || province.anchor[1] !== province.label[1] ? <rect x={province.label[0] - 16} y={province.label[1] - 10} width="32" height="20" rx="6" /> : null}
       </g>)}
     </g>

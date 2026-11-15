@@ -1,5 +1,5 @@
-import mapData from "@/data/maps/china-provinces.geo.json";
-import { createMapProjection, geometryToPath, type MapPoint, type ProvinceFeature } from "@/lib/map-projection";
+import provinceLabels from "@/data/maps/province-labels.json";
+import { MAP_GEOMETRY_URL } from "@/lib/map-assets";
 import "./ChinaProvinceMap.css";
 import MapViewport from "./MapViewport";
 import { ProvinceControls, ProvinceInteraction, ProvinceLayers, type ProvinceView } from "./ProvinceInteraction";
@@ -9,38 +9,13 @@ import type { VisitQuery } from "@/lib/solar-visit";
 import { visitHref } from "@/lib/visit-links";
 import FloatingChat from "../FloatingChat";
 
-const features = mapData.features as unknown as ProvinceFeature[];
-const provinces = features.filter((feature) => /^\d{6}$/.test(String(feature.properties.adcode)));
-const mainProject = createMapProjection([73, 17, 136, 54], [-22, 10, 840, 510]);
-const insetProject = createMapProjection([105, 2, 125, 25], [700, 376, 110, 150]);
-
-// Move only crowded labels, never province boundaries. Leaders keep the
-// municipality labels connected to their actual geographic positions.
-const labelOffsets: Record<string, MapPoint> = {
-  "110000": [-10, -19],
-  "120000": [30, -4],
-  "310000": [30, 2],
-  "130000": [8, -4],
-  "140000": [-4, 0],
-  "320000": [9, 0],
-  "340000": [-4, 0],
-  "460000": [-12, 8],
-  "810000": [25, 22],
-  "820000": [7, 46],
-};
-
-function provinceName(name: string) {
-  return name.replace(/维吾尔自治区|壮族自治区|回族自治区|特别行政区|自治区|省|市/g, "");
-}
-
-// Keep the source GeoJSON and projection work on the server. The interactive
-// island receives only the paths and labels that it needs to display.
-const provinceViews: ProvinceView[] = provinces.map(({ properties, geometry }) => {
-  const anchor = mainProject(properties.centroid ?? properties.center!);
-  const [dx, dy] = labelOffsets[String(properties.adcode)] ?? [0, 0];
-  const id = String(properties.adcode);
-  return { id, name: properties.name!, shortName: provinceName(properties.name!), path: geometryToPath(geometry, mainProject), anchor, label: [anchor[0] + dx, anchor[1] + dy] };
-});
+// Carry just the labels through the interactive component boundary. The SVG
+// layers share the preprojected paths from a same-origin static asset.
+const provinceViews: ProvinceView[] = provinceLabels.map(({ anchor, label, ...province }) => ({
+  ...province,
+  anchor: [anchor[0], anchor[1]],
+  label: [label[0], label[1]],
+}));
 
 export default function ChinaProvinceMap({ initialSelection = INITIAL_EXPLORE_SELECTION, visitOrigin }: {
   initialSelection?: ExploreSelection; visitOrigin?: VisitQuery;
@@ -84,16 +59,15 @@ export default function ChinaProvinceMap({ initialSelection = INITIAL_EXPLORE_SE
                   </g>
 
                   <g clipPath="url(#china-main-clip)" className="culture-map-boundaries">
-                    {features.filter(feature => !feature.properties.name).map(feature => <path key={feature.properties.adcode} className="culture-map-maritime" d={geometryToPath(feature.geometry, mainProject)} fillRule="evenodd" vectorEffect="non-scaling-stroke" />)}
+                    <use className="culture-map-maritime" href={`${MAP_GEOMETRY_URL}#main-maritime`} />
                     <ProvinceLayers />
                   </g>
 
                   <g aria-hidden="true">
                     <rect className="culture-map-insetBackground" x="693" y="369" width="124" height="181" rx="3" />
                     <g clipPath="url(#china-sea-clip)" className="culture-map-boundaries">
-                      {features.map((feature) => (
-                        <path key={feature.properties.adcode} className={feature.properties.name ? "culture-map-province" : "culture-map-maritime"} d={geometryToPath(feature.geometry, insetProject)} fillRule="evenodd" vectorEffect="non-scaling-stroke" />
-                      ))}
+                      <use className="culture-map-province" href={`${MAP_GEOMETRY_URL}#inset-provinces`} />
+                      <use className="culture-map-maritime" href={`${MAP_GEOMETRY_URL}#inset-maritime`} />
                     </g>
                     <text className="culture-map-insetLabel" x="755" y="541" textAnchor="middle">南海诸岛</text>
                   </g>

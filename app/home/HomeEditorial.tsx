@@ -109,7 +109,7 @@ export default function HomeEditorial() {
           </figure>
           <div className="home-chapter-copy">
             <p>从立春翻到大寒，读节气、看风物。点「AI 再讲一点」，实时生成当前节气的补充讲解。</p>
-            <Link className="home-chapter-link" href="/seasons">翻开风物册</Link>
+            <Link className="home-chapter-link" href="/seasons" prefetch={false}>翻开风物册</Link>
             <p className="home-chapter-example">试试切换「讲给小朋友」，用更通俗的方式读懂节气。</p>
           </div>
         </div>
@@ -132,7 +132,7 @@ export default function HomeEditorial() {
             <p>请 AI 比较各地习俗，查看案例出处，并在地图上定位。</p>
             <Link className="home-chapter-link" href="/explore?solarTermId=chunfen&provinceCode=110000" prefetch={false}>问节气，查出处</Link>
             <p className="home-chapter-example">试试问「江苏和浙江的冬至习俗有什么不同？」</p>
-            <Link className="home-term-source home-visit-link" href="/visit">节气探访 · 选省份和节气，查地方习俗</Link>
+            <Link className="home-term-source home-visit-link" href="/visit" prefetch={false}>节气探访 · 选省份和节气，查地方习俗</Link>
           </div>
         </div>
       </section>
@@ -147,12 +147,12 @@ export default function HomeEditorial() {
           </div>
           <div className="home-chapter-copy">
             <p>挑一个节气，让 AI 生成标题和短句。选用后填入作品，再配上喜欢的底色和贴纸。</p>
-            <Link className="home-chapter-link" href="/studio">做一张节气卡</Link>
+            <Link className="home-chapter-link" href="/studio" prefetch={false}>做一张节气卡</Link>
             <p className="home-chapter-example">从「知时」或「节气探访」带入一则案例，做成节气卡并保存为图片。</p>
           </div>
         </div>
       </section>
-      <div className="home-editorial-notes"><Link href="/about#home-photo-sources">影像鸣谢</Link></div>
+      <div className="home-editorial-notes"><Link href="/about#home-photo-sources" prefetch={false}>影像鸣谢</Link></div>
     </HomeEditorialMotion>
   );
 }

@@ -151,9 +151,8 @@ export default function SpringScene() {
               width={1300}
               height={867}
               unoptimized
-              preload={key === "spring"}
-              loading={key === "spring" ? undefined : "eager"}
-              fetchPriority={key === "spring" ? undefined : "low"}
+              loading="eager"
+              fetchPriority="low"
             />
           </div>
         );

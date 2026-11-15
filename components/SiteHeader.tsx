@@ -15,10 +15,10 @@ const links = [
 export default function SiteHeader() {
   const pathname = usePathname();
   return <header className="site-header">
-    <Link className="brand" href="/" aria-label={`${SITE_NAME} 首页`}>
+    <Link className="brand" href="/" prefetch={false} aria-label={`${SITE_NAME} 首页`}>
       <span className="brand-mark" aria-hidden="true"><i /><i /><i /><i /></span>
       <span>{SITE_NAME}</span>
     </Link>
-    <nav className="site-nav" aria-label="主导航">{links.map(({ href, label }) => <Link key={href} href={href} aria-current={pathname === href ? "page" : undefined}>{label}</Link>)}</nav>
+    <nav className="site-nav" aria-label="主导航">{links.map(({ href, label }) => <Link key={href} href={href} prefetch={false} aria-current={pathname === href ? "page" : undefined}>{label}</Link>)}</nav>
   </header>;
 }
