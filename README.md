@@ -8,11 +8,13 @@
 
 知时问答已接通六个真实工具：案例查询、地图展示、省份高亮、案例打开、节气信息与跨地区比较。V1聊天携带地图上下文，回答显示实际工具记录和分省案例来源；用户点击“在地图中查看”后才校验并原子应用操作，过期批次不会覆盖新选择。原案例卡、原文和造物入口保留。见[Agent V1 联调](docs/integration/agent-v1.md)与[当前项目进度](docs/PROJECT_STATUS.md)。
 
+赛前升级增加中文俗称与多轮联合检索、程序化实体/引用关联校验、可展开的回答依据，以及可重复评测。使用本地知识库的检索增强生成，未使用向量数据库；依据区分本地已核验案例、本轮联网与模型解释，不将引用有效当成逐句事实正确。实现、实测指标和失败记录见[AI 技术与评测说明](docs/AI_TECHNICAL_EVALUATION_2026-11-15.md)。
+
 ### 全站文化案例（11 月 12 日补采批次）
 
 补采表五张工作表已交叉核对：原有 44 条公开案例保留，新增 33 条，共 77 条。24 个节气各有至少 3 条，谷雨、夏至、小雪、冬至、小寒各 4 条；2 条待核验记录继续隐藏，绍兴重复记录保留合并关系。跨省区域案例按一个实体计数，省份筛选包含明确的关联地区，不虚构县市。所有案例以文字和来源展示，不新增图片。
 
-四时页可展开当前节气的全部案例，知时地图按节气与省份查询同一数据源；知时问答和造物灵感也读取这些已核实案例，并区分本地资料与实时搜索来源。见[逐条差异与入库清单](docs/cultural-sources/2026-11-12/report.md)、[全站覆盖与验收](docs/integration/cultural-case-site-coverage-2026-11-12.md)及[接口联调说明](docs/integration/cultural-cases.md)。旧批次记录保留作为开发历史，不代表当前覆盖数量。
+知时地图按节气与省份查询统一数据源；知时问答、节气探访和造物灵感也读取这些已核实案例，并区分本地资料与实时搜索来源。四时现行书册展示逐节气预置导读和关联案例原文，旧版全部案例展开组件当前未挂载。见[逐条差异与入库清单](docs/cultural-sources/2026-11-12/report.md)、[全站覆盖与验收](docs/integration/cultural-case-site-coverage-2026-11-12.md)及[接口联调说明](docs/integration/cultural-cases.md)。旧批次记录保留作为开发历史，不代表当前覆盖数量。
 
 ### 2026-11-03 文化案例后端交付
 
@@ -56,7 +58,7 @@
 npm.cmd run dev
 ```
 
-打开终端给出的本地地址。五个页面：/、/seasons、/explore、/studio、/about。
+打开终端给出的本地地址。六个页面：/、/seasons、/explore、/studio、/visit、/about。
 在 /seasons 切换节气；在 /explore 输入“什么是冬至？”，再追问“它和夏至有什么区别？”。
 真实聊天需要有效密钥、余额和网络。失败显示真实错误，不返回演示答案。
 
@@ -67,6 +69,7 @@ npx.cmd tsc --noEmit
 npm.cmd run lint
 npm.cmd test
 npm.cmd run build
+npm.cmd run eval:ai
 ```
 
 测试使用 Node >=22.15（当前本机为 Node 24）和已安装的 TypeScript，无额外依赖。
@@ -75,7 +78,7 @@ npm.cmd run build
 
 ## 结构与扩展
 
-- app/：五个页面、公共布局、api/chat 和 api/cultural-cases 路由。没有 src/。
+- app/：六个页面、公共布局和七条动态 API（问答、案例列表/详情、造物、导读、探访/个人记忆）。没有 src/。
 - components/SiteHeader.tsx：公共导航及当前页面状态。
 - components/SolarTermsExplorer.tsx：24节气选择与基础信息。
 - lib/solar-terms.ts：独立、稳定的节气 ID，预留 culturalCaseIds 关联字段；没有虚构文化案例。

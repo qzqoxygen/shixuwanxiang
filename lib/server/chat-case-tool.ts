@@ -2,8 +2,10 @@ import "server-only";
 import { z } from "zod";
 import { AgentToolError, type AgentTool } from "../ai-agent";
 import type { ChatMessage } from "../chat";
-import { CulturalCaseIdSchema, CulturalCategorySchema, MAX_CHAT_CASE_REFERENCES, ProvinceCodeSchema, SolarTermIdSchema, type VerifiedCulturalCase } from "../contracts/cultural-case";
+import { CulturalCaseIdSchema, CulturalCategorySchema, MAX_CHAT_CASE_REFERENCES, ProvinceCodeSchema, SolarTermIdSchema, type CulturalCase, type VerifiedCulturalCase } from "../contracts/cultural-case";
 import type { ChatContext, CulturalMapState, MapAction } from "../contracts/chat-api";
+import type { RetrievalDiagnostic } from "../contracts/retrieval";
+import { CULTURAL_CASE_ALIASES, normalizeCulturalQuery } from "../cultural-aliases";
 import { applyValidatedMapActions, MapActionError } from "../map-actions";
 import { SUPPORTED_PROVINCES } from "../provinces";
 import { SOLAR_TERMS } from "../solar-terms";
@@ -87,6 +89,13 @@ function tool(name: string, description: string, properties: Record<string, unkn
     parameters: { type: "object", properties, required, additionalProperties: false } } }, execute };
 }
 
+function matchesKeyword(item: CulturalCase, keyword: string | undefined) {
+  if (!keyword) return true;
+  const value = normalizeCulturalQuery(keyword).text.toLowerCase();
+  return [item.title, item.regionName, item.description, item.relationNote, ...(CULTURAL_CASE_ALIASES[item.id] ?? [])]
+    .some(text => normalizeCulturalQuery(text).text.toLowerCase().includes(value));
+}
+
 // A request owns its catalog, citation order and temporary map. No model output is executable code.
 export function createCultureAgentTools(history: readonly ChatMessage[], context: ChatContext) {
   const catalog = readCulturalCases();
@@ -99,6 +108,7 @@ export function createCultureAgentTools(history: readonly ChatMessage[], context
     selectedCaseId: context.caseId, highlightedProvinceCodes: [],
   };
   const mapActions: MapAction[] = [];
+  const retrievalDiagnostics: RetrievalDiagnostic[] = [];
   let searched = false;
 
   function remember(items: readonly VerifiedCulturalCase[]) {
@@ -122,17 +132,25 @@ export function createCultureAgentTools(history: readonly ChatMessage[], context
   const tools: AgentTool[] = [
     tool("search_cultural_cases", "真实查询本站已核验节气案例。支持中文query或结构化节气、地区、类别和关键词联合筛选，结果中citation是本轮稳定引用编号。", queryProperties, [], input => {
       const query = parseTool(StructuredSearch, input);
-      const keyword = query.keyword?.toLowerCase();
       const filtered = catalog.filter((item): item is VerifiedCulturalCase => item.verificationStatus === "verified" &&
         (!query.solarTermId || item.solarTermIds.includes(query.solarTermId)) &&
         (!query.provinceCode || item.provinceCode === query.provinceCode || item.relatedProvinceCodes?.includes(query.provinceCode) === true) &&
         (!query.category || item.category === query.category) &&
-        (!keyword || [item.title, item.regionName, item.description, item.relationNote].some(text => text.toLowerCase().includes(keyword))));
+        matchesKeyword(item, query.keyword));
       const matched = query.query ? retrieveChatCases([...history, { role: "user", content: `${query.query} 习俗` }], filtered, filtered.length)
         : { cases: filtered.sort((a, b) => a.id < b.id ? -1 : a.id > b.id ? 1 : 0), terms: query.solarTermId ? [query.solarTermId] : [] };
       for (const term of matched.terms) terms.add(term);
       searched = true;
       const selected = remember(matched.cases.slice(query.offset, query.offset + query.limit));
+      const diagnostic: RetrievalDiagnostic = query.query ? (matched as ReturnType<typeof retrieveChatCases>).diagnostics : {
+        strategy: "filters_only", solarTermIds: query.solarTermId ? [query.solarTermId] : [], provinceCodes: query.provinceCode ? [query.provinceCode] : [], regions: [],
+        ...(query.category ? { category: query.category } : {}), normalizedTerms: query.keyword ? [normalizeCulturalQuery(query.keyword).text] : [], matchedAliases: [],
+        candidateCount: filtered.length, matchedCount: matched.cases.length, matchedIds: [], scores: [],
+        ...(!matched.cases.length ? { noMatchReason: "no_public_match" as const } : {}),
+      };
+      if (retrievalDiagnostics.length < 8) retrievalDiagnostics.push({ ...diagnostic,
+        matchedIds: selected.map(item => item.caseId), scores: selected.map(item => diagnostic.scores.find(score => score.caseId === item.caseId) ?? { caseId: item.caseId, score: 0, matchedFields: ["filters"] }),
+      });
       return { cases: selected, total: matched.cases.length, offset: query.offset, limit: query.limit,
         selectedCount: selected.length, truncated: selected.length < Math.min(query.limit, Math.max(0, matched.cases.length - query.offset)) };
     }),
@@ -179,13 +197,12 @@ export function createCultureAgentTools(history: readonly ChatMessage[], context
       category: queryProperties.category, keyword: queryProperties.keyword,
     }, ["solarTermId", "provinceCodes"], input => {
       const query = parseTool(CompareInput, input);
-      const keyword = query.keyword?.toLowerCase();
       const groups = query.provinceCodes.map(provinceCode => ({ provinceCode,
         provinceName: SUPPORTED_PROVINCES.find(item => item.code === provinceCode)!.name,
         matches: catalog.filter((item): item is VerifiedCulturalCase => item.verificationStatus === "verified" && item.solarTermIds.includes(query.solarTermId) &&
           (item.provinceCode === provinceCode || item.relatedProvinceCodes?.includes(provinceCode) === true) &&
           (!query.category || item.category === query.category) &&
-          (!keyword || [item.title, item.description, item.regionName, item.relationNote].some(text => text.toLowerCase().includes(keyword))))
+          matchesKeyword(item, query.keyword))
           .sort((a, b) => a.id < b.id ? -1 : a.id > b.id ? 1 : 0),
       }));
       const selected: VerifiedCulturalCase[] = [];
@@ -196,11 +213,19 @@ export function createCultureAgentTools(history: readonly ChatMessage[], context
       const records = remember(selected);
       searched = true;
       terms.add(query.solarTermId);
+      if (retrievalDiagnostics.length < 8) retrievalDiagnostics.push({
+        strategy: "comparison", solarTermIds: [query.solarTermId], provinceCodes: query.provinceCodes, regions: [],
+        ...(query.category ? { category: query.category } : {}), normalizedTerms: query.keyword ? [normalizeCulturalQuery(query.keyword).text] : [], matchedAliases: [],
+        candidateCount: new Set(groups.flatMap(group => group.matches.map(item => item.id))).size,
+        matchedCount: new Set(groups.flatMap(group => group.matches.map(item => item.id))).size,
+        matchedIds: records.map(item => item.caseId), scores: records.map(item => ({ caseId: item.caseId, score: 0, matchedFields: ["filters"] })),
+        ...(!records.length ? { noMatchReason: "no_public_match" as const } : {}),
+      });
       return { solarTermId: query.solarTermId, regions: groups.map(group => ({
         provinceCode: group.provinceCode, provinceName: group.provinceName, total: group.matches.length,
         cases: records.filter(item => group.matches.some(match => match.id === item.caseId)),
       })), cases: records, comparisonNote: "仅比较本次已核验案例，空结果不表示当地不存在相关文化。" };
     }),
   ];
-  return { tools, cases, terms, fallback, mapActions, get searched() { return searched; }, get state() { return state; } };
+  return { tools, cases, terms, fallback, mapActions, retrievalDiagnostics, get searched() { return searched; }, get state() { return state; } };
 }

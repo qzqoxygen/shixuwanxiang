@@ -2,6 +2,8 @@
 
 日期：2026-11-15。修改基线：最新 `main` 的 `8206664`；开发分支 `feat/agent-map-v1-20261115`。本轮只补全现有工具/协议/可视联动；不改77条verified与2条pending，不换DeepSeek，不合并或部署。
 
+更新：以上是已合并PR #15的历史基线；当前赛前增强基于 `f5d561c`（含PR #16探访）开发，保留以下协议，增加可选依据模式。最新测试与边界见[AI技术与评测](../AI_TECHNICAL_EVALUATION_2026-11-15.md)。
+
 ## 聊天协议与兼容
 
 继续 `POST /api/chat`，Content-Type为application/json。无version的客户端保留原有 `{messages}` 与 `{answer,truncated}` 及已有案例查询/引用可选字段。存在version但不是字符串 `"1.0"` 时返回400 UNSUPPORTED_VERSION。
@@ -19,6 +21,22 @@ V1根对象、消息和context严格校验；caseId必须verified，且与term�
 成功必有 `version`、`reply`、`answer`、`truncated`、`mapActions`、`toolEvents`、`references`。本轮V1特意保留 `answer=reply` 兼容别名；这与历史草案“不含answer”的目标不同。可选 `answerText/caseReferences/caseLookup/noLocalCaseMatch` 继续支持已有案例卡。错误含 `{version:"1.0",answer:null,truncated:false,error:{code,message}}`，旧读取方式仍可识别。
 
 `toolEvents`只记录实际执行的toolCallId、名称、成功/脱敏错误；不返回原始参数、思考链或凭据。`references`来自本请求实际成功查询/open/compare返回的verified来源，按caseId+URL去重，最多20条；`caseReferences`仅对应正文合法引用的案例卡。
+
+### 可选回答依据模式（向后兼容扩展）
+
+新界面发送 `includeEvidence:true`（仅V1，可省略），服务端才额外返回：
+
+- `evidence`：`method:"local_knowledge_retrieval"`，四类kinds、本地canonical实体与原始来源、本轮真实web来源、searchStatus、引用关联checks及固定limitation。`statementTruth:false`明确不认证逐句解释。已检索但未引用的案例保留 `cited:false`。
+- `retrievalDiagnostics`：最多8条实际search/compare记录，含策略、筛选维度、别名、匹配总数/选中ID、分数与命中字段。匹配数可以大于本轮最多6个取用实体，不表示页面返回所有案例。
+- `toolEvents[].reused:true`：只读工具的相同参数已经在本请求成功执行时复用其结果；UI显示“复用结果”。失败不缓存、地图操作不缓存。不是再次执行，也不跨访客复用。
+
+未声明includeEvidence的旧V1和无version旧客户端继续原字段结构，不附这些扩展。请求仍严格拒绝未知键或非法类型。示例（原有全部成功字段仍保留）：
+
+```json
+{"version":"1.0","includeEvidence":true,"messages":[{"role":"user","content":"介绍沪上清明青团及来源"}],"context":{"solarTermId":null,"provinceCode":null,"caseId":null}}
+```
+
+来源/实体不一致进入原有最多一次受限修复预算，修复仍不能核实则真实错误；不简单删除错误引用让回答假装通过。检索是本地轻量规则增强，非向量RAG。具体schema见 `lib/contracts/ai-evidence.ts`、`retrieval.ts` 和 `chat-api.ts`。
 
 ## 六个工具
 

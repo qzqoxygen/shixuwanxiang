@@ -10,6 +10,9 @@ import { SOLAR_TERMS } from "@/lib/solar-terms";
 import { studioCaseHref } from "@/lib/studio-inspiration";
 import type { VisitQuery } from "@/lib/solar-visit";
 import { visitLinkParams } from "@/lib/visit-links";
+import AnswerEvidence from "./AnswerEvidence";
+import type { AnswerEvidence as Evidence } from "@/lib/contracts/ai-evidence";
+import type { RetrievalDiagnostic } from "@/lib/contracts/retrieval";
 import "./ChatPanel.css";
 
 type DisplayMessage = ChatMessage & {
@@ -21,6 +24,8 @@ type DisplayMessage = ChatMessage & {
   toolEvents?: ToolEvent[];
   mapActions?: MapAction[];
   mapRevision?: number;
+  evidence?: Evidence;
+  retrievalDiagnostics?: RetrievalDiagnostic[];
 };
 const SUGGESTIONS = ["比较江苏和浙江的冬至习俗，在地图中高亮两省并打开三门祭冬。", "广东秋分有什么习俗？", "什么是冬至？"];
 const TOOL_LABELS: Record<string, string> = {
@@ -164,7 +169,7 @@ export default function ChatPanel({ onShowOnMap, onApplyMapActions, visitOrigin 
       const response = await fetch("/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json", "Idempotency-Key": crypto.getRandomValues(new Uint32Array(4)).join("-") },
-        body: JSON.stringify({ version: "1.0", messages: [...history, { role: "user", content: question }], context: getChatContext() }),
+        body: JSON.stringify({ version: "1.0", messages: [...history, { role: "user", content: question }], context: getChatContext(), includeEvidence: true }),
         signal: controller.signal,
       });
       let data;
@@ -181,7 +186,7 @@ export default function ChatPanel({ onShowOnMap, onApplyMapActions, visitOrigin 
         ...messages, { role: "user", content: question },
         { role: "assistant", content: data.reply, truncated: data.truncated,
           answerText: caseReferences ? answerText : undefined, caseReferences, caseLookup: data.caseLookup, noLocalCaseMatch: data.noLocalCaseMatch === true,
-          toolEvents: data.toolEvents, mapActions: data.mapActions, mapRevision },
+          toolEvents: data.toolEvents, mapActions: data.mapActions, mapRevision, evidence: data.evidence, retrievalDiagnostics: data.retrievalDiagnostics },
       ];
       if (updated.length > MAX_HISTORY_MESSAGES) setDiscardedMessages((count) => count + updated.length - MAX_HISTORY_MESSAGES);
       setMessages(updated.slice(-MAX_HISTORY_MESSAGES));
@@ -205,7 +210,7 @@ export default function ChatPanel({ onShowOnMap, onApplyMapActions, visitOrigin 
           {messages.map((message, index) => <article className={`chat-message chat-${message.role}`} key={discardedMessages + index} ref={index === messages.length - 1 ? latestAnswerRef : undefined}>
             <p className="chat-speaker">{message.role === "user" ? "你" : "四时助手"}</p>
             {Boolean(message.toolEvents?.length) && <ul className="chat-tool-events" aria-label="本轮实际执行的工具">{message.toolEvents!.map(event => <li key={event.toolCallId} data-tool={event.toolName} data-status={event.status}>
-              {event.status === "success" ? "已" : "未能"}{TOOL_LABELS[event.toolName] ?? "执行工具"}{event.status === "error" && <span>{event.error.message}</span>}
+              {event.status === "success" ? event.reused ? "复用" : "已" : "未能"}{TOOL_LABELS[event.toolName] ?? "执行工具"}{event.reused && "结果"}{event.status === "error" && <span>{event.error.message}</span>}
             </li>)}</ul>}
             {message.toolEvents?.some(event => event.status === "error") && <p className="chat-map-notice">部分工具未完成，地图未更新。</p>}
             {!message.toolEvents?.length && message.caseLookup && message.caseLookup.matchedTitles.length > 0 && <details className="chat-case-lookup">
@@ -213,6 +218,7 @@ export default function ChatPanel({ onShowOnMap, onApplyMapActions, visitOrigin 
               <ul>{message.caseLookup.matchedTitles.map((title, index) => <li key={index}>{title}</li>)}</ul>
             </details>}
             <div className="chat-message-text">{message.role === "assistant" ? linkedText(message.answerText ?? message.content) : message.content}</div>
+            {message.evidence && <AnswerEvidence evidence={message.evidence} diagnostics={message.retrievalDiagnostics} />}
             {message.truncated && <p className="chat-small">回答已达到长度上限，可追问“请继续”。</p>}
             {message.caseReferences && <CaseReferences references={message.caseReferences} onShowOnMap={onShowOnMap} visitOrigin={visitOrigin} />}
             {Boolean(message.mapActions?.length) && <MapActionsPreview actions={message.mapActions!} expectedRevision={message.mapRevision!} currentRevision={revision} onApply={onApplyMapActions} />}

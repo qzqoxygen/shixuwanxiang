@@ -6,14 +6,14 @@
 
 - 项目：时序万象·AI / 时序 AI（ShiXu AI），传智杯 AI 赛道的节气文化探索与创作作品；当前重点是可运行的文化体验和比赛演示，不要求商业化系统。
 - 仓库：`qzqoxygen/shixu-ai`；本地 `D:\projects\shixu-ai`。
-- 最新 main 基线为 `8206664`（2026-11-14，合并 PR #14）；本次 fetch 已核对。Agent 补全分支为 `feat/agent-map-v1-20261115`，沿用此前未提交的项目记忆文档；最终提交见 Git 记录。
+- 最新 main 基线为 `f5d561c`（2026-11-15，已 fetch 核对）；PR #15 Agent 补全已合并（`cb00050`），PR #16 节气探访也已合并。当前赛前 AI 升级分支为 `feat/ai-evidence-evaluation-20261115`，基于最新 main 新建，未重做既有六工具。最终提交见 Git 记录。
 - PR #7 文化补采已经合并（`5761e34`），不能再使用旧报告的“PR #7 尚未合并”作为当前结论。
 - 后续已合并：PR #8 首页更新；PR #9 案例工具查询、地图定位与制卡（`65b4c03`）；PR #10–12 界面/光标/布局调整；PR #13 全 24 节气导读（`a0f5fd7`）；PR #14 首页过渡和造物编辑（`1230e41`）。
 - 证据优先顺序：当前代码和运行数据 → 对应提交上实际执行的检查 → 有日期的历史报告 → README 与协议草案。历史文档用于追溯，不能直接当作当前产品功能表。
 
 状态含义：**已完成**表示本地实际入口与实现存在，仍需看验证列；**部分完成**表示只落地其中一部分；**尚未实现**表示当前没有实际产品链路；**存在但尚未验证**表示已有实现/配置，但相应真实运行或部署证据不足。以下状态不自动表示已部署公网。
 
-最初的功能盘点只修改本文件与 `AGENTS.md`。随后同日已获授权补全 Agent 工具、聊天 V1 核心协议及可视联动，并要求提交开发分支和 PR；该实施的接口与验收见 [Agent V1 联调](integration/agent-v1.md)。不自动合并或部署，77 条 verified 与 2 条 pending、密钥、模型配置及部署配置保持原样。
+最初功能盘点与同日 Agent 补全的证据保留在第8、10节；当前赛前升级结果见第11节和 [AI 技术与评测说明](AI_TECHNICAL_EVALUATION_2026-11-15.md)。接口兼容见 [Agent V1 联调](integration/agent-v1.md)。不自动合并或部署，77 条 verified 与 2 条 pending、密钥、模型配置及部署配置保持原样。
 
 ## 2. 技术架构与目录
 
@@ -23,7 +23,7 @@
 
 | 目录/文件 | 作用 |
 | --- | --- |
-| `app/` | 五个用户页面、布局、全局/页面样式和五条 API 路由 |
+| `app/` | 六个用户页面、布局、全局/页面样式和七条 API 路由，含节气探访及个人记忆卡 |
 | `app/home/` | 四季窗景、四个近景池塘、共享水波、首页图文栏目 |
 | `components/seasons/` | 册页、目录、高清照片、风物导读、插画与手势 |
 | `components/cultural-map/` | 服务端 SVG 地图、共享选择状态、案例列表/详情和请求生命周期 |
@@ -46,7 +46,7 @@
 
 | 功能 | 状态 | 实际实现与文件 | 验证边界 |
 | --- | --- | --- | --- |
-| 五页导航、当前页高亮、跳至正文、页脚和中文元信息 | 已完成 | `app/layout.tsx`、`components/SiteHeader.tsx`；`/`、`/seasons`、`/explore`、`/studio`、`/about` | 当前构建通过；本轮未逐页进行浏览器视觉验收 |
+| 六页导航、当前页高亮、跳至正文、页脚和中文元信息 | 已完成 | `app/layout.tsx`、`components/SiteHeader.tsx`；`/`、`/seasons`、`/explore`、`/studio`、`/visit`、`/about` | 本轮六页HTTP及视口回归通过；不代表所有装饰细节/无障碍专项已验收 |
 | 四季窗景切换 | 已完成 | `app/page.tsx` → `app/home/SpringScene.tsx`；`garden-seasons.ts` 定义四季，图片 decode 后再切换，序号防止旧加载覆盖新选择 | 代码已核对；旧浏览器记录只适用于各自提交 |
 | 走近/退回窗前、鼠标/笔视差、放大镜光标、Escape 返回 | 已完成 | `SpringScene.tsx` 和 `spring-home.css`，近景状态与键盘按钮；光标 SVG 是本地资源 | 有 11-14 历史视口/键盘记录；当前 HEAD 未重新浏览器实测 |
 | 四季池塘装饰 | 已完成 | `SpringPond` 花瓣/燕子，`SummerPond` 荷花/蜻蜓，`AutumnPond` 落叶，`WinterPond` 雪/花瓣；`use-pond-water.ts` Canvas 行扰动与水域蒙版，离屏/隐藏/减少动效时停止水波 | 是本地装饰，不是实时天气、3D 场景或模型生成；本轮未量测帧率 |
@@ -84,16 +84,18 @@
 
 | 功能 | 状态 | 实际实现与文件 | 验证边界 |
 | --- | --- | --- | --- |
-| DeepSeek 节气知识问答与多轮历史 | 已完成 | `POST /api/chat`、`lib/ai-agent.ts`、`lib/chat.ts`；服务端提示词区分天文、地域和民俗，当前非流式完整 JSON；最近 5 轮历史加新问题 | 本次隔离模拟测试通过；历史有真实回答，本轮未付费复测 |
+| DeepSeek 节气知识问答与多轮历史 | 已完成 | `POST /api/chat`、`lib/ai-agent.ts`、`lib/chat.ts`；服务端提示词区分天文、地域和民俗，当前非流式完整 JSON；最近 5 轮历史加新问题 | 本轮真实模型、失败及复测结果见第11节；不保证所有未来回答选同一工具组合 |
 | 输入限制、推荐问题、取消、超时、错误与清空 | 已完成 | `ChatPanel.tsx`；问题最多 1000 UTF-16 单元，回答最多 8000，Enter/Shift+Enter 与中文输入处理；失败保留问题，回答长度截断有提示 | 只保留内存会话，刷新/离开导致卸载会清空；没有云端会话存储 |
 | 可开关、拖动、复位、键盘移动的云朵助手 | 已完成 | `FloatingChat.tsx`/`.css`；鼠标/触屏、移动阈值、屏幕边界、焦点返回、Esc 收起；仅在知时地图页挂载 | 收起用 hidden 而非卸载，保留当前草稿/对话/请求；位置不是持久化账户设置 |
 | 模型自主查询本地已核验案例 | 已完成 | `chat-case-tool.ts` 保留旧查询工具，V1 注册六个工具；search 兼容 query 并支持节气/省份/类别/关键词/分页；累计去重、稳定引用编号、最多6则 | 模型自主选择，服务端真实执行；规则检索不是向量 RAG |
-| 多地区对比、追问、无匹配与引用卡 | 已完成 | `cultural-case-context.ts` 使用中文分词、标题/地域/节气/省份匹配和用户追问；`ChatPanel` 校验 `caseLookup`/`caseReferences`，呈现实际查询状态、地图/来源/制卡操作 | 不把助手先前说法当作证据；pending 不进入上下文；检索是有限规则，非任意自然语言语义检索保证 |
+| 多地区对比、追问、无匹配与引用卡 | 已完成 | `cultural-retrieval.ts`、`cultural-aliases.ts` 实现中文分词/别名/联合约束/加权排序/多省公平取用；兼容 `retrieveChatCases`；`ChatPanel` 展示实际案例卡 | 92个人工标注正样本及7空结果通过；不把助手先前说法当证据，不称向量RAG或保证任意语义检索 |
 | 本地与联网引用校验及恢复 | 已完成 | `culturalAnswerSources()` 验证 `[案例N]` 并附真实本地 URL；`attachSearchSources()` 验证 `[N]` 并附本轮搜索 URL；无效本地引用可在同一总时限内重新生成一次 | 引用格式/编号校验不是逐句事实证明；错误与来源不足仍需人工判断 |
 | 实时信息自动搜索与失败降级 | 已完成 | `web-search.ts` 规则判断时间敏感/显式检索/追问，后端先搜索再调用模型；搜索失败标记未核实时讯，允许稳定背景问答 | 有隔离测试及历史真实搜索证据；不表示服务在所有网络持续可用 |
 | 聊天 V1 核心及地图工具 | 已完成 | `chat-api.ts`、`chat-protocol.ts`、chat route：version/context/mapActions/toolEvents/references；show/highlight/open工具生成可验证操作，增加节气信息和多地区比较工具 | 与旧草案存在有意兼容扩展：V1也保留answer别名，旧模式继续既有案例查询；保留非流式响应 |
 | 工具事件、地区对照与地图批次入口 | 已完成 | `ChatPanel.tsx` 展示实际成功/失败事件、按省份分组的案例及来源；`chat-map-client.ts`、`map-actions.ts`核验完整批次，再通过共享地图一次更新 | 请求中仅显示通用处理状态；响应后显示实际事件，不伪造中途调用进度 |
 | 高亮、详情与过期操作保护 | 已完成 | 白名单SET_SOLAR_TERM/HIGHLIGHT_PROVINCES/OPEN_CULTURAL_CASE，provider维护revision；客户端抓取真实案例验证后再原子应用，手动变更/清空会话使旧批次失效 | 任一工具失败不返回地图批次；用户通过明显按钮确认应用，仍保留单案例卡和制卡入口 |
+| 回答依据、引用关联与检索诊断 | 已完成 | `answer-evidence.ts` 校验canonical字段/真实来源/编号与有限明确矛盾；`AnswerEvidence.tsx` 区分本地、实时、模型解释及不足；V1 `includeEvidence:true` 可选返回 | 不是逐句历史事实证明；`statementTruth:false`；旧客户端不新增字段。非法内容最多受限修复一次 |
+| 只读工具复用 | 已完成 | `ai-agent.ts` 同请求按工具名+规范化参数复用成功的search/compare/term结果，事件标记reused | 失败不缓存、地图不缓存、不同请求不共享；UI不将复用标为再次执行成功 |
 
 ### 3.5 造物工坊与 AI 灵感
 
@@ -113,7 +115,11 @@
 
 整体已完成当前中国风视觉实现：宣纸、青绿/石青、淡金/茶褐、本地毛笔字子集、册页与园林窗景。`DESIGN.md`、`app/globals.css`、各页面 CSS 及组件 CSS 提供实际规则，手机与桌面分别排版。`InkLandscape.tsx` 为雾层装饰；不要把历史设计文档中的 WebGL/水墨实验写成当前运行架构。
 
-代码已实现导航和控件焦点、skip-link、ARIA 状态、地图键盘选择、书页/造物键盘控制、触屏分支、减少动态偏好和局部动画暂停。它们属于**已完成的实现**；全站无障碍专项、所有系统组合/真机性能和最新页面视觉回归属于**存在但尚未验证**的验收项目。本次没有进行 UI 改动或浏览器截图检查。
+代码已实现导航和控件焦点、skip-link、ARIA 状态、地图键盘选择、书页/造物键盘控制、触屏分支、减少动态偏好和局部动画暂停。本轮仅添加紧凑可展开依据面板，已检查桌面/手机视口；全站无障碍专项、实体手机和所有系统组合性能仍**存在但尚未验证**。
+
+### 3.7 节气探访（main已合并成果，本轮保留）
+
+`app/visit/page.tsx`、`VisitDesk.tsx`、`visit-session.ts` 提供省份/市县/节气选择、示例、查询结果与当前浏览器session恢复。`/api/visit` 优先查询verified；无本地资料时执行官方Search，逐字摘要与地区/节气校验后区分地方记录、线索或无结果，不把线索升级为已核验案例。真实联网创作种子有服务端proof验证；本地案例、地图、造物及返回探访链接相连。`/api/visit/memory` 将用户个人经历生成一组记忆卡，提示词不把个人记忆当地方通行传统。状态为**已完成的本地实现**，原有测试随本轮全量回归；本轮只检查页面可打开/无溢出，未另发真实探访与记忆生成请求。
 
 ## 4. 数据、API 与运行链路
 
@@ -140,15 +146,17 @@
 
 ### 4.2 全部 API 清单
 
-当前五条 API 路由均服务端执行；本次生产构建标记为 `ƒ` 动态函数。默认 Node.js 运行时，未设置为 Edge，也没有浏览器直连 DeepSeek。
+当前七条 API 路由均服务端执行；本次生产构建标记为 `ƒ` 动态函数。默认 Node.js 运行时，未设置为 Edge，也没有浏览器直连 DeepSeek。
 
 | 方法与路径 | 状态 | 参数与返回 | 主要文件 |
 | --- | --- | --- | --- |
 | `GET /api/cultural-cases` | 已完成 | `solarTermId`、`provinceCode`、`category`、`keyword` 取交集；按 ID ASCII 升序；offset 默认 0、limit 默认 10/最大20；返回 `{version:"1.0",items,total,offset,limit}` | 列表 route、schema、`cultural-case-query.ts` |
 | `GET /api/cultural-cases/[caseId]` | 已完成 | 合法 ID 对应 verified 才返回 `{version:"1.0",item}`；不存在/pending 404，非法输入400，内部错误500 | 详情 route、`cultural-case-response.ts` |
-| `POST /api/chat` | 已完成 | 无version兼容原模式；V1严格校验 `{version:"1.0",messages,context}`，返回reply、answer兼容别名、truncated、mapActions、toolEvents、references及实际案例卡；错误含version与原error字段 | chat route、`chat-protocol.ts`、`chat-api.ts`、六工具及搜索 |
+| `POST /api/chat` | 已完成 | 旧模式不变；V1严格校验version/messages/context，可选includeEvidence；返回原有字段，显式依据模式再返回evidence/retrievalDiagnostics及可选reused事件 | chat route、`chat-protocol.ts`、`chat-api.ts`、六工具及搜索 |
 | `POST /api/studio/inspiration` | 已完成 | URL `term`、`format`、可选 `caseId`；返回 `{suggestions,references}`；错误 `{code,error}` | studio route、`studio-inspiration.ts` |
 | `POST /api/seasons/guide` | 已完成 | URL `term`、`mode=brief/children`、可选 `previous` 主题；返回 `{guide,topic}`；错误 `{error}` | guide route、`season-guides.ts` |
+| `POST /api/visit` | 已完成 | 校验省份/节气/可选area；返回local/web/lead/none，严格区分归档案例与本轮线索，失败降级 | visit route、`solar-visit.ts` |
+| `POST /api/visit/memory` | 已完成 | 校验节气及用户记忆；生成一组标题/短句，不将个人记忆认证为公共民俗 | visit memory route、`solar-visit.ts` |
 
 案例 API 严格拒绝未知/重复/非法参数；keyword 对标题、地区、简介和关联依据做字面大小写不敏感匹配。无结果正常返回空数组。数据通过共享 Zod schema 校验，客户端也校验响应和当前筛选，过期请求不能覆盖新选择。所有 API 响应配置 no-store；案例 API 完全独立于模型和密钥。地图 UI 尚无独立的关键词/类别搜索框，不能因 API 支持就写成界面已开放。
 
@@ -172,7 +180,7 @@
 
 ## 5. AI 实现细节与安全边界
 
-- 三处模型能力（问答、造物、四时补充导读）共用 `lib/server/deepseek.ts`，配置 **`deepseek-flash`**、Base URL **`https://api.deepseek.com`**，实际聊天端点 `/chat/completions`。这是当前代码配置，未在本轮重新核实账户或模型实时可用性。
+- 问答、造物、四时补充导读和节气探访/个人记忆共用 `lib/server/deepseek.ts`，配置 **`deepseek-flash`**、Base URL **`https://api.deepseek.com`**，实际聊天端点 `/chat/completions`。本轮真实问答/造物/官方Search均有运行证据；不自动延伸为导读/探访也完成真实联调。
 - 使用服务端 `process.env.DEEPSEEK_API_KEY`，关闭思考模式、`stream:false`；造物与导读使用 JSON 输出模式。当前没有 SSE/逐字流式显示，也没有 OpenRouter/NVIDIA/Tavily 运行调用。
 - 联网是 `web-search.ts` 后端真实请求 **`POST https://api.deepseek.com/v1/tools/search`**，同一密钥；最多请求8条、过滤去重并优先权威来源后保留5条摘要，不是让模型自行假装联网。指定天文台/气象局时约束域名；搜索 query 保留当前问题及相关追问，最多128个 Unicode 字符。
 - 没有独立 Fetch 全文抓取或向量检索。搜索摘要、本地文化档案、静态科普、模型原创回答与预制素材应分别描述；“基于多模态智能体”的产品介绍不等于已接通多模态模型、AI 生图或语音。
@@ -204,11 +212,11 @@ Netlify 生产环境须独立配置 `DEEPSEEK_API_KEY`，Functions 范围可读�
 
 | 项目 | 状态 | 后续开发应知道的边界 |
 | --- | --- | --- |
-| 完整协议后续扩展 | 部分完成 | 本轮V1核心/全部四个文化工具及两个补充工具已落地；与历史草案的实际差异见第15节和联调文档。没有SSE实时工具流、任意脚本执行或服务端持久会话 |
+| 完整协议后续扩展 | 部分完成 | V1核心/六工具及可选回答依据已落地；与历史草案的实际差异见第10、11节和联调文档。没有SSE实时工具流、任意脚本执行或服务端持久会话 |
 | pending 两条、所有省份覆盖、案例配图 | 部分完成 | 缺少依据/授权需素材核查，不能用模型补齐；当前24节气已全覆盖，不需要再为覆盖任务造数据 |
 | 所有来源长期可访问及逐条事实复核 | 部分完成 | 保留7条访问提示，部分维护页/防护未解决；核查访问状态和核查事实不是同一件事 |
-| 最新真实问答/搜索/造物/导读与异常恢复联调 | 部分完成 | 本轮Agent真实请求及网页结果见新验收记录；保留首次遗漏高亮的失败证据。实时导读、本轮实时联网、公网Functions与真机尚未全部重新验证 |
-| 最新完整浏览器回归、导出成品、真机/弱网/无障碍专项 | 存在但尚未验证 | 旧测试有日期与视口边界；旧 `cultural-cases-browser.mjs` 仍查 `.page-note`、四时案例区和原造物 select 等已变化入口，不能直接算作最新 UI 回归通过；本轮不改测试 |
+| 最新真实问答/搜索/造物/导读与异常恢复联调 | 部分完成 | 本轮真实问答/比较/地图/造物/联网见第11节，失败与复测分别保留；导读、探访/记忆、公网Functions及真机仍未逐项真实复测 |
+| 最新完整浏览器回归、导出成品、真机/弱网/无障碍专项 | 部分完成 | 本轮新的桌面/手机视口AI链路与六页检查见第11节；PNG成品、实体手机/弱网/无障碍专项未重验。旧 `cultural-cases-browser.mjs` 的历史选择器不能算作最新UI回归 |
 | 静态首页与专题精选自动同步所有案例 | 尚未实现 | 首页是人工精选；关于和公开查询从统一集合派生。两者设计不同，不要把静态精选误认成另一个案例数据库 |
 | AI 图片/语音/视觉理解、传统技艺模拟、完整多 Agent/MCP | 尚未实现 | 仓库有预制图像和艺术装饰，不代表产品实时拥有这些 AI 能力；不是本次建议新增的范围 |
 | 数据库、管理后台、登录会员/支付、云端作品/聊天同步 | 尚未实现 | 当前不依赖这些能力；比赛展示阶段无须为了补“完整性”引入商业系统 |
@@ -256,7 +264,7 @@ Netlify 生产环境须独立配置 `DEEPSEEK_API_KEY`，Functions 范围可读�
 
 1. 先读根 `AGENTS.md` 与本文件，确认用户本轮范围；核对当前分支/未提交变更/HEAD，再查具体实现。不要仅凭某个旧报告的“开发中”重复造功能。
 2. 重要功能新增、修改、删除或不再挂载时，同步本文件的日期/核对提交、功能状态、文件入口、数据流与测试边界。文档应描述结果，不将规划目标标成已完成。
-3. 保留五页、中国风视觉、真实地图边界和34省、节气ID、文化案例稳定ID/来源/pending边界、模型自主查询与用户点击地图/制卡闭环、造物草稿与PNG导出。
+3. 保留六页（含探访）、中国风视觉、真实地图边界和34省、节气ID、文化案例稳定ID/来源/pending边界、模型自主查询与用户点击地图/制卡闭环、造物草稿与PNG导出。
 4. 统一服务端 DeepSeek；密钥只记录变量名。保留搜索失败降级、输入校验、限流、防重复、有限重试及脱敏日志。不得因部署网络问题擅自更换服务商或伪造回答。
 5. 数据变更维护 intake/review/manifest/运行集合，不绕过审核直接批量标 verified；无资料地区正常空结果。来源失效时记录访问限制并补证，不编造来源或擅自删除原始依据。
 6. 保留同一 GitHub 仓库归属、Netlify、Vercel备用和通用服务器切换能力，不擅自删除云项目或改写 Git 历史；本地测试/合并/上传成功/公网服务可访问/大陆真机稳定分别记录。修改部署或发布前核实用户授权及实际站点。
@@ -265,7 +273,7 @@ Netlify 生产环境须独立配置 `DEEPSEEK_API_KEY`，Functions 范围可读�
 
 本文件是项目内共享记忆入口，不能保证任意新会话自动继承聊天历史；通过根 `AGENTS.md` 的阅读指引和持续更新来保持可维护性。
 
-## 10. 同日 Agent 补全实施与验收
+## 10. 同日 Agent 补全历史实施与验收（PR #15，已合并）
 
 六个真实工具：`search_cultural_cases`、`show_cultural_map`、`highlight_regions`、`open_cultural_case`、`get_solar_term_info`、`compare_cultural_cases`。检索增加类别交集、简介/关联依据相关性、多地区轮流分配及显式追问继承；comparison返回真实分组和原始来源，空地区保留为空。
 

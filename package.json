@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "cases:import": "node scripts/import-cultural-cases.mjs",
+    "eval:ai": "node scripts/evaluate-ai.mjs",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",

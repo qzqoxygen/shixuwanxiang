@@ -1,0 +1,36 @@
+{
+  "version": "1.0",
+  "description": "人工标注的检索期望。案例ID来自当前已核验库；别名仅用于查询归一化，不修改文化实体或事实。",
+  "retrieval": [
+    { "id": "alias-shanghai", "group": "alias", "question": "沪上清明青团", "expectedIds": ["shanghai-qingming-qingtuan"] },
+    { "id": "alias-gusu", "group": "alias", "question": "苏州冬节桂花冬酿酒", "expectedIds": ["suzhou-dongzhi-winter-wine"] },
+    { "id": "alias-nine", "group": "alias", "question": "北京冬至画九", "expectedIds": ["beijing-dongzhi-nine-nine-chart"] },
+    { "id": "alias-radish", "group": "alias", "question": "南京大雪萝卜丸子", "expectedIds": ["nanjing-daxue-radish-balls"] },
+    { "id": "alias-porridge", "group": "alias", "question": "鲁北大雪红薯粥", "expectedIds": ["lubei-daxue-sweet-potato-porridge"] },
+    { "id": "alias-lamb", "group": "alias", "question": "银川冬至羊肉粉汤", "expectedIds": ["yinchuan-dongzhi-lamb-soup"] },
+    { "id": "alias-rice", "group": "alias", "question": "杭州立夏乌饭", "expectedIds": ["hangzhou-dark-glutinous-rice"] },
+    { "id": "alias-guangzhou", "group": "alias", "question": "羊城处暑凉茶", "expectedIds": ["guangzhou-chushu-herbal-tea"] },
+    { "id": "alias-tianjin", "group": "alias", "question": "津门惊蛰吃梨", "expectedIds": ["tianjin-jingzhe-pears"] },
+    { "id": "related-province", "group": "cross_region", "question": "福建雨水占稻色", "expectedIds": ["south-china-yushui-rice-divination"] },
+    { "id": "compare-jiangzhe", "group": "cross_region", "question": "比较江浙两省冬至习俗", "expectedIds": ["sanmen-jidong", "suzhou-dongzhi-winter-wine"] },
+    { "id": "compare-explicit", "group": "cross_region", "question": "江苏和浙江的冬至民俗有什么不同", "expectedIds": ["sanmen-jidong", "suzhou-dongzhi-winter-wine"] },
+    { "id": "joint-food", "group": "joint_filters", "question": "江苏冬至饮食", "expectedIds": ["suzhou-dongzhi-winter-wine"], "category": "food" },
+    { "id": "follow-up-food", "group": "follow_up", "history": ["比较江苏浙江冬至习俗", "那只看饮食类"], "expectedIds": ["suzhou-dongzhi-winter-wine"], "category": "food" },
+    { "id": "follow-up-region", "group": "follow_up", "history": ["江苏冬至民俗", "那浙江呢"], "expectedIds": ["sanmen-jidong"] },
+    { "id": "uncovered", "group": "empty", "question": "西藏清明有哪些已收录习俗", "expectedIds": [], "mustBeEmpty": true },
+    { "id": "fabricated-available-region", "group": "fabricated", "question": "江苏冬至量子祭龙王", "expectedIds": [], "mustBeEmpty": true },
+    { "id": "wrong-term-exact", "group": "contradiction", "question": "清明三门祭冬", "expectedIds": [], "mustBeEmpty": true },
+    { "id": "wrong-region-exact", "group": "contradiction", "question": "上海冬至三门祭冬", "expectedIds": [], "mustBeEmpty": true },
+    { "id": "wrong-category-exact", "group": "contradiction", "question": "浙江冬至饮食类三门祭冬", "expectedIds": [], "mustBeEmpty": true },
+    { "id": "pending-flower", "group": "pending", "question": "陕西黄陵冬至面花", "expectedIds": [], "mustBeEmpty": true },
+    { "id": "pending-jujube", "group": "pending", "question": "河南新郑秋分大枣", "expectedIds": [], "mustBeEmpty": true }
+  ],
+  "live": [
+    { "id": "ordinary", "question": "冬至为什么不一定最冷？请简短说明，不要引用未经检索的来源。", "searchStatus": "not_requested" },
+    { "id": "alias", "question": "请查本站已核验案例，介绍沪上清明青团和相关来源。", "expectedIds": ["shanghai-qingming-qingtuan"] },
+    { "id": "complex", "question": "请比较江苏和浙江冬至的已核验文化特点和资料来源，展示冬至文化地图，高亮江苏浙江，并打开三门祭冬，方便继续做节气卡。请实际使用相应工具。", "expectedIds": ["sanmen-jidong", "suzhou-dongzhi-winter-wine"], "tools": ["compare_cultural_cases", "show_cultural_map", "highlight_regions", "open_cultural_case"] },
+    { "id": "follow-up", "question": "那只看饮食类，继续比较这两个地区，并给出本轮已核实来源。", "historyFrom": "complex", "expectedIds": ["suzhou-dongzhi-winter-wine"], "category": "food" },
+    { "id": "unmatched", "question": "请核对本站江苏冬至的量子祭龙王案例，没有已核验资料就明确说明，不能用别的案例替代。", "mustBeEmpty": true },
+    { "id": "live-search", "question": "请联网查香港天文台在哪里公布二十四节气时刻，给出本轮实际检索来源，不要推测具体交节时分。", "liveSearch": true }
+  ]
+}

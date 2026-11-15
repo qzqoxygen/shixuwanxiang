@@ -27,6 +27,21 @@ test("a live follow-up retains the retrieval need and an explicit static topic s
   assert.equal(needsWebSearch([...changed, user("它和夏至有什么区别？")]), false);
 });
 
+test("negated search and unverified-source instructions do not turn stable knowledge into live queries", () => {
+  for (const question of [
+    "冬至为什么不一定最冷？请简短说明，不要引用未经检索的来源",
+    "不要联网，解释冬至的原理。", "不用搜索，讲讲冬至。", "无需联网检索，说明夏至的由来。",
+  ]) assert.equal(needsWebSearch([user(question)]), false, question);
+  for (const question of [
+    "不要编造，查询今年北京清明活动的最新安排。",
+    "不要引用未经检索的来源，今年冬至的准确时间是什么？",
+    "不用搜索，今天天气怎么样？",
+  ]) assert.equal(needsWebSearch([user(question)]), true, question);
+  const liveHistory = [user("今年北京清明有哪些活动？")];
+  assert.equal(needsWebSearch([...liveHistory, user("那不用搜索，解释冬至的原理。")]), false);
+  assert.equal(needsWebSearch([...liveHistory, user("那上海呢？不要引用未经检索的来源。")]), true);
+});
+
 test("successive follow-up searches retain the actual activity and all newly chosen locations", () => {
   const history = [
     user("今年北京清明有哪些民俗活动？"), { role: "assistant", content: "请参考主办方公告。" },

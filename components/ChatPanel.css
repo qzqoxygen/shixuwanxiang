@@ -315,6 +315,17 @@
 }
 .chat-clear:hover:enabled { background: #eee8d9; color: #59432e; }
 .chat-clear:disabled { color: #797467; }
+.chat-answer-evidence { margin-top: 12px; padding: 10px 12px; border: 1px solid #92b6a055; border-radius: 8px; background: #eef2e780; font-size: 12px; line-height: 1.7; overflow-wrap: anywhere; }
+.chat-evidence-kinds { display: flex; flex-wrap: wrap; gap: 5px 10px; color: #416b61; }
+.chat-answer-evidence summary { min-height: 44px; display: flex; align-items: center; cursor: pointer; color: #305f65; }
+.chat-answer-evidence h4 { margin: 10px 0 6px; font-size: 13px; }
+.chat-answer-evidence ul { margin: 0; padding-left: 16px; }
+.chat-answer-evidence li { margin: 6px 0 10px; }
+.chat-answer-evidence li p { margin: 2px 0; }
+.chat-answer-evidence li a { display: block; text-decoration: underline; text-underline-offset: 3px; color: #305f65; }
+.chat-answer-evidence li > span, .chat-evidence-limit { color: #706959; }
+.chat-answer-evidence small { display: block; color: #706959; font-size: 11px; }
+.chat-evidence-limit { margin: 10px 0 0; }
 .chat-panel button { cursor: pointer; }
 .chat-panel button:disabled { cursor: not-allowed; }
 .chat-suggestions button:disabled { opacity: .65; }
