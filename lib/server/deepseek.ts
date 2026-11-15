@@ -84,9 +84,9 @@ const logCodes = new Set([
   ...Object.keys(errors), "API_KEY_MISSING", "TOOLS_UNAVAILABLE", "TOOL_ROUND_LIMIT", "TOO_MANY_TOOL_CALLS",
   "INVALID_TOOL_RESPONSE", "SEARCH_KEY_MISSING", "SEARCH_AUTH_FAILED", "SEARCH_INSUFFICIENT_BALANCE",
   "SEARCH_TIMEOUT", "SEARCH_RATE_LIMITED", "SEARCH_FAILED", "SEARCH_INVALID_RESPONSE", "SEARCH_EMPTY",
-  "SEARCH_ANSWER_UNSUPPORTED", "UNVERIFIED_ANSWER", "CASE_ANSWER_UNSUPPORTED", "INVALID_MAP_ACTIONS",
+  "SEARCH_ANSWER_UNSUPPORTED", "UNVERIFIED_ANSWER", "CASE_ANSWER_UNSUPPORTED", "INVALID_MAP_ACTIONS", "INVALID_WEB_SELECTION",
 ]);
 
-export function logAiError(scope: "chat" | "studio" | "search" | "season-guide", code: string, status: number) {
+export function logAiError(scope: "chat" | "studio" | "search" | "season-guide" | "visit", code: string, status: number) {
   console.warn("[ai]", { scope, code: logCodes.has(code) ? code : "INTERNAL_ERROR", status });
 }

@@ -101,7 +101,7 @@ function useFloatingPosition<T extends HTMLElement>(elementRef: RefObject<T | nu
 }
 
 export default function FloatingChat() {
-  const { dispatch, applyAiMapActions, setHovered, setFocused } = useProvinces();
+  const { dispatch, applyAiMapActions, setHovered, setFocused, visitOrigin } = useProvinces();
   const [open, setOpen] = useState(false);
   const panelRef = useRef<HTMLDivElement>(null);
   const launcherRef = useRef<HTMLButtonElement>(null);
@@ -176,7 +176,7 @@ export default function FloatingChat() {
         </div>
         <div className="cloud-chat-tools"><button type="button" className="cloud-chat-reset" aria-label="恢复聊天窗口位置" title="恢复位置" onClick={() => setPanelPosition(null)}>复位</button><button type="button" className="cloud-chat-minimize" aria-label="收起 AI 助手" title="收起，保留对话" onClick={close}>收起</button></div>
       </header>
-      <div className="cloud-chat-content"><ChatPanel onShowOnMap={showOnMap} onApplyMapActions={applyMapActions} /></div>
+      <div className="cloud-chat-content"><ChatPanel onShowOnMap={showOnMap} onApplyMapActions={applyMapActions} visitOrigin={visitOrigin} /></div>
     </div>
   </>;
 }

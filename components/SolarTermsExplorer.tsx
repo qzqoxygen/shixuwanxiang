@@ -1,10 +1,13 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useId, useReducer, useRef, useState, useSyncExternalStore, type CSSProperties, type KeyboardEvent } from "react";
 import { ReadingPage, PhotoPage } from "@/components/seasons/BookPages";
 import BookDirectory from "@/components/seasons/BookDirectory";
 import { useBookSwipe } from "@/components/seasons/useBookSwipe";
-import { SOLAR_TERMS } from "@/lib/solar-terms";
+import { SOLAR_TERMS, type SolarTermId } from "@/lib/solar-terms";
+import type { VisitQuery } from "@/lib/solar-visit";
+import { visitHref } from "@/lib/visit-links";
 import { SOLAR_TERM_PHOTOS } from "@/lib/solar-term-photos";
 import { getSeasonGuide, type GuideCaseSources, type GuideMode } from "@/lib/season-guides";
 import PhotoGuide from "@/components/seasons/PhotoGuide";
@@ -26,8 +29,13 @@ function subscribeCompact(callback: () => void) {
 const readCompact = () => window.matchMedia("(max-width: 1000px)").matches;
 const number = (value: number) => String(value).padStart(2, "0");
 
-export default function SolarTermsExplorer({ caseSources }: { caseSources: GuideCaseSources }) {
-  const [book, dispatch] = useReducer(bookReducer, INITIAL_BOOK);
+export default function SolarTermsExplorer({ caseSources, initialTerm, visitOrigin }: {
+  caseSources: GuideCaseSources; initialTerm?: SolarTermId; visitOrigin?: VisitQuery;
+}) {
+  const [book, dispatch] = useReducer(bookReducer, initialTerm, term => {
+    const index = term ? SOLAR_TERMS.findIndex(({ id }) => id === term) : INITIAL_BOOK.index;
+    return { ...INITIAL_BOOK, index, requested: index };
+  });
   const [paused, setPaused] = useState(false);
   const [guideMode, setGuideMode] = useState<GuideMode>("brief");
   const rootRef = useRef<HTMLDivElement>(null);
@@ -139,7 +147,7 @@ export default function SolarTermsExplorer({ caseSources }: { caseSources: Guide
           <span aria-hidden="true">物</span>
           <span aria-hidden="true">册</span>
         </h2>
-        <p>一页识时，一页观物。</p>
+        <p>翻阅节气风物，点「AI 再讲一点」获取补充讲解。</p>
       </div>
       <svg className="seasons-toolbar-art" viewBox="0 0 260 56" aria-hidden="true" focusable="false">
         <image href="/images/studio-stickers/distant-mountains.webp" x="2" y="-46" width="144" height="144" opacity=".63" />
@@ -152,6 +160,11 @@ export default function SolarTermsExplorer({ caseSources }: { caseSources: Guide
         <path className="seasons-toolbar-leaf" d="M185 25q-6-1-9-5 7 0 9 5Z" fill="#7e916b" />
       </svg>
       <div className="seasons-book-toolbar-actions"><button type="button" className="seasons-motion seasons-book-button" aria-pressed={!still} disabled={reduced} onClick={() => { setPaused(value => !value); dispatch({ type: "settle" }); }} aria-label="页面动效"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.4" aria-hidden="true">{still ? <path d="m5 3 7 5-7 5Z" /> : <path d="M5 3v10M11 3v10" />}</svg><span>{reduced ? "已减少动效" : paused ? "开启动效" : "暂停动效"}</span></button></div>
+    </div>
+    <div className="seasons-visit-link">
+      {visitOrigin && <Link className="text-link" prefetch={false} href={visitHref(visitOrigin)}>返回节气探访</Link>}
+      {visitOrigin?.solarTermId !== selected.id &&
+        <Link className="text-link" prefetch={false} href={visitHref({ ...visitOrigin, solarTermId: selected.id })}>去探访{selected.name}风物</Link>}
     </div>
     <div className="seasons-reading-layout">
     {!compact && directory}

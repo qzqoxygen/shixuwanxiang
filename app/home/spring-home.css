@@ -393,6 +393,14 @@ body:has(.spring-home:not([style*="display: none"])) {
   opacity: 1;
 }
 
+@starting-style {
+  .spring-landscape-layer:not([data-chapter="spring"])[data-active="true"],
+  .spring-foreground[data-active="true"]:not([data-chapter="spring"]),
+  .spring-pond[data-active="true"] {
+    opacity: 0;
+  }
+}
+
 .spring-pond > img,
 .spring-pond-water {
   object-fit: cover;
@@ -965,12 +973,24 @@ body:has(.spring-home:not([style*="display: none"])) {
   }
 }
 
-.spring-scene-error {
-  margin: 6px 0 0;
-  padding: 2px 6px;
+.spring-scene-status {
+  position: absolute;
+  z-index: 6;
+  top: calc(var(--window-head) + 12px);
+  left: 50%;
+  translate: -50% 0;
+  margin: 0;
+  padding: 4px 10px;
+  border-radius: 3px;
   background: var(--spring-paper);
-  color: #854537;
+  color: #3d5344;
   font-size: 12px;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.spring-scene-status[data-status="error"] {
+  color: #854537;
 }
 
 @media (max-width: 900px) {

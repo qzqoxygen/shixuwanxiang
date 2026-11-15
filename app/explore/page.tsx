@@ -2,8 +2,10 @@ import type { Metadata } from "next";
 import { Suspense } from "react";
 import ChinaProvinceMap from "@/components/cultural-map/ChinaProvinceMap";
 import ExploreMotion from "@/components/ExploreMotion";
-import { ProvinceCodeSchema, SolarTermIdSchema } from "@/lib/contracts/cultural-case";
+import { CulturalCaseIdSchema, ProvinceCodeSchema, SolarTermIdSchema } from "@/lib/contracts/cultural-case";
 import { INITIAL_EXPLORE_SELECTION } from "@/lib/explore-selection";
+import { studioCaseForTerm } from "@/lib/server/cultural-case-context";
+import { readVisitOrigin } from "@/lib/visit-links";
 import "./explore.css";
 import "./explore-motion.css";
 export const metadata: Metadata = { title: "知时" };
@@ -13,7 +15,14 @@ async function SelectedMap({ searchParams }: { searchParams: SearchParams }) {
   const params = await searchParams;
   const term = SolarTermIdSchema.safeParse(params.solarTermId);
   const province = ProvinceCodeSchema.safeParse(params.provinceCode);
-  return <ChinaProvinceMap initialSelection={{ ...INITIAL_EXPLORE_SELECTION, solarTermId: term.success ? term.data : null, provinceCode: province.success ? province.data : null }} />;
+  const caseId = CulturalCaseIdSchema.safeParse(params.caseId);
+  const item = term.success && caseId.success ? studioCaseForTerm(caseId.data, term.data) : undefined;
+  return <ChinaProvinceMap visitOrigin={readVisitOrigin(params)} initialSelection={{
+    ...INITIAL_EXPLORE_SELECTION,
+    solarTermId: term.data ?? null,
+    provinceCode: province.data ?? null,
+    caseId: item && province.success && (item.provinceCode === province.data || item.relatedProvinceCodes?.includes(province.data)) ? item.id : null,
+  }} />;
 }
 
 export default function ExplorePage({ searchParams }: { searchParams: SearchParams }) {

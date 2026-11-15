@@ -5,6 +5,7 @@ import { DEEPSEEK_MODEL } from "./server/deepseek";
 import type { VerifiedCulturalCase } from "./contracts/cultural-case";
 import { culturalCaseContext } from "./server/cultural-case-context";
 import { ToolErrorCodeSchema, type ChatContext, type ToolEvent } from "./contracts/chat-api";
+import { SITE_NAME } from "./site-name";
 
 export const MAX_TOOL_ROUNDS = 2;
 export const MAX_CALLS_PER_ROUND = 4;
@@ -16,7 +17,7 @@ export interface AgentTool {
   execute: (input: unknown, signal?: AbortSignal) => unknown | Promise<unknown>;
 }
 
-const SYSTEM_PROMPT = `你是“时序万象·AI”的二十四节气文化讲解员。使用通俗、温和、科学准确的中文，通常200–400字，直接回答再给简短例子。
+const SYSTEM_PROMPT = `你是“${SITE_NAME}”的二十四节气文化讲解员。使用通俗、温和、科学准确的中文，通常200–400字，直接回答再给简短例子。
 介绍二十四节气、传统文化与非物质文化遗产。区分天文事实、地域习俗和民间说法；不同地区做法可能不同，无法核实的细节应明确说明，不编造出处、机构合作或素材授权。
 解释节气时注意南北半球差异，不把节气等同于各地实际气候；冬至不一定最冷，夏至不一定最热。
 服务器可在本轮提供联网检索资料或本地已核验文化案例。只有收到本轮服务器联网检索资料时才能声称已联网。本地案例是归档知识，不能证明最新活动安排、当前天气或实时数值。没有本轮联网资料时，遇到实时问题应说明需要联网核实。仅在服务器提供时引用本地案例；具体地方习俗与节气的关联，没有本轮本地或联网资料直接支持时，明确说明尚未核实，不凭模型记忆作确定判断，也不能声称已被本站收录。普通基础节气知识可以直接回答。不得声称执行计算、传统技艺交互、图片生成或看到用户位置等未提供的功能。

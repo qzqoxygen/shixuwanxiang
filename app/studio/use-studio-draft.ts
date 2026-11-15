@@ -3,18 +3,18 @@ import { STUDIO_DRAFT_KEY, type StudioDraft } from "@/lib/studio-draft";
 
 const subscribe = () => () => {};
 const serverSnapshot = () => undefined;
-function readSnapshot() {
-  try { return window.localStorage.getItem(STUDIO_DRAFT_KEY); } catch { return null; }
-}
-
-export function useInitialStudioDraft() {
+export function useInitialStudioDraft(sessionKey?: string) {
   // Wait until the stored draft has been read before making the editor interactive.
-  return useSyncExternalStore(subscribe, readSnapshot, serverSnapshot);
+  return useSyncExternalStore(subscribe, () => {
+    try {
+      return sessionKey ? window.sessionStorage.getItem(sessionKey) : window.localStorage.getItem(STUDIO_DRAFT_KEY);
+    } catch { return null; }
+  }, serverSnapshot);
 }
 
 type Status = "idle" | "saved" | "error";
 
-export function useStudioDraft(draft: StudioDraft, restored: boolean) {
+export function useStudioDraft(draft: StudioDraft, restored: boolean, sessionKey?: string) {
   const snapshot = JSON.stringify(draft);
   const latest = useRef(snapshot);
   const changed = useRef(false);
@@ -24,11 +24,12 @@ export function useStudioDraft(draft: StudioDraft, restored: boolean) {
   const flush = useCallback((): Status => {
     if (latest.current === persisted.current.snapshot) return persisted.current.status;
     try {
-      window.localStorage.setItem(STUDIO_DRAFT_KEY, latest.current);
+      if (sessionKey) window.sessionStorage.setItem(sessionKey, latest.current);
+      else window.localStorage.setItem(STUDIO_DRAFT_KEY, latest.current);
       persisted.current = { snapshot: latest.current, status: "saved" };
       return "saved";
     } catch { return "error"; }
-  }, []);
+  }, [sessionKey]);
 
   useLayoutEffect(() => {
     if (latest.current !== snapshot) changed.current = true;

@@ -173,6 +173,7 @@ export async function renderPosterPng(poster: HTMLElement): Promise<Blob> {
   });
   const title = poster.querySelector<HTMLElement>(".studio-poster-title")!;
   const line = poster.querySelector<HTMLElement>(".studio-poster-line")!;
+  const memory = poster.querySelector<HTMLElement>(".studio-poster-memory");
   const paintText = [
     captureBorders(getComputedStyle(title), boxIn(title.getBoundingClientRect(), origin)),
     captureText(title.firstElementChild as HTMLElement, origin),
@@ -180,6 +181,7 @@ export async function renderPosterPng(poster: HTMLElement): Promise<Blob> {
     captureBorders(getComputedStyle(line), boxIn(line.getBoundingClientRect(), origin)),
     captureText(line, origin),
     captureCenteredText(poster.querySelector<HTMLElement>(".studio-poster-date")!, origin),
+    ...(memory ? [captureText(memory, origin)] : []),
   ];
 
   const sources = new Set(stickers.map(({ source }) => source));
