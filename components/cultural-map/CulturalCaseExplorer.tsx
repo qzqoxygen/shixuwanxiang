@@ -108,7 +108,12 @@ function CaseDetail({ caseId }: { caseId: string }) {
       )} prefetch={false}>
         用这个案例做节气卡
       </Link>
-      {visitOrigin && <Link className="case-studio-link" href={visitHref(visitOrigin)} prefetch={false}>返回节气探访</Link>}
+      <Link className="case-studio-link" href={visitHref(visitOrigin ?? {
+        provinceCode: selection.provinceCode ?? resource.data.provinceCode,
+        solarTermId: selection.solarTermId ?? resource.data.solarTermIds[0],
+      })} prefetch={false}>
+        {visitOrigin ? "返回节气探访" : "探访同地风物"}
+      </Link>
       <CulturalCaseContent item={resource.data} />
     </>}
   </section>;

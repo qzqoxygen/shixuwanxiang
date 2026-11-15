@@ -448,7 +448,8 @@ function StudioEditor({ initialDraft, seed, invalidCase, memory, webSeed, missin
       <figure className="studio-preview">
         <figcaption className="studio-preview-caption">
           <h2>作品预览</h2>
-          <Link className="studio-visit-link" data-return={Boolean(visitOrigin)} prefetch={false} href={visitHref(visitOrigin ?? { solarTermId: term.id })}>
+          <Link className="studio-visit-link" data-return={Boolean(visitOrigin)} prefetch={false}
+            href={visitHref(visitOrigin ?? { solarTermId: term.id, provinceCode: activeCase?.provinceCode })}>
             {visitOrigin ? "返回节气探访" : `探访${term.name}风物`}
           </Link>
           <span className="studio-preview-format">{template.format}</span>

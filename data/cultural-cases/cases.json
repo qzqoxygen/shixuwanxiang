@@ -136,6 +136,32 @@
     "verificationStatus": "verified"
   },
   {
+    "id": "beijing-dongzhi-temple-of-heaven",
+    "title": "北京天坛冬至祭天",
+    "solarTermIds": [
+      "dongzhi"
+    ],
+    "provinceCode": "110000",
+    "provinceName": "北京市",
+    "regionName": "北京市东城区",
+    "category": "folk_custom",
+    "description": "明清时期，皇帝在冬至到天坛圜丘坛祭天。圜丘坛是天坛内举行祭天典礼的露天圆坛。",
+    "relationNote": "北京市公园管理中心和首都之窗的天坛资料记载，明清冬至祭天在圜丘坛举行。",
+    "sources": [
+      {
+        "title": "天坛",
+        "url": "https://gygl.beijing.gov.cn/whgy/whgy_wsgc/201912/t20191206_885756.html",
+        "publisher": "北京市公园管理中心"
+      },
+      {
+        "title": "天坛公园",
+        "url": "https://www.beijing.gov.cn/renwen/rwzyd/gdwh/ttgy/202107/t20210705_2429501.html",
+        "publisher": "北京市人民政府门户网站"
+      }
+    ],
+    "verificationStatus": "verified"
+  },
+  {
     "id": "beijing-hanlu-fragrant-hills",
     "title": "北京香山寒露登高赏红叶",
     "solarTermIds": [
@@ -340,6 +366,32 @@
     "verificationStatus": "verified"
   },
   {
+    "id": "chagan-dongzhi-winter-fishing",
+    "title": "吉林松原查干淖尔冬捕习俗",
+    "solarTermIds": [
+      "dongzhi"
+    ],
+    "provinceCode": "220000",
+    "provinceName": "吉林省",
+    "regionName": "松原市前郭尔罗斯蒙古族自治县",
+    "category": "folk_custom",
+    "description": "查干湖一带的渔民在冰封时节出湖捕鱼，捕前有祭湖、醒网等仪式。2008 年，查干淖尔冬捕习俗列入第二批国家级非物质文化遗产名录。",
+    "relationNote": "吉林省政府报道将查干湖列为冬至后陆续进入冬捕季的地点之一。这里记录的是冬至后的季节性渔事。",
+    "sources": [
+      {
+        "title": "查干淖尔冬捕习俗",
+        "url": "https://www.ihchina.cn/project_details/15231/",
+        "publisher": "中国非物质文化遗产网"
+      },
+      {
+        "title": "年年有鱼 年年有余 吉林西部正在打造“冬捕经济带”",
+        "url": "https://www.jl.gov.cn/szfzt/jlssxsxnyxdh/gzjz/202202/t20220209_8392425.html",
+        "publisher": "吉林省人民政府网"
+      }
+    ],
+    "verificationStatus": "verified"
+  },
+  {
     "id": "changxing-light-snow-wine",
     "title": "浙江长兴“小雪酒”",
     "solarTermIds": [
@@ -488,6 +540,27 @@
     "verificationStatus": "verified"
   },
   {
+    "id": "fuzhou-xiazhi-guobianhu",
+    "title": "福建福州夏至吃锅边糊",
+    "solarTermIds": [
+      "xiazhi"
+    ],
+    "provinceCode": "350000",
+    "provinceName": "福建省",
+    "regionName": "福州市",
+    "category": "food",
+    "description": "福州及闽清、长乐等地有夏至吃锅边糊的习俗。把米浆沿热锅内壁淋一圈，烙成米片，再铲进用蚬子和香菇等食材煮成的清汤。",
+    "relationNote": "闽侯县人民政府网站的夏至饮食文章记录了福州一带的这一应节吃法。",
+    "sources": [
+      {
+        "title": "夏至·闽地饮食",
+        "url": "https://www.minhou.gov.cn/xjwz/mlmh/mytc/202506/t20250625_5038648.htm",
+        "publisher": "闽侯县人民政府"
+      }
+    ],
+    "verificationStatus": "verified"
+  },
+  {
     "id": "gannan-jingzhe-fried-seeds",
     "title": "江西赣南上犹、崇义“炒虫”",
     "solarTermIds": [
@@ -619,6 +692,32 @@
     "verificationStatus": "verified"
   },
   {
+    "id": "haikou-lichun-museum-night",
+    "title": "海口海南省博物馆立春夜游",
+    "solarTermIds": [
+      "lichun"
+    ],
+    "provinceCode": "460000",
+    "provinceName": "海南省",
+    "regionName": "海口市琼山区",
+    "category": "other",
+    "description": "2026 年 2 月 4 日晚，位于海口的海南省博物馆举办夜游，为二十四节气主题联展开幕。观众在文物纹样中寻找线索，通过解谜认识节气，还能收集节气印记。",
+    "relationNote": "展览和夜游于 2026 年立春当天启幕。本条记录的是一次当代节气科普活动。",
+    "sources": [
+      {
+        "title": "琼岛春信入画来",
+        "url": "https://paper.people.com.cn/rmrb/pad/content/202602/09/content_30139463.html",
+        "publisher": "人民日报"
+      },
+      {
+        "title": "是时候了！——寻找文物里的二十四节气",
+        "url": "https://www.hainanmuseum.org/hnbwgcms/info/4571",
+        "publisher": "海南省博物馆"
+      }
+    ],
+    "verificationStatus": "verified"
+  },
+  {
     "id": "haining-waterwheel-irrigation",
     "title": "浙江海宁“小满抢水”",
     "solarTermIds": [
@@ -687,6 +786,27 @@
     "verificationStatus": "verified"
   },
   {
+    "id": "hefeng-guyu-wuli-tea-harvest",
+    "title": "湖北鹤峰五里村谷雨采茶",
+    "solarTermIds": [
+      "guyu"
+    ],
+    "provinceCode": "420000",
+    "provinceName": "湖北省",
+    "regionName": "恩施州鹤峰县五里乡五里村",
+    "category": "agriculture",
+    "description": "湖北鹤峰县五里村的山间有连片茶园。当地茶农从谷雨时节开始采茶，采下的鲜叶由收购方上门收走，是村里的节令农事之一。",
+    "relationNote": "湖北省农业农村厅转载的走访报道中，当地茶农介绍了从谷雨开始、到中秋结束的三季采茶安排。",
+    "sources": [
+      {
+        "title": "在鹤峰这个村，“茶颜”果真悦色！",
+        "url": "https://nyt.hubei.gov.cn/bmdt/yw/szdt/202507/t20250701_5709999.shtml",
+        "publisher": "湖北省农业农村厅（来源垄上行）"
+      }
+    ],
+    "verificationStatus": "verified"
+  },
+  {
     "id": "hong-kong-ngo-keng-kiu-ritual",
     "title": "香港鹅颈桥“惊蛰打小人”",
     "solarTermIds": [
@@ -713,6 +833,48 @@
     "verificationStatus": "verified"
   },
   {
+    "id": "honghe-guyu-kaiyangmen",
+    "title": "云南红河县哈尼梯田开秧门",
+    "solarTermIds": [
+      "guyu"
+    ],
+    "provinceCode": "530000",
+    "provinceName": "云南省",
+    "regionName": "红河州红河县",
+    "category": "agriculture",
+    "description": "云南红河县的哈尼人在正式栽秧前举行开秧门仪式，祈盼风调雨顺、稻田丰收。当地会在撒马坝梯田或甲寅十二龙泉梯田举行活动，展现梯田插秧和哈尼族的农耕文化。",
+    "relationNote": "文化和旅游部介绍，这项春播仪式在谷雨过后举行。",
+    "sources": [
+      {
+        "title": "云南·齐聚梯田边 欢庆开秧门",
+        "url": "https://zhuanti.mct.gov.cn/xcss2024_shjlzzxc/yunnan/detail/6860.html",
+        "publisher": "文化和旅游部"
+      }
+    ],
+    "verificationStatus": "verified"
+  },
+  {
+    "id": "hongjiang-chunfen-egg-standing",
+    "title": "湖南洪江春分竖蛋",
+    "solarTermIds": [
+      "chunfen"
+    ],
+    "provinceCode": "430000",
+    "provinceName": "湖南省",
+    "regionName": "怀化市洪江区",
+    "category": "folk_custom",
+    "description": "2025 年春分，湖南洪江区中山花园幼儿园的小朋友试着把鸡蛋竖在桌上，还画起了风筝。竖蛋是这次春分体验活动中的一项小游戏。",
+    "relationNote": "洪江区政府网报道，幼儿园在 2025 年 3 月 20 日春分当天开展了这场活动。",
+    "sources": [
+      {
+        "title": "遇春分，知春意",
+        "url": "https://hjq.huaihua.gov.cn/hjq/c115281/202503/71b45649bc5e41aa934dc3179d02994b.shtml?moban=zzzt",
+        "publisher": "洪江区人民政府网"
+      }
+    ],
+    "verificationStatus": "verified"
+  },
+  {
     "id": "huaian-changyu-feast",
     "title": "江苏淮安“小暑吃黄鳝”",
     "solarTermIds": [
@@ -729,6 +891,32 @@
         "title": "寻味二十四节气・小暑",
         "url": "https://www.zjskw.gov.cn/art/2024/8/15/art_1229516293_60188.html",
         "publisher": "浙江省社会科学界联合会"
+      }
+    ],
+    "verificationStatus": "verified"
+  },
+  {
+    "id": "hualong-qiufen-highland-barley",
+    "title": "青海化隆上滩村秋分前后收青稞",
+    "solarTermIds": [
+      "qiufen"
+    ],
+    "provinceCode": "630000",
+    "provinceName": "青海省",
+    "regionName": "海东市化隆回族自治县二塘乡上滩村",
+    "category": "agriculture",
+    "description": "2025 年秋分前后，青海化隆县二塘乡上滩村的青稞收割进入尾声。当地农户用机械收割，再把青稞晾晒，这是高原农家秋收的一景。",
+    "relationNote": "2025 年秋分当天刊发的走访报道记录了上滩村当时的收割进度。",
+    "sources": [
+      {
+        "title": "“丰”景无限看高原——写在第八个“中国农民丰收节”到来之际",
+        "url": "https://www.qhnews.com/newscenter/system/2025/09/23/030455281.shtml",
+        "publisher": "青海新闻网"
+      },
+      {
+        "title": "“丰”景无限看高原",
+        "url": "https://finance.sina.cn/2025-09-23/detail-infrmiet4094355.d.html",
+        "publisher": "新浪网转载"
       }
     ],
     "verificationStatus": "verified"
@@ -837,6 +1025,27 @@
     "verificationStatus": "verified"
   },
   {
+    "id": "jiexiu-qingming-hanshi",
+    "title": "山西介休寒食清明习俗",
+    "solarTermIds": [
+      "qingming"
+    ],
+    "provinceCode": "140000",
+    "provinceName": "山西省",
+    "regionName": "晋中市介休市",
+    "category": "folk_custom",
+    "description": "介休的寒食、清明相连。当地传统中，人们会吃冷食、做面塑，也有插柳、踏青和祭祖等习俗。",
+    "relationNote": "介休寒食清明习俗于 2011 年作为清明节的扩展项目列入国家级非物质文化遗产代表性项目名录。",
+    "sources": [
+      {
+        "title": "清明节（介休寒食清明习俗）",
+        "url": "https://www.ihchina.cn/project_details/14909.html",
+        "publisher": "中国非物质文化遗产网·中国非物质文化遗产数字博物馆"
+      }
+    ],
+    "verificationStatus": "verified"
+  },
+  {
     "id": "jixi-anmiao-festival",
     "title": "绩溪“安苗节”",
     "solarTermIds": [
@@ -853,6 +1062,27 @@
         "title": "安苗节",
         "url": "https://www.xuancheng.gov.cn/News/show/634430.html",
         "publisher": "宣城市人民政府（来源为市文旅局）"
+      }
+    ],
+    "verificationStatus": "verified"
+  },
+  {
+    "id": "lhasa-najin-qiufen-barley-celebration",
+    "title": "西藏拉萨纳金秋分撒青稞庆丰收",
+    "solarTermIds": [
+      "qiufen"
+    ],
+    "provinceCode": "540000",
+    "provinceName": "西藏自治区",
+    "regionName": "拉萨市城关区纳金街道",
+    "category": "agriculture",
+    "description": "2025 年秋分，拉萨市的中国农民丰收节主场设在城关区纳金街道嘎卓卓休闲露营基地。参加者撒青稞庆祝丰收，现场还表演了《吉祥酒歌》等节目。",
+    "relationNote": "拉萨市政府网转载的现场报道记载，活动于 2025 年 9 月 23 日秋分当天举行。",
+    "sources": [
+      {
+        "title": "拉萨市庆祝2025年中国农民丰收节主会场活动",
+        "url": "https://www.lasa.gov.cn/lasa/lsyw/202509/3509b65c6d2f489394ca298fb4ef3e9e.shtml",
+        "publisher": "拉萨市人民政府网（来源拉萨融媒）"
       }
     ],
     "verificationStatus": "verified"
@@ -931,6 +1161,27 @@
         "title": "大雪：雪兆丰年 温阳散寒（二十四节气里的中医养生之道）",
         "url": "http://paper.people.com.cn/rmrbhwb/pad/content/202412/06/content_30033264.html",
         "publisher": "人民日报海外版"
+      }
+    ],
+    "verificationStatus": "verified"
+  },
+  {
+    "id": "macao-dongzhi-family-reunion",
+    "title": "澳门冬至做冬吃汤圆",
+    "solarTermIds": [
+      "dongzhi"
+    ],
+    "provinceCode": "820000",
+    "provinceName": "澳门特别行政区",
+    "regionName": "澳门特别行政区",
+    "category": "folk_custom",
+    "description": "冬至到了，澳门不少家庭会一起「做冬」，也就是全家相聚吃团圆饭。汤圆是当地常见的冬至应节食品，寄托了团团圆圆的心愿。",
+    "relationNote": "澳门文化遗产网在本地非物质文化遗产清单「冬至」条目中记载了这一习俗。",
+    "sources": [
+      {
+        "title": "冬至",
+        "url": "https://www.culturalheritage.mo/detail/102263",
+        "publisher": "澳门特别行政区政府文化局·澳门文化遗产网"
       }
     ],
     "verificationStatus": "verified"
@@ -1046,6 +1297,27 @@
         "title": "立秋养生",
         "url": "http://www.gmw.cn/guoxue/node_44346.htm",
         "publisher": "光明网"
+      }
+    ],
+    "verificationStatus": "verified"
+  },
+  {
+    "id": "nanjing-bailu-autumn-tea",
+    "title": "江苏南京白露茶",
+    "solarTermIds": [
+      "bailu"
+    ],
+    "provinceCode": "320000",
+    "provinceName": "江苏省",
+    "regionName": "南京市",
+    "category": "food",
+    "description": "老南京有白露时节喝白露茶的习惯。白露茶指白露前后采制的茶，是秋茶的一种。",
+    "relationNote": "中国非物质文化遗产网的白露专题记载了老南京饮白露茶的习俗。",
+    "sources": [
+      {
+        "title": "知节气 识茶事 和天下丨白露：水凝珠 夜渐长 闲时饮茶暖秋风",
+        "url": "https://www.ihchina.cn/news_1_details/27940.html",
+        "publisher": "中国非物质文化遗产网·中国非物质文化遗产数字博物馆"
       }
     ],
     "verificationStatus": "verified"
@@ -1180,6 +1452,74 @@
     "verificationStatus": "verified"
   },
   {
+    "id": "nantong-qingming-banyao-kites",
+    "title": "江苏南通清明放板鹞",
+    "solarTermIds": [
+      "qingming"
+    ],
+    "provinceCode": "320000",
+    "provinceName": "江苏省",
+    "regionName": "南通市通州区",
+    "category": "folk_custom",
+    "description": "南通通州旧时有清明放风筝的习俗。乡间常放的「板鹞」多有六个角，形状像门板。有的板鹞装着哨口，风吹过时会在空中发出声音。",
+    "relationNote": "南通市档案馆文章记载了通州清明放板鹞的旧俗，国家级非遗项目资料介绍了板鹞的造型和哨口。",
+    "sources": [
+      {
+        "title": "南通风筝",
+        "url": "https://daj.nantong.gov.cn/ntsdaj/dfwh/content/a9b344d4-a5c8-4b0c-8688-7550abe7749d.html",
+        "publisher": "南通市档案馆"
+      },
+      {
+        "title": "风筝制作技艺（南通板鹞风筝）",
+        "url": "https://www.ihchina.cn/Article/Index/detail?id=14433",
+        "publisher": "中国非物质文化遗产网·中国非物质文化遗产数字博物馆"
+      }
+    ],
+    "verificationStatus": "verified"
+  },
+  {
+    "id": "neixiang-lichun-spring-ox",
+    "title": "河南内乡立春打春牛",
+    "solarTermIds": [
+      "lichun"
+    ],
+    "provinceCode": "410000",
+    "provinceName": "河南省",
+    "regionName": "南阳市内乡县",
+    "category": "folk_custom",
+    "description": "立春时，河南内乡的群众在县衙前聚集，由扮作县令的人鞭打纸糊的春牛。春牛里的五谷和干果落地，寄托着对新一年丰收的期盼。之后还有鼓乐、舞狮等闹春活动。",
+    "relationNote": "内乡县政府资料记载了立春前的迎春准备，以及立春当日的打春牛和闹春活动。",
+    "sources": [
+      {
+        "title": "解读“内乡打春牛”习俗",
+        "url": "https://www.neixiang.gov.cn/xmnx/cygj/2026-01-28/41192.html",
+        "publisher": "内乡县人民政府"
+      }
+    ],
+    "verificationStatus": "verified"
+  },
+  {
+    "id": "panjin-qiufen-harvest-festival",
+    "title": "辽宁盘锦秋分丰收节",
+    "solarTermIds": [
+      "qiufen"
+    ],
+    "provinceCode": "210000",
+    "provinceName": "辽宁省",
+    "regionName": "盘锦市",
+    "category": "agriculture",
+    "description": "2019 年盘锦在秋分举办中国农民丰收节系列活动，以当地稻米和河蟹为主题。现场有蟹稻美食节，也有田庄台舞狮等地方节目。",
+    "relationNote": "盘锦市政府网站记载，该届活动于 2019 年 9 月 23 日秋分当天开幕。",
+    "sources": [
+      {
+        "title": "2019中国·盘锦“中国农民丰收节”开幕",
+        "url": "https://www.panjin.gov.cn/html/2009/2019-09-24/content-121878.html",
+        "publisher": "盘锦市人民政府网（来源市文旅广电局）"
+      }
+    ],
+    "verificationStatus": "verified"
+  },
+  {
     "id": "putian-summer-lychees",
     "title": "福建莆田“过大暑”",
     "solarTermIds": [
@@ -1243,6 +1583,32 @@
         "title": "妙源村里听春声（《夜宿乡村话共富》节选）",
         "url": "https://www.xinhuanet.com/20260212/ddcf9b30fa6a480dafd8f224cd7f4a0a/c.html",
         "publisher": "新华网"
+      }
+    ],
+    "verificationStatus": "verified"
+  },
+  {
+    "id": "rongchang-dongzhi-lamb-soup-festival",
+    "title": "重庆荣昌冬至羊肉汤美食季",
+    "solarTermIds": [
+      "dongzhi"
+    ],
+    "provinceCode": "500000",
+    "provinceName": "重庆市",
+    "regionName": "荣昌区",
+    "category": "food",
+    "description": "2024 年 12 月 20 日，重庆荣昌启动羊肉汤美食季，以当地的区级非遗荣昌羊肉汤为主题，安排了品尝羊肉汤等活动。",
+    "relationNote": "报道记载，美食季在 2024 年冬至前启动。本条以该年度的节令饮食活动为例。",
+    "sources": [
+      {
+        "title": "迎首个非遗版春节 荣昌有九大“耍事”",
+        "url": "https://www.cqnews.net/web/content_1492169426483572736.html",
+        "publisher": "华龙网"
+      },
+      {
+        "title": "“千年荣昌”再上新 43项活动诚邀市民游客欢欢喜喜过春节",
+        "url": "https://cq.people.com.cn/n2/2024/1227/c367650-41090241.html",
+        "publisher": "人民网重庆频道"
       }
     ],
     "verificationStatus": "verified"
@@ -1567,6 +1933,32 @@
     "verificationStatus": "verified"
   },
   {
+    "id": "tianshui-maiji-qiufen-huaniu-apples",
+    "title": "甘肃天水花牛苹果秋分丰收节",
+    "solarTermIds": [
+      "qiufen"
+    ],
+    "provinceCode": "620000",
+    "provinceName": "甘肃省",
+    "regionName": "天水市麦积区",
+    "category": "agriculture",
+    "description": "2026 年秋分，甘肃的中国农民丰收节主场设在天水麦积区南山花牛苹果基地。果园旁搭起舞台，游客也能进采摘园亲手摘苹果。",
+    "relationNote": "农业农村部活动预告注明日期为 2026 年 9 月 23 日，天水日报的现场报道确认了会场和采摘活动。",
+    "sources": [
+      {
+        "title": "中国农民丰收节甘肃省主场活动将在天水举行",
+        "url": "https://nmfsj.moa.gov.cn/xwzx_25646/dfdt/202609/t20260917_6487745.htm",
+        "publisher": "农业农村部"
+      },
+      {
+        "title": "丰收写满田野——天水2026年“中国农民丰收节”系列活动综述",
+        "url": "https://gansu.gansudaily.com.cn/system/2026/09/29/031439784.shtml",
+        "publisher": "每日甘肃网（来源天水日报）"
+      }
+    ],
+    "verificationStatus": "verified"
+  },
+  {
     "id": "tongxiang-heshan-qingming-dinner",
     "title": "浙江桐乡河山镇“清明大似年”团圆饭",
     "solarTermIds": [
@@ -1583,6 +1975,84 @@
         "title": "梨花落后清明——二十四节气之清明",
         "url": "https://www.ihchina.cn/Article/Index/detail?id=10041",
         "publisher": "中国非物质文化遗产网"
+      }
+    ],
+    "verificationStatus": "verified"
+  },
+  {
+    "id": "ulanhada-qiufen-harvest-opening",
+    "title": "内蒙古乌兰哈达镇秋分前开镰",
+    "solarTermIds": [
+      "qiufen"
+    ],
+    "provinceCode": "150000",
+    "provinceName": "内蒙古自治区",
+    "regionName": "兴安盟乌兰浩特市乌兰哈达镇三合村",
+    "category": "agriculture",
+    "description": "2026 年兴安盟的中国农民丰收节主会场设在乌兰浩特市三合村。开镰仪式上，村民走进稻田，用镰刀割下成熟的稻穗，迎接秋收。",
+    "relationNote": "活动于 2026 年 9 月 21 日举行，比当年的秋分早两天。",
+    "sources": [
+      {
+        "title": "第九届中国农民丰收节兴安盟主会场活动成功举办",
+        "url": "https://nmt.nmg.gov.cn/xw/msdt/xam/202609/t20260922_2957146.html",
+        "publisher": "内蒙古自治区农牧厅"
+      },
+      {
+        "title": "丰收开新局 同心促振兴",
+        "url": "https://www.rmzxw.com.cn/c/2026-09-23/3980549.shtml",
+        "publisher": "人民政协网"
+      },
+      {
+        "title": "关于做好2026年中国农民丰收节有关工作的通知",
+        "url": "https://nmfsj.moa.gov.cn/xwzx_25646/ywjj/202608/t20260804_6486433.htm",
+        "publisher": "农业农村部"
+      }
+    ],
+    "verificationStatus": "verified"
+  },
+  {
+    "id": "urumqi-dongzhi-dawan-dumplings",
+    "title": "新疆乌鲁木齐大湾南社区冬至包饺子",
+    "solarTermIds": [
+      "dongzhi"
+    ],
+    "provinceCode": "650000",
+    "provinceName": "新疆维吾尔自治区",
+    "regionName": "乌鲁木齐市天山区大湾南社区",
+    "category": "food",
+    "description": "2024 年冬至，乌鲁木齐市天山区赛马场街道在大湾南社区党群服务中心组织包饺子活动。社区居民、工作人员和外卖配送员一同包饺子、过冬至。",
+    "relationNote": "新疆日报现场报道记载，活动于 2024 年 12 月 21 日冬至当天举行。",
+    "sources": [
+      {
+        "title": "新疆服务保障新就业形态劳动者的探索",
+        "url": "https://sft.xinjiang.gov.cn/xjsft/dffz/202501/ad8e4190bcde4b91b14b9000506d9aec.shtml",
+        "publisher": "新疆维吾尔自治区司法厅（来源石榴云／新疆日报）"
+      }
+    ],
+    "verificationStatus": "verified"
+  },
+  {
+    "id": "weixian-mangzhong-wheat-harvest",
+    "title": "河北魏县芒种后麦收",
+    "solarTermIds": [
+      "mangzhong"
+    ],
+    "provinceCode": "130000",
+    "provinceName": "河北省",
+    "regionName": "邯郸市魏县",
+    "category": "agriculture",
+    "description": "2025 年芒种过后，河北邯郸魏县的冬小麦迎来收割。当地农户趁着适宜的天气，用收割机把成熟的小麦收进粮仓。",
+    "relationNote": "河北广播电视台的现场报道记录了 2025 年芒种过后魏县的麦收。",
+    "sources": [
+      {
+        "title": "战“三夏” 迎丰收——河北台记者直击邯郸魏县麦收现场",
+        "url": "https://web.cmc.hebtv.com/cms/rmt0336/19/19js/zx/lbhj/11896730.shtml",
+        "publisher": "河北广播电视台"
+      },
+      {
+        "title": "风吹麦浪一线行｜抢！河北小麦大规模机收作业正式拉开帷幕",
+        "url": "https://peking.bjd.com.cn/content/s684396dfe4b0bd64e2df4d6c.html",
+        "publisher": "北京日报客户端"
       }
     ],
     "verificationStatus": "verified"

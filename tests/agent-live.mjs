@@ -12,13 +12,11 @@ assert(selected.every(value => [1, 2, 3].includes(value)));
 const cases = JSON.parse(readFileSync(new URL("../data/cultural-cases/cases.json", import.meta.url), "utf8"));
 const verified = cases.filter(item => item.verificationStatus === "verified");
 const ids = new Set(verified.map(item => item.id));
-assert.equal(verified.length, 77);
-assert.equal(cases.length, 79);
 const baselineCases = JSON.parse(execFileSync("git", ["show", "HEAD:data/cultural-cases/cases.json"], { encoding: "utf8" }));
 assert.deepEqual(cases, baselineCases, "the runtime case collection is unchanged from the checked-out Git baseline");
 const emptyContext = { solarTermId: null, provinceCode: null, caseId: null };
 const comparison = "先查询冬至的节气信息，再比较江苏和浙江冬至的已核验民俗特点和资料来源。请展示冬至文化地图，突出江苏、浙江，打开三门祭冬案例，方便我继续做节气卡。请实际使用相应工具完成。";
-const report = { testedAt: new Date().toISOString(), origin, method: "Real server POST requests, real DeepSeek, no mocked transport, no automatic retry", dataBoundary: { verified: 77, pending: 2, unchangedFromGitBaseline: true, normalizedSha256: createHash("sha256").update(JSON.stringify(cases)).digest("hex") }, checks: [], passed: false };
+const report = { testedAt: new Date().toISOString(), origin, method: "Real server POST requests, real DeepSeek, no mocked transport, no automatic retry", dataBoundary: { verified: verified.length, pending: cases.length - verified.length, unchangedFromGitBaseline: true, normalizedSha256: createHash("sha256").update(JSON.stringify(cases)).digest("hex") }, checks: [], passed: false };
 let comparisonAnswer;
 if (process.argv[5]) {
   const previous = JSON.parse(readFileSync(resolve(process.argv[5]), "utf8"));

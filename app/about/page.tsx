@@ -12,6 +12,9 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   const cases = readCulturalCases().filter(item => item.verificationStatus === "verified");
   const coveredTerms = new Set(cases.flatMap(item => item.solarTermIds)).size;
+  const coveredRegions = new Set(cases.flatMap(({ provinceCode, relatedProvinceCodes = [] }) => [
+    provinceCode, ...relatedProvinceCodes,
+  ])).size;
 
   return <>
     <div className="intro">
@@ -23,7 +26,7 @@ export default function AboutPage() {
       <section className="paper-card prose">
         <h2>我们在做什么</h2>
         <p>{SITE_NAME} 是一个二十四节气文化探索与创作平台。你可以在「四时」翻阅风物册，在「知时」用地图比较各地习俗，也可以从「节气探访」查到一则地方故事，带到「造物」制成节气卡。</p>
-        <p>本站收录 {cases.length} 则已核验文化案例，覆盖 {coveredTerms} 个节气。</p>
+        <p>本站收录 {cases.length} 则已核验文化案例，覆盖 {coveredTerms} 个节气和 {coveredRegions} 个省级地区。</p>
         <Link className="text-link" href="/visit" prefetch={false}>开始节气探访</Link>
       </section>
       <section className="paper-card prose">

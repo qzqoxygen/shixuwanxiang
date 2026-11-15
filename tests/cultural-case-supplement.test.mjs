@@ -13,6 +13,7 @@ const read = (path) => JSON.parse(readFileSync(new URL(path, import.meta.url), "
 const archive = read("../docs/cultural-sources/2026-11-12/intake.json");
 const review = read("../docs/cultural-sources/2026-11-12/review.json");
 const manifest = read("../docs/cultural-sources/2026-11-12/manifest.json");
+const regionalCases = read("../docs/cultural-sources/2026-11-15/reviewed-cases.json");
 const legacy = read("../docs/cultural-sources/2026-11-06/review.json").rows;
 const cases = readCulturalCases();
 const published = cases.filter((item) => item.verificationStatus === "verified");
@@ -36,18 +37,52 @@ test("all five workbook sheets are archived and both detail tables reconcile ins
   for (const row of supplements) assert.equal(manifest.rows.filter((item) => item.supplementSerial === Number(row[0])).length, 1);
 });
 
-test("the publication has 77 unique verified cases with the independently stated 3/4 distribution", () => {
-  assert.equal(published.length, 77);
-  assert.equal(cases.length, 79);
+test("the publication retains the workbook coverage and adds twenty regional cases", () => {
+  assert.equal(published.length, 97);
+  assert.equal(cases.length, 99);
   assert.equal(new Set(cases.map((item) => item.id)).size, cases.length);
   assert.equal(new Set(published.map((item) => item.title)).size, published.length);
-  const fourCases = new Set(["guyu", "xiazhi", "xiaoxue", "dongzhi", "xiaohan"]);
   for (const term of SOLAR_TERMS) {
     const count = published.filter((item) => item.solarTermIds.includes(term.id)).length;
-    assert.equal(count, fourCases.has(term.id) ? 4 : 3, term.name);
-    assert.equal(count, numbered("补采汇总").find((row) => row[1] === term.name)[4]);
+    const workbookCount = numbered("补采汇总").find((row) => row[1] === term.name)[4];
+    const addedCount = regionalCases.filter((item) => item.solarTermIds.includes(term.id)).length;
+    assert.equal(count, workbookCount + addedCount, term.name);
   }
   assert.deepEqual(manifest.termCounts.filter((row) => row.workbookCandidateCount !== row.actualCandidateCount).map((row) => row.solarTermId), ["jingzhe", "lidong"]);
+});
+
+test("every supported province has coverage and new cases resolve with their original sources", () => {
+  const expectedCases = [
+    ["210000", "qiufen", "panjin-qiufen-harvest-festival"],
+    ["220000", "dongzhi", "chagan-dongzhi-winter-fishing"],
+    ["410000", "lichun", "neixiang-lichun-spring-ox"],
+    ["420000", "guyu", "hefeng-guyu-wuli-tea-harvest"],
+    ["460000", "lichun", "haikou-lichun-museum-night"],
+    ["500000", "dongzhi", "rongchang-dongzhi-lamb-soup-festival"],
+    ["530000", "guyu", "honghe-guyu-kaiyangmen"],
+    ["630000", "qiufen", "hualong-qiufen-highland-barley"],
+    ["650000", "dongzhi", "urumqi-dongzhi-dawan-dumplings"],
+    ["130000", "mangzhong", "weixian-mangzhong-wheat-harvest"],
+    ["140000", "qingming", "jiexiu-qingming-hanshi"],
+    ["150000", "qiufen", "ulanhada-qiufen-harvest-opening"],
+    ["540000", "qiufen", "lhasa-najin-qiufen-barley-celebration"],
+    ["620000", "qiufen", "tianshui-maiji-qiufen-huaniu-apples"],
+    ["820000", "dongzhi", "macao-dongzhi-family-reunion"],
+    ["430000", "chunfen", "hongjiang-chunfen-egg-standing"],
+    ["320000", "qingming", "nantong-qingming-banyao-kites"],
+    ["350000", "xiazhi", "fuzhou-xiazhi-guobianhu"],
+    ["320000", "bailu", "nanjing-bailu-autumn-tea"],
+    ["110000", "dongzhi", "beijing-dongzhi-temple-of-heaven"],
+  ];
+  const covered = new Set(published.flatMap(({ provinceCode, relatedProvinceCodes = [] }) => [provinceCode, ...relatedProvinceCodes]));
+  assert.deepEqual(covered, new Set(SUPPORTED_PROVINCES.map(({ code }) => code)));
+  for (const [provinceCode, solarTermId, caseId] of expectedCases) {
+    const sourceRecord = regionalCases.find((item) => item.id === caseId);
+    const detail = findVerifiedCulturalCase(cases, caseId);
+    assert.deepEqual(detail, sourceRecord, caseId);
+    const result = queryCulturalCases(cases, { provinceCode, solarTermId, offset: 0, limit: 20 });
+    assert.deepEqual(result.items.find((item) => item.id === caseId), detail, caseId);
+  }
 });
 
 test("old verified/pending identities, corrected descriptions and all reviewed sources survive the supplement", () => {
@@ -162,5 +197,5 @@ test("new locations join supported map codes without fabricated county or point 
 
 test("the importer remains reproducible and cannot silently restore the superseded 44-case publication", () => {
   const result = execFileSync(process.execPath, ["scripts/import-cultural-cases.mjs", "--check"], { cwd: new URL("../", import.meta.url), encoding: "utf8" });
-  assert.match(result, /最终公开 77 条/);
+  assert.match(result, /最终公开 97 条/);
 });

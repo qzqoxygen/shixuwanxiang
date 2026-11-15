@@ -4,7 +4,7 @@ import assert from "node:assert/strict";
 import { createHash, randomUUID } from "node:crypto";
 import { readFileSync, renameSync, rmSync, writeFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
-const { CulturalCaseCollectionSchema, CulturalCaseIdSchema } = await import("../lib/contracts/cultural-case.ts");
+const { CulturalCaseCollectionSchema, CulturalCaseIdSchema, VerifiedCulturalCaseSchema } = await import("../lib/contracts/cultural-case.ts");
 const { SUPPORTED_PROVINCES } = await import("../lib/provinces.ts");
 const { SOLAR_TERMS } = await import("../lib/solar-terms.ts");
 
@@ -272,15 +272,18 @@ const supplementReport = [
   "## 逐条处理台账", "", "| ID | 案例 | 主表行 | 补采行 | 原整理状态 | 处置 | 核查及限定 |", "| --- | --- | ---: | ---: | --- | --- | --- |",
   ...reconciled.map((item) => `| ${item.id} | ${item.title} | ${item.mainExcelRow ?? "—"} | ${item.supplementExcelRow ?? "—"} | ${item.editorialStatus} | ${item.outcome} | ${item.reason} |`), "",
 ].join("\n");
+const regionalCases = VerifiedCulturalCaseSchema.array().parse(read("docs/cultural-sources/2026-11-15/reviewed-cases.json"));
+const currentPublication = CulturalCaseCollectionSchema.parse([...publication, ...regionalCases]
+  .sort((a, b) => a.id < b.id ? -1 : a.id > b.id ? 1 : 0));
 const outputs = new Map([
   [batch + "report.md", report.join("\n")],
   [runtime + "primary.json", format(primary)],
   [supplementBatch + "manifest.json", format(manifest)],
   [supplementBatch + "report.md", supplementReport],
-  [runtime + "cases.json", format(publication)],
+  [runtime + "cases.json", format(currentPublication)],
 ]);
 console.log(summary);
-console.log(`补采 ${supplementalRows.length} 条：新增公开 ${manifest.changes.added} 条，最终公开 ${published.length} 条。`);
+console.log(`补采表新增公开 ${manifest.changes.added} 条，省级覆盖新增 ${regionalCases.length} 条，最终公开 ${published.length + regionalCases.length} 条。`);
 for (const [path, content] of outputs) {
   const destination = fileURLToPath(new URL(path, root));
   let current;
