@@ -129,10 +129,10 @@ export default function HomeEditorial() {
           <div className="home-chapter-copy">
             <h3 className="home-chapter-case">春分 · 日坛祭日</h3>
             <p>明清时，朝廷在春分这天到日坛祭日。<a className="home-term-source" href="https://yllhj.beijing.gov.cn/ztxx/lhysh/st/202304/t20230411_3003938.shtml" target="_blank" rel="noreferrer">史料出处<span className="sr-only">（新窗口打开）</span></a></p>
-            <p>向 AI 提问，查找有出处的地方习俗与故事。</p>
+            <p>请 AI 比较各地习俗，查看案例出处，并在地图上定位。</p>
             <Link className="home-chapter-link" href="/explore?solarTermId=chunfen&provinceCode=110000" prefetch={false}>问节气，查出处</Link>
             <p className="home-chapter-example">试试问「江苏和浙江的冬至习俗有什么不同？」</p>
-            <Link className="home-term-source home-visit-link" href="/visit">节气探访 · 问问家乡怎么过节气</Link>
+            <Link className="home-term-source home-visit-link" href="/visit">节气探访 · 选省份和节气，查地方习俗</Link>
           </div>
         </div>
       </section>
@@ -148,7 +148,7 @@ export default function HomeEditorial() {
           <div className="home-chapter-copy">
             <p>挑一个节气，让 AI 生成标题和短句。选用后填入作品，再配上喜欢的底色和贴纸。</p>
             <Link className="home-chapter-link" href="/studio">做一张节气卡</Link>
-            <p className="home-chapter-example">也可以从「知时」带一条地方风物案例来做节气卡。</p>
+            <p className="home-chapter-example">从「知时」或「节气探访」带入一则案例，做成节气卡并保存为图片。</p>
           </div>
         </div>
       </section>

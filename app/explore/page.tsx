@@ -33,7 +33,7 @@ export default function ExplorePage({ searchParams }: { searchParams: SearchPara
           <span aria-hidden="true">循四时，</span>
           <span aria-hidden="true">访山河</span>
         </h1>
-        <p className="intro-description">按节气或地区查找地方故事。</p>
+        <p className="intro-description">在地图上查找地方故事，也可请「云间问四时」比较各地习俗。</p>
       </div>
       <span className="explore-intro-seal" aria-hidden="true">知时</span>
     </div>

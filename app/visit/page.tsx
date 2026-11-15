@@ -17,7 +17,7 @@ export default function VisitPage({ searchParams }: { searchParams: SearchParams
   return <div className="visit-page">
     <header className="visit-heading">
       <h1>节气探访</h1>
-      <p>选一个地方，问问那里的人怎么过节气。AI 会查找文化案例，资料不足时继续联网找线索。</p>
+      <p>选一个省份和节气，看看当地有什么习俗。AI 优先查本站案例，资料不足时尝试联网补查。</p>
     </header>
     <Suspense fallback={<p className="visit-waiting" role="status">正在打开节气探访…</p>}>
       <SelectedVisit searchParams={searchParams} />

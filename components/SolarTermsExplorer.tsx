@@ -147,7 +147,7 @@ export default function SolarTermsExplorer({ caseSources, initialTerm, visitOrig
           <span aria-hidden="true">物</span>
           <span aria-hidden="true">册</span>
         </h2>
-        <p>翻阅节气风物，点「AI 再讲一点」获取补充讲解。</p>
+        <p>翻阅节气图文，点「AI 再讲一点」获取实时补充。</p>
       </div>
       <svg className="seasons-toolbar-art" viewBox="0 0 260 56" aria-hidden="true" focusable="false">
         <image href="/images/studio-stickers/distant-mountains.webp" x="2" y="-46" width="144" height="144" opacity=".63" />

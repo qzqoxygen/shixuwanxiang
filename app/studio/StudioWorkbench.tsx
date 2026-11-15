@@ -430,7 +430,7 @@ function StudioEditor({ initialDraft, seed, invalidCase, memory, webSeed, missin
         <StudioBreeze />
         <div className="studio-heading-caption">
           <StudioTitle />
-          <p>用 AI 灵感写标题和短句</p>
+          <p>用案例或 AI 灵感写一张节气卡</p>
         </div>
         <div className="studio-actions">
           <span id="studio-preview-status" role="status" data-status={saveStatus}>
