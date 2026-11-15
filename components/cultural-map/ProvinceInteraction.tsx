@@ -1,8 +1,10 @@
 "use client";
 
-import { createContext, useContext, useId, useReducer, useState, type ReactNode } from "react";
-import { ProvinceCodeSchema } from "@/lib/contracts/cultural-case";
+import { createContext, useContext, useId, useRef, useState, type ReactNode } from "react";
+import { ProvinceCodeSchema, type ProvinceCode } from "@/lib/contracts/cultural-case";
 import { exploreSelectionReducer, INITIAL_EXPLORE_SELECTION, type ExploreSelection, type ExploreSelectionAction } from "@/lib/explore-selection";
+import { prepareChatMapActions, selectionMapState } from "@/lib/chat-map-client";
+import type { ChatContext, MapAction } from "@/lib/contracts/chat-api";
 import PaperLandscape from "./PaperLandscape";
 import { useProvinceCases, type ProvinceCases } from "./useProvinceCases";
 
@@ -19,6 +21,12 @@ export type ProvinceView = {
 type Interaction = {
   selection: ExploreSelection;
   dispatch: (action: ExploreSelectionAction) => void;
+  revision: number;
+  getMapRevision: () => number;
+  getChatContext: () => ChatContext;
+  invalidateMapRevision: () => void;
+  highlightedProvinceCodes: ProvinceCode[];
+  applyAiMapActions: (actions: MapAction[], expectedRevision: number, signal: AbortSignal) => Promise<void>;
   provinces: ProvinceView[];
   selected: string | null;
   raised: string | null;
@@ -36,7 +44,33 @@ export function useProvinces() {
 }
 
 export function ProvinceInteraction({ provinces, children, initialSelection = INITIAL_EXPLORE_SELECTION }: { provinces: ProvinceView[]; children: ReactNode; initialSelection?: ExploreSelection }) {
-  const [selection, dispatch] = useReducer(exploreSelectionReducer, initialSelection);
+  const [view, setView] = useState({ selection: initialSelection, highlightedProvinceCodes: [] as ProvinceCode[], revision: 0 });
+  const current = useRef(view);
+  const { selection, highlightedProvinceCodes, revision } = view;
+  function publish(next: typeof view) { current.current = next; setView(next); }
+  function dispatch(action: ExploreSelectionAction) {
+    const previous = current.current;
+    const next = exploreSelectionReducer(previous.selection, action);
+    let highlighted = previous.highlightedProvinceCodes;
+    if (action.type === "term" || action.type === "reset") highlighted = [];
+    if (action.type === "locate") highlighted = [...new Set([...(previous.selection.solarTermId === action.solarTermId ? highlighted : []), action.provinceCode])];
+    if (action.type === "applyMap") highlighted = action.value.highlightedProvinceCodes;
+    publish({ selection: next, highlightedProvinceCodes: highlighted, revision: previous.revision + 1 });
+  }
+  const getMapRevision = () => current.current.revision;
+  const getChatContext = () => {
+    const { solarTermId, provinceCode, caseId } = current.current.selection;
+    return { solarTermId, provinceCode, caseId };
+  };
+  function invalidateMapRevision() { publish({ ...current.current, revision: current.current.revision + 1 }); }
+  async function applyAiMapActions(actions: MapAction[], expectedRevision: number, signal: AbortSignal) {
+    if (current.current.revision !== expectedRevision) throw new Error("地图选择已变化，未应用之前的地图操作。请重新提问。");
+    const snapshot = current.current;
+    const result = await prepareChatMapActions(selectionMapState(snapshot.selection, snapshot.highlightedProvinceCodes), actions, signal);
+    signal.throwIfAborted();
+    if (current.current.revision !== expectedRevision) throw new Error("地图选择已变化，未应用之前的地图操作。请重新提问。");
+    dispatch({ type: "applyMap", value: result });
+  }
   const selected = selection.provinceCode;
   function setSelected(id: string | null) {
     if (id === null) dispatch({ type: "province", value: null });
@@ -48,11 +82,11 @@ export function ProvinceInteraction({ provinces, children, initialSelection = IN
   const [hovered, setHovered] = useState<string | null>(null);
   const [focused, setFocused] = useState<string | null>(null);
   const { resource: matchingCases, retry: retryMatchingCases } = useProvinceCases(selection.solarTermId);
-  return <ProvinceContext.Provider value={{ provinces, selection, dispatch, selected, raised: hovered ?? focused ?? selected, matchingCases, retryMatchingCases, setSelected, setHovered, setFocused }}>{children}</ProvinceContext.Provider>;
+  return <ProvinceContext.Provider value={{ provinces, selection, dispatch, revision, getMapRevision, getChatContext, invalidateMapRevision, highlightedProvinceCodes, applyAiMapActions, selected, raised: hovered ?? focused ?? selected, matchingCases, retryMatchingCases, setSelected, setHovered, setFocused }}>{children}</ProvinceContext.Provider>;
 }
 
 export function ProvinceLayers() {
-  const { provinces, selected, raised, matchingCases, setSelected, setHovered, setFocused } = useProvinces();
+  const { provinces, selected, raised, matchingCases, highlightedProvinceCodes, setSelected, setHovered, setFocused } = useProvinces();
   const counts: ReadonlyMap<string, number> | null = matchingCases.status === "success" ? matchingCases.counts : null;
   const countFor = (id: string) => counts?.get(id) ?? 0;
   const isRaised = (id: string) => matchingCases.status === "success" ? countFor(id) > 0 : id === raised;
@@ -62,7 +96,7 @@ export function ProvinceLayers() {
   const ordered = [...provinces].sort((a, b) => order(a.id) - order(b.id));
   return <g className="province-layers" data-match-status={matchingCases.status} aria-busy={matchingCases.status === "loading"}>
     <g className="province-art" pointerEvents="none" aria-hidden="true">
-      {ordered.map(province => <g key={province.id} className="province-visual" data-visual-province={province.id} data-raised={isRaised(province.id)} data-matched={countFor(province.id) > 0} data-selected={province.id === selected}>
+      {ordered.map(province => <g key={province.id} className="province-visual" data-visual-province={province.id} data-raised={isRaised(province.id)} data-matched={countFor(province.id) > 0} data-selected={province.id === selected} data-ai-highlighted={highlightedProvinceCodes.includes(province.id as ProvinceCode)}>
         <g className="province-paper">
           <path className="province-thickness" d={province.path} fillRule="evenodd" transform="translate(0 5)" />
           <path className="culture-map-province" d={province.path} fillRule="evenodd" vectorEffect="non-scaling-stroke" />
@@ -98,7 +132,7 @@ export function ProvinceLayers() {
 }
 
 export function ProvinceControls() {
-  const { provinces, selected, setSelected, setHovered, setFocused } = useProvinces();
+  const { provinces, selected, highlightedProvinceCodes, setSelected, setHovered, setFocused } = useProvinces();
   const inputId = useId();
   return <div className="province-controls">
     <div className="province-selection-row">
@@ -109,6 +143,7 @@ export function ProvinceControls() {
       </select>
       <a className="province-case-link" href="#cultural-case-explorer">查看案例 </a>
     </div>
+    {highlightedProvinceCodes.length > 0 && <p className="province-ai-highlight-note" role="status">AI 已标记：{highlightedProvinceCodes.map(code => provinces.find(province => province.id === code)?.shortName).join("、")}</p>}
     {provinces.some(province => province.scenery) && <p className="province-scenery-note">纸雕山水为装饰意象，不代表真实地形。</p>}
   </div>;
 }

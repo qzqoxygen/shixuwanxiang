@@ -2,6 +2,7 @@
 
 import { useEffect, useId, useRef, useState, type KeyboardEvent, type PointerEvent, type RefObject } from "react";
 import type { ChatCaseReference } from "@/lib/contracts/cultural-case";
+import type { MapAction } from "@/lib/contracts/chat-api";
 import ChatPanel from "./ChatPanel";
 import { useProvinces } from "./cultural-map/ProvinceInteraction";
 import "./FloatingChat.css";
@@ -100,7 +101,7 @@ function useFloatingPosition<T extends HTMLElement>(elementRef: RefObject<T | nu
 }
 
 export default function FloatingChat() {
-  const { dispatch, setHovered, setFocused } = useProvinces();
+  const { dispatch, applyAiMapActions, setHovered, setFocused } = useProvinces();
   const [open, setOpen] = useState(false);
   const panelRef = useRef<HTMLDivElement>(null);
   const launcherRef = useRef<HTMLButtonElement>(null);
@@ -140,6 +141,18 @@ export default function FloatingChat() {
     requestAnimationFrame(() => document.getElementById(reference ? "case-detail-title" : "culture-map-heading")?.focus());
   }
 
+  async function applyMapActions(actions: MapAction[], revision: number, signal: AbortSignal) {
+    await applyAiMapActions(actions, revision, signal);
+    setHovered(null);
+    setFocused(null);
+    setOpen(false);
+    requestAnimationFrame(() => {
+      const heading = document.getElementById(actions.some(action => action.type === "OPEN_CULTURAL_CASE") ? "case-detail-title" : "culture-map-heading");
+      heading?.focus();
+      heading?.scrollIntoView({ block: "nearest", behavior: "instant" });
+    });
+  }
+
   return <>
     <button type="button" className="cloud-chat-launcher" ref={launcherRef} hidden={open} aria-label="打开问四时 AI 助手" aria-haspopup="dialog" aria-expanded={open} aria-controls={`${id}-window`} title="点击问答，拖动云朵可移动；方向键移动，Home 复位" data-dragging={launcher.dragging} style={launcher.style} {...launcher.pointerHandlers} onKeyDown={launcher.moveWithKeys} onClick={event => { if (launcher.ignoreClick()) { event.preventDefault(); return; } anchorRef.current = launcher.position ? event.currentTarget.getBoundingClientRect() : null; setOpen(true); }}>
       <span className="cloud-chat-launcher-art">
@@ -163,7 +176,7 @@ export default function FloatingChat() {
         </div>
         <div className="cloud-chat-tools"><button type="button" className="cloud-chat-reset" aria-label="恢复聊天窗口位置" title="恢复位置" onClick={() => setPanelPosition(null)}>复位</button><button type="button" className="cloud-chat-minimize" aria-label="收起 AI 助手" title="收起，保留对话" onClick={close}>收起</button></div>
       </header>
-      <div className="cloud-chat-content"><ChatPanel onShowOnMap={showOnMap} /></div>
+      <div className="cloud-chat-content"><ChatPanel onShowOnMap={showOnMap} onApplyMapActions={applyMapActions} /></div>
     </div>
   </>;
 }
