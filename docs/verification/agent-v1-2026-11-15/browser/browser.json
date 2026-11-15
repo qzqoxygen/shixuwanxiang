@@ -1,0 +1,40 @@
+{
+  "testedAt": "2026-11-14T17:50:44.163Z",
+  "origin": "http://127.0.0.1:3115",
+  "method": "Real Chrome, real website APIs and DeepSeek; mobile viewport is not a physical phone; no mocks or automatic retries",
+  "pages": [
+    {
+      "path": "/",
+      "status": 200,
+      "horizontalOverflow": false
+    },
+    {
+      "path": "/seasons",
+      "status": 200,
+      "horizontalOverflow": false
+    },
+    {
+      "path": "/explore",
+      "status": 200,
+      "horizontalOverflow": false
+    },
+    {
+      "path": "/studio",
+      "status": 200,
+      "horizontalOverflow": false
+    },
+    {
+      "path": "/about",
+      "status": 200,
+      "horizontalOverflow": false
+    }
+  ],
+  "pageErrors": [],
+  "failedResources": [],
+  "passed": false,
+  "dataBoundary": {
+    "verified": 77,
+    "pendingHidden": 2
+  },
+  "failure": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n+ actual - expected\n\n+ 'http://127.0.0.1:3115/images/solar-terms/dongzhi-hd.webp'\n- '/images/solar-terms/dongzhi-hd.webp'\n\n    at file:///D:/projects/shixu-ai/tests/agent-browser.mjs:53:10"
+}

@@ -6,7 +6,7 @@ import { SOLAR_TERMS, type SolarTermId } from "../solar-terms";
 import { findVerifiedCulturalCase, queryCulturalCases } from "./cultural-case-query";
 import { readCulturalCases } from "./cultural-cases";
 
-const followUp = /^(那|那么|这[个些]|它|当地|那里|还有|具体|详细|继续|来源|链接)/u;
+const followUp = /^(那|那么|这[个些两]|它|当地|那里|还有|具体|详细|继续|来源|链接|再|换成|比较|对比|分别)/u;
 const cultureQuestion = /习俗|民俗|风俗|传统|文化|案例|故事|非遗|技艺|农事|手艺|祭|吃|喝|酿|织|制作|活动|意象|文创|创意|饮食/u;
 const segmenter = new Intl.Segmenter("zh-CN", { granularity: "word" });
 const genericWords = new Set(["介绍", "讲讲", "请问", "关于", "什么", "哪些", "如何", "怎么", "这个", "这些", "那里", "当地", "还有", "具体", "详细", "继续", "来源", "链接", "文化", "案例", "地方", "传统", "习俗", "民俗", "节气", "相关", "知识", "饮食", "地区", "一带"]);
@@ -30,9 +30,17 @@ function dimensions(text: string) {
   };
 }
 
+function categoryFor(text: string) {
+  if (/饮食|美食|小吃|食物/u.test(text)) return "food";
+  if (/农事|农耕|耕作|播种/u.test(text)) return "agriculture";
+  if (/技艺|手工|工艺/u.test(text)) return "craft";
+  if (/民俗类|礼俗类|祭祀类|祭祖类/u.test(text)) return "folk_custom";
+  return undefined;
+}
+
 // Match the current topic, inheriting missing filters only for explicit follow-ups.
 // The assistant's previous answer never becomes a source or a retrieval query.
-export function retrieveChatCases(history: readonly ChatMessage[], cases: readonly CulturalCase[] = readCulturalCases()) {
+export function retrieveChatCases(history: readonly ChatMessage[], cases: readonly CulturalCase[] = readCulturalCases(), limit = MAX_CHAT_CASE_REFERENCES) {
   const questions = history.filter(({ role }) => role === "user");
   const latest = questions.at(-1)?.content ?? "";
   const normalize = (value: string) => value.replace(/[^\p{L}\p{N}]/gu, "").toLowerCase();
@@ -42,7 +50,7 @@ export function retrieveChatCases(history: readonly ChatMessage[], cases: readon
   const topics = questions.slice(start).map(({ content }) => content).reverse();
   const current = dimensions(latest);
   const terms = current.terms.length ? current.terms : topics.map((topic) => dimensions(topic).terms).find((ids) => ids.length) ?? [];
-  if (exact.length) return { cases: exact.slice(0, MAX_CHAT_CASE_REFERENCES), terms, noMatch: false };
+  if (exact.length) return { cases: exact.slice(0, limit), terms, noMatch: false };
   const filters = new Set(topics.flatMap((topic) => {
     const found = dimensions(topic);
     return [...found.terms.flatMap((id) => words(SOLAR_TERMS.find((term) => term.id === id)!.name)),
@@ -53,21 +61,30 @@ export function retrieveChatCases(history: readonly ChatMessage[], cases: readon
   // A named city in a follow-up replaces the previous province, rather than intersecting it.
   const provinces = current.provinces.length ? current.provinces : currentRegions.length ? []
     : topics.map((topic) => dimensions(topic).provinces).find((codes) => codes.length) ?? [];
+  const category = topics.map(categoryFor).find(Boolean);
   const ranked = cases
-    .filter((item) => (!terms.length || item.solarTermIds.some((id) => terms.includes(id))) &&
+    .filter((item) => item.verificationStatus === "verified" && (!category || item.category === category) && (!terms.length || item.solarTermIds.some((id) => terms.includes(id))) &&
       (!provinces.length || provinces.some((code) => item.provinceCode === code || item.relatedProvinceCodes?.includes(code))) &&
       (!currentRegions.length || currentRegions.some((region) => item.regionName.includes(region))))
-    .map((item) => ({ item, score: keywords.reduce((score, word) => score + (item.title.includes(word) ? 2 : item.regionName.includes(word) ? 1 : 0), 0) }));
+    .map((item) => ({ item, score: keywords.reduce((score, word) => score + (item.title.includes(word) ? 4 : item.regionName.includes(word) ? 3 : item.description.includes(word) || item.relationNote.includes(word) ? 1 : 0), 0) }));
   const hasKeywords = ranked.some(({ score }) => score > 0);
   // A bare term or an astronomy/climate question does not need unrelated custom examples.
-  const hasCultureTopic = topics.some((topic) => cultureQuestion.test(topic));
+  const hasCultureTopic = topics.some((topic) => cultureQuestion.test(topic)) ||
+    (provinces.length > 1 && /比较|对比|不同|区别/u.test(latest));
   if (!hasCultureTopic && (!hasKeywords || /黄经|黄道|公转|自转|直射|昼夜|白昼|气温|天气|温度|气候|最冷|最热/u.test(latest))) {
     return { cases: [], terms, noMatch: false };
   }
-  const matched = ranked.filter(({ score }) => hasKeywords ? score > 0 : terms.length || provinces.length)
+  const ordered = ranked.filter(({ score }) => hasKeywords ? score > 0 : terms.length || provinces.length)
     .filter((entry): entry is { item: VerifiedCulturalCase; score: number } => entry.item.verificationStatus === "verified")
-    .sort((a, b) => b.score - a.score || (a.item.id < b.item.id ? -1 : a.item.id > b.item.id ? 1 : 0))
-    .slice(0, MAX_CHAT_CASE_REFERENCES).map(({ item }) => item);
+    .sort((a, b) => b.score - a.score || (a.item.id < b.item.id ? -1 : a.item.id > b.item.id ? 1 : 0));
+  // Reserve a place for each requested region before filling remaining relevant results.
+  const reserved = new Set<string>();
+  for (const code of provinces) {
+    const candidate = ordered.find(({ item }) => item.provinceCode === code || item.relatedProvinceCodes?.includes(code));
+    if (candidate && reserved.size < limit) reserved.add(candidate.item.id);
+  }
+  for (const { item } of ordered) if (reserved.size < limit) reserved.add(item.id);
+  const matched = ordered.filter(({ item }) => reserved.has(item.id)).map(({ item }) => item);
   return { cases: matched, terms, noMatch: matched.length === 0 && hasCultureTopic && Boolean(terms.length || provinces.length || currentRegions.length) };
 }
 

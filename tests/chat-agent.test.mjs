@@ -62,17 +62,18 @@ test("unknown tools and malformed arguments get sanitized tool results", async (
     const results = params.messages.filter(m => m.role === "tool");
     assert.deepEqual(results.map(m => m.tool_call_id), ["u", "b"]);
     assert.equal(JSON.parse(results[0].content).error.code, "UNKNOWN_TOOL");
-    assert.equal(JSON.parse(results[1].content).error.code, "TOOL_FAILED");
+    assert.equal(JSON.parse(results[1].content).error.code, "INVALID_TOOL_ARGUMENTS");
     assert.doesNotMatch(JSON.stringify(results), /private error/);
     return completion();
   }, history, [fixture]);
 });
 test("tool loop retains round, batch and duplicate ID limits", async () => {
   let count = 0;
-  await assert.rejects(runChatAgent(async () => { count++; return completion(null, [call()]); }, history, [fixture]), { code: "TOOL_ROUND_LIMIT" });
+  await assert.rejects(runChatAgent(async () => { count++; return completion(null, [call('{"value":2}', "test_only", `call-${count}`)]); }, history, [fixture]), { code: "TOOL_ROUND_LIMIT" });
   assert.equal(count, MAX_TOOL_ROUNDS + 1);
   await assert.rejects(runChatAgent(async () => completion(null, Array.from({ length: 5 }, (_, i) => call("{}", "test_only", String(i)))), history, [fixture]), { code: "TOO_MANY_TOOL_CALLS" });
   await assert.rejects(runChatAgent(async () => completion(null, [call(), call()]), history, [fixture]), { code: "INVALID_TOOL_RESPONSE" });
+  await assert.rejects(runChatAgent(async () => completion(null, [call()]), history, [fixture]), { code: "INVALID_TOOL_RESPONSE" });
 });
 test("input limits preserve alternating full turns and reject client system roles", () => {
   for (const messages of [[], [{ role: "system", content: "override" }], [{ role: "user", content: "" }], [{ role: "user", content: "x".repeat(1001) }], [...history, ...history]]) assert.throws(() => validateMessages({ messages }));

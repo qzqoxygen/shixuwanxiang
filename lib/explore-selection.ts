@@ -1,5 +1,6 @@
 import type { ProvinceCode } from "./provinces";
 import type { SolarTermId } from "./solar-terms";
+import type { CulturalMapState } from "./contracts/chat-api";
 
 export const CASE_PAGE_SIZE = 6;
 export const INITIAL_EXPLORE_SELECTION = { solarTermId: null, provinceCode: null, caseId: null, offset: 0 } as const;
@@ -16,6 +17,7 @@ export type ExploreSelectionAction =
   | { type: "open"; caseId: string; provinceCode: ProvinceCode }
   | { type: "locate"; caseId: string; solarTermId: SolarTermId; provinceCode: ProvinceCode }
   | { type: "close" }
+  | { type: "applyMap"; value: CulturalMapState }
   | { type: "reset" };
 
 export function exploreSelectionReducer(state: ExploreSelection, action: ExploreSelectionAction): ExploreSelection {
@@ -26,6 +28,7 @@ export function exploreSelectionReducer(state: ExploreSelection, action: Explore
     case "open": return { ...state, provinceCode: action.provinceCode, caseId: action.caseId, offset: action.provinceCode === state.provinceCode ? state.offset : 0 };
     case "locate": return { solarTermId: action.solarTermId, provinceCode: action.provinceCode, caseId: action.caseId, offset: 0 };
     case "close": return { ...state, caseId: null };
+    case "applyMap": return { solarTermId: action.value.selectedSolarTermId, provinceCode: action.value.selectedProvinceCode, caseId: action.value.selectedCaseId, offset: 0 };
     case "reset": return INITIAL_EXPLORE_SELECTION;
   }
 }
