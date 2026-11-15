@@ -1,0 +1,218 @@
+{
+  "version": "1.0",
+  "mode": "real-model",
+  "testedAt": "2026-11-15T08:40:58.321Z",
+  "commit": "e7f102227fd0ad454784cb384722f2887d818c52",
+  "workingTreeDirty": true,
+  "fixtureSha256": "da9dc1060061125eb243c607ef7810e771c32f938f15da53c7512e385beacefa",
+  "sourceFingerprint": {
+    "sha256": "144f524c5a4dee1804246e8e7af61cf4813acdf9def376c6e1e0c1ff1eb8205d",
+    "files": {
+      "app/api/chat/route.ts": "b8cb305c3bce4e23a544ca975e3c70fced5d142050ae1e014e32090e2233ee5d",
+      "app/api/studio/inspiration/route.ts": "5bc4b2a93d978868dfb4d4e4f10c630795561b35e2f63d7f3a25c7cd2968c8c3",
+      "lib/ai-agent.ts": "f143ece2a00c04ecea0cc00b7d256f00952b6c099d1af75485772e235344e55a",
+      "lib/chat.ts": "db2f3fdae6dcea7e0364bea1767eaeaf3cfa5a4184c3944b4bc78fb86cde5d54",
+      "lib/chat-map-client.ts": "728c85f09d939bbee96feb568875af822e7d8bef9b1d9bca19614d33fbd6ceb9",
+      "lib/map-actions.ts": "761d6ebc0772c6af33f1e23d882489e2a962b95fb647134b898fc1c37dbcb3f7",
+      "lib/studio-inspiration.ts": "a9dffc986934905a4a7216a4e69d446cece98b89f41327a5969030b203d5ff87",
+      "lib/cultural-aliases.ts": "3727d18e87438de4b805524f9759e5b423daaf375fd68b8933f8a84260532d42",
+      "lib/server/chat-case-tool.ts": "4fc6cca1a4ea24618c8456919b924796ec8de9613cfb6bfcd2f5d8a7d8adf187",
+      "lib/server/chat-protocol.ts": "d12fc40a748e7ae001228e142f2f82acb81d3dac79b8e94479ce549ae03808f5",
+      "lib/server/cultural-case-context.ts": "612541533adb6e5f9c0aff150318d9a6e708a6b5a711edf6004af73896bb3b3b",
+      "lib/server/cultural-retrieval.ts": "420458ead0a5194bc5603e2178199504a8641351d720fb48c44efbe2a42a2204",
+      "lib/server/answer-evidence.ts": "7673900b9ce6375c66ab879c16703e3e9ee465978c3c79ecd20afd865563d2ef",
+      "lib/server/deepseek.ts": "2e733f0cfcc89a157fbada31fe279626a3b5f600c0e0dffc93c4b69a37b63867",
+      "lib/server/web-search.ts": "3aa383d711be29fce6e55018a55c5d0ff67e28d71c7d2ebb9ecf8101ab5ee1e4",
+      "lib/server/ai-access.ts": "bc136584a6e8ca09e5bb133d2a2c2b84d5f12ceab44298fc97d605310bbbd470",
+      "lib/contracts/chat-api.ts": "b778f40087666959151eb65ad83180b07d5cce361dcf6015d63caca56dc4a1f9",
+      "lib/contracts/ai-evidence.ts": "a30d8eb6f2a75f887ace874e4bdf75cf25ca90b56079d009316a249a00efca5f",
+      "lib/contracts/retrieval.ts": "b94391e015e5a6fce1bc96c10655776ea8f7a13ec7d7d523c541cb4faf94eba4",
+      "components/AnswerEvidence.tsx": "8cf0342d50f6a120f5a79f01c967a5afb4912554385153e48436bccb1f52192f",
+      "components/ChatPanel.tsx": "c63810deafa84f207ff8d2015d99782468087447e5c25313ea7eeaa1822e6e7c",
+      "components/ChatPanel.css": "c6ebdd152466d1e16255ade6907c015d6dd6a91a162e522dce38c9294b302c41"
+    }
+  },
+  "localBuildId": "EFoXkvORv3R8_VAmzZhLe",
+  "buildIdMeaning": "Local .next build only; not proof of a deployed revision",
+  "method": "Real HTTP requests to the running app; no mocked model/search or automatic retries",
+  "samples": [
+    {
+      "id": "follow-up",
+      "group": "real_model",
+      "kind": "real_model",
+      "question": "那只看饮食类，继续比较这两个地区，并给出本轮已核实来源。",
+      "status": 200,
+      "response": {
+        "version": "1.0",
+        "reply": "只看饮食类，本轮已核验案例中，江苏苏州有明确的冬至饮食：姑苏人家冬至夜喝冬酿酒，这是带桂花香的米酒，传统上可配卤牛肉、卤羊肉等菜肴[案例1]。它属于节令饮品与餐桌搭配。\n\n浙江方面，本轮材料里三门祭冬记载的是祭祖、敬老和村落公共活动，没有提供冬至饮食项目。因此，浙江冬至的饮食特点在本轮无法比较，不能把祭冬中的宴席或供品直接当作饮食案例。\n\n可比较的结论只有：江苏苏州的冬至饮食案例已核实；浙江暂无已核验的冬至饮食案例，需补充资料后才能判断。来源方面，本轮唯一可引用的是中国非物质文化遗产网关于冬至的页面，由案例1所附来源支持[案例1]。\n\n文化案例来源（本地已核验资料，并非本轮联网结果）\n[案例1] 姑苏冬至喝冬酿酒（江苏省·苏州市（姑苏））\n冬至阳生春又来——二十四节气之冬至｜中国非物质文化遗产网\nhttps://www.ihchina.cn/Article/Index/detail?id=9743\n［传统文化·节气］冬至开启“三九歌”｜中国农业大学新闻网\nhttps://news.cau.edu.cn/zhxwnew/601643.htm",
+        "answer": "只看饮食类，本轮已核验案例中，江苏苏州有明确的冬至饮食：姑苏人家冬至夜喝冬酿酒，这是带桂花香的米酒，传统上可配卤牛肉、卤羊肉等菜肴[案例1]。它属于节令饮品与餐桌搭配。\n\n浙江方面，本轮材料里三门祭冬记载的是祭祖、敬老和村落公共活动，没有提供冬至饮食项目。因此，浙江冬至的饮食特点在本轮无法比较，不能把祭冬中的宴席或供品直接当作饮食案例。\n\n可比较的结论只有：江苏苏州的冬至饮食案例已核实；浙江暂无已核验的冬至饮食案例，需补充资料后才能判断。来源方面，本轮唯一可引用的是中国非物质文化遗产网关于冬至的页面，由案例1所附来源支持[案例1]。\n\n文化案例来源（本地已核验资料，并非本轮联网结果）\n[案例1] 姑苏冬至喝冬酿酒（江苏省·苏州市（姑苏））\n冬至阳生春又来——二十四节气之冬至｜中国非物质文化遗产网\nhttps://www.ihchina.cn/Article/Index/detail?id=9743\n［传统文化·节气］冬至开启“三九歌”｜中国农业大学新闻网\nhttps://news.cau.edu.cn/zhxwnew/601643.htm",
+        "truncated": false,
+        "mapActions": [],
+        "references": [
+          {
+            "title": "冬至阳生春又来——二十四节气之冬至",
+            "url": "https://www.ihchina.cn/Article/Index/detail?id=9743",
+            "publisher": "中国非物质文化遗产网",
+            "caseId": "suzhou-dongzhi-winter-wine",
+            "caseTitle": "姑苏冬至喝冬酿酒"
+          },
+          {
+            "title": "［传统文化·节气］冬至开启“三九歌”",
+            "url": "https://news.cau.edu.cn/zhxwnew/601643.htm",
+            "publisher": "中国农业大学新闻网",
+            "caseId": "suzhou-dongzhi-winter-wine",
+            "caseTitle": "姑苏冬至喝冬酿酒"
+          }
+        ],
+        "toolEvents": [
+          {
+            "toolCallId": "call_00_fTfj5GUmASS5zbp5iU0q9428",
+            "toolName": "compare_cultural_cases",
+            "status": "success"
+          }
+        ],
+        "answerText": "只看饮食类，本轮已核验案例中，江苏苏州有明确的冬至饮食：姑苏人家冬至夜喝冬酿酒，这是带桂花香的米酒，传统上可配卤牛肉、卤羊肉等菜肴[案例1]。它属于节令饮品与餐桌搭配。\n\n浙江方面，本轮材料里三门祭冬记载的是祭祖、敬老和村落公共活动，没有提供冬至饮食项目。因此，浙江冬至的饮食特点在本轮无法比较，不能把祭冬中的宴席或供品直接当作饮食案例。\n\n可比较的结论只有：江苏苏州的冬至饮食案例已核实；浙江暂无已核验的冬至饮食案例，需补充资料后才能判断。来源方面，本轮唯一可引用的是中国非物质文化遗产网关于冬至的页面，由案例1所附来源支持[案例1]。",
+        "caseReferences": [
+          {
+            "citation": 1,
+            "caseId": "suzhou-dongzhi-winter-wine",
+            "title": "姑苏冬至喝冬酿酒",
+            "solarTermId": "dongzhi",
+            "provinceCode": "320000",
+            "provinceName": "江苏省",
+            "regionName": "苏州市（姑苏）",
+            "sources": [
+              {
+                "title": "冬至阳生春又来——二十四节气之冬至",
+                "url": "https://www.ihchina.cn/Article/Index/detail?id=9743",
+                "publisher": "中国非物质文化遗产网"
+              },
+              {
+                "title": "［传统文化·节气］冬至开启“三九歌”",
+                "url": "https://news.cau.edu.cn/zhxwnew/601643.htm",
+                "publisher": "中国农业大学新闻网"
+              }
+            ]
+          }
+        ],
+        "caseLookup": {
+          "matchedTitles": [
+            "姑苏冬至喝冬酿酒"
+          ]
+        },
+        "evidence": {
+          "method": "local_knowledge_retrieval",
+          "kinds": [
+            "local_verified",
+            "general_knowledge"
+          ],
+          "localCases": [
+            {
+              "citation": 1,
+              "caseId": "suzhou-dongzhi-winter-wine",
+              "title": "姑苏冬至喝冬酿酒",
+              "solarTermIds": [
+                "dongzhi"
+              ],
+              "provinceCode": "320000",
+              "provinceName": "江苏省",
+              "regionName": "苏州市（姑苏）",
+              "sources": [
+                {
+                  "title": "冬至阳生春又来——二十四节气之冬至",
+                  "url": "https://www.ihchina.cn/Article/Index/detail?id=9743",
+                  "publisher": "中国非物质文化遗产网"
+                },
+                {
+                  "title": "［传统文化·节气］冬至开启“三九歌”",
+                  "url": "https://news.cau.edu.cn/zhxwnew/601643.htm",
+                  "publisher": "中国农业大学新闻网"
+                }
+              ],
+              "cited": true
+            }
+          ],
+          "webSources": [],
+          "searchStatus": "not_requested",
+          "checks": {
+            "entityFields": true,
+            "citationLinks": true,
+            "statementTruth": false,
+            "localCitationCount": 2,
+            "webCitationCount": 0
+          },
+          "limitation": "仅校验实体、归属与引用关联；模型解释未经逐句事实核验。"
+        },
+        "retrievalDiagnostics": [
+          {
+            "strategy": "comparison",
+            "solarTermIds": [
+              "dongzhi"
+            ],
+            "provinceCodes": [
+              "320000",
+              "330000"
+            ],
+            "regions": [],
+            "category": "food",
+            "normalizedTerms": [],
+            "matchedAliases": [],
+            "candidateCount": 1,
+            "matchedCount": 1,
+            "matchedIds": [
+              "suzhou-dongzhi-winter-wine"
+            ],
+            "scores": [
+              {
+                "caseId": "suzhou-dongzhi-winter-wine",
+                "score": 0,
+                "matchedFields": [
+                  "filters"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "retrievedIds": [
+        "suzhou-dongzhi-winter-wine"
+      ],
+      "successfulTools": [
+        "compare_cultural_cases"
+      ],
+      "reusedTools": [],
+      "passed": true,
+      "ms": 8601.62
+    }
+  ],
+  "origin": "http://127.0.0.1:3116",
+  "liveSelection": [
+    "follow-up"
+  ],
+  "passed": true,
+  "summary": {
+    "sampleCount": 1,
+    "passed": 1,
+    "failed": 0,
+    "retrieval": {
+      "expectedSamples": 1,
+      "matchingSamples": 1
+    },
+    "citations": {
+      "scope": "Programmatic source/entity consistency; model explanations are not semantically certified. No-citation answers excluded.",
+      "actualMentions": 2,
+      "validMentions": 2,
+      "associationValidityRate": 1
+    },
+    "tools": {
+      "executed": 1,
+      "successfulExecutions": 1,
+      "reusedResults": 0
+    },
+    "latencyMs": {
+      "median": 8601.62,
+      "p95": 8601.62
+    },
+    "failures": []
+  }
+}

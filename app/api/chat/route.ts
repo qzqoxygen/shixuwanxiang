@@ -108,7 +108,7 @@ export async function POST(request: Request) {
     const terms = [...lookup.terms];
     const cases = lookup.searched || versioned ? lookup.cases : lookup.fallback.cases;
     function finalize(answer: string, records: typeof cases) {
-      validateAgentAnswer(answer, search, Boolean(agent));
+      validateAgentAnswer(answer, search, Boolean(agent), Boolean(agent?.mapActions.length && !toolEvents.some(event => event.status === "error")));
       validateAnswerEvidence(answer, records, search);
       const sources = culturalAnswerSources(answer, records, terms);
       if (search === undefined && cases.length && !sources.references.length) {
@@ -125,8 +125,8 @@ export async function POST(request: Request) {
         (error instanceof SearchError && error.code === "SEARCH_ANSWER_UNSUPPORTED");
       if (!repairable || signal.aborted) throw error;
       // All final-answer guards share this one repair budget; original tools are never replayed.
-      const mapInstruction = agent ? toolEvents.some(event => event.status === "error")
-        ? "本轮部分工具失败，地图未更新，不得声称已高亮或已打开案例。"
+      const mapInstruction = agent ? !agent.mapActions.length || toolEvents.some(event => event.status === "error")
+        ? "本轮未生成可用地图操作，没有地图操作入口。只解释本轮案例，不得声称准备好了地图操作、上一轮已设置地图或已打开详情。"
         : "地图仅准备好待用户点击「在地图中查看」的操作。不得写已高亮、已切换地图或案例已打开。" : "";
       result = await runChatAgent(complete, messages, [], search, cases, { context: versioned ? context : undefined, signal, deferFinalValidation: true,
         repairInstruction: "修正最终回答：只能引用本轮材料，不得复制历史编号或输出网址。本轮无联网资料时不能使用[1]等数字引用；本地资料使用[案例1]形式。" + mapInstruction });

@@ -32,12 +32,13 @@ export class AgentToolError extends Error {
   constructor(public code: string, message: string) { super(message); }
 }
 
-export function validateAgentAnswer(answer: string, search?: SearchContext | null, pendingMap = false) {
+export function validateAgentAnswer(answer: string, search?: SearchContext | null, pendingMap = false, hasMapActions = true) {
   if (!search && (/(?:已(?:经)?|刚刚|刚才)(?:为你|帮你)?(?:完成)?(?:联网|上网)(?:查询|检索|搜索|查到)|(?:根据|据)本轮(?:联网|实时)(?:搜索|检索)结果/u.test(answer) ||
     /\[\d+\]/u.test(answer) || (search === null && /https?:\/\//iu.test(answer)))) {
     throw new AgentError("UNVERIFIED_ANSWER", "本轮没有可核实的联网资料，暂时无法确认该信息。");
   }
-  if (pendingMap && /已(?:经)?(?:为你|帮你)?(?:在(?:文化|中国文化)?地图(?:中|上)?)?(?:高亮|突出显示|切换(?:到|为))|案例.{0,12}已(?:经)?打开|已(?:经)?打开.{0,20}(?:案例|详情)|(?:并|且|已经)打开了.{0,20}(?:案例|详情)|已(?:经)?完成(?:地图|省份|地区)?(?:高亮|定位|切换|打开)/u.test(answer)) {
+  if (pendingMap && (/已(?:经)?(?:为你|帮你)?(?:在(?:文化|中国文化)?地图(?:中|上)?)?(?:高亮|突出显示|切换(?:到|为))|案例.{0,12}已(?:经)?打开|已(?:经)?打开.{0,20}(?:案例|详情)|(?:并|且|已经)打开了.{0,20}(?:案例|详情)|已(?:经)?完成(?:地图|省份|地区)?(?:高亮|定位|切换|打开)|地图[^。！？\n]{0,40}已(?:经)?(?:在上一轮)?(?:设置|更新)/u.test(answer) ||
+    (!hasMapActions && /已准备(?:好)?[^。！？\n]{0,12}地图操作|点击[「『“]?在地图中查看/u.test(answer)))) {
     throw new AgentError("UNAPPLIED_MAP_CLAIM", "地图操作尚待点击确认，不能声称已经更新。");
   }
 }

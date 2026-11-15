@@ -1,5 +1,6 @@
 {
   "version": "1.0",
+  "catalog": { "verified": 97, "pending": 2 },
   "description": "人工标注的检索期望。案例ID来自当前已核验库；别名仅用于查询归一化，不修改文化实体或事实。",
   "retrieval": [
     { "id": "alias-shanghai", "group": "alias", "question": "沪上清明青团", "expectedIds": ["shanghai-qingming-qingtuan"] },

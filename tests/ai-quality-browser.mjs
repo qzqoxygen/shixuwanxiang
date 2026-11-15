@@ -44,9 +44,9 @@ try {
     report.pages.push({ path, status: response.status(), horizontalOverflow: false });
   }
   const list = await page.request.get(`${origin}/api/cultural-cases?limit=20`);
-  assert.equal((await list.json()).total, 77);
+  assert.equal((await list.json()).total, 97);
   for (const id of ["huangling-flower-buns", "xinzheng-jujube-harvest"]) assert.equal((await page.request.get(`${origin}/api/cultural-cases/${id}`)).status(), 404);
-  report.dataBoundary = { verified: 77, pendingHidden: 2 };
+  report.dataBoundary = { verified: 97, pendingHidden: 2 };
   await page.goto(`${origin}/seasons`, { waitUntil: "networkidle" });
   await page.locator('.book-directory button[data-term-id="dongzhi"]').click();
   await page.waitForFunction(() => document.querySelector(".seasons-book")?.getAttribute("data-term-id") === "dongzhi");

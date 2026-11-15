@@ -14,12 +14,14 @@ test("the checked-in AI quality fixture covers aliases, follow-ups, contradictio
 
 test("deterministic evaluation reports actual retrieval and program checks separately from model quality", async () => {
   const { evaluateDeterministic } = await import("../scripts/evaluate-ai.mjs");
+  const { readCulturalCases } = await import("../lib/server/cultural-cases.ts");
+  const verifiedCount = readCulturalCases().filter(item => item.verificationStatus === "verified").length;
   const report = await evaluateDeterministic();
   assert.equal(report.mode, "deterministic");
   assert(report.summary.sampleCount >= 210);
   assert.equal(report.samples.filter(sample => sample.group === "24_term_catalog").length, 24);
-  assert.equal(report.samples.filter(sample => sample.group === "77_exact_case_titles").length, 77);
-  assert.equal(report.samples.filter(sample => sample.group === "valid_catalog_citations").length, 77);
+  assert.equal(report.samples.filter(sample => sample.group === "exact_case_titles").length, verifiedCount);
+  assert.equal(report.samples.filter(sample => sample.group === "valid_catalog_citations").length, verifiedCount);
   assert.equal(report.passed, true, JSON.stringify(report.summary.failures));
   assert.equal(report.summary.citations.associationValidityRate, 1);
 });

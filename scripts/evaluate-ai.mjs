@@ -74,15 +74,15 @@ export async function evaluateDeterministic() {
   const report = baseReport("deterministic");
   const catalog = readCulturalCases();
   const verified = catalog.filter(item => item.verificationStatus === "verified");
-  report.data = { verified: verified.length, pending: catalog.length - verified.length, normalizedSha256: createHash("sha256").update(JSON.stringify(catalog)).digest("hex"), unchangedDatasetExpected: "77 verified / 2 pending" };
-  assert.equal(verified.length, 77); assert.equal(catalog.length, 79);
+  report.data = { verified: verified.length, pending: catalog.length - verified.length, normalizedSha256: createHash("sha256").update(JSON.stringify(catalog)).digest("hex"), expectedCatalog: fixtures.catalog };
+  assert.equal(verified.length, fixtures.catalog.verified); assert.equal(catalog.length - verified.length, fixtures.catalog.pending);
   for (const term of SOLAR_TERMS) await check(report, { id: `term:${term.id}`, group: "24_term_catalog", kind: "tool" }, () => {
     const registry = createCultureAgentTools([user(`什么是${term.name}`)], emptyContext);
     const result = registry.tools.find(tool => tool.definition.function.name === "get_solar_term_info").execute({ solarTermId: term.id });
     assert.equal(result.name, term.name); assert.equal(result.solarLongitude, term.solarLongitude); assert(result.description);
     return { actualTermId: result.solarTermId, tool: "get_solar_term_info" };
   });
-  for (const item of verified) await check(report, { id: `exact:${item.id}`, group: "77_exact_case_titles", kind: "retrieval", expectedIds: [item.id] }, () => {
+  for (const item of verified) await check(report, { id: `exact:${item.id}`, group: "exact_case_titles", kind: "retrieval", expectedIds: [item.id] }, () => {
     const result = retrieveChatCases([user(`介绍${item.title}`)], catalog);
     const actualIds = result.cases.map(item => item.id);
     assert(actualIds.includes(item.id), `Expected ${item.id}; got ${actualIds.join(",")}`);

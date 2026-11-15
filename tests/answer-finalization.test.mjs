@@ -20,6 +20,8 @@ test("final answer guards reject ungrounded web labels and unapplied map claims,
   for (const answer of ["江苏浙江两省已高亮。", "冬至地图已切换到冬至。", "三门祭冬案例已经打开。", "并打开了三门祭冬案例。"])
     assert.throws(() => validateAgentAnswer(answer, undefined, true), { code: "UNAPPLIED_MAP_CLAIM" });
   validateAgentAnswer("已准备地图操作，请点击「在地图中查看」后高亮两省并打开案例。", undefined, true);
+  assert.throws(() => validateAgentAnswer("江苏、浙江的冬至地图与三门祭冬案例已在上一轮设置。", undefined, true), { code: "UNAPPLIED_MAP_CLAIM" });
+  assert.throws(() => validateAgentAnswer("已准备地图操作，请点击「在地图中查看」后应用。", undefined, true, false), { code: "UNAPPLIED_MAP_CLAIM" });
   await assert.rejects(() => runChatAgent(async () => completion("无来源说明[1]"), [{ role: "user", content: "什么是冬至？" }]), { code: "UNVERIFIED_ANSWER" });
 });
 
@@ -56,4 +58,20 @@ test("unapplied map claims can be repaired, while a second invalid answer is ref
     else { assert.equal(response.status, 200); assert.equal(data.toolEvents.length, 2); assert.equal(data.mapActions.length, 1); }
     mock.mock.restore();
   }
+});
+
+test("a follow-up cannot claim a map entry exists when only comparison ran", async t => {
+  key(t);
+  let step = 0;
+  t.mock.method(globalThis, "fetch", async () => {
+    if (++step === 1) return Response.json(completion(null, [call("compare_cultural_cases", { solarTermId: "dongzhi", provinceCodes: ["320000", "330000"], category: "food" }, "compare")]));
+    return Response.json(completion(step === 2 ? "姑苏冬至喝冬酿酒属于饮食。[案例1] 已准备地图操作，请点击「在地图中查看」后应用。" : "姑苏冬至喝冬酿酒属于江苏冬至饮食。[案例1] 浙江未查到匹配的饮食案例。"));
+  });
+  const response = await POST(request());
+  assert.equal(response.status, 200);
+  const data = await response.json();
+  assert.equal(step, 3);
+  assert.deepEqual(data.mapActions, []);
+  assert.deepEqual(data.toolEvents.map(event => event.toolName), ["compare_cultural_cases"]);
+  assert(!data.answer.includes("在地图中查看"));
 });

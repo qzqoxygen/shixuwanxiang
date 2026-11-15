@@ -2,6 +2,24 @@
 
 本目录分别保存确定性程序评测、真实 DeepSeek / Search API 调用和真实浏览器操作的结果。失败记录保留，后续复测另建文件，不覆盖原始结果。当前记录针对本地开发分支和本地生产服务，不代表已合并、部署或通过大陆公网、真机验收。
 
+## 当前最终结果
+
+开始于main `f5d561c`，本轮期间main新增20条verified与团队文案，已合入最新 `88e07cf`（合并提交 `e7f1022`），当前数据97 verified/2 pending；原79实体逐项未改。之前77条阶段的所有文件仍保留，不能把它们当作新97条数据的验收。
+
+| 最终证据 | 实际结果与边界 |
+| --- | --- |
+| `npm test` / lint / `tsc --noEmit` / build | 最后地图表述检查后173/173测试，0失败/跳过，其他三项退出0；六页七动态API保留 |
+| [deterministic-main97-final.json](deterministic-main97-final.json) | 271/271；112检索目标hit@1/全部期望hit@6=100%，7/7空结果、98/98引用关联、12非法证据拒绝、30总边界正确、29/29执行检查样本。中位2.07ms/P95 5.08ms，仅程序分支 |
+| [real-model-targeted-final.json](real-model-targeted-final.json) | 2/2 HTTP200，普通原题不联网4242.19ms，饮食追问4181.18ms；2/2引用关联、1成功比较工具。但人工发现追问误称旧地图已设置，继续修复而非隐藏 |
+| [real-model-map-guard-recheck.json](real-model-map-guard-recheck.json) | 最后重建后同一真实追问200、8601.62ms，1比较工具、2/2引用关联、mapActions为空，正文没有虚假操作入口/已设置声明 |
+| [browser-release/browser.json](browser-release/browser.json) | 最新main整合构建，真实3请求（chat2+Studio1）全部成功；比较5真实工具→双省高亮→三门详情→手机视口生成3组建议；过期操作拒绝；六页200、97/2边界、书册/依据/来源通过；JS/资源失败0 |
+| [browser-final-readonly.json](browser-final-readonly.json) | 最后一处无地图声明校验后，六页×两视口12导航、97/2边界全部通过，无模型调用；不冒充再次真实全链路 |
+| [security-data-final.json](security-data-final.json) | 394版本库候选文件、27客户端构建文件未发现5个受检本机密钥/令牌值；数据与main一致，原79实体未变，密钥文件忽略且不改 |
+
+`browser-release/`早于最后仅针对“本轮没有地图操作却称已设置”的校验收紧；之后重新执行173测试/Lint/类型/构建、上述1次追问真实复测，以及无计费网页导航，未再次计费跑已通过的制卡链路。桌面依据与手机造物截图人工查看。所有来源关联比例不代表逐句语义事实正确。
+
+本轮共15个用户级真实API请求（首轮6+首轮网页3+定向2+新网页3+最后追问1），不是15个上游计费completion：工具轮和受限修复会增加completion。初次失败保留，不汇总成“15/15首次通过”。新增截图：[桌面依据](browser-release/desktop-evidence.png)、[双省地图](browser-release/desktop-map.png)、[手机案例](browser-release/mobile-evidence.png)、[手机造物](browser-release/mobile-studio.png)、[过期保护](browser-release/mobile-stale.png)。
+
 ## 确定性评测
 
 入口为 `npm run eval:ai`（默认不请求模型）和 `tests/ai-quality.test.mjs`，固定样本在 `tests/fixtures/ai-quality-cases.json`。评测实际调用本地检索、六工具和程序化证据校验；取消、超时、模型异常等故障分支使用明确隔离的测试响应，不将其算作真实模型表现。
@@ -42,7 +60,7 @@
 
 首轮 complex 回答曾在开头使用“已切换 / 已打开”措辞，结尾才说明待用户点击地图入口。工具实际生成的是经过校验的待确认操作，浏览器未在回答生成时自动应用；该措辞风险属于模型解释限制，不能当作浏览器已执行的证据。
 
-后续普通问题保留首轮原句（包括“不要引用未经检索的来源”），增加 `evidence.searchStatus === "not_requested"` 断言，验证否定检索措辞下仍可走普通问答。等待最终服务定向复测 ordinary 与 follow-up；不重跑已经通过的搜索、俗称和复杂 API 样本来虚增通过率。最终构建另行执行真实浏览器核心链路，标明新增调用，避免与首轮混淆。
+后续普通问题保留首轮原句（包括“不要引用未经检索的来源”），增加 `evidence.searchStatus === "not_requested"` 断言，验证否定检索措辞下仍可走普通问答。已完成的定向ordinary/follow-up、最终地图声明及网页结果见上方最终表；未重跑已经通过的搜索/俗称API样本来虚增通过率。
 
 ## 首轮真实浏览器链路
 
@@ -77,4 +95,4 @@ node scripts/evaluate-ai.mjs --live --origin http://127.0.0.1:3116 --cases ordin
 
 早期记录的 `commit=f5d561c...` 表示开发分支基线，**不表示被测业务代码就是干净的 main**；开发在未提交工作树进行。较新记录增加 `workingTreeDirty`、固定样本 SHA256、AI 相关源文件 SHA256 指纹、`localBuildId`。构建 ID 只代表本地 `.next` 产物，不代表已上线提交。真实浏览器新记录也保存 runner 指纹和本地构建 ID。
 
-最终全量测试、Lint、TypeScript、生产构建以及定向真实复测结果以之后追加的文件为准。本目录当前不包含 Netlify 发布或大陆三网 / 真机验收，未自动合并或部署。
+最终全量测试、Lint、TypeScript、生产构建以及定向真实复测结果见上方追加的最终表。本目录不包含 Netlify 发布或大陆三网 / 真机验收；四时导读、探访/个人记忆真实生成与PNG成品本轮也未复测。未自动合并或部署。
