@@ -6,7 +6,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: { default: SITE_NAME, template: `%s · ${SITE_NAME}` },
-  description: "基于多模态智能体的二十四节气非遗文化可视化探索与交互创作平台。探索节气文化案例与地域地图，体验 DeepSeek AI 问答和节气卡创作。",
+  description: "翻阅二十四节气风物册，用 DeepSeek 探访地方习俗、比较地区案例，再把有出处的故事做成节气卡。",
 };
 export default function RootLayout({ children }: { children: ReactNode }) {
   return <html lang="zh-CN"><body><div className="page-shell">

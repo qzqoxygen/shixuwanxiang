@@ -1,7 +1,7 @@
 // Opt-in browser acceptance. Uses the real site and three billable UI actions; never mocks APIs.
 import assert from "node:assert/strict";
 import { createRequire } from "node:module";
-import { mkdirSync, writeFileSync } from "node:fs";
+import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { resolve } from "node:path";
 
 const require = createRequire(import.meta.url);
@@ -43,10 +43,13 @@ try {
     await noOverflow(path);
     report.pages.push({ path, status: response.status(), horizontalOverflow: false });
   }
+  const catalog = JSON.parse(readFileSync(new URL("../data/cultural-cases/cases.json", import.meta.url), "utf8"));
+  const verified = catalog.filter(item => item.verificationStatus === "verified").length;
+  const pending = catalog.filter(item => item.verificationStatus === "pending");
   const caseResponse = await page.request.get(`${origin}/api/cultural-cases?limit=20`);
-  assert.equal((await caseResponse.json()).total, 77);
-  for (const id of ["huangling-flower-buns", "xinzheng-jujube-harvest"]) assert.equal((await page.request.get(`${origin}/api/cultural-cases/${id}`)).status(), 404);
-  report.dataBoundary = { verified: 77, pendingHidden: 2 };
+  assert.equal((await caseResponse.json()).total, verified);
+  for (const { id } of pending) assert.equal((await page.request.get(`${origin}/api/cultural-cases/${id}`)).status(), 404);
+  report.dataBoundary = { verified, pendingHidden: pending.length };
   await page.goto(`${origin}/seasons`, { waitUntil: "networkidle" });
   await page.locator('.book-directory button[data-term-id="dongzhi"]').click();
   await page.waitForFunction(() => document.querySelector(".seasons-book")?.getAttribute("data-term-id") === "dongzhi");

@@ -17,7 +17,8 @@ async function SelectedStudio({ searchParams }: { searchParams: SearchParams }) 
   const term = SolarTermIdSchema.safeParse(solarTermId);
   const item = caseId !== undefined && term.success ? studioCaseForTerm(caseId, term.data) : undefined;
   const seed = item && term.success ? {
-    caseId: item.id, title: item.title, provinceName: item.provinceName, regionName: item.regionName, solarTermId: term.data,
+    caseId: item.id, title: item.title, provinceCode: item.provinceCode, provinceName: item.provinceName,
+    regionName: item.regionName, solarTermId: term.data,
   } : undefined;
   const memoryMode = memory === "1" && caseId === undefined;
   const visitOrigin = readVisitOrigin(params);

@@ -430,7 +430,7 @@ function StudioEditor({ initialDraft, seed, invalidCase, memory, webSeed, missin
         <StudioBreeze />
         <div className="studio-heading-caption">
           <StudioTitle />
-          <p>用 AI 灵感写标题和短句</p>
+          <p>用案例或 AI 灵感写一张节气卡</p>
         </div>
         <div className="studio-actions">
           <span id="studio-preview-status" role="status" data-status={saveStatus}>
@@ -448,7 +448,8 @@ function StudioEditor({ initialDraft, seed, invalidCase, memory, webSeed, missin
       <figure className="studio-preview">
         <figcaption className="studio-preview-caption">
           <h2>作品预览</h2>
-          <Link className="studio-visit-link" data-return={Boolean(visitOrigin)} prefetch={false} href={visitHref(visitOrigin ?? { solarTermId: term.id })}>
+          <Link className="studio-visit-link" data-return={Boolean(visitOrigin)} prefetch={false}
+            href={visitHref(visitOrigin ?? { solarTermId: term.id, provinceCode: activeCase?.provinceCode })}>
             {visitOrigin ? "返回节气探访" : `探访${term.name}风物`}
           </Link>
           <span className="studio-preview-format">{template.format}</span>
