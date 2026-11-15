@@ -1,7 +1,7 @@
 import { AI_REQUEST_TIMEOUT_MS, createDeepSeekClient, completeDeepSeek, classifyDeepSeekError, logAiError } from "@/lib/server/deepseek";
 import { beginAiRequest } from "@/lib/server/ai-access";
 import { MAX_ASSISTANT_LENGTH, MAX_BODY_BYTES } from "@/lib/chat";
-import { AgentError, runChatAgent } from "@/lib/ai-agent";
+import { AgentError, runChatAgent, validateAgentAnswer } from "@/lib/ai-agent";
 import { type SearchContext, SearchError, needsWebSearch, buildSearchQuery, searchWeb, attachSearchSources } from "@/lib/server/web-search";
 import { CulturalContextError, culturalAnswerSources } from "@/lib/server/cultural-case-context";
 import { createChatCaseTool, createCultureAgentTools } from "@/lib/server/chat-case-tool";
@@ -9,6 +9,7 @@ import { ChatSuccessV1Schema, type CulturalMapState } from "@/lib/contracts/chat
 import { ChatProtocolError, parseChatRequest } from "@/lib/server/chat-protocol";
 import { applyValidatedMapActions } from "@/lib/map-actions";
 import { readCulturalCases } from "@/lib/server/cultural-cases";
+import { EvidenceError, validateAnswerEvidence, buildAnswerEvidence } from "@/lib/server/answer-evidence";
 
 // Cache Components uses the default Node.js runtime. Leave time to return a JSON error.
 export const maxDuration = 60;
@@ -72,7 +73,7 @@ export async function POST(request: Request) {
     parsed = parseChatRequest(body);
   }
   catch (error) { return failure(400, error instanceof ChatProtocolError ? error.code : "INVALID_INPUT", error instanceof Error ? error.message : "消息格式无效。"); }
-  const { messages, context, versioned } = parsed;
+  const { messages, context, versioned, includeEvidence } = parsed;
 
   const apiKey = process.env.DEEPSEEK_API_KEY?.trim();
   if (!apiKey) {
@@ -102,26 +103,38 @@ export async function POST(request: Request) {
     const legacyLookup = agent ? undefined : createChatCaseTool(messages);
     const lookup = agent ?? legacyLookup!;
     const complete = (params: Parameters<typeof completeDeepSeek>[1]) => completeDeepSeek(client, params, signal);
-    let result = await runChatAgent(complete, messages, agent?.tools ?? [legacyLookup!.tool], search, [], { context: versioned ? context : undefined, signal });
+    let result = await runChatAgent(complete, messages, agent?.tools ?? [legacyLookup!.tool], search, [], { context: versioned ? context : undefined, signal, reuseReadTools: includeEvidence, deferFinalValidation: true });
     const toolEvents = result.toolEvents;
     const terms = [...lookup.terms];
     const cases = lookup.searched || versioned ? lookup.cases : lookup.fallback.cases;
-    let sources;
-    try {
-      sources = culturalAnswerSources(result.answer, lookup.cases, terms);
+    function finalize(answer: string, records: typeof cases) {
+      validateAgentAnswer(answer, search, Boolean(agent), Boolean(agent?.mapActions.length && !toolEvents.some(event => event.status === "error")));
+      validateAnswerEvidence(answer, records, search);
+      const sources = culturalAnswerSources(answer, records, terms);
       if (search === undefined && cases.length && !sources.references.length) {
         throw new CulturalContextError("本轮回答缺少对应的文化案例引用。");
       }
+      return { ...sources, answerText: search ? attachSearchSources(answer, search) : answer };
+    }
+    let sources;
+    try {
+      sources = finalize(result.answer, lookup.cases);
     } catch (error) {
-      if (!(error instanceof CulturalContextError) || !cases.length || signal.aborted) throw error;
-      // Recover with the same case IDs when the model skips lookup or formats a citation incorrectly.
-      result = await runChatAgent(complete, messages, [], search, cases, { context: versioned ? context : undefined, signal });
-      sources = culturalAnswerSources(result.answer, cases, terms);
-      if (!sources.references.length) throw new CulturalContextError("回答仍未对应已核验的案例来源，请重新提问。");
+      const repairable = error instanceof CulturalContextError || error instanceof EvidenceError ||
+        (error instanceof AgentError && ["UNVERIFIED_ANSWER", "UNAPPLIED_MAP_CLAIM"].includes(error.code)) ||
+        (error instanceof SearchError && error.code === "SEARCH_ANSWER_UNSUPPORTED");
+      if (!repairable || signal.aborted) throw error;
+      // All final-answer guards share this one repair budget; original tools are never replayed.
+      const mapInstruction = agent ? !agent.mapActions.length || toolEvents.some(event => event.status === "error")
+        ? "本轮未生成可用地图操作，没有地图操作入口。只解释本轮案例，不得声称准备好了地图操作、上一轮已设置地图或已打开详情。"
+        : "地图仅准备好待用户点击「在地图中查看」的操作。不得写已高亮、已切换地图或案例已打开。" : "";
+      result = await runChatAgent(complete, messages, [], search, cases, { context: versioned ? context : undefined, signal, deferFinalValidation: true,
+        repairInstruction: "修正最终回答：只能引用本轮材料，不得复制历史编号或输出网址。本轮无联网资料时不能使用[1]等数字引用；本地资料使用[案例1]形式。" + mapInstruction });
+      sources = finalize(result.answer, cases);
+      if (cases.length && !sources.references.length) throw new CulturalContextError("回答仍未对应已核验的案例来源，请重新提问。");
     }
     const { notes, references } = sources;
-    let answerText = result.answer;
-    if (search) answerText = attachSearchSources(answerText, search);
+    let answerText = sources.answerText;
     if (search === null) answerText = "本次未能核实实时信息。以下仅供了解相关背景。\n\n" + answerText;
     const answer = answerText + notes;
     if (answer.length > MAX_ASSISTANT_LENGTH) throw new AgentError("INVALID_RESPONSE", "回答及来源过长，请简化问题后重试。");
@@ -138,10 +151,12 @@ export async function POST(request: Request) {
     catch { return failure(502, "INVALID_MAP_ACTIONS", "地图操作与已核验资料不匹配，本轮未更新地图。"); }
     const retrievedReferences = agent.cases.flatMap(item => item.sources.map(source => ({ ...source, caseId: item.id, caseTitle: item.title })))
       .filter((source, index, all) => all.findIndex(other => other.caseId === source.caseId && other.url === source.url) === index).slice(0, 20);
-    const response = ChatSuccessV1Schema.parse({ ...legacy, version: "1.0", reply: answer, mapActions, toolEvents, references: retrievedReferences });
+    const response = ChatSuccessV1Schema.parse({ ...legacy, version: "1.0", reply: answer, mapActions, toolEvents, references: retrievedReferences,
+      ...(includeEvidence ? { evidence: buildAnswerEvidence(result.answer, agent.cases, search), retrievalDiagnostics: agent.retrievalDiagnostics } : {}),
+    });
     return Response.json(response, { headers: { "Cache-Control": "no-store" } });
   } catch (error) {
-    const issue = error instanceof AgentError || error instanceof SearchError || error instanceof CulturalContextError
+    const issue = error instanceof AgentError || error instanceof SearchError || error instanceof CulturalContextError || error instanceof EvidenceError
       ? { status: 502, code: error.code, message: error.message }
       : classifyDeepSeekError(error, signal);
     logAiError("chat", issue.code, issue.status);

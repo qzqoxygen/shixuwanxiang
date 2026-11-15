@@ -27,5 +27,5 @@ export function parseChatRequest(body: unknown) {
       }
     }
   }
-  return { versioned, context, messages: validateMessages(body) };
+  return { versioned, context, includeEvidence: versioned && (body as { includeEvidence?: boolean }).includeEvidence === true, messages: validateMessages(body) };
 }

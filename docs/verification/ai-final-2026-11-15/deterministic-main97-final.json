@@ -1,0 +1,6491 @@
+{
+  "version": "1.0",
+  "mode": "deterministic",
+  "testedAt": "2026-11-15T08:40:34.600Z",
+  "commit": "e7f102227fd0ad454784cb384722f2887d818c52",
+  "workingTreeDirty": true,
+  "fixtureSha256": "da9dc1060061125eb243c607ef7810e771c32f938f15da53c7512e385beacefa",
+  "sourceFingerprint": {
+    "sha256": "144f524c5a4dee1804246e8e7af61cf4813acdf9def376c6e1e0c1ff1eb8205d",
+    "files": {
+      "app/api/chat/route.ts": "b8cb305c3bce4e23a544ca975e3c70fced5d142050ae1e014e32090e2233ee5d",
+      "app/api/studio/inspiration/route.ts": "5bc4b2a93d978868dfb4d4e4f10c630795561b35e2f63d7f3a25c7cd2968c8c3",
+      "lib/ai-agent.ts": "f143ece2a00c04ecea0cc00b7d256f00952b6c099d1af75485772e235344e55a",
+      "lib/chat.ts": "db2f3fdae6dcea7e0364bea1767eaeaf3cfa5a4184c3944b4bc78fb86cde5d54",
+      "lib/chat-map-client.ts": "728c85f09d939bbee96feb568875af822e7d8bef9b1d9bca19614d33fbd6ceb9",
+      "lib/map-actions.ts": "761d6ebc0772c6af33f1e23d882489e2a962b95fb647134b898fc1c37dbcb3f7",
+      "lib/studio-inspiration.ts": "a9dffc986934905a4a7216a4e69d446cece98b89f41327a5969030b203d5ff87",
+      "lib/cultural-aliases.ts": "3727d18e87438de4b805524f9759e5b423daaf375fd68b8933f8a84260532d42",
+      "lib/server/chat-case-tool.ts": "4fc6cca1a4ea24618c8456919b924796ec8de9613cfb6bfcd2f5d8a7d8adf187",
+      "lib/server/chat-protocol.ts": "d12fc40a748e7ae001228e142f2f82acb81d3dac79b8e94479ce549ae03808f5",
+      "lib/server/cultural-case-context.ts": "612541533adb6e5f9c0aff150318d9a6e708a6b5a711edf6004af73896bb3b3b",
+      "lib/server/cultural-retrieval.ts": "420458ead0a5194bc5603e2178199504a8641351d720fb48c44efbe2a42a2204",
+      "lib/server/answer-evidence.ts": "7673900b9ce6375c66ab879c16703e3e9ee465978c3c79ecd20afd865563d2ef",
+      "lib/server/deepseek.ts": "2e733f0cfcc89a157fbada31fe279626a3b5f600c0e0dffc93c4b69a37b63867",
+      "lib/server/web-search.ts": "3aa383d711be29fce6e55018a55c5d0ff67e28d71c7d2ebb9ecf8101ab5ee1e4",
+      "lib/server/ai-access.ts": "bc136584a6e8ca09e5bb133d2a2c2b84d5f12ceab44298fc97d605310bbbd470",
+      "lib/contracts/chat-api.ts": "b778f40087666959151eb65ad83180b07d5cce361dcf6015d63caca56dc4a1f9",
+      "lib/contracts/ai-evidence.ts": "a30d8eb6f2a75f887ace874e4bdf75cf25ca90b56079d009316a249a00efca5f",
+      "lib/contracts/retrieval.ts": "b94391e015e5a6fce1bc96c10655776ea8f7a13ec7d7d523c541cb4faf94eba4",
+      "components/AnswerEvidence.tsx": "8cf0342d50f6a120f5a79f01c967a5afb4912554385153e48436bccb1f52192f",
+      "components/ChatPanel.tsx": "c63810deafa84f207ff8d2015d99782468087447e5c25313ea7eeaa1822e6e7c",
+      "components/ChatPanel.css": "c6ebdd152466d1e16255ade6907c015d6dd6a91a162e522dce38c9294b302c41"
+    }
+  },
+  "localBuildId": "EFoXkvORv3R8_VAmzZhLe",
+  "buildIdMeaning": "Local .next build only; not proof of a deployed revision",
+  "method": "Real local retrieval/tools and program validation; isolated runner responses only for cancellation/timeout/error branches; no actual model request",
+  "samples": [
+    {
+      "id": "term:lichun",
+      "group": "24_term_catalog",
+      "kind": "tool",
+      "actualTermId": "lichun",
+      "tool": "get_solar_term_info",
+      "passed": true,
+      "ms": 14.96
+    },
+    {
+      "id": "term:yushui",
+      "group": "24_term_catalog",
+      "kind": "tool",
+      "actualTermId": "yushui",
+      "tool": "get_solar_term_info",
+      "passed": true,
+      "ms": 8.14
+    },
+    {
+      "id": "term:jingzhe",
+      "group": "24_term_catalog",
+      "kind": "tool",
+      "actualTermId": "jingzhe",
+      "tool": "get_solar_term_info",
+      "passed": true,
+      "ms": 10.15
+    },
+    {
+      "id": "term:chunfen",
+      "group": "24_term_catalog",
+      "kind": "tool",
+      "actualTermId": "chunfen",
+      "tool": "get_solar_term_info",
+      "passed": true,
+      "ms": 5.78
+    },
+    {
+      "id": "term:qingming",
+      "group": "24_term_catalog",
+      "kind": "tool",
+      "actualTermId": "qingming",
+      "tool": "get_solar_term_info",
+      "passed": true,
+      "ms": 3.79
+    },
+    {
+      "id": "term:guyu",
+      "group": "24_term_catalog",
+      "kind": "tool",
+      "actualTermId": "guyu",
+      "tool": "get_solar_term_info",
+      "passed": true,
+      "ms": 5.63
+    },
+    {
+      "id": "term:lixia",
+      "group": "24_term_catalog",
+      "kind": "tool",
+      "actualTermId": "lixia",
+      "tool": "get_solar_term_info",
+      "passed": true,
+      "ms": 3.87
+    },
+    {
+      "id": "term:xiaoman",
+      "group": "24_term_catalog",
+      "kind": "tool",
+      "actualTermId": "xiaoman",
+      "tool": "get_solar_term_info",
+      "passed": true,
+      "ms": 4.66
+    },
+    {
+      "id": "term:mangzhong",
+      "group": "24_term_catalog",
+      "kind": "tool",
+      "actualTermId": "mangzhong",
+      "tool": "get_solar_term_info",
+      "passed": true,
+      "ms": 3
+    },
+    {
+      "id": "term:xiazhi",
+      "group": "24_term_catalog",
+      "kind": "tool",
+      "actualTermId": "xiazhi",
+      "tool": "get_solar_term_info",
+      "passed": true,
+      "ms": 2.97
+    },
+    {
+      "id": "term:xiaoshu",
+      "group": "24_term_catalog",
+      "kind": "tool",
+      "actualTermId": "xiaoshu",
+      "tool": "get_solar_term_info",
+      "passed": true,
+      "ms": 3.33
+    },
+    {
+      "id": "term:dashu",
+      "group": "24_term_catalog",
+      "kind": "tool",
+      "actualTermId": "dashu",
+      "tool": "get_solar_term_info",
+      "passed": true,
+      "ms": 3.4
+    },
+    {
+      "id": "term:liqiu",
+      "group": "24_term_catalog",
+      "kind": "tool",
+      "actualTermId": "liqiu",
+      "tool": "get_solar_term_info",
+      "passed": true,
+      "ms": 2.95
+    },
+    {
+      "id": "term:chushu",
+      "group": "24_term_catalog",
+      "kind": "tool",
+      "actualTermId": "chushu",
+      "tool": "get_solar_term_info",
+      "passed": true,
+      "ms": 2.67
+    },
+    {
+      "id": "term:bailu",
+      "group": "24_term_catalog",
+      "kind": "tool",
+      "actualTermId": "bailu",
+      "tool": "get_solar_term_info",
+      "passed": true,
+      "ms": 3.32
+    },
+    {
+      "id": "term:qiufen",
+      "group": "24_term_catalog",
+      "kind": "tool",
+      "actualTermId": "qiufen",
+      "tool": "get_solar_term_info",
+      "passed": true,
+      "ms": 3.19
+    },
+    {
+      "id": "term:hanlu",
+      "group": "24_term_catalog",
+      "kind": "tool",
+      "actualTermId": "hanlu",
+      "tool": "get_solar_term_info",
+      "passed": true,
+      "ms": 3.2
+    },
+    {
+      "id": "term:shuangjiang",
+      "group": "24_term_catalog",
+      "kind": "tool",
+      "actualTermId": "shuangjiang",
+      "tool": "get_solar_term_info",
+      "passed": true,
+      "ms": 3.95
+    },
+    {
+      "id": "term:lidong",
+      "group": "24_term_catalog",
+      "kind": "tool",
+      "actualTermId": "lidong",
+      "tool": "get_solar_term_info",
+      "passed": true,
+      "ms": 3.99
+    },
+    {
+      "id": "term:xiaoxue",
+      "group": "24_term_catalog",
+      "kind": "tool",
+      "actualTermId": "xiaoxue",
+      "tool": "get_solar_term_info",
+      "passed": true,
+      "ms": 2.87
+    },
+    {
+      "id": "term:daxue",
+      "group": "24_term_catalog",
+      "kind": "tool",
+      "actualTermId": "daxue",
+      "tool": "get_solar_term_info",
+      "passed": true,
+      "ms": 3.71
+    },
+    {
+      "id": "term:dongzhi",
+      "group": "24_term_catalog",
+      "kind": "tool",
+      "actualTermId": "dongzhi",
+      "tool": "get_solar_term_info",
+      "passed": true,
+      "ms": 4.36
+    },
+    {
+      "id": "term:xiaohan",
+      "group": "24_term_catalog",
+      "kind": "tool",
+      "actualTermId": "xiaohan",
+      "tool": "get_solar_term_info",
+      "passed": true,
+      "ms": 4.09
+    },
+    {
+      "id": "term:dahan",
+      "group": "24_term_catalog",
+      "kind": "tool",
+      "actualTermId": "dahan",
+      "tool": "get_solar_term_info",
+      "passed": true,
+      "ms": 4.02
+    },
+    {
+      "id": "exact:anhua-leicha-tea",
+      "group": "exact_case_titles",
+      "kind": "retrieval",
+      "expectedIds": [
+        "anhua-leicha-tea"
+      ],
+      "actualIds": [
+        "anhua-leicha-tea"
+      ],
+      "diagnostics": {
+        "strategy": "exact_title",
+        "solarTermIds": [
+          "guyu"
+        ],
+        "provinceCodes": [
+          "430000"
+        ],
+        "regions": [],
+        "normalizedTerms": [
+          "安化",
+          "采茶打擂茶"
+        ],
+        "matchedAliases": [],
+        "candidateCount": 1,
+        "matchedCount": 1,
+        "matchedIds": [
+          "anhua-leicha-tea"
+        ],
+        "scores": [
+          {
+            "caseId": "anhua-leicha-tea",
+            "score": 1008,
+            "matchedFields": [
+              "title"
+            ]
+          }
+        ]
+      },
+      "passed": true,
+      "ms": 2.85
+    },
+    {
+      "id": "exact:anren-chunfen-spring-fair",
+      "group": "exact_case_titles",
+      "kind": "retrieval",
+      "expectedIds": [
+        "anren-chunfen-spring-fair"
+      ],
+      "actualIds": [
+        "anren-chunfen-spring-fair"
+      ],
+      "diagnostics": {
+        "strategy": "exact_title",
+        "solarTermIds": [
+          "chunfen"
+        ],
+        "provinceCodes": [
+          "430000"
+        ],
+        "regions": [],
+        "normalizedTerms": [
+          "安仁",
+          "分社"
+        ],
+        "matchedAliases": [],
+        "candidateCount": 2,
+        "matchedCount": 1,
+        "matchedIds": [
+          "anren-chunfen-spring-fair"
+        ],
+        "scores": [
+          {
+            "caseId": "anren-chunfen-spring-fair",
+            "score": 1008,
+            "matchedFields": [
+              "title"
+            ]
+          }
+        ]
+      },
+      "passed": true,
+      "ms": 1.82
+    },
+    {
+      "id": "exact:baishui-cangjie-rites",
+      "group": "exact_case_titles",
+      "kind": "retrieval",
+      "expectedIds": [
+        "baishui-cangjie-rites"
+      ],
+      "actualIds": [
+        "baishui-cangjie-rites"
+      ],
+      "diagnostics": {
+        "strategy": "exact_title",
+        "solarTermIds": [
+          "guyu"
+        ],
+        "provinceCodes": [
+          "610000"
+        ],
+        "regions": [],
+        "normalizedTerms": [
+          "白水",
+          "仓颉"
+        ],
+        "matchedAliases": [],
+        "candidateCount": 1,
+        "matchedCount": 1,
+        "matchedIds": [
+          "baishui-cangjie-rites"
+        ],
+        "scores": [
+          {
+            "caseId": "baishui-cangjie-rites",
+            "score": 1008,
+            "matchedFields": [
+              "title"
+            ]
+          }
+        ]
+      },
+      "passed": true,
+      "ms": 1.48
+    },
+    {
+      "id": "exact:beijing-chunfen-sun-cakes",
+      "group": "exact_case_titles",
+      "kind": "retrieval",
+      "expectedIds": [
+        "beijing-chunfen-sun-cakes"
+      ],
+      "actualIds": [
+        "beijing-chunfen-sun-cakes"
+      ],
+      "diagnostics": {
+        "strategy": "exact_title",
+        "solarTermIds": [
+          "chunfen"
+        ],
+        "provinceCodes": [
+          "110000"
+        ],
+        "regions": [],
+        "normalizedTerms": [
+          "太阳"
+        ],
+        "matchedAliases": [],
+        "candidateCount": 2,
+        "matchedCount": 1,
+        "matchedIds": [
+          "beijing-chunfen-sun-cakes"
+        ],
+        "scores": [
+          {
+            "caseId": "beijing-chunfen-sun-cakes",
+            "score": 1004,
+            "matchedFields": [
+              "title"
+            ]
+          }
+        ]
+      },
+      "passed": true,
+      "ms": 1.32
+    },
+    {
+      "id": "exact:beijing-dahan-cold-dispelling-cakes",
+      "group": "exact_case_titles",
+      "kind": "retrieval",
+      "expectedIds": [
+        "beijing-dahan-cold-dispelling-cakes"
+      ],
+      "actualIds": [
+        "beijing-dahan-cold-dispelling-cakes"
+      ],
+      "diagnostics": {
+        "strategy": "exact_title",
+        "solarTermIds": [
+          "dahan"
+        ],
+        "provinceCodes": [
+          "110000"
+        ],
+        "regions": [],
+        "normalizedTerms": [
+          "吃消寒糕"
+        ],
+        "matchedAliases": [],
+        "candidateCount": 1,
+        "matchedCount": 1,
+        "matchedIds": [
+          "beijing-dahan-cold-dispelling-cakes"
+        ],
+        "scores": [
+          {
+            "caseId": "beijing-dahan-cold-dispelling-cakes",
+            "score": 1004,
+            "matchedFields": [
+              "title"
+            ]
+          }
+        ]
+      },
+      "passed": true,
+      "ms": 1.23
+    },
+    {
+      "id": "exact:beijing-dongzhi-nine-nine-chart",
+      "group": "exact_case_titles",
+      "kind": "retrieval",
+      "expectedIds": [
+        "beijing-dongzhi-nine-nine-chart"
+      ],
+      "actualIds": [
+        "beijing-dongzhi-nine-nine-chart"
+      ],
+      "diagnostics": {
+        "strategy": "exact_title",
+        "solarTermIds": [
+          "dongzhi"
+        ],
+        "provinceCodes": [
+          "110000"
+        ],
+        "regions": [],
+        "normalizedTerms": [
+          "九九",
+          "消寒图"
+        ],
+        "matchedAliases": [
+          "数九图",
+          "画九",
+          "消寒图"
+        ],
+        "candidateCount": 2,
+        "matchedCount": 1,
+        "matchedIds": [
+          "beijing-dongzhi-nine-nine-chart"
+        ],
+        "scores": [
+          {
+            "caseId": "beijing-dongzhi-nine-nine-chart",
+            "score": 1048,
+            "matchedFields": [
+              "title",
+              "alias"
+            ]
+          }
+        ]
+      },
+      "passed": true,
+      "ms": 1.68
+    },
+    {
+      "id": "exact:beijing-dongzhi-temple-of-heaven",
+      "group": "exact_case_titles",
+      "kind": "retrieval",
+      "expectedIds": [
+        "beijing-dongzhi-temple-of-heaven"
+      ],
+      "actualIds": [
+        "beijing-dongzhi-temple-of-heaven"
+      ],
+      "diagnostics": {
+        "strategy": "exact_title",
+        "solarTermIds": [
+          "dongzhi"
+        ],
+        "provinceCodes": [
+          "110000"
+        ],
+        "regions": [],
+        "normalizedTerms": [
+          "天坛",
+          "祭天"
+        ],
+        "matchedAliases": [],
+        "candidateCount": 2,
+        "matchedCount": 1,
+        "matchedIds": [
+          "beijing-dongzhi-temple-of-heaven"
+        ],
+        "scores": [
+          {
+            "caseId": "beijing-dongzhi-temple-of-heaven",
+            "score": 1008,
+            "matchedFields": [
+              "title"
+            ]
+          }
+        ]
+      },
+      "passed": true,
+      "ms": 2.09
+    },
+    {
+      "id": "exact:beijing-hanlu-fragrant-hills",
+      "group": "exact_case_titles",
+      "kind": "retrieval",
+      "expectedIds": [
+        "beijing-hanlu-fragrant-hills"
+      ],
+      "actualIds": [
+        "beijing-hanlu-fragrant-hills"
+      ],
+      "diagnostics": {
+        "strategy": "exact_title",
+        "solarTermIds": [
+          "hanlu"
+        ],
+        "provinceCodes": [
+          "110000"
+        ],
+        "regions": [],
+        "normalizedTerms": [
+          "香山",
+          "登高",
+          "红叶"
+        ],
+        "matchedAliases": [],
+        "candidateCount": 2,
+        "matchedCount": 1,
+        "matchedIds": [
+          "beijing-hanlu-fragrant-hills"
+        ],
+        "scores": [
+          {
+            "caseId": "beijing-hanlu-fragrant-hills",
+            "score": 1012,
+            "matchedFields": [
+              "title"
+            ]
+          }
+        ]
+      },
+      "passed": true,
+      "ms": 1.49
+    },
+    {
+      "id": "exact:beijing-kangling-spring-pancakes",
+      "group": "exact_case_titles",
+      "kind": "retrieval",
+      "expectedIds": [
+        "beijing-kangling-spring-pancakes"
+      ],
+      "actualIds": [
+        "beijing-kangling-spring-pancakes"
+      ],
+      "diagnostics": {
+        "strategy": "exact_title",
+        "solarTermIds": [
+          "lichun"
+        ],
+        "provinceCodes": [
+          "110000"
+        ],
+        "regions": [],
+        "normalizedTerms": [
+          "昌平",
+          "康陵村",
+          "正德",
+          "春饼宴",
+          "咬春"
+        ],
+        "matchedAliases": [],
+        "candidateCount": 1,
+        "matchedCount": 1,
+        "matchedIds": [
+          "beijing-kangling-spring-pancakes"
+        ],
+        "scores": [
+          {
+            "caseId": "beijing-kangling-spring-pancakes",
+            "score": 1020,
+            "matchedFields": [
+              "title"
+            ]
+          }
+        ]
+      },
+      "passed": true,
+      "ms": 5.13
+    },
+    {
+      "id": "exact:beijing-lidong-dumplings",
+      "group": "exact_case_titles",
+      "kind": "retrieval",
+      "expectedIds": [
+        "beijing-lidong-dumplings"
+      ],
+      "actualIds": [
+        "beijing-lidong-dumplings"
+      ],
+      "diagnostics": {
+        "strategy": "exact_title",
+        "solarTermIds": [
+          "lidong"
+        ],
+        "provinceCodes": [
+          "110000"
+        ],
+        "regions": [],
+        "normalizedTerms": [
+          "饺子"
+        ],
+        "matchedAliases": [],
+        "candidateCount": 1,
+        "matchedCount": 1,
+        "matchedIds": [
+          "beijing-lidong-dumplings"
+        ],
+        "scores": [
+          {
+            "caseId": "beijing-lidong-dumplings",
+            "score": 1004,
+            "matchedFields": [
+              "title"
+            ]
+          }
+        ]
+      },
+      "passed": true,
+      "ms": 1.9
+    },
+    {
+      "id": "exact:beijing-liqiu-autumn-meat",
+      "group": "exact_case_titles",
+      "kind": "retrieval",
+      "expectedIds": [
+        "beijing-liqiu-autumn-meat"
+      ],
+      "actualIds": [
+        "beijing-liqiu-autumn-meat"
+      ],
+      "diagnostics": {
+        "strategy": "exact_title",
+        "solarTermIds": [
+          "liqiu"
+        ],
+        "provinceCodes": [
+          "110000"
+        ],
+        "regions": [],
+        "normalizedTerms": [
+          "贴秋膘"
+        ],
+        "matchedAliases": [],
+        "candidateCount": 1,
+        "matchedCount": 1,
+        "matchedIds": [
+          "beijing-liqiu-autumn-meat"
+        ],
+        "scores": [
+          {
+            "caseId": "beijing-liqiu-autumn-meat",
+            "score": 1004,
+            "matchedFields": [
+              "title"
+            ]
+          }
+        ]
+      },
+      "passed": true,
+      "ms": 1.59
+    },
+    {
+      "id": "exact:beijing-ritan-sun-rites",
+      "group": "exact_case_titles",
+      "kind": "retrieval",
+      "expectedIds": [
+        "beijing-ritan-sun-rites"
+      ],
+      "actualIds": [
+        "beijing-ritan-sun-rites"
+      ],
+      "diagnostics": {
+        "strategy": "exact_title",
+        "solarTermIds": [
+          "chunfen"
+        ],
+        "provinceCodes": [
+          "110000"
+        ],
+        "regions": [],
+        "normalizedTerms": [
+          "日坛",
+          "祭日"
+        ],
+        "matchedAliases": [],
+        "candidateCount": 2,
+        "matchedCount": 1,
+        "matchedIds": [
+          "beijing-ritan-sun-rites"
+        ],
+        "scores": [
+          {
+            "caseId": "beijing-ritan-sun-rites",
+            "score": 1008,
+            "matchedFields": [
+              "title"
+            ]
+          }
+        ]
+      },
+      "passed": true,
+      "ms": 1.41
+    },
+    {
+      "id": "exact:beijing-sesame-pastries",
+      "group": "exact_case_titles",
+      "kind": "retrieval",
+      "expectedIds": [
+        "beijing-sesame-pastries"
+      ],
+      "actualIds": [
+        "beijing-sesame-pastries"
+      ],
+      "diagnostics": {
+        "strategy": "exact_title",
+        "solarTermIds": [
+          "hanlu"
+        ],
+        "provinceCodes": [
+          "110000"
+        ],
+        "regions": [],
+        "normalizedTerms": [
+          "芝麻"
+        ],
+        "matchedAliases": [],
+        "candidateCount": 2,
+        "matchedCount": 1,
+        "matchedIds": [
+          "beijing-sesame-pastries"
+        ],
+        "scores": [
+          {
+            "caseId": "beijing-sesame-pastries",
+            "score": 1004,
+            "matchedFields": [
+              "title"
+            ]
+          }
+        ]
+      },
+      "passed": true,
+      "ms": 1.19
+    },
+    {
+      "id": "exact:beijing-xiazhi-earth-rites",
+      "group": "exact_case_titles",
+      "kind": "retrieval",
+      "expectedIds": [
+        "beijing-xiazhi-earth-rites"
+      ],
+      "actualIds": [
+        "beijing-xiazhi-earth-rites"
+      ],
+      "diagnostics": {
+        "strategy": "exact_title",
+        "solarTermIds": [
+          "xiazhi"
+        ],
+        "provinceCodes": [
+          "110000"
+        ],
+        "regions": [],
+        "normalizedTerms": [
+          "地坛",
+          "祭地"
+        ],
+        "matchedAliases": [],
+        "candidateCount": 2,
+        "matchedCount": 1,
+        "matchedIds": [
+          "beijing-xiazhi-earth-rites"
+        ],
+        "scores": [
+          {
+            "caseId": "beijing-xiazhi-earth-rites",
+            "score": 1008,
+            "matchedFields": [
+              "title"
+            ]
+          }
+        ]
+      },
+      "passed": true,
+      "ms": 1.12
+    },
+    {
+      "id": "exact:beijing-xiazhi-noodles",
+      "group": "exact_case_titles",
+      "kind": "retrieval",
+      "expectedIds": [
+        "beijing-xiazhi-noodles"
+      ],
+      "actualIds": [
+        "beijing-xiazhi-noodles"
+      ],
+      "diagnostics": {
+        "strategy": "exact_title",
+        "solarTermIds": [
+          "xiazhi"
+        ],
+        "provinceCodes": [
+          "110000"
+        ],
+        "regions": [],
+        "normalizedTerms": [
+          "吃面"
+        ],
+        "matchedAliases": [],
+        "candidateCount": 2,
+        "matchedCount": 1,
+        "matchedIds": [
+          "beijing-xiazhi-noodles"
+        ],
+        "scores": [
+          {
+            "caseId": "beijing-xiazhi-noodles",
+            "score": 1004,
+            "matchedFields": [
+              "title"
+            ]
+          }
+        ]
+      },
+      "passed": true,
+      "ms": 1.14
+    },
+    {
+      "id": "exact:beijing-yuetan-moon-rites",
+      "group": "exact_case_titles",
+      "kind": "retrieval",
+      "expectedIds": [
+        "beijing-yuetan-moon-rites"
+      ],
+      "actualIds": [
+        "beijing-yuetan-moon-rites"
+      ],
+      "diagnostics": {
+        "strategy": "exact_title",
+        "solarTermIds": [
+          "qiufen"
+        ],
+        "provinceCodes": [
+          "110000"
+        ],
+        "regions": [],
+        "normalizedTerms": [
+          "月坛",
+          "祭月"
+        ],
+        "matchedAliases": [],
+        "candidateCount": 1,
+        "matchedCount": 1,
+        "matchedIds": [
+          "beijing-yuetan-moon-rites"
+        ],
+        "scores": [
+          {
+            "caseId": "beijing-yuetan-moon-rites",
+            "score": 1008,
+            "matchedFields": [
+              "title"
+            ]
+          }
+        ]
+      },
+      "passed": true,
+      "ms": 1.13
+    },
+    {
+      "id": "exact:chagan-dongzhi-winter-fishing",
+      "group": "exact_case_titles",
+      "kind": "retrieval",
+      "expectedIds": [
+        "chagan-dongzhi-winter-fishing"
+      ],
+      "actualIds": [
+        "chagan-dongzhi-winter-fishing"
+      ],
+      "diagnostics": {
+        "strategy": "exact_title",
+        "solarTermIds": [
+          "dongzhi"
+        ],
+        "provinceCodes": [
+          "220000"
+        ],
+        "regions": [],
+        "normalizedTerms": [
+          "松原",
+          "查干淖尔冬捕"
+        ],
+        "matchedAliases": [],
+        "candidateCount": 1,
+        "matchedCount": 1,
+        "matchedIds": [
+          "chagan-dongzhi-winter-fishing"
+        ],
+        "scores": [
+          {
+            "caseId": "chagan-dongzhi-winter-fishing",
+            "score": 1008,
+            "matchedFields": [
+              "title"
+            ]
+          }
+        ]
+      },
+      "passed": true,
+      "ms": 1.23
+    },
+    {
+      "id": "exact:changxing-light-snow-wine",
+      "group": "exact_case_titles",
+      "kind": "retrieval",
+      "expectedIds": [
+        "changxing-light-snow-wine"
+      ],
+      "actualIds": [
+        "changxing-light-snow-wine"
+      ],
+      "diagnostics": {
+        "strategy": "exact_title",
+        "solarTermIds": [
+          "xiaoxue"
+        ],
+        "provinceCodes": [
+          "330000"
+        ],
+        "regions": [],
+        "normalizedTerms": [
+          "长兴"
+        ],
+        "matchedAliases": [],
+        "candidateCount": 1,
+        "matchedCount": 1,
+        "matchedIds": [
+          "changxing-light-snow-wine"
+        ],
+        "scores": [
+          {
+            "caseId": "changxing-light-snow-wine",
+            "score": 1004,
+            "matchedFields": [
+              "title"
+            ]
+          }
+        ]
+      },
+      "passed": true,
+      "ms": 1.91
+    },
+    {
+      "id": "exact:chaoshan-lidong-sugarcane",
+      "group": "exact_case_titles",
+      "kind": "retrieval",
+      "expectedIds": [
+        "chaoshan-lidong-sugarcane"
+      ],
+      "actualIds": [
+        "chaoshan-lidong-sugarcane"
+      ],
+      "diagnostics": {
+        "strategy": "exact_title",
+        "solarTermIds": [
+          "lidong"
+        ],
+        "provinceCodes": [
+          "440000"
+        ],
+        "regions": [],
+        "normalizedTerms": [
+          "潮汕",
+          "食蔗"
+        ],
+        "matchedAliases": [],
+        "candidateCount": 1,
+        "matchedCount": 1,
+        "matchedIds": [
+          "chaoshan-lidong-sugarcane"
+        ],
+        "scores": [
+          {
+            "caseId": "chaoshan-lidong-sugarcane",
+            "score": 1008,
+            "matchedFields": [
+              "title"
+            ]
+          }
+        ]
+      },
+      "passed": true,
+      "ms": 1.4
+    },
+    {
+      "id": "exact:chiayi-xiaoxue-dried-fish",
+      "group": "exact_case_titles",
+      "kind": "retrieval",
+      "expectedIds": [
+        "chiayi-xiaoxue-dried-fish"
+      ],
+      "actualIds": [
+        "chiayi-xiaoxue-dried-fish"
+      ],
+      "diagnostics": {
+        "strategy": "exact_title",
+        "solarTermIds": [
+          "xiaoxue"
+        ],
+        "provinceCodes": [
+          "710000"
+        ],
+        "regions": [],
+        "normalizedTerms": [
+          "嘉义",
+          "布袋",
+          "晒鱼干"
+        ],
+        "matchedAliases": [],
+        "candidateCount": 1,
+        "matchedCount": 1,
+        "matchedIds": [
+          "chiayi-xiaoxue-dried-fish"
+        ],
+        "scores": [
+          {
+            "caseId": "chiayi-xiaoxue-dried-fish",
+            "score": 1012,
+            "matchedFields": [
+              "title"
+            ]
+          }
+        ]
+      },
+      "passed": true,
+      "ms": 1.38
+    },
+    {
+      "id": "exact:dujiangyan-qingming-water-release",
+      "group": "exact_case_titles",
+      "kind": "retrieval",
+      "expectedIds": [
+        "dujiangyan-qingming-water-release"
+      ],
+      "actualIds": [
+        "dujiangyan-qingming-water-release"
+      ],
+      "diagnostics": {
+        "strategy": "exact_title",
+        "solarTermIds": [
+          "qingming"
+        ],
+        "provinceCodes": [
+          "510000"
+        ],
+        "regions": [],
+        "normalizedTerms": [
+          "都江堰",
+          "放水"
+        ],
+        "matchedAliases": [],
+        "candidateCount": 1,
+        "matchedCount": 1,
+        "matchedIds": [
+          "dujiangyan-qingming-water-release"
+        ],
+        "scores": [
+          {
+            "caseId": "dujiangyan-qingming-water-release",
+            "score": 1008,
+            "matchedFields": [
+              "title"
+            ]
+          }
+        ]
+      },
+      "passed": true,
+      "ms": 1.2
+    },
+    {
+      "id": "exact:foshan-dahan-sticky-rice",
+      "group": "exact_case_titles",
+      "kind": "retrieval",
+      "expectedIds": [
+        "foshan-dahan-sticky-rice"
+      ],
+      "actualIds": [
+        "foshan-dahan-sticky-rice"
+      ],
+      "diagnostics": {
+        "strategy": "exact_title",
+        "solarTermIds": [
+          "dahan"
+        ],
+        "provinceCodes": [
+          "440000"
+        ],
+        "regions": [],
+        "normalizedTerms": [
+          "佛山",
+          "糯米"
+        ],
+        "matchedAliases": [],
+        "candidateCount": 1,
+        "matchedCount": 1,
+        "matchedIds": [
+          "foshan-dahan-sticky-rice"
+        ],
+        "scores": [
+          {
+            "caseId": "foshan-dahan-sticky-rice",
+            "score": 1008,
+            "matchedFields": [
+              "title"
+            ]
+          }
+        ]
+      },
+      "passed": true,
+      "ms": 1.17
+    },
+    {
+      "id": "exact:fuping-dried-persimmons",
+      "group": "exact_case_titles",
+      "kind": "retrieval",
+      "expectedIds": [
+        "fuping-dried-persimmons"
+      ],
+      "actualIds": [
+        "fuping-dried-persimmons"
+      ],
+      "diagnostics": {
+        "strategy": "exact_title",
+        "solarTermIds": [
+          "shuangjiang"
+        ],
+        "provinceCodes": [
+          "610000"
+        ],
+        "regions": [],
+        "normalizedTerms": [
+          "富平",
+          "柿子",
+          "柿饼",
+          "制作"
+        ],
+        "matchedAliases": [],
+        "candidateCount": 1,
+        "matchedCount": 1,
+        "matchedIds": [
+          "fuping-dried-persimmons"
+        ],
+        "scores": [
+          {
+            "caseId": "fuping-dried-persimmons",
+            "score": 1016,
+            "matchedFields": [
+              "title"
+            ]
+          }
+        ]
+      },
+      "passed": true,
+      "ms": 1.41
+    },
+    {
+      "id": "exact:fuzhou-longan-and-porridge",
+      "group": "exact_case_titles",
+      "kind": "retrieval",
+      "expectedIds": [
+        "fuzhou-longan-and-porridge"
+      ],
+      "actualIds": [
+        "fuzhou-longan-and-porridge"
+      ],
+      "diagnostics": {
+        "strategy": "exact_title",
+        "solarTermIds": [
+          "bailu"
+        ],
+        "provinceCodes": [
+          "350000"
+        ],
+        "regions": [],
+        "normalizedTerms": [
+          "福州",
+          "龙眼"
+        ],
+        "matchedAliases": [],
+        "candidateCount": 1,
+        "matchedCount": 1,
+        "matchedIds": [
+          "fuzhou-longan-and-porridge"
+        ],
+        "scores": [
+          {
+            "caseId": "fuzhou-longan-and-porridge",
+            "score": 1008,
+            "matchedFields": [
+              "title"
+            ]
+          }
+        ]
+      },
+      "passed": true,
+      "ms": 1.08
+    },
+    {
+      "id": "exact:fuzhou-xiazhi-guobianhu",
+      "group": "exact_case_titles",
+      "kind": "retrieval",
+      "expectedIds": [
+        "fuzhou-xiazhi-guobianhu"
+      ],
+      "actualIds": [
+        "fuzhou-xiazhi-guobianhu"
+      ],
+      "diagnostics": {
+        "strategy": "exact_title",
+        "solarTermIds": [
+          "xiazhi"
+        ],
+        "provinceCodes": [
+          "350000"
+        ],
+        "regions": [],
+        "normalizedTerms": [
+          "福州",
+          "吃锅边糊"
+        ],
+        "matchedAliases": [],
+        "candidateCount": 1,
+        "matchedCount": 1,
+        "matchedIds": [
+          "fuzhou-xiazhi-guobianhu"
+        ],
+        "scores": [
+          {
+            "caseId": "fuzhou-xiazhi-guobianhu",
+            "score": 1008,
+            "matchedFields": [
+              "title"
+            ]
+          }
+        ]
+      },
+      "passed": true,
+      "ms": 1.28
+    },
+    {
+      "id": "exact:gannan-jingzhe-fried-seeds",
+      "group": "exact_case_titles",
+      "kind": "retrieval",
+      "expectedIds": [
+        "gannan-jingzhe-fried-seeds"
+      ],
+      "actualIds": [
+        "gannan-jingzhe-fried-seeds"
+      ],
+      "diagnostics": {
+        "strategy": "exact_title",
+        "solarTermIds": [
+          "jingzhe"
+        ],
+        "provinceCodes": [
+          "360000"
+        ],
+        "regions": [],
+        "normalizedTerms": [
+          "赣南上犹",
+          "崇义",
+          "炒虫"
+        ],
+        "matchedAliases": [],
+        "candidateCount": 1,
+        "matchedCount": 1,
+        "matchedIds": [
+          "gannan-jingzhe-fried-seeds"
+        ],
+        "scores": [
+          {
+            "caseId": "gannan-jingzhe-fried-seeds",
+            "score": 1012,
+            "matchedFields": [
+              "title"
+            ]
+          }
+        ]
+      },
+      "passed": true,
+      "ms": 1.2
+    },
+    {
+      "id": "exact:guangdong-dashu-grass-jelly",
+      "group": "exact_case_titles",
+      "kind": "retrieval",
+      "expectedIds": [
+        "guangdong-dashu-grass-jelly"
+      ],
+      "actualIds": [
+        "guangdong-dashu-grass-jelly"
+      ],
+      "diagnostics": {
+        "strategy": "exact_title",
+        "solarTermIds": [
+          "dashu"
+        ],
+        "provinceCodes": [
+          "440000"
+        ],
+        "regions": [],
+        "normalizedTerms": [
+          "仙草",
+          "凉粉",
+          "仙人"
+        ],
+        "matchedAliases": [],
+        "candidateCount": 1,
+        "matchedCount": 1,
+        "matchedIds": [
+          "guangdong-dashu-grass-jelly"
+        ],
+        "scores": [
+          {
+            "caseId": "guangdong-dashu-grass-jelly",
+            "score": 1012,
+            "matchedFields": [
+              "title"
+            ]
+          }
+        ]
+      },
+      "passed": true,
+      "ms": 1.3
+    },
+    {
+      "id": "exact:guanghan-baobao-festival",
+      "group": "exact_case_titles",
+      "kind": "retrieval",
+      "expectedIds": [
+        "guanghan-baobao-festival"
+      ],
+      "actualIds": [
+        "guanghan-baobao-festival"
+      ],
+      "diagnostics": {
+        "strategy": "exact_title",
+        "solarTermIds": [
+          "yushui"
+        ],
+        "provinceCodes": [
+          "510000"
+        ],
+        "regions": [],
+        "normalizedTerms": [
+          "广汉",
+          "保保节",
+          "前后"
+        ],
+        "matchedAliases": [],
+        "candidateCount": 2,
+        "matchedCount": 1,
+        "matchedIds": [
+          "guanghan-baobao-festival"
+        ],
+        "scores": [
+          {
+            "caseId": "guanghan-baobao-festival",
+            "score": 1012,
+            "matchedFields": [
+              "title"
+            ]
+          }
+        ]
+      },
+      "passed": true,
+      "ms": 1.4
+    },
+    {
+      "id": "exact:guangzhou-chushu-herbal-tea",
+      "group": "exact_case_titles",
+      "kind": "retrieval",
+      "expectedIds": [
+        "guangzhou-chushu-herbal-tea"
+      ],
+      "actualIds": [
+        "guangzhou-chushu-herbal-tea"
+      ],
+      "diagnostics": {
+        "strategy": "exact_title",
+        "solarTermIds": [
+          "chushu"
+        ],
+        "provinceCodes": [
+          "440000"
+        ],
+        "regions": [],
+        "normalizedTerms": [
+          "广州",
+          "喝凉茶",
+          "药茶"
+        ],
+        "matchedAliases": [],
+        "candidateCount": 1,
+        "matchedCount": 1,
+        "matchedIds": [
+          "guangzhou-chushu-herbal-tea"
+        ],
+        "scores": [
+          {
+            "caseId": "guangzhou-chushu-herbal-tea",
+            "score": 1012,
+            "matchedFields": [
+              "title"
+            ]
+          }
+        ]
+      },
+      "passed": true,
+      "ms": 1.22
+    },
+    {
+      "id": "exact:guangzhou-sticky-rice-breakfast",
+      "group": "exact_case_titles",
+      "kind": "retrieval",
+      "expectedIds": [
+        "guangzhou-sticky-rice-breakfast"
+      ],
+      "actualIds": [
+        "guangzhou-sticky-rice-breakfast"
+      ],
+      "diagnostics": {
+        "strategy": "exact_title",
+        "solarTermIds": [
+          "xiaohan"
+        ],
+        "provinceCodes": [
+          "440000"
+        ],
+        "regions": [],
+        "normalizedTerms": [
+          "广州",
+          "糯米"
+        ],
+        "matchedAliases": [],
+        "candidateCount": 1,
+        "matchedCount": 1,
+        "matchedIds": [
+          "guangzhou-sticky-rice-breakfast"
+        ],
+        "scores": [
+          {
+            "caseId": "guangzhou-sticky-rice-breakfast",
+            "score": 1008,
+            "matchedFields": [
+              "title"
+            ]
+          }
+        ]
+      },
+      "passed": true,
+      "ms": 1.43
+    },
+    {
+      "id": "exact:guanzhong-xiaoman-wheat-visits",
+      "group": "exact_case_titles",
+      "kind": "retrieval",
+      "expectedIds": [
+        "guanzhong-xiaoman-wheat-visits"
+      ],
+      "actualIds": [
+        "guanzhong-xiaoman-wheat-visits"
+      ],
+      "diagnostics": {
+        "strategy": "exact_title",
+        "solarTermIds": [
+          "xiaoman"
+        ],
+        "provinceCodes": [
+          "610000"
+        ],
+        "regions": [],
+        "normalizedTerms": [
+          "关中",
+          "看麦梢黄"
+        ],
+        "matchedAliases": [],
+        "candidateCount": 1,
+        "matchedCount": 1,
+        "matchedIds": [
+          "guanzhong-xiaoman-wheat-visits"
+        ],
+        "scores": [
+          {
+            "caseId": "guanzhong-xiaoman-wheat-visits",
+            "score": 1008,
+            "matchedFields": [
+              "title"
+            ]
+          }
+        ]
+      },
+      "passed": true,
+      "ms": 1.66
+    },
+    {
+      "id": "exact:haikou-lichun-museum-night",
+      "group": "exact_case_titles",
+      "kind": "retrieval",
+      "expectedIds": [
+        "haikou-lichun-museum-night"
+      ],
+      "actualIds": [
+        "haikou-lichun-museum-night"
+      ],
+      "diagnostics": {
+        "strategy": "exact_title",
+        "solarTermIds": [
+          "lichun"
+        ],
+        "provinceCodes": [
+          "460000"
+        ],
+        "regions": [],
+        "normalizedTerms": [
+          "海口",
+          "博物",
+          "夜游"
+        ],
+        "matchedAliases": [],
+        "candidateCount": 1,
+        "matchedCount": 1,
+        "matchedIds": [
+          "haikou-lichun-museum-night"
+        ],
+        "scores": [
+          {
+            "caseId": "haikou-lichun-museum-night",
+            "score": 1012,
+            "matchedFields": [
+              "title"
+            ]
+          }
+        ]
+      },
+      "passed": true,
+      "ms": 1.69
+    },
+    {
+      "id": "exact:haining-waterwheel-irrigation",
+      "group": "exact_case_titles",
+      "kind": "retrieval",
+      "expectedIds": [
+        "haining-waterwheel-irrigation"
+      ],
+      "actualIds": [
+        "haining-waterwheel-irrigation"
+      ],
+      "diagnostics": {
+        "strategy": "exact_title",
+        "solarTermIds": [
+          "xiaoman"
+        ],
+        "provinceCodes": [
+          "330000"
+        ],
+        "regions": [],
+        "normalizedTerms": [
+          "海宁",
+          "抢水"
+        ],
+        "matchedAliases": [],
+        "candidateCount": 1,
+        "matchedCount": 1,
+        "matchedIds": [
+          "haining-waterwheel-irrigation"
+        ],
+        "scores": [
+          {
+            "caseId": "haining-waterwheel-irrigation",
+            "score": 1008,
+            "matchedFields": [
+              "title"
+            ]
+          }
+        ]
+      },
+      "passed": true,
+      "ms": 1.29
+    },
+    {
+      "id": "exact:hangzhou-banshan-summer-rites",
+      "group": "exact_case_titles",
+      "kind": "retrieval",
+      "expectedIds": [
+        "hangzhou-banshan-summer-rites"
+      ],
+      "actualIds": [
+        "hangzhou-banshan-summer-rites"
+      ],
+      "diagnostics": {
+        "strategy": "exact_title",
+        "solarTermIds": [
+          "lixia"
+        ],
+        "provinceCodes": [
+          "330000"
+        ],
+        "regions": [],
+        "normalizedTerms": [
+          "杭州",
+          "半山"
+        ],
+        "matchedAliases": [],
+        "candidateCount": 2,
+        "matchedCount": 1,
+        "matchedIds": [
+          "hangzhou-banshan-summer-rites"
+        ],
+        "scores": [
+          {
+            "caseId": "hangzhou-banshan-summer-rites",
+            "score": 1008,
+            "matchedFields": [
+              "title"
+            ]
+          }
+        ]
+      },
+      "passed": true,
+      "ms": 1.1
+    },
+    {
+      "id": "exact:hangzhou-dark-glutinous-rice",
+      "group": "exact_case_titles",
+      "kind": "retrieval",
+      "expectedIds": [
+        "hangzhou-dark-glutinous-rice"
+      ],
+      "actualIds": [
+        "hangzhou-dark-glutinous-rice"
+      ],
+      "diagnostics": {
+        "strategy": "exact_title",
+        "solarTermIds": [
+          "lixia"
+        ],
+        "provinceCodes": [
+          "330000"
+        ],
+        "regions": [],
+        "category": "food",
+        "normalizedTerms": [
+          "杭州",
+          "米饭"
+        ],
+        "matchedAliases": [],
+        "candidateCount": 1,
+        "matchedCount": 1,
+        "matchedIds": [
+          "hangzhou-dark-glutinous-rice"
+        ],
+        "scores": [
+          {
+            "caseId": "hangzhou-dark-glutinous-rice",
+            "score": 1008,
+            "matchedFields": [
+              "title"
+            ]
+          }
+        ]
+      },
+      "passed": true,
+      "ms": 1.94
+    },
+    {
+      "id": "exact:hefeng-guyu-wuli-tea-harvest",
+      "group": "exact_case_titles",
+      "kind": "retrieval",
+      "expectedIds": [
+        "hefeng-guyu-wuli-tea-harvest"
+      ],
+      "actualIds": [
+        "hefeng-guyu-wuli-tea-harvest"
+      ],
+      "diagnostics": {
+        "strategy": "exact_title",
+        "solarTermIds": [
+          "guyu"
+        ],
+        "provinceCodes": [
+          "420000"
+        ],
+        "regions": [],
+        "normalizedTerms": [
+          "鹤峰",
+          "五里",
+          "采茶"
+        ],
+        "matchedAliases": [],
+        "candidateCount": 1,
+        "matchedCount": 1,
+        "matchedIds": [
+          "hefeng-guyu-wuli-tea-harvest"
+        ],
+        "scores": [
+          {
+            "caseId": "hefeng-guyu-wuli-tea-harvest",
+            "score": 1012,
+            "matchedFields": [
+              "title"
+            ]
+          }
+        ]
+      },
+      "passed": true,
+      "ms": 1.33
+    },
+    {
+      "id": "exact:hong-kong-ngo-keng-kiu-ritual",
+      "group": "exact_case_titles",
+      "kind": "retrieval",
+      "expectedIds": [
+        "hong-kong-ngo-keng-kiu-ritual"
+      ],
+      "actualIds": [
+        "hong-kong-ngo-keng-kiu-ritual"
+      ],
+      "diagnostics": {
+        "strategy": "exact_title",
+        "solarTermIds": [
+          "jingzhe"
+        ],
+        "provinceCodes": [
+          "810000"
+        ],
+        "regions": [],
+        "normalizedTerms": [
+          "鹅颈桥",
+          "小人"
+        ],
+        "matchedAliases": [],
+        "candidateCount": 1,
+        "matchedCount": 1,
+        "matchedIds": [
+          "hong-kong-ngo-keng-kiu-ritual"
+        ],
+        "scores": [
+          {
+            "caseId": "hong-kong-ngo-keng-kiu-ritual",
+            "score": 1008,
+            "matchedFields": [
+              "title"
+            ]
+          }
+        ]
+      },
+      "passed": true,
+      "ms": 1.28
+    },
+    {
+      "id": "exact:honghe-guyu-kaiyangmen",
+      "group": "exact_case_titles",
+      "kind": "retrieval",
+      "expectedIds": [
+        "honghe-guyu-kaiyangmen"
+      ],
+      "actualIds": [
+        "honghe-guyu-kaiyangmen"
+      ],
+      "diagnostics": {
+        "strategy": "exact_title",
+        "solarTermIds": [
+          "guyu"
+        ],
+        "provinceCodes": [
+          "530000"
+        ],
+        "regions": [],
+        "normalizedTerms": [
+          "红河",
+          "县哈尼",
+          "梯田",
+          "开秧门"
+        ],
+        "matchedAliases": [],
+        "candidateCount": 1,
+        "matchedCount": 1,
+        "matchedIds": [
+          "honghe-guyu-kaiyangmen"
+        ],
+        "scores": [
+          {
+            "caseId": "honghe-guyu-kaiyangmen",
+            "score": 1016,
+            "matchedFields": [
+              "title"
+            ]
+          }
+        ]
+      },
+      "passed": true,
+      "ms": 1.42
+    },
+    {
+      "id": "exact:hongjiang-chunfen-egg-standing",
+      "group": "exact_case_titles",
+      "kind": "retrieval",
+      "expectedIds": [
+        "hongjiang-chunfen-egg-standing"
+      ],
+      "actualIds": [
+        "hongjiang-chunfen-egg-standing"
+      ],
+      "diagnostics": {
+        "strategy": "exact_title",
+        "solarTermIds": [
+          "chunfen"
+        ],
+        "provinceCodes": [
+          "430000"
+        ],
+        "regions": [],
+        "normalizedTerms": [
+          "洪江",
+          "竖蛋"
+        ],
+        "matchedAliases": [],
+        "candidateCount": 2,
+        "matchedCount": 1,
+        "matchedIds": [
+          "hongjiang-chunfen-egg-standing"
+        ],
+        "scores": [
+          {
+            "caseId": "hongjiang-chunfen-egg-standing",
+            "score": 1008,
+            "matchedFields": [
+              "title"
+            ]
+          }
+        ]
+      },
+      "passed": true,
+      "ms": 1.26
+    },
+    {
+      "id": "exact:huaian-changyu-feast",
+      "group": "exact_case_titles",
+      "kind": "retrieval",
+      "expectedIds": [
+        "huaian-changyu-feast"
+      ],
+      "actualIds": [
+        "huaian-changyu-feast"
+      ],
+      "diagnostics": {
+        "strategy": "exact_title",
+        "solarTermIds": [
+          "xiaoshu"
+        ],
+        "provinceCodes": [
+          "320000"
+        ],
+        "regions": [],
+        "normalizedTerms": [
+          "淮安",
+          "吃黄鳝"
+        ],
+        "matchedAliases": [],
+        "candidateCount": 3,
+        "matchedCount": 1,
+        "matchedIds": [
+          "huaian-changyu-feast"
+        ],
+        "scores": [
+          {
+            "caseId": "huaian-changyu-feast",
+            "score": 1008,
+            "matchedFields": [
+              "title"
+            ]
+          }
+        ]
+      },
+      "passed": true,
+      "ms": 1.29
+    },
+    {
+      "id": "exact:hualong-qiufen-highland-barley",
+      "group": "exact_case_titles",
+      "kind": "retrieval",
+      "expectedIds": [
+        "hualong-qiufen-highland-barley"
+      ],
+      "actualIds": [
+        "hualong-qiufen-highland-barley"
+      ],
+      "diagnostics": {
+        "strategy": "exact_title",
+        "solarTermIds": [
+          "qiufen"
+        ],
+        "provinceCodes": [
+          "630000"
+        ],
+        "regions": [],
+        "normalizedTerms": [
+          "化隆上滩村",
+          "前后",
+          "青稞"
+        ],
+        "matchedAliases": [],
+        "candidateCount": 1,
+        "matchedCount": 1,
+        "matchedIds": [
+          "hualong-qiufen-highland-barley"
+        ],
+        "scores": [
+          {
+            "caseId": "hualong-qiufen-highland-barley",
+            "score": 1012,
+            "matchedFields": [
+              "title"
+            ]
+          }
+        ]
+      },
+      "passed": true,
+      "ms": 1.94
+    },
+    {
+      "id": "exact:huangling-harvest-drying",
+      "group": "exact_case_titles",
+      "kind": "retrieval",
+      "expectedIds": [
+        "huangling-harvest-drying"
+      ],
+      "actualIds": [
+        "huangling-harvest-drying"
+      ],
+      "diagnostics": {
+        "strategy": "exact_title",
+        "solarTermIds": [
+          "liqiu"
+        ],
+        "provinceCodes": [
+          "360000"
+        ],
+        "regions": [],
+        "normalizedTerms": [
+          "婺源篁岭",
+          "晒秋"
+        ],
+        "matchedAliases": [],
+        "candidateCount": 1,
+        "matchedCount": 1,
+        "matchedIds": [
+          "huangling-harvest-drying"
+        ],
+        "scores": [
+          {
+            "caseId": "huangling-harvest-drying",
+            "score": 1008,
+            "matchedFields": [
+              "title"
+            ]
+          }
+        ]
+      },
+      "passed": true,
+      "ms": 2.14
+    },
+    {
+      "id": "exact:jiangnan-mangzhong-flower-farewell",
+      "group": "exact_case_titles",
+      "kind": "retrieval",
+      "expectedIds": [
+        "jiangnan-mangzhong-flower-farewell"
+      ],
+      "actualIds": [
+        "jiangnan-mangzhong-flower-farewell"
+      ],
+      "diagnostics": {
+        "strategy": "exact_title",
+        "solarTermIds": [
+          "mangzhong"
+        ],
+        "provinceCodes": [
+          "320000",
+          "330000"
+        ],
+        "regions": [],
+        "normalizedTerms": [
+          "江南",
+          "送花"
+        ],
+        "matchedAliases": [],
+        "candidateCount": 2,
+        "matchedCount": 1,
+        "matchedIds": [
+          "jiangnan-mangzhong-flower-farewell"
+        ],
+        "scores": [
+          {
+            "caseId": "jiangnan-mangzhong-flower-farewell",
+            "score": 1008,
+            "matchedFields": [
+              "title"
+            ]
+          }
+        ]
+      },
+      "passed": true,
+      "ms": 1.41
+    },
+    {
+      "id": "exact:jiaojiang-summer-boat",
+      "group": "exact_case_titles",
+      "kind": "retrieval",
+      "expectedIds": [
+        "jiaojiang-summer-boat"
+      ],
+      "actualIds": [
+        "jiaojiang-summer-boat"
+      ],
+      "diagnostics": {
+        "strategy": "exact_title",
+        "solarTermIds": [
+          "dashu"
+        ],
+        "provinceCodes": [
+          "330000"
+        ],
+        "regions": [],
+        "normalizedTerms": [
+          "台州",
+          "椒江葭沚"
+        ],
+        "matchedAliases": [],
+        "candidateCount": 1,
+        "matchedCount": 1,
+        "matchedIds": [
+          "jiaojiang-summer-boat"
+        ],
+        "scores": [
+          {
+            "caseId": "jiaojiang-summer-boat",
+            "score": 1008,
+            "matchedFields": [
+              "title"
+            ]
+          }
+        ]
+      },
+      "passed": true,
+      "ms": 1.25
+    },
+    {
+      "id": "exact:jiexiu-qingming-hanshi",
+      "group": "exact_case_titles",
+      "kind": "retrieval",
+      "expectedIds": [
+        "jiexiu-qingming-hanshi"
+      ],
+      "actualIds": [
+        "jiexiu-qingming-hanshi"
+      ],
+      "diagnostics": {
+        "strategy": "exact_title",
+        "solarTermIds": [
+          "qingming"
+        ],
+        "provinceCodes": [
+          "140000"
+        ],
+        "regions": [],
+        "normalizedTerms": [
+          "介休",
+          "寒食"
+        ],
+        "matchedAliases": [],
+        "candidateCount": 1,
+        "matchedCount": 1,
+        "matchedIds": [
+          "jiexiu-qingming-hanshi"
+        ],
+        "scores": [
+          {
+            "caseId": "jiexiu-qingming-hanshi",
+            "score": 1008,
+            "matchedFields": [
+              "title"
+            ]
+          }
+        ]
+      },
+      "passed": true,
+      "ms": 1.32
+    },
+    {
+      "id": "exact:jixi-anmiao-festival",
+      "group": "exact_case_titles",
+      "kind": "retrieval",
+      "expectedIds": [
+        "jixi-anmiao-festival"
+      ],
+      "actualIds": [
+        "jixi-anmiao-festival"
+      ],
+      "diagnostics": {
+        "strategy": "exact_title",
+        "solarTermIds": [
+          "mangzhong"
+        ],
+        "provinceCodes": [
+          "340000"
+        ],
+        "regions": [],
+        "normalizedTerms": [
+          "绩溪",
+          "安苗节"
+        ],
+        "matchedAliases": [],
+        "candidateCount": 1,
+        "matchedCount": 1,
+        "matchedIds": [
+          "jixi-anmiao-festival"
+        ],
+        "scores": [
+          {
+            "caseId": "jixi-anmiao-festival",
+            "score": 1008,
+            "matchedFields": [
+              "title"
+            ]
+          }
+        ]
+      },
+      "passed": true,
+      "ms": 1.06
+    },
+    {
+      "id": "exact:lhasa-najin-qiufen-barley-celebration",
+      "group": "exact_case_titles",
+      "kind": "retrieval",
+      "expectedIds": [
+        "lhasa-najin-qiufen-barley-celebration"
+      ],
+      "actualIds": [
+        "lhasa-najin-qiufen-barley-celebration"
+      ],
+      "diagnostics": {
+        "strategy": "exact_title",
+        "solarTermIds": [
+          "qiufen"
+        ],
+        "provinceCodes": [
+          "540000"
+        ],
+        "regions": [],
+        "normalizedTerms": [
+          "拉萨",
+          "纳金",
+          "青稞",
+          "丰收"
+        ],
+        "matchedAliases": [],
+        "candidateCount": 1,
+        "matchedCount": 1,
+        "matchedIds": [
+          "lhasa-najin-qiufen-barley-celebration"
+        ],
+        "scores": [
+          {
+            "caseId": "lhasa-najin-qiufen-barley-celebration",
+            "score": 1016,
+            "matchedFields": [
+              "title"
+            ]
+          }
+        ]
+      },
+      "passed": true,
+      "ms": 1.38
+    },
+    {
+      "id": "exact:lingnan-qiufen-autumn-soup",
+      "group": "exact_case_titles",
+      "kind": "retrieval",
+      "expectedIds": [
+        "lingnan-qiufen-autumn-soup"
+      ],
+      "actualIds": [
+        "lingnan-qiufen-autumn-soup"
+      ],
+      "diagnostics": {
+        "strategy": "exact_title",
+        "solarTermIds": [
+          "qiufen"
+        ],
+        "provinceCodes": [
+          "440000"
+        ],
+        "regions": [],
+        "normalizedTerms": [
+          "开平",
+          "苍城",
+          "秋菜",
+          "秋汤"
+        ],
+        "matchedAliases": [],
+        "candidateCount": 1,
+        "matchedCount": 1,
+        "matchedIds": [
+          "lingnan-qiufen-autumn-soup"
+        ],
+        "scores": [
+          {
+            "caseId": "lingnan-qiufen-autumn-soup",
+            "score": 1016,
+            "matchedFields": [
+              "title"
+            ]
+          }
+        ]
+      },
+      "passed": true,
+      "ms": 1.39
+    },
+    {
+      "id": "exact:longshan-tujia-paotang",
+      "group": "exact_case_titles",
+      "kind": "retrieval",
+      "expectedIds": [
+        "longshan-tujia-paotang"
+      ],
+      "actualIds": [
+        "longshan-tujia-paotang"
+      ],
+      "diagnostics": {
+        "strategy": "exact_title",
+        "solarTermIds": [
+          "xiaoxue"
+        ],
+        "provinceCodes": [
+          "430000"
+        ],
+        "regions": [],
+        "normalizedTerms": [
+          "湘西",
+          "龙山",
+          "家族",
+          "吃刨汤"
+        ],
+        "matchedAliases": [],
+        "candidateCount": 1,
+        "matchedCount": 1,
+        "matchedIds": [
+          "longshan-tujia-paotang"
+        ],
+        "scores": [
+          {
+            "caseId": "longshan-tujia-paotang",
+            "score": 1016,
+            "matchedFields": [
+              "title"
+            ]
+          }
+        ]
+      },
+      "passed": true,
+      "ms": 1.29
+    },
+    {
+      "id": "exact:lubei-daxue-sweet-potato-porridge",
+      "group": "exact_case_titles",
+      "kind": "retrieval",
+      "expectedIds": [
+        "lubei-daxue-sweet-potato-porridge"
+      ],
+      "actualIds": [
+        "lubei-daxue-sweet-potato-porridge"
+      ],
+      "diagnostics": {
+        "strategy": "exact_title",
+        "solarTermIds": [
+          "daxue"
+        ],
+        "provinceCodes": [
+          "370000"
+        ],
+        "regions": [],
+        "normalizedTerms": [
+          "鲁北",
+          "碌碡",
+          "顶了",
+          "光喝红黏粥"
+        ],
+        "matchedAliases": [
+          "红黏粥"
+        ],
+        "candidateCount": 1,
+        "matchedCount": 1,
+        "matchedIds": [
+          "lubei-daxue-sweet-potato-porridge"
+        ],
+        "scores": [
+          {
+            "caseId": "lubei-daxue-sweet-potato-porridge",
+            "score": 1056,
+            "matchedFields": [
+              "title",
+              "alias"
+            ]
+          }
+        ]
+      },
+      "passed": true,
+      "ms": 1.5
+    },
+    {
+      "id": "exact:macao-dongzhi-family-reunion",
+      "group": "exact_case_titles",
+      "kind": "retrieval",
+      "expectedIds": [
+        "macao-dongzhi-family-reunion"
+      ],
+      "actualIds": [
+        "macao-dongzhi-family-reunion"
+      ],
+      "diagnostics": {
+        "strategy": "exact_title",
+        "solarTermIds": [
+          "dongzhi"
+        ],
+        "provinceCodes": [
+          "820000"
+        ],
+        "regions": [],
+        "normalizedTerms": [
+          "做冬吃汤圆"
+        ],
+        "matchedAliases": [],
+        "candidateCount": 1,
+        "matchedCount": 1,
+        "matchedIds": [
+          "macao-dongzhi-family-reunion"
+        ],
+        "scores": [
+          {
+            "caseId": "macao-dongzhi-family-reunion",
+            "score": 1004,
+            "matchedFields": [
+              "title"
+            ]
+          }
+        ]
+      },
+      "passed": true,
+      "ms": 1.74
+    },
+    {
+      "id": "exact:meiyuan-ploughing-festival",
+      "group": "exact_case_titles",
+      "kind": "retrieval",
+      "expectedIds": [
+        "meiyuan-ploughing-festival"
+      ],
+      "actualIds": [
+        "meiyuan-ploughing-festival"
+      ],
+      "diagnostics": {
+        "strategy": "exact_title",
+        "solarTermIds": [
+          "mangzhong"
+        ],
+        "provinceCodes": [
+          "330000"
+        ],
+        "regions": [],
+        "normalizedTerms": [
+          "云和",
+          "梅源",
+          "开犁节"
+        ],
+        "matchedAliases": [],
+        "candidateCount": 2,
+        "matchedCount": 1,
+        "matchedIds": [
+          "meiyuan-ploughing-festival"
+        ],
+        "scores": [
+          {
+            "caseId": "meiyuan-ploughing-festival",
+            "score": 1012,
+            "matchedFields": [
+              "title"
+            ]
+          }
+        ]
+      },
+      "passed": true,
+      "ms": 1.76
+    },
+    {
+      "id": "exact:minnan-weiya-year-end-rite",
+      "group": "exact_case_titles",
+      "kind": "retrieval",
+      "expectedIds": [
+        "minnan-weiya-year-end-rite"
+      ],
+      "actualIds": [
+        "minnan-weiya-year-end-rite"
+      ],
+      "diagnostics": {
+        "strategy": "exact_title",
+        "solarTermIds": [
+          "dahan"
+        ],
+        "provinceCodes": [
+          "350000"
+        ],
+        "regions": [],
+        "normalizedTerms": [
+          "闽南",
+          "尾牙"
+        ],
+        "matchedAliases": [],
+        "candidateCount": 1,
+        "matchedCount": 1,
+        "matchedIds": [
+          "minnan-weiya-year-end-rite"
+        ],
+        "scores": [
+          {
+            "caseId": "minnan-weiya-year-end-rite",
+            "score": 1008,
+            "matchedFields": [
+              "title"
+            ]
+          }
+        ]
+      },
+      "passed": true,
+      "ms": 1.64
+    },
+    {
+      "id": "exact:mohe-xiazhi-white-night",
+      "group": "exact_case_titles",
+      "kind": "retrieval",
+      "expectedIds": [
+        "mohe-xiazhi-white-night"
+      ],
+      "actualIds": [
+        "mohe-xiazhi-white-night"
+      ],
+      "diagnostics": {
+        "strategy": "exact_title",
+        "solarTermIds": [
+          "xiazhi"
+        ],
+        "provinceCodes": [
+          "230000"
+        ],
+        "regions": [],
+        "normalizedTerms": [
+          "河北",
+          "极村",
+          "白夜",
+          "节庆",
+          "活动"
+        ],
+        "matchedAliases": [],
+        "candidateCount": 1,
+        "matchedCount": 1,
+        "matchedIds": [
+          "mohe-xiazhi-white-night"
+        ],
+        "scores": [
+          {
+            "caseId": "mohe-xiazhi-white-night",
+            "score": 1020,
+            "matchedFields": [
+              "title"
+            ]
+          }
+        ]
+      },
+      "passed": true,
+      "ms": 1.68
+    },
+    {
+      "id": "exact:nanjing-autumn-duck-sharing",
+      "group": "exact_case_titles",
+      "kind": "retrieval",
+      "expectedIds": [
+        "nanjing-autumn-duck-sharing"
+      ],
+      "actualIds": [
+        "nanjing-autumn-duck-sharing"
+      ],
+      "diagnostics": {
+        "strategy": "exact_title",
+        "solarTermIds": [
+          "chushu"
+        ],
+        "provinceCodes": [
+          "320000"
+        ],
+        "regions": [],
+        "normalizedTerms": [
+          "南京",
+          "吃鸭与赠鸭"
+        ],
+        "matchedAliases": [],
+        "candidateCount": 1,
+        "matchedCount": 1,
+        "matchedIds": [
+          "nanjing-autumn-duck-sharing"
+        ],
+        "scores": [
+          {
+            "caseId": "nanjing-autumn-duck-sharing",
+            "score": 1008,
+            "matchedFields": [
+              "title"
+            ]
+          }
+        ]
+      },
+      "passed": true,
+      "ms": 1.57
+    },
+    {
+      "id": "exact:nanjing-autumn-watermelon",
+      "group": "exact_case_titles",
+      "kind": "retrieval",
+      "expectedIds": [
+        "nanjing-autumn-watermelon"
+      ],
+      "actualIds": [
+        "nanjing-autumn-watermelon"
+      ],
+      "diagnostics": {
+        "strategy": "exact_title",
+        "solarTermIds": [
+          "liqiu"
+        ],
+        "provinceCodes": [
+          "320000"
+        ],
+        "regions": [],
+        "normalizedTerms": [
+          "南京",
+          "啃秋",
+          "西瓜"
+        ],
+        "matchedAliases": [],
+        "candidateCount": 1,
+        "matchedCount": 1,
+        "matchedIds": [
+          "nanjing-autumn-watermelon"
+        ],
+        "scores": [
+          {
+            "caseId": "nanjing-autumn-watermelon",
+            "score": 1012,
+            "matchedFields": [
+              "title"
+            ]
+          }
+        ]
+      },
+      "passed": true,
+      "ms": 1.55
+    },
+    {
+      "id": "exact:nanjing-bailu-autumn-tea",
+      "group": "exact_case_titles",
+      "kind": "retrieval",
+      "expectedIds": [
+        "nanjing-bailu-autumn-tea"
+      ],
+      "actualIds": [
+        "nanjing-bailu-autumn-tea"
+      ],
+      "diagnostics": {
+        "strategy": "exact_title",
+        "solarTermIds": [
+          "bailu"
+        ],
+        "provinceCodes": [
+          "320000"
+        ],
+        "regions": [],
+        "normalizedTerms": [
+          "南京"
+        ],
+        "matchedAliases": [],
+        "candidateCount": 2,
+        "matchedCount": 1,
+        "matchedIds": [
+          "nanjing-bailu-autumn-tea"
+        ],
+        "scores": [
+          {
+            "caseId": "nanjing-bailu-autumn-tea",
+            "score": 1004,
+            "matchedFields": [
+              "title"
+            ]
+          }
+        ]
+      },
+      "passed": true,
+      "ms": 1.48
+    },
+    {
+      "id": "exact:nanjing-daxue-radish-balls",
+      "group": "exact_case_titles",
+      "kind": "retrieval",
+      "expectedIds": [
+        "nanjing-daxue-radish-balls"
+      ],
+      "actualIds": [
+        "nanjing-daxue-radish-balls"
+      ],
+      "diagnostics": {
+        "strategy": "exact_title",
+        "solarTermIds": [
+          "daxue"
+        ],
+        "provinceCodes": [
+          "320000"
+        ],
+        "regions": [],
+        "normalizedTerms": [
+          "南京",
+          "吃大",
+          "萝卜",
+          "圆子"
+        ],
+        "matchedAliases": [
+          "萝卜丸子",
+          "萝卜圆子"
+        ],
+        "candidateCount": 2,
+        "matchedCount": 1,
+        "matchedIds": [
+          "nanjing-daxue-radish-balls"
+        ],
+        "scores": [
+          {
+            "caseId": "nanjing-daxue-radish-balls",
+            "score": 1056,
+            "matchedFields": [
+              "title",
+              "alias"
+            ]
+          }
+        ]
+      },
+      "passed": true,
+      "ms": 1.43
+    },
+    {
+      "id": "exact:nanjing-eel-and-new-rice",
+      "group": "exact_case_titles",
+      "kind": "retrieval",
+      "expectedIds": [
+        "nanjing-eel-and-new-rice"
+      ],
+      "actualIds": [
+        "nanjing-eel-and-new-rice"
+      ],
+      "diagnostics": {
+        "strategy": "exact_title",
+        "solarTermIds": [
+          "xiaoshu"
+        ],
+        "provinceCodes": [
+          "320000"
+        ],
+        "regions": [],
+        "normalizedTerms": [
+          "南京",
+          "吃黄鳝与食新"
+        ],
+        "matchedAliases": [],
+        "candidateCount": 3,
+        "matchedCount": 1,
+        "matchedIds": [
+          "nanjing-eel-and-new-rice"
+        ],
+        "scores": [
+          {
+            "caseId": "nanjing-eel-and-new-rice",
+            "score": 1008,
+            "matchedFields": [
+              "title"
+            ]
+          }
+        ]
+      },
+      "passed": true,
+      "ms": 1.17
+    },
+    {
+      "id": "exact:nanjing-lixia-egg-fighting",
+      "group": "exact_case_titles",
+      "kind": "retrieval",
+      "expectedIds": [
+        "nanjing-lixia-egg-fighting"
+      ],
+      "actualIds": [
+        "nanjing-lixia-egg-fighting"
+      ],
+      "diagnostics": {
+        "strategy": "exact_title",
+        "solarTermIds": [
+          "lixia"
+        ],
+        "provinceCodes": [
+          "320000"
+        ],
+        "regions": [],
+        "normalizedTerms": [
+          "南京",
+          "斗蛋"
+        ],
+        "matchedAliases": [],
+        "candidateCount": 1,
+        "matchedCount": 1,
+        "matchedIds": [
+          "nanjing-lixia-egg-fighting"
+        ],
+        "scores": [
+          {
+            "caseId": "nanjing-lixia-egg-fighting",
+            "score": 1008,
+            "matchedFields": [
+              "title"
+            ]
+          }
+        ]
+      },
+      "passed": true,
+      "ms": 1.12
+    },
+    {
+      "id": "exact:nanjing-winter-cured-meat",
+      "group": "exact_case_titles",
+      "kind": "retrieval",
+      "expectedIds": [
+        "nanjing-winter-cured-meat"
+      ],
+      "actualIds": [
+        "nanjing-winter-cured-meat"
+      ],
+      "diagnostics": {
+        "strategy": "exact_title",
+        "solarTermIds": [
+          "daxue"
+        ],
+        "provinceCodes": [
+          "320000"
+        ],
+        "regions": [],
+        "normalizedTerms": [
+          "南京",
+          "腌肉"
+        ],
+        "matchedAliases": [],
+        "candidateCount": 2,
+        "matchedCount": 1,
+        "matchedIds": [
+          "nanjing-winter-cured-meat"
+        ],
+        "scores": [
+          {
+            "caseId": "nanjing-winter-cured-meat",
+            "score": 1008,
+            "matchedFields": [
+              "title"
+            ]
+          }
+        ]
+      },
+      "passed": true,
+      "ms": 1.25
+    },
+    {
+      "id": "exact:nanjing-winter-vegetable-rice",
+      "group": "exact_case_titles",
+      "kind": "retrieval",
+      "expectedIds": [
+        "nanjing-winter-vegetable-rice"
+      ],
+      "actualIds": [
+        "nanjing-winter-vegetable-rice"
+      ],
+      "diagnostics": {
+        "strategy": "exact_title",
+        "solarTermIds": [
+          "xiaohan"
+        ],
+        "provinceCodes": [
+          "320000"
+        ],
+        "regions": [],
+        "normalizedTerms": [
+          "南京",
+          "菜饭"
+        ],
+        "matchedAliases": [],
+        "candidateCount": 2,
+        "matchedCount": 1,
+        "matchedIds": [
+          "nanjing-winter-vegetable-rice"
+        ],
+        "scores": [
+          {
+            "caseId": "nanjing-winter-vegetable-rice",
+            "score": 1008,
+            "matchedFields": [
+              "title"
+            ]
+          }
+        ]
+      },
+      "passed": true,
+      "ms": 1.25
+    },
+    {
+      "id": "exact:nanjing-xiaohan-plum-viewing",
+      "group": "exact_case_titles",
+      "kind": "retrieval",
+      "expectedIds": [
+        "nanjing-xiaohan-plum-viewing"
+      ],
+      "actualIds": [
+        "nanjing-xiaohan-plum-viewing"
+      ],
+      "diagnostics": {
+        "strategy": "exact_title",
+        "solarTermIds": [
+          "xiaohan"
+        ],
+        "provinceCodes": [
+          "320000"
+        ],
+        "regions": [],
+        "normalizedTerms": [
+          "南京",
+          "梅花",
+          "探梅"
+        ],
+        "matchedAliases": [],
+        "candidateCount": 2,
+        "matchedCount": 1,
+        "matchedIds": [
+          "nanjing-xiaohan-plum-viewing"
+        ],
+        "scores": [
+          {
+            "caseId": "nanjing-xiaohan-plum-viewing",
+            "score": 1012,
+            "matchedFields": [
+              "title"
+            ]
+          }
+        ]
+      },
+      "passed": true,
+      "ms": 1.59
+    },
+    {
+      "id": "exact:nantong-qingming-banyao-kites",
+      "group": "exact_case_titles",
+      "kind": "retrieval",
+      "expectedIds": [
+        "nantong-qingming-banyao-kites"
+      ],
+      "actualIds": [
+        "nantong-qingming-banyao-kites"
+      ],
+      "diagnostics": {
+        "strategy": "exact_title",
+        "solarTermIds": [
+          "qingming"
+        ],
+        "provinceCodes": [
+          "320000"
+        ],
+        "regions": [],
+        "normalizedTerms": [
+          "南通",
+          "放板鹞"
+        ],
+        "matchedAliases": [],
+        "candidateCount": 1,
+        "matchedCount": 1,
+        "matchedIds": [
+          "nantong-qingming-banyao-kites"
+        ],
+        "scores": [
+          {
+            "caseId": "nantong-qingming-banyao-kites",
+            "score": 1008,
+            "matchedFields": [
+              "title"
+            ]
+          }
+        ]
+      },
+      "passed": true,
+      "ms": 2.27
+    },
+    {
+      "id": "exact:neixiang-lichun-spring-ox",
+      "group": "exact_case_titles",
+      "kind": "retrieval",
+      "expectedIds": [
+        "neixiang-lichun-spring-ox"
+      ],
+      "actualIds": [
+        "neixiang-lichun-spring-ox"
+      ],
+      "diagnostics": {
+        "strategy": "exact_title",
+        "solarTermIds": [
+          "lichun"
+        ],
+        "provinceCodes": [
+          "410000"
+        ],
+        "regions": [],
+        "normalizedTerms": [
+          "内乡",
+          "打春牛"
+        ],
+        "matchedAliases": [],
+        "candidateCount": 1,
+        "matchedCount": 1,
+        "matchedIds": [
+          "neixiang-lichun-spring-ox"
+        ],
+        "scores": [
+          {
+            "caseId": "neixiang-lichun-spring-ox",
+            "score": 1008,
+            "matchedFields": [
+              "title"
+            ]
+          }
+        ]
+      },
+      "passed": true,
+      "ms": 1.57
+    },
+    {
+      "id": "exact:panjin-qiufen-harvest-festival",
+      "group": "exact_case_titles",
+      "kind": "retrieval",
+      "expectedIds": [
+        "panjin-qiufen-harvest-festival"
+      ],
+      "actualIds": [
+        "panjin-qiufen-harvest-festival"
+      ],
+      "diagnostics": {
+        "strategy": "exact_title",
+        "solarTermIds": [
+          "qiufen"
+        ],
+        "provinceCodes": [
+          "210000"
+        ],
+        "regions": [],
+        "normalizedTerms": [
+          "盘锦",
+          "丰收"
+        ],
+        "matchedAliases": [],
+        "candidateCount": 1,
+        "matchedCount": 1,
+        "matchedIds": [
+          "panjin-qiufen-harvest-festival"
+        ],
+        "scores": [
+          {
+            "caseId": "panjin-qiufen-harvest-festival",
+            "score": 1008,
+            "matchedFields": [
+              "title"
+            ]
+          }
+        ]
+      },
+      "passed": true,
+      "ms": 1.3
+    },
+    {
+      "id": "exact:putian-summer-lychees",
+      "group": "exact_case_titles",
+      "kind": "retrieval",
+      "expectedIds": [
+        "putian-summer-lychees"
+      ],
+      "actualIds": [
+        "putian-summer-lychees"
+      ],
+      "diagnostics": {
+        "strategy": "exact_title",
+        "solarTermIds": [
+          "dashu"
+        ],
+        "provinceCodes": [
+          "350000"
+        ],
+        "regions": [],
+        "normalizedTerms": [
+          "莆田"
+        ],
+        "matchedAliases": [],
+        "candidateCount": 1,
+        "matchedCount": 1,
+        "matchedIds": [
+          "putian-summer-lychees"
+        ],
+        "scores": [
+          {
+            "caseId": "putian-summer-lychees",
+            "score": 1004,
+            "matchedFields": [
+              "title"
+            ]
+          }
+        ]
+      },
+      "passed": true,
+      "ms": 1.35
+    },
+    {
+      "id": "exact:quanzhou-shuangjiang-persimmons",
+      "group": "exact_case_titles",
+      "kind": "retrieval",
+      "expectedIds": [
+        "quanzhou-shuangjiang-persimmons"
+      ],
+      "actualIds": [
+        "quanzhou-shuangjiang-persimmons"
+      ],
+      "diagnostics": {
+        "strategy": "exact_title",
+        "solarTermIds": [
+          "shuangjiang"
+        ],
+        "provinceCodes": [
+          "350000"
+        ],
+        "regions": [],
+        "normalizedTerms": [
+          "泉州",
+          "吃丁柿"
+        ],
+        "matchedAliases": [],
+        "candidateCount": 2,
+        "matchedCount": 1,
+        "matchedIds": [
+          "quanzhou-shuangjiang-persimmons"
+        ],
+        "scores": [
+          {
+            "caseId": "quanzhou-shuangjiang-persimmons",
+            "score": 1008,
+            "matchedFields": [
+              "title"
+            ]
+          }
+        ]
+      },
+      "passed": true,
+      "ms": 1.3
+    },
+    {
+      "id": "exact:quzhou-jiuhua-spring-rites",
+      "group": "exact_case_titles",
+      "kind": "retrieval",
+      "expectedIds": [
+        "quzhou-jiuhua-spring-rites"
+      ],
+      "actualIds": [
+        "quzhou-jiuhua-spring-rites"
+      ],
+      "diagnostics": {
+        "strategy": "exact_title",
+        "solarTermIds": [
+          "lichun"
+        ],
+        "provinceCodes": [
+          "330000"
+        ],
+        "regions": [],
+        "normalizedTerms": [
+          "九华"
+        ],
+        "matchedAliases": [],
+        "candidateCount": 1,
+        "matchedCount": 1,
+        "matchedIds": [
+          "quzhou-jiuhua-spring-rites"
+        ],
+        "scores": [
+          {
+            "caseId": "quzhou-jiuhua-spring-rites",
+            "score": 1004,
+            "matchedFields": [
+              "title"
+            ]
+          }
+        ]
+      },
+      "passed": true,
+      "ms": 1.24
+    },
+    {
+      "id": "exact:rongchang-dongzhi-lamb-soup-festival",
+      "group": "exact_case_titles",
+      "kind": "retrieval",
+      "expectedIds": [
+        "rongchang-dongzhi-lamb-soup-festival"
+      ],
+      "actualIds": [
+        "rongchang-dongzhi-lamb-soup-festival"
+      ],
+      "diagnostics": {
+        "strategy": "exact_title",
+        "solarTermIds": [
+          "dongzhi"
+        ],
+        "provinceCodes": [
+          "500000"
+        ],
+        "regions": [],
+        "category": "food",
+        "normalizedTerms": [
+          "荣昌",
+          "羊肉汤"
+        ],
+        "matchedAliases": [],
+        "candidateCount": 1,
+        "matchedCount": 1,
+        "matchedIds": [
+          "rongchang-dongzhi-lamb-soup-festival"
+        ],
+        "scores": [
+          {
+            "caseId": "rongchang-dongzhi-lamb-soup-festival",
+            "score": 1008,
+            "matchedFields": [
+              "title"
+            ]
+          }
+        ]
+      },
+      "passed": true,
+      "ms": 1.31
+    },
+    {
+      "id": "exact:rongcheng-fishers-sea-rites",
+      "group": "exact_case_titles",
+      "kind": "retrieval",
+      "expectedIds": [
+        "rongcheng-fishers-sea-rites"
+      ],
+      "actualIds": [
+        "rongcheng-fishers-sea-rites"
+      ],
+      "diagnostics": {
+        "strategy": "exact_title",
+        "solarTermIds": [
+          "guyu"
+        ],
+        "provinceCodes": [
+          "370000"
+        ],
+        "regions": [],
+        "normalizedTerms": [
+          "荣成",
+          "祭海"
+        ],
+        "matchedAliases": [],
+        "candidateCount": 1,
+        "matchedCount": 1,
+        "matchedIds": [
+          "rongcheng-fishers-sea-rites"
+        ],
+        "scores": [
+          {
+            "caseId": "rongcheng-fishers-sea-rites",
+            "score": 1008,
+            "matchedFields": [
+              "title"
+            ]
+          }
+        ]
+      },
+      "passed": true,
+      "ms": 1.25
+    },
+    {
+      "id": "exact:sanmen-jidong",
+      "group": "exact_case_titles",
+      "kind": "retrieval",
+      "expectedIds": [
+        "sanmen-jidong"
+      ],
+      "actualIds": [
+        "sanmen-jidong"
+      ],
+      "diagnostics": {
+        "strategy": "exact_title",
+        "solarTermIds": [
+          "dongzhi"
+        ],
+        "provinceCodes": [
+          "330000"
+        ],
+        "regions": [],
+        "normalizedTerms": [
+          "三门",
+          "祭冬"
+        ],
+        "matchedAliases": [],
+        "candidateCount": 1,
+        "matchedCount": 1,
+        "matchedIds": [
+          "sanmen-jidong"
+        ],
+        "scores": [
+          {
+            "caseId": "sanmen-jidong",
+            "score": 1008,
+            "matchedFields": [
+              "title"
+            ]
+          }
+        ]
+      },
+      "passed": true,
+      "ms": 1.62
+    },
+    {
+      "id": "exact:shanghai-qingming-qingtuan",
+      "group": "exact_case_titles",
+      "kind": "retrieval",
+      "expectedIds": [
+        "shanghai-qingming-qingtuan"
+      ],
+      "actualIds": [
+        "shanghai-qingming-qingtuan"
+      ],
+      "diagnostics": {
+        "strategy": "exact_title",
+        "solarTermIds": [
+          "qingming"
+        ],
+        "provinceCodes": [
+          "310000"
+        ],
+        "regions": [],
+        "normalizedTerms": [
+          "吃青团"
+        ],
+        "matchedAliases": [],
+        "candidateCount": 1,
+        "matchedCount": 1,
+        "matchedIds": [
+          "shanghai-qingming-qingtuan"
+        ],
+        "scores": [
+          {
+            "caseId": "shanghai-qingming-qingtuan",
+            "score": 1004,
+            "matchedFields": [
+              "title"
+            ]
+          }
+        ]
+      },
+      "passed": true,
+      "ms": 1.65
+    },
+    {
+      "id": "exact:shaoxing-guyu-yu-rites",
+      "group": "exact_case_titles",
+      "kind": "retrieval",
+      "expectedIds": [
+        "shaoxing-guyu-yu-rites"
+      ],
+      "actualIds": [
+        "shaoxing-guyu-yu-rites"
+      ],
+      "diagnostics": {
+        "strategy": "exact_title",
+        "solarTermIds": [
+          "guyu"
+        ],
+        "provinceCodes": [
+          "330000"
+        ],
+        "regions": [],
+        "normalizedTerms": [
+          "绍兴",
+          "公祭",
+          "大禹"
+        ],
+        "matchedAliases": [],
+        "candidateCount": 1,
+        "matchedCount": 1,
+        "matchedIds": [
+          "shaoxing-guyu-yu-rites"
+        ],
+        "scores": [
+          {
+            "caseId": "shaoxing-guyu-yu-rites",
+            "score": 1012,
+            "matchedFields": [
+              "title"
+            ]
+          }
+        ]
+      },
+      "passed": true,
+      "ms": 1.71
+    },
+    {
+      "id": "exact:shaoxing-huangjiu-winter-brewing",
+      "group": "exact_case_titles",
+      "kind": "retrieval",
+      "expectedIds": [
+        "shaoxing-huangjiu-winter-brewing"
+      ],
+      "actualIds": [
+        "shaoxing-huangjiu-winter-brewing"
+      ],
+      "diagnostics": {
+        "strategy": "exact_title",
+        "solarTermIds": [
+          "lidong"
+        ],
+        "provinceCodes": [
+          "330000"
+        ],
+        "regions": [],
+        "normalizedTerms": [
+          "绍兴",
+          "黄酒",
+          "开酿",
+          "冬酿"
+        ],
+        "matchedAliases": [],
+        "candidateCount": 1,
+        "matchedCount": 1,
+        "matchedIds": [
+          "shaoxing-huangjiu-winter-brewing"
+        ],
+        "scores": [
+          {
+            "caseId": "shaoxing-huangjiu-winter-brewing",
+            "score": 1016,
+            "matchedFields": [
+              "title"
+            ]
+          }
+        ]
+      },
+      "passed": true,
+      "ms": 1.47
+    },
+    {
+      "id": "exact:shaoxing-zuo-xiazhi",
+      "group": "exact_case_titles",
+      "kind": "retrieval",
+      "expectedIds": [
+        "shaoxing-zuo-xiazhi"
+      ],
+      "actualIds": [
+        "shaoxing-zuo-xiazhi"
+      ],
+      "diagnostics": {
+        "strategy": "exact_title",
+        "solarTermIds": [
+          "xiazhi"
+        ],
+        "provinceCodes": [
+          "330000"
+        ],
+        "regions": [],
+        "normalizedTerms": [
+          "绍兴",
+          "祭祖"
+        ],
+        "matchedAliases": [],
+        "candidateCount": 1,
+        "matchedCount": 1,
+        "matchedIds": [
+          "shaoxing-zuo-xiazhi"
+        ],
+        "scores": [
+          {
+            "caseId": "shaoxing-zuo-xiazhi",
+            "score": 1008,
+            "matchedFields": [
+              "title"
+            ]
+          }
+        ]
+      },
+      "passed": true,
+      "ms": 1.63
+    },
+    {
+      "id": "exact:shengze-silkworm-temple-opera",
+      "group": "exact_case_titles",
+      "kind": "retrieval",
+      "expectedIds": [
+        "shengze-silkworm-temple-opera"
+      ],
+      "actualIds": [
+        "shengze-silkworm-temple-opera"
+      ],
+      "diagnostics": {
+        "strategy": "exact_title",
+        "solarTermIds": [
+          "xiaoman"
+        ],
+        "provinceCodes": [
+          "320000"
+        ],
+        "regions": [],
+        "normalizedTerms": [
+          "盛泽"
+        ],
+        "matchedAliases": [],
+        "candidateCount": 1,
+        "matchedCount": 1,
+        "matchedIds": [
+          "shengze-silkworm-temple-opera"
+        ],
+        "scores": [
+          {
+            "caseId": "shengze-silkworm-temple-opera",
+            "score": 1004,
+            "matchedFields": [
+              "title"
+            ]
+          }
+        ]
+      },
+      "passed": true,
+      "ms": 1.31
+    },
+    {
+      "id": "exact:shiqian-lichun-saying-spring",
+      "group": "exact_case_titles",
+      "kind": "retrieval",
+      "expectedIds": [
+        "shiqian-lichun-saying-spring"
+      ],
+      "actualIds": [
+        "shiqian-lichun-saying-spring"
+      ],
+      "diagnostics": {
+        "strategy": "exact_title",
+        "solarTermIds": [
+          "lichun"
+        ],
+        "provinceCodes": [
+          "520000"
+        ],
+        "regions": [],
+        "normalizedTerms": [
+          "石阡",
+          "说春"
+        ],
+        "matchedAliases": [],
+        "candidateCount": 1,
+        "matchedCount": 1,
+        "matchedIds": [
+          "shiqian-lichun-saying-spring"
+        ],
+        "scores": [
+          {
+            "caseId": "shiqian-lichun-saying-spring",
+            "score": 1008,
+            "matchedFields": [
+              "title"
+            ]
+          }
+        ]
+      },
+      "passed": true,
+      "ms": 1.24
+    },
+    {
+      "id": "exact:south-china-yushui-rice-divination",
+      "group": "exact_case_titles",
+      "kind": "retrieval",
+      "expectedIds": [
+        "south-china-yushui-rice-divination"
+      ],
+      "actualIds": [
+        "south-china-yushui-rice-divination"
+      ],
+      "diagnostics": {
+        "strategy": "exact_title",
+        "solarTermIds": [
+          "yushui"
+        ],
+        "provinceCodes": [
+          "440000",
+          "350000",
+          "450000"
+        ],
+        "regions": [],
+        "normalizedTerms": [
+          "华南",
+          "稻作",
+          "占稻色"
+        ],
+        "matchedAliases": [],
+        "candidateCount": 1,
+        "matchedCount": 1,
+        "matchedIds": [
+          "south-china-yushui-rice-divination"
+        ],
+        "scores": [
+          {
+            "caseId": "south-china-yushui-rice-divination",
+            "score": 1012,
+            "matchedFields": [
+              "title"
+            ]
+          }
+        ]
+      },
+      "passed": true,
+      "ms": 1.45
+    },
+    {
+      "id": "exact:suzhou-dongzhi-winter-wine",
+      "group": "exact_case_titles",
+      "kind": "retrieval",
+      "expectedIds": [
+        "suzhou-dongzhi-winter-wine"
+      ],
+      "actualIds": [
+        "suzhou-dongzhi-winter-wine"
+      ],
+      "diagnostics": {
+        "strategy": "exact_title",
+        "solarTermIds": [
+          "dongzhi"
+        ],
+        "provinceCodes": [
+          "320000"
+        ],
+        "regions": [],
+        "normalizedTerms": [
+          "苏州",
+          "喝冬酿酒"
+        ],
+        "matchedAliases": [
+          "姑苏",
+          "桂花冬酿酒"
+        ],
+        "candidateCount": 1,
+        "matchedCount": 1,
+        "matchedIds": [
+          "suzhou-dongzhi-winter-wine"
+        ],
+        "scores": [
+          {
+            "caseId": "suzhou-dongzhi-winter-wine",
+            "score": 1048,
+            "matchedFields": [
+              "title",
+              "alias"
+            ]
+          }
+        ]
+      },
+      "passed": true,
+      "ms": 1.38
+    },
+    {
+      "id": "exact:suzhou-qiufen-autumn-ox",
+      "group": "exact_case_titles",
+      "kind": "retrieval",
+      "expectedIds": [
+        "suzhou-qiufen-autumn-ox"
+      ],
+      "actualIds": [
+        "suzhou-qiufen-autumn-ox"
+      ],
+      "diagnostics": {
+        "strategy": "exact_title",
+        "solarTermIds": [
+          "qiufen"
+        ],
+        "provinceCodes": [
+          "320000"
+        ],
+        "regions": [],
+        "normalizedTerms": [
+          "苏州",
+          "送秋牛",
+          "说秋"
+        ],
+        "matchedAliases": [],
+        "candidateCount": 1,
+        "matchedCount": 1,
+        "matchedIds": [
+          "suzhou-qiufen-autumn-ox"
+        ],
+        "scores": [
+          {
+            "caseId": "suzhou-qiufen-autumn-ox",
+            "score": 1012,
+            "matchedFields": [
+              "title"
+            ]
+          }
+        ]
+      },
+      "passed": true,
+      "ms": 1.5
+    },
+    {
+      "id": "exact:taihu-yuwang-worship",
+      "group": "exact_case_titles",
+      "kind": "retrieval",
+      "expectedIds": [
+        "taihu-yuwang-worship"
+      ],
+      "actualIds": [
+        "taihu-yuwang-worship"
+      ],
+      "diagnostics": {
+        "strategy": "exact_title",
+        "solarTermIds": [
+          "bailu"
+        ],
+        "provinceCodes": [
+          "320000"
+        ],
+        "regions": [],
+        "normalizedTerms": [
+          "太湖",
+          "祭禹王"
+        ],
+        "matchedAliases": [],
+        "candidateCount": 2,
+        "matchedCount": 1,
+        "matchedIds": [
+          "taihu-yuwang-worship"
+        ],
+        "scores": [
+          {
+            "caseId": "taihu-yuwang-worship",
+            "score": 1008,
+            "matchedFields": [
+              "title"
+            ]
+          }
+        ]
+      },
+      "passed": true,
+      "ms": 1.37
+    },
+    {
+      "id": "exact:tianjin-jingzhe-pears",
+      "group": "exact_case_titles",
+      "kind": "retrieval",
+      "expectedIds": [
+        "tianjin-jingzhe-pears"
+      ],
+      "actualIds": [
+        "tianjin-jingzhe-pears"
+      ],
+      "diagnostics": {
+        "strategy": "exact_title",
+        "solarTermIds": [
+          "jingzhe"
+        ],
+        "provinceCodes": [
+          "120000"
+        ],
+        "regions": [],
+        "normalizedTerms": [
+          "吃梨"
+        ],
+        "matchedAliases": [],
+        "candidateCount": 1,
+        "matchedCount": 1,
+        "matchedIds": [
+          "tianjin-jingzhe-pears"
+        ],
+        "scores": [
+          {
+            "caseId": "tianjin-jingzhe-pears",
+            "score": 1004,
+            "matchedFields": [
+              "title"
+            ]
+          }
+        ]
+      },
+      "passed": true,
+      "ms": 1.21
+    },
+    {
+      "id": "exact:tianjin-yellow-bud-cabbage",
+      "group": "exact_case_titles",
+      "kind": "retrieval",
+      "expectedIds": [
+        "tianjin-yellow-bud-cabbage"
+      ],
+      "actualIds": [
+        "tianjin-yellow-bud-cabbage"
+      ],
+      "diagnostics": {
+        "strategy": "exact_title",
+        "solarTermIds": [
+          "xiaohan"
+        ],
+        "provinceCodes": [
+          "120000"
+        ],
+        "regions": [],
+        "normalizedTerms": [
+          "黄芽菜"
+        ],
+        "matchedAliases": [],
+        "candidateCount": 1,
+        "matchedCount": 1,
+        "matchedIds": [
+          "tianjin-yellow-bud-cabbage"
+        ],
+        "scores": [
+          {
+            "caseId": "tianjin-yellow-bud-cabbage",
+            "score": 1004,
+            "matchedFields": [
+              "title"
+            ]
+          }
+        ]
+      },
+      "passed": true,
+      "ms": 1.76
+    },
+    {
+      "id": "exact:tianshui-maiji-qiufen-huaniu-apples",
+      "group": "exact_case_titles",
+      "kind": "retrieval",
+      "expectedIds": [
+        "tianshui-maiji-qiufen-huaniu-apples"
+      ],
+      "actualIds": [
+        "tianshui-maiji-qiufen-huaniu-apples"
+      ],
+      "diagnostics": {
+        "strategy": "exact_title",
+        "solarTermIds": [
+          "qiufen"
+        ],
+        "provinceCodes": [
+          "620000"
+        ],
+        "regions": [],
+        "normalizedTerms": [
+          "天水",
+          "花牛",
+          "苹果",
+          "丰收"
+        ],
+        "matchedAliases": [],
+        "candidateCount": 1,
+        "matchedCount": 1,
+        "matchedIds": [
+          "tianshui-maiji-qiufen-huaniu-apples"
+        ],
+        "scores": [
+          {
+            "caseId": "tianshui-maiji-qiufen-huaniu-apples",
+            "score": 1016,
+            "matchedFields": [
+              "title"
+            ]
+          }
+        ]
+      },
+      "passed": true,
+      "ms": 1.5
+    },
+    {
+      "id": "exact:tongxiang-heshan-qingming-dinner",
+      "group": "exact_case_titles",
+      "kind": "retrieval",
+      "expectedIds": [
+        "tongxiang-heshan-qingming-dinner"
+      ],
+      "actualIds": [
+        "tongxiang-heshan-qingming-dinner"
+      ],
+      "diagnostics": {
+        "strategy": "exact_title",
+        "solarTermIds": [
+          "qingming"
+        ],
+        "provinceCodes": [
+          "330000"
+        ],
+        "regions": [],
+        "normalizedTerms": [
+          "桐乡",
+          "河山",
+          "大似年",
+          "团圆"
+        ],
+        "matchedAliases": [],
+        "candidateCount": 1,
+        "matchedCount": 1,
+        "matchedIds": [
+          "tongxiang-heshan-qingming-dinner"
+        ],
+        "scores": [
+          {
+            "caseId": "tongxiang-heshan-qingming-dinner",
+            "score": 1016,
+            "matchedFields": [
+              "title"
+            ]
+          }
+        ]
+      },
+      "passed": true,
+      "ms": 1.92
+    },
+    {
+      "id": "exact:ulanhada-qiufen-harvest-opening",
+      "group": "exact_case_titles",
+      "kind": "retrieval",
+      "expectedIds": [
+        "ulanhada-qiufen-harvest-opening"
+      ],
+      "actualIds": [
+        "ulanhada-qiufen-harvest-opening"
+      ],
+      "diagnostics": {
+        "strategy": "exact_title",
+        "solarTermIds": [
+          "qiufen"
+        ],
+        "provinceCodes": [
+          "150000"
+        ],
+        "regions": [],
+        "normalizedTerms": [
+          "蒙古",
+          "乌兰",
+          "哈达镇",
+          "前开镰"
+        ],
+        "matchedAliases": [],
+        "candidateCount": 1,
+        "matchedCount": 1,
+        "matchedIds": [
+          "ulanhada-qiufen-harvest-opening"
+        ],
+        "scores": [
+          {
+            "caseId": "ulanhada-qiufen-harvest-opening",
+            "score": 1016,
+            "matchedFields": [
+              "title"
+            ]
+          }
+        ]
+      },
+      "passed": true,
+      "ms": 2.53
+    },
+    {
+      "id": "exact:urumqi-dongzhi-dawan-dumplings",
+      "group": "exact_case_titles",
+      "kind": "retrieval",
+      "expectedIds": [
+        "urumqi-dongzhi-dawan-dumplings"
+      ],
+      "actualIds": [
+        "urumqi-dongzhi-dawan-dumplings"
+      ],
+      "diagnostics": {
+        "strategy": "exact_title",
+        "solarTermIds": [
+          "dongzhi"
+        ],
+        "provinceCodes": [
+          "650000"
+        ],
+        "regions": [],
+        "normalizedTerms": [
+          "乌鲁木齐",
+          "大湾",
+          "饺子"
+        ],
+        "matchedAliases": [],
+        "candidateCount": 1,
+        "matchedCount": 1,
+        "matchedIds": [
+          "urumqi-dongzhi-dawan-dumplings"
+        ],
+        "scores": [
+          {
+            "caseId": "urumqi-dongzhi-dawan-dumplings",
+            "score": 1012,
+            "matchedFields": [
+              "title"
+            ]
+          }
+        ]
+      },
+      "passed": true,
+      "ms": 1.85
+    },
+    {
+      "id": "exact:weixian-mangzhong-wheat-harvest",
+      "group": "exact_case_titles",
+      "kind": "retrieval",
+      "expectedIds": [
+        "weixian-mangzhong-wheat-harvest"
+      ],
+      "actualIds": [
+        "weixian-mangzhong-wheat-harvest"
+      ],
+      "diagnostics": {
+        "strategy": "exact_title",
+        "solarTermIds": [
+          "mangzhong"
+        ],
+        "provinceCodes": [
+          "130000"
+        ],
+        "regions": [],
+        "normalizedTerms": [
+          "后麦收"
+        ],
+        "matchedAliases": [],
+        "candidateCount": 1,
+        "matchedCount": 1,
+        "matchedIds": [
+          "weixian-mangzhong-wheat-harvest"
+        ],
+        "scores": [
+          {
+            "caseId": "weixian-mangzhong-wheat-harvest",
+            "score": 1004,
+            "matchedFields": [
+              "title"
+            ]
+          }
+        ]
+      },
+      "passed": true,
+      "ms": 1.46
+    },
+    {
+      "id": "exact:western-sichuan-rainwater-family-visits",
+      "group": "exact_case_titles",
+      "kind": "retrieval",
+      "expectedIds": [
+        "western-sichuan-rainwater-family-visits"
+      ],
+      "actualIds": [
+        "western-sichuan-rainwater-family-visits"
+      ],
+      "diagnostics": {
+        "strategy": "exact_title",
+        "solarTermIds": [
+          "yushui"
+        ],
+        "provinceCodes": [
+          "510000"
+        ],
+        "regions": [],
+        "normalizedTerms": [
+          "川西",
+          "回娘屋",
+          "拉保保"
+        ],
+        "matchedAliases": [],
+        "candidateCount": 2,
+        "matchedCount": 1,
+        "matchedIds": [
+          "western-sichuan-rainwater-family-visits"
+        ],
+        "scores": [
+          {
+            "caseId": "western-sichuan-rainwater-family-visits",
+            "score": 1012,
+            "matchedFields": [
+              "title"
+            ]
+          }
+        ]
+      },
+      "passed": true,
+      "ms": 1.4
+    },
+    {
+      "id": "exact:xiangshan-chushu-fishing-festival",
+      "group": "exact_case_titles",
+      "kind": "retrieval",
+      "expectedIds": [
+        "xiangshan-chushu-fishing-festival"
+      ],
+      "actualIds": [
+        "xiangshan-chushu-fishing-festival"
+      ],
+      "diagnostics": {
+        "strategy": "exact_title",
+        "solarTermIds": [
+          "chushu"
+        ],
+        "provinceCodes": [
+          "330000"
+        ],
+        "regions": [],
+        "normalizedTerms": [
+          "象山",
+          "石浦",
+          "开渔节"
+        ],
+        "matchedAliases": [],
+        "candidateCount": 1,
+        "matchedCount": 1,
+        "matchedIds": [
+          "xiangshan-chushu-fishing-festival"
+        ],
+        "scores": [
+          {
+            "caseId": "xiangshan-chushu-fishing-festival",
+            "score": 1012,
+            "matchedFields": [
+              "title"
+            ]
+          }
+        ]
+      },
+      "passed": true,
+      "ms": 1.3
+    },
+    {
+      "id": "exact:xinghua-hanlu-chrysanthemums",
+      "group": "exact_case_titles",
+      "kind": "retrieval",
+      "expectedIds": [
+        "xinghua-hanlu-chrysanthemums"
+      ],
+      "actualIds": [
+        "xinghua-hanlu-chrysanthemums"
+      ],
+      "diagnostics": {
+        "strategy": "exact_title",
+        "solarTermIds": [
+          "hanlu"
+        ],
+        "provinceCodes": [
+          "320000"
+        ],
+        "regions": [],
+        "normalizedTerms": [
+          "兴化",
+          "千垛",
+          "赏菊"
+        ],
+        "matchedAliases": [],
+        "candidateCount": 1,
+        "matchedCount": 1,
+        "matchedIds": [
+          "xinghua-hanlu-chrysanthemums"
+        ],
+        "scores": [
+          {
+            "caseId": "xinghua-hanlu-chrysanthemums",
+            "score": 1012,
+            "matchedFields": [
+              "title"
+            ]
+          }
+        ]
+      },
+      "passed": true,
+      "ms": 1.95
+    },
+    {
+      "id": "exact:xuzhou-xiaoshu-lamb-custom",
+      "group": "exact_case_titles",
+      "kind": "retrieval",
+      "expectedIds": [
+        "xuzhou-xiaoshu-lamb-custom"
+      ],
+      "actualIds": [
+        "xuzhou-xiaoshu-lamb-custom"
+      ],
+      "diagnostics": {
+        "strategy": "exact_title",
+        "solarTermIds": [
+          "xiaoshu"
+        ],
+        "provinceCodes": [
+          "320000"
+        ],
+        "regions": [],
+        "normalizedTerms": [
+          "徐州",
+          "伏羊",
+          "食俗"
+        ],
+        "matchedAliases": [],
+        "candidateCount": 3,
+        "matchedCount": 1,
+        "matchedIds": [
+          "xuzhou-xiaoshu-lamb-custom"
+        ],
+        "scores": [
+          {
+            "caseId": "xuzhou-xiaoshu-lamb-custom",
+            "score": 1012,
+            "matchedFields": [
+              "title"
+            ]
+          }
+        ]
+      },
+      "passed": true,
+      "ms": 2.31
+    },
+    {
+      "id": "exact:yinchuan-dongzhi-lamb-soup",
+      "group": "exact_case_titles",
+      "kind": "retrieval",
+      "expectedIds": [
+        "yinchuan-dongzhi-lamb-soup"
+      ],
+      "actualIds": [
+        "yinchuan-dongzhi-lamb-soup"
+      ],
+      "diagnostics": {
+        "strategy": "exact_title",
+        "solarTermIds": [
+          "dongzhi"
+        ],
+        "provinceCodes": [
+          "640000"
+        ],
+        "regions": [],
+        "normalizedTerms": [
+          "银川",
+          "头脑"
+        ],
+        "matchedAliases": [],
+        "candidateCount": 1,
+        "matchedCount": 1,
+        "matchedIds": [
+          "yinchuan-dongzhi-lamb-soup"
+        ],
+        "scores": [
+          {
+            "caseId": "yinchuan-dongzhi-lamb-soup",
+            "score": 1008,
+            "matchedFields": [
+              "title"
+            ]
+          }
+        ]
+      },
+      "passed": true,
+      "ms": 1.71
+    },
+    {
+      "id": "exact:yizheng-pickled-winter-greens",
+      "group": "exact_case_titles",
+      "kind": "retrieval",
+      "expectedIds": [
+        "yizheng-pickled-winter-greens"
+      ],
+      "actualIds": [
+        "yizheng-pickled-winter-greens"
+      ],
+      "diagnostics": {
+        "strategy": "exact_title",
+        "solarTermIds": [
+          "xiaoxue"
+        ],
+        "provinceCodes": [
+          "320000"
+        ],
+        "regions": [],
+        "normalizedTerms": [
+          "仪征",
+          "寒菜"
+        ],
+        "matchedAliases": [],
+        "candidateCount": 1,
+        "matchedCount": 1,
+        "matchedIds": [
+          "yizheng-pickled-winter-greens"
+        ],
+        "scores": [
+          {
+            "caseId": "yizheng-pickled-winter-greens",
+            "score": 1008,
+            "matchedFields": [
+              "title"
+            ]
+          }
+        ]
+      },
+      "passed": true,
+      "ms": 1.97
+    },
+    {
+      "id": "exact:zhangzhou-shuangjiang-taro",
+      "group": "exact_case_titles",
+      "kind": "retrieval",
+      "expectedIds": [
+        "zhangzhou-shuangjiang-taro"
+      ],
+      "actualIds": [
+        "zhangzhou-shuangjiang-taro"
+      ],
+      "diagnostics": {
+        "strategy": "exact_title",
+        "solarTermIds": [
+          "shuangjiang"
+        ],
+        "provinceCodes": [
+          "350000"
+        ],
+        "regions": [],
+        "normalizedTerms": [
+          "漳州",
+          "食芋头"
+        ],
+        "matchedAliases": [],
+        "candidateCount": 2,
+        "matchedCount": 1,
+        "matchedIds": [
+          "zhangzhou-shuangjiang-taro"
+        ],
+        "scores": [
+          {
+            "caseId": "zhangzhou-shuangjiang-taro",
+            "score": 1008,
+            "matchedFields": [
+              "title"
+            ]
+          }
+        ]
+      },
+      "passed": true,
+      "ms": 1.56
+    },
+    {
+      "id": "exact:zixing-bailu-rice-wine",
+      "group": "exact_case_titles",
+      "kind": "retrieval",
+      "expectedIds": [
+        "zixing-bailu-rice-wine"
+      ],
+      "actualIds": [
+        "zixing-bailu-rice-wine"
+      ],
+      "diagnostics": {
+        "strategy": "exact_title",
+        "solarTermIds": [
+          "bailu"
+        ],
+        "provinceCodes": [
+          "430000"
+        ],
+        "regions": [],
+        "normalizedTerms": [
+          "资兴",
+          "米酒",
+          "程酒"
+        ],
+        "matchedAliases": [],
+        "candidateCount": 1,
+        "matchedCount": 1,
+        "matchedIds": [
+          "zixing-bailu-rice-wine"
+        ],
+        "scores": [
+          {
+            "caseId": "zixing-bailu-rice-wine",
+            "score": 1012,
+            "matchedFields": [
+              "title"
+            ]
+          }
+        ]
+      },
+      "passed": true,
+      "ms": 1.36
+    },
+    {
+      "id": "alias-shanghai",
+      "group": "alias",
+      "question": "沪上清明青团",
+      "expectedIds": [
+        "shanghai-qingming-qingtuan"
+      ],
+      "kind": "retrieval",
+      "expectedRejection": false,
+      "actualIds": [
+        "shanghai-qingming-qingtuan"
+      ],
+      "diagnostics": {
+        "strategy": "ranked",
+        "solarTermIds": [
+          "qingming"
+        ],
+        "provinceCodes": [
+          "310000"
+        ],
+        "regions": [],
+        "normalizedTerms": [
+          "青团"
+        ],
+        "matchedAliases": [
+          "沪上"
+        ],
+        "candidateCount": 1,
+        "matchedCount": 1,
+        "matchedIds": [
+          "shanghai-qingming-qingtuan"
+        ],
+        "scores": [
+          {
+            "caseId": "shanghai-qingming-qingtuan",
+            "score": 4,
+            "matchedFields": [
+              "title"
+            ]
+          }
+        ]
+      },
+      "passed": true,
+      "ms": 1.87
+    },
+    {
+      "id": "alias-gusu",
+      "group": "alias",
+      "question": "苏州冬节桂花冬酿酒",
+      "expectedIds": [
+        "suzhou-dongzhi-winter-wine"
+      ],
+      "kind": "retrieval",
+      "expectedRejection": false,
+      "actualIds": [
+        "suzhou-dongzhi-winter-wine"
+      ],
+      "diagnostics": {
+        "strategy": "alias",
+        "solarTermIds": [
+          "dongzhi"
+        ],
+        "provinceCodes": [],
+        "regions": [
+          "苏州"
+        ],
+        "normalizedTerms": [
+          "冬酿酒"
+        ],
+        "matchedAliases": [
+          "冬节",
+          "桂花冬酿酒"
+        ],
+        "candidateCount": 1,
+        "matchedCount": 1,
+        "matchedIds": [
+          "suzhou-dongzhi-winter-wine"
+        ],
+        "scores": [
+          {
+            "caseId": "suzhou-dongzhi-winter-wine",
+            "score": 44,
+            "matchedFields": [
+              "alias",
+              "title"
+            ]
+          }
+        ]
+      },
+      "passed": true,
+      "ms": 1.52
+    },
+    {
+      "id": "alias-nine",
+      "group": "alias",
+      "question": "北京冬至画九",
+      "expectedIds": [
+        "beijing-dongzhi-nine-nine-chart"
+      ],
+      "kind": "retrieval",
+      "expectedRejection": false,
+      "actualIds": [
+        "beijing-dongzhi-nine-nine-chart"
+      ],
+      "diagnostics": {
+        "strategy": "exact_title",
+        "solarTermIds": [
+          "dongzhi"
+        ],
+        "provinceCodes": [
+          "110000"
+        ],
+        "regions": [],
+        "normalizedTerms": [
+          "九九",
+          "消寒图"
+        ],
+        "matchedAliases": [
+          "画九",
+          "数九图",
+          "消寒图"
+        ],
+        "candidateCount": 2,
+        "matchedCount": 1,
+        "matchedIds": [
+          "beijing-dongzhi-nine-nine-chart"
+        ],
+        "scores": [
+          {
+            "caseId": "beijing-dongzhi-nine-nine-chart",
+            "score": 1048,
+            "matchedFields": [
+              "title",
+              "alias"
+            ]
+          }
+        ]
+      },
+      "passed": true,
+      "ms": 1.29
+    },
+    {
+      "id": "alias-radish",
+      "group": "alias",
+      "question": "南京大雪萝卜丸子",
+      "expectedIds": [
+        "nanjing-daxue-radish-balls"
+      ],
+      "kind": "retrieval",
+      "expectedRejection": false,
+      "actualIds": [
+        "nanjing-daxue-radish-balls"
+      ],
+      "diagnostics": {
+        "strategy": "alias",
+        "solarTermIds": [
+          "daxue"
+        ],
+        "provinceCodes": [],
+        "regions": [
+          "南京"
+        ],
+        "normalizedTerms": [
+          "萝卜",
+          "圆子"
+        ],
+        "matchedAliases": [
+          "萝卜丸子",
+          "萝卜圆子"
+        ],
+        "candidateCount": 2,
+        "matchedCount": 1,
+        "matchedIds": [
+          "nanjing-daxue-radish-balls"
+        ],
+        "scores": [
+          {
+            "caseId": "nanjing-daxue-radish-balls",
+            "score": 48,
+            "matchedFields": [
+              "alias",
+              "title"
+            ]
+          }
+        ]
+      },
+      "passed": true,
+      "ms": 1.25
+    },
+    {
+      "id": "alias-porridge",
+      "group": "alias",
+      "question": "鲁北大雪红薯粥",
+      "expectedIds": [
+        "lubei-daxue-sweet-potato-porridge"
+      ],
+      "kind": "retrieval",
+      "expectedRejection": false,
+      "actualIds": [
+        "lubei-daxue-sweet-potato-porridge"
+      ],
+      "diagnostics": {
+        "strategy": "alias",
+        "solarTermIds": [
+          "daxue"
+        ],
+        "provinceCodes": [],
+        "regions": [],
+        "normalizedTerms": [
+          "北大",
+          "红薯"
+        ],
+        "matchedAliases": [
+          "红薯粥",
+          "红薯稀饭"
+        ],
+        "candidateCount": 3,
+        "matchedCount": 1,
+        "matchedIds": [
+          "lubei-daxue-sweet-potato-porridge"
+        ],
+        "scores": [
+          {
+            "caseId": "lubei-daxue-sweet-potato-porridge",
+            "score": 41,
+            "matchedFields": [
+              "alias",
+              "description"
+            ]
+          }
+        ]
+      },
+      "passed": true,
+      "ms": 2.1
+    },
+    {
+      "id": "alias-lamb",
+      "group": "alias",
+      "question": "银川冬至羊肉粉汤",
+      "expectedIds": [
+        "yinchuan-dongzhi-lamb-soup"
+      ],
+      "kind": "retrieval",
+      "expectedRejection": false,
+      "actualIds": [
+        "yinchuan-dongzhi-lamb-soup"
+      ],
+      "diagnostics": {
+        "strategy": "alias",
+        "solarTermIds": [
+          "dongzhi"
+        ],
+        "provinceCodes": [],
+        "regions": [
+          "银川"
+        ],
+        "normalizedTerms": [
+          "羊肉",
+          "粉汤"
+        ],
+        "matchedAliases": [
+          "羊肉粉汤"
+        ],
+        "candidateCount": 1,
+        "matchedCount": 1,
+        "matchedIds": [
+          "yinchuan-dongzhi-lamb-soup"
+        ],
+        "scores": [
+          {
+            "caseId": "yinchuan-dongzhi-lamb-soup",
+            "score": 42,
+            "matchedFields": [
+              "alias",
+              "description"
+            ]
+          }
+        ]
+      },
+      "passed": true,
+      "ms": 1.49
+    },
+    {
+      "id": "alias-rice",
+      "group": "alias",
+      "question": "杭州立夏乌饭",
+      "expectedIds": [
+        "hangzhou-dark-glutinous-rice"
+      ],
+      "kind": "retrieval",
+      "expectedRejection": false,
+      "actualIds": [
+        "hangzhou-dark-glutinous-rice"
+      ],
+      "diagnostics": {
+        "strategy": "alias",
+        "solarTermIds": [
+          "lixia"
+        ],
+        "provinceCodes": [],
+        "regions": [
+          "杭州"
+        ],
+        "normalizedTerms": [
+          "乌饭"
+        ],
+        "matchedAliases": [
+          "立夏乌饭"
+        ],
+        "candidateCount": 2,
+        "matchedCount": 1,
+        "matchedIds": [
+          "hangzhou-dark-glutinous-rice"
+        ],
+        "scores": [
+          {
+            "caseId": "hangzhou-dark-glutinous-rice",
+            "score": 40,
+            "matchedFields": [
+              "alias"
+            ]
+          }
+        ]
+      },
+      "passed": true,
+      "ms": 1.27
+    },
+    {
+      "id": "alias-guangzhou",
+      "group": "alias",
+      "question": "羊城处暑凉茶",
+      "expectedIds": [
+        "guangzhou-chushu-herbal-tea"
+      ],
+      "kind": "retrieval",
+      "expectedRejection": false,
+      "actualIds": [
+        "guangzhou-chushu-herbal-tea"
+      ],
+      "diagnostics": {
+        "strategy": "ranked",
+        "solarTermIds": [
+          "chushu"
+        ],
+        "provinceCodes": [],
+        "regions": [
+          "广州"
+        ],
+        "normalizedTerms": [
+          "凉茶"
+        ],
+        "matchedAliases": [
+          "羊城"
+        ],
+        "candidateCount": 1,
+        "matchedCount": 1,
+        "matchedIds": [
+          "guangzhou-chushu-herbal-tea"
+        ],
+        "scores": [
+          {
+            "caseId": "guangzhou-chushu-herbal-tea",
+            "score": 4,
+            "matchedFields": [
+              "title"
+            ]
+          }
+        ]
+      },
+      "passed": true,
+      "ms": 1.35
+    },
+    {
+      "id": "alias-tianjin",
+      "group": "alias",
+      "question": "津门惊蛰吃梨",
+      "expectedIds": [
+        "tianjin-jingzhe-pears"
+      ],
+      "kind": "retrieval",
+      "expectedRejection": false,
+      "actualIds": [
+        "tianjin-jingzhe-pears"
+      ],
+      "diagnostics": {
+        "strategy": "exact_title",
+        "solarTermIds": [
+          "jingzhe"
+        ],
+        "provinceCodes": [
+          "120000"
+        ],
+        "regions": [],
+        "normalizedTerms": [
+          "吃梨"
+        ],
+        "matchedAliases": [
+          "津门"
+        ],
+        "candidateCount": 1,
+        "matchedCount": 1,
+        "matchedIds": [
+          "tianjin-jingzhe-pears"
+        ],
+        "scores": [
+          {
+            "caseId": "tianjin-jingzhe-pears",
+            "score": 1004,
+            "matchedFields": [
+              "title"
+            ]
+          }
+        ]
+      },
+      "passed": true,
+      "ms": 1.37
+    },
+    {
+      "id": "related-province",
+      "group": "cross_region",
+      "question": "福建雨水占稻色",
+      "expectedIds": [
+        "south-china-yushui-rice-divination"
+      ],
+      "kind": "retrieval",
+      "expectedRejection": false,
+      "actualIds": [
+        "south-china-yushui-rice-divination"
+      ],
+      "diagnostics": {
+        "strategy": "ranked",
+        "solarTermIds": [
+          "yushui"
+        ],
+        "provinceCodes": [
+          "350000"
+        ],
+        "regions": [],
+        "normalizedTerms": [
+          "占稻色"
+        ],
+        "matchedAliases": [],
+        "candidateCount": 1,
+        "matchedCount": 1,
+        "matchedIds": [
+          "south-china-yushui-rice-divination"
+        ],
+        "scores": [
+          {
+            "caseId": "south-china-yushui-rice-divination",
+            "score": 4,
+            "matchedFields": [
+              "title"
+            ]
+          }
+        ]
+      },
+      "passed": true,
+      "ms": 1.41
+    },
+    {
+      "id": "compare-jiangzhe",
+      "group": "cross_region",
+      "question": "比较江浙两省冬至习俗",
+      "expectedIds": [
+        "sanmen-jidong",
+        "suzhou-dongzhi-winter-wine"
+      ],
+      "kind": "retrieval",
+      "expectedRejection": false,
+      "actualIds": [
+        "sanmen-jidong",
+        "suzhou-dongzhi-winter-wine"
+      ],
+      "diagnostics": {
+        "strategy": "filters_only",
+        "solarTermIds": [
+          "dongzhi"
+        ],
+        "provinceCodes": [
+          "320000",
+          "330000"
+        ],
+        "regions": [],
+        "normalizedTerms": [],
+        "matchedAliases": [
+          "江浙两省"
+        ],
+        "candidateCount": 2,
+        "matchedCount": 2,
+        "matchedIds": [
+          "sanmen-jidong",
+          "suzhou-dongzhi-winter-wine"
+        ],
+        "scores": [
+          {
+            "caseId": "sanmen-jidong",
+            "score": 0,
+            "matchedFields": [
+              "filters"
+            ]
+          },
+          {
+            "caseId": "suzhou-dongzhi-winter-wine",
+            "score": 0,
+            "matchedFields": [
+              "filters"
+            ]
+          }
+        ]
+      },
+      "passed": true,
+      "ms": 1.49
+    },
+    {
+      "id": "compare-explicit",
+      "group": "cross_region",
+      "question": "江苏和浙江的冬至民俗有什么不同",
+      "expectedIds": [
+        "sanmen-jidong",
+        "suzhou-dongzhi-winter-wine"
+      ],
+      "kind": "retrieval",
+      "expectedRejection": false,
+      "actualIds": [
+        "sanmen-jidong",
+        "suzhou-dongzhi-winter-wine"
+      ],
+      "diagnostics": {
+        "strategy": "filters_only",
+        "solarTermIds": [
+          "dongzhi"
+        ],
+        "provinceCodes": [
+          "320000",
+          "330000"
+        ],
+        "regions": [],
+        "normalizedTerms": [],
+        "matchedAliases": [],
+        "candidateCount": 2,
+        "matchedCount": 2,
+        "matchedIds": [
+          "sanmen-jidong",
+          "suzhou-dongzhi-winter-wine"
+        ],
+        "scores": [
+          {
+            "caseId": "sanmen-jidong",
+            "score": 0,
+            "matchedFields": [
+              "filters"
+            ]
+          },
+          {
+            "caseId": "suzhou-dongzhi-winter-wine",
+            "score": 0,
+            "matchedFields": [
+              "filters"
+            ]
+          }
+        ]
+      },
+      "passed": true,
+      "ms": 1.47
+    },
+    {
+      "id": "joint-food",
+      "group": "joint_filters",
+      "question": "江苏冬至饮食",
+      "expectedIds": [
+        "suzhou-dongzhi-winter-wine"
+      ],
+      "category": "food",
+      "kind": "retrieval",
+      "expectedRejection": false,
+      "actualIds": [
+        "suzhou-dongzhi-winter-wine"
+      ],
+      "diagnostics": {
+        "strategy": "filters_only",
+        "solarTermIds": [
+          "dongzhi"
+        ],
+        "provinceCodes": [
+          "320000"
+        ],
+        "regions": [],
+        "category": "food",
+        "normalizedTerms": [],
+        "matchedAliases": [],
+        "candidateCount": 1,
+        "matchedCount": 1,
+        "matchedIds": [
+          "suzhou-dongzhi-winter-wine"
+        ],
+        "scores": [
+          {
+            "caseId": "suzhou-dongzhi-winter-wine",
+            "score": 0,
+            "matchedFields": [
+              "filters"
+            ]
+          }
+        ]
+      },
+      "passed": true,
+      "ms": 1.26
+    },
+    {
+      "id": "follow-up-food",
+      "group": "follow_up",
+      "history": [
+        "比较江苏浙江冬至习俗",
+        "那只看饮食类"
+      ],
+      "expectedIds": [
+        "suzhou-dongzhi-winter-wine"
+      ],
+      "category": "food",
+      "kind": "retrieval",
+      "expectedRejection": false,
+      "actualIds": [
+        "suzhou-dongzhi-winter-wine"
+      ],
+      "diagnostics": {
+        "strategy": "filters_only",
+        "solarTermIds": [
+          "dongzhi"
+        ],
+        "provinceCodes": [
+          "320000",
+          "330000"
+        ],
+        "regions": [],
+        "category": "food",
+        "normalizedTerms": [],
+        "matchedAliases": [],
+        "candidateCount": 1,
+        "matchedCount": 1,
+        "matchedIds": [
+          "suzhou-dongzhi-winter-wine"
+        ],
+        "scores": [
+          {
+            "caseId": "suzhou-dongzhi-winter-wine",
+            "score": 0,
+            "matchedFields": [
+              "filters"
+            ]
+          }
+        ]
+      },
+      "passed": true,
+      "ms": 1.87
+    },
+    {
+      "id": "follow-up-region",
+      "group": "follow_up",
+      "history": [
+        "江苏冬至民俗",
+        "那浙江呢"
+      ],
+      "expectedIds": [
+        "sanmen-jidong"
+      ],
+      "kind": "retrieval",
+      "expectedRejection": false,
+      "actualIds": [
+        "sanmen-jidong"
+      ],
+      "diagnostics": {
+        "strategy": "filters_only",
+        "solarTermIds": [
+          "dongzhi"
+        ],
+        "provinceCodes": [
+          "330000"
+        ],
+        "regions": [],
+        "normalizedTerms": [],
+        "matchedAliases": [],
+        "candidateCount": 1,
+        "matchedCount": 1,
+        "matchedIds": [
+          "sanmen-jidong"
+        ],
+        "scores": [
+          {
+            "caseId": "sanmen-jidong",
+            "score": 0,
+            "matchedFields": [
+              "filters"
+            ]
+          }
+        ]
+      },
+      "passed": true,
+      "ms": 1.84
+    },
+    {
+      "id": "uncovered",
+      "group": "empty",
+      "question": "西藏清明有哪些已收录习俗",
+      "expectedIds": [],
+      "mustBeEmpty": true,
+      "kind": "retrieval",
+      "expectedRejection": true,
+      "actualIds": [],
+      "diagnostics": {
+        "strategy": "no_match",
+        "solarTermIds": [
+          "qingming"
+        ],
+        "provinceCodes": [
+          "540000"
+        ],
+        "regions": [],
+        "normalizedTerms": [
+          "已收录"
+        ],
+        "matchedAliases": [],
+        "candidateCount": 0,
+        "matchedCount": 0,
+        "matchedIds": [],
+        "scores": [],
+        "noMatchReason": "no_public_match"
+      },
+      "passed": true,
+      "ms": 3.97
+    },
+    {
+      "id": "fabricated-available-region",
+      "group": "fabricated",
+      "question": "江苏冬至量子祭龙王",
+      "expectedIds": [],
+      "mustBeEmpty": true,
+      "kind": "retrieval",
+      "expectedRejection": true,
+      "actualIds": [],
+      "diagnostics": {
+        "strategy": "no_match",
+        "solarTermIds": [
+          "dongzhi"
+        ],
+        "provinceCodes": [
+          "320000"
+        ],
+        "regions": [],
+        "normalizedTerms": [
+          "量子",
+          "祭龙王"
+        ],
+        "matchedAliases": [],
+        "candidateCount": 1,
+        "matchedCount": 0,
+        "matchedIds": [],
+        "scores": [],
+        "noMatchReason": "no_keyword_match"
+      },
+      "passed": true,
+      "ms": 1.8
+    },
+    {
+      "id": "wrong-term-exact",
+      "group": "contradiction",
+      "question": "清明三门祭冬",
+      "expectedIds": [],
+      "mustBeEmpty": true,
+      "kind": "retrieval",
+      "expectedRejection": true,
+      "actualIds": [],
+      "diagnostics": {
+        "strategy": "no_match",
+        "solarTermIds": [
+          "qingming"
+        ],
+        "provinceCodes": [
+          "330000"
+        ],
+        "regions": [],
+        "normalizedTerms": [
+          "三门",
+          "祭冬"
+        ],
+        "matchedAliases": [],
+        "candidateCount": 1,
+        "matchedCount": 0,
+        "matchedIds": [],
+        "scores": [],
+        "noMatchReason": "filters_conflict"
+      },
+      "passed": true,
+      "ms": 1.74
+    },
+    {
+      "id": "wrong-region-exact",
+      "group": "contradiction",
+      "question": "上海冬至三门祭冬",
+      "expectedIds": [],
+      "mustBeEmpty": true,
+      "kind": "retrieval",
+      "expectedRejection": true,
+      "actualIds": [],
+      "diagnostics": {
+        "strategy": "no_match",
+        "solarTermIds": [
+          "dongzhi"
+        ],
+        "provinceCodes": [
+          "310000"
+        ],
+        "regions": [],
+        "normalizedTerms": [
+          "三门",
+          "祭冬"
+        ],
+        "matchedAliases": [],
+        "candidateCount": 0,
+        "matchedCount": 0,
+        "matchedIds": [],
+        "scores": [],
+        "noMatchReason": "no_public_match"
+      },
+      "passed": true,
+      "ms": 1.74
+    },
+    {
+      "id": "wrong-category-exact",
+      "group": "contradiction",
+      "question": "浙江冬至饮食类三门祭冬",
+      "expectedIds": [],
+      "mustBeEmpty": true,
+      "kind": "retrieval",
+      "expectedRejection": true,
+      "actualIds": [],
+      "diagnostics": {
+        "strategy": "no_match",
+        "solarTermIds": [
+          "dongzhi"
+        ],
+        "provinceCodes": [
+          "330000"
+        ],
+        "regions": [],
+        "category": "food",
+        "normalizedTerms": [
+          "三门",
+          "祭冬"
+        ],
+        "matchedAliases": [],
+        "candidateCount": 0,
+        "matchedCount": 0,
+        "matchedIds": [],
+        "scores": [],
+        "noMatchReason": "no_public_match"
+      },
+      "passed": true,
+      "ms": 4.77
+    },
+    {
+      "id": "pending-flower",
+      "group": "pending",
+      "question": "陕西黄陵冬至面花",
+      "expectedIds": [],
+      "mustBeEmpty": true,
+      "kind": "retrieval",
+      "expectedRejection": true,
+      "actualIds": [],
+      "diagnostics": {
+        "strategy": "not_cultural",
+        "solarTermIds": [
+          "dongzhi"
+        ],
+        "provinceCodes": [
+          "610000"
+        ],
+        "regions": [],
+        "normalizedTerms": [
+          "黄陵",
+          "面花"
+        ],
+        "matchedAliases": [],
+        "candidateCount": 0,
+        "matchedCount": 0,
+        "matchedIds": [],
+        "scores": [],
+        "noMatchReason": "not_cultural"
+      },
+      "passed": true,
+      "ms": 1.78
+    },
+    {
+      "id": "pending-jujube",
+      "group": "pending",
+      "question": "河南新郑秋分大枣",
+      "expectedIds": [],
+      "mustBeEmpty": true,
+      "kind": "retrieval",
+      "expectedRejection": true,
+      "actualIds": [],
+      "diagnostics": {
+        "strategy": "not_cultural",
+        "solarTermIds": [
+          "qiufen"
+        ],
+        "provinceCodes": [
+          "410000"
+        ],
+        "regions": [],
+        "normalizedTerms": [
+          "新郑",
+          "大枣"
+        ],
+        "matchedAliases": [],
+        "candidateCount": 0,
+        "matchedCount": 0,
+        "matchedIds": [],
+        "scores": [],
+        "noMatchReason": "not_cultural"
+      },
+      "passed": true,
+      "ms": 2.22
+    },
+    {
+      "id": "cite:anhua-leicha-tea",
+      "kind": "citation",
+      "group": "valid_catalog_citations",
+      "expectedCitationCount": 1,
+      "validCitationCount": 1,
+      "passed": true,
+      "ms": 12.12
+    },
+    {
+      "id": "cite:anren-chunfen-spring-fair",
+      "kind": "citation",
+      "group": "valid_catalog_citations",
+      "expectedCitationCount": 1,
+      "validCitationCount": 1,
+      "passed": true,
+      "ms": 4.11
+    },
+    {
+      "id": "cite:baishui-cangjie-rites",
+      "kind": "citation",
+      "group": "valid_catalog_citations",
+      "expectedCitationCount": 1,
+      "validCitationCount": 1,
+      "passed": true,
+      "ms": 4.76
+    },
+    {
+      "id": "cite:beijing-chunfen-sun-cakes",
+      "kind": "citation",
+      "group": "valid_catalog_citations",
+      "expectedCitationCount": 1,
+      "validCitationCount": 1,
+      "passed": true,
+      "ms": 2.79
+    },
+    {
+      "id": "cite:beijing-dahan-cold-dispelling-cakes",
+      "kind": "citation",
+      "group": "valid_catalog_citations",
+      "expectedCitationCount": 1,
+      "validCitationCount": 1,
+      "passed": true,
+      "ms": 3.01
+    },
+    {
+      "id": "cite:beijing-dongzhi-nine-nine-chart",
+      "kind": "citation",
+      "group": "valid_catalog_citations",
+      "expectedCitationCount": 1,
+      "validCitationCount": 1,
+      "passed": true,
+      "ms": 3.08
+    },
+    {
+      "id": "cite:beijing-dongzhi-temple-of-heaven",
+      "kind": "citation",
+      "group": "valid_catalog_citations",
+      "expectedCitationCount": 1,
+      "validCitationCount": 1,
+      "passed": true,
+      "ms": 2.59
+    },
+    {
+      "id": "cite:beijing-hanlu-fragrant-hills",
+      "kind": "citation",
+      "group": "valid_catalog_citations",
+      "expectedCitationCount": 1,
+      "validCitationCount": 1,
+      "passed": true,
+      "ms": 2.57
+    },
+    {
+      "id": "cite:beijing-kangling-spring-pancakes",
+      "kind": "citation",
+      "group": "valid_catalog_citations",
+      "expectedCitationCount": 1,
+      "validCitationCount": 1,
+      "passed": true,
+      "ms": 3.38
+    },
+    {
+      "id": "cite:beijing-lidong-dumplings",
+      "kind": "citation",
+      "group": "valid_catalog_citations",
+      "expectedCitationCount": 1,
+      "validCitationCount": 1,
+      "passed": true,
+      "ms": 3.14
+    },
+    {
+      "id": "cite:beijing-liqiu-autumn-meat",
+      "kind": "citation",
+      "group": "valid_catalog_citations",
+      "expectedCitationCount": 1,
+      "validCitationCount": 1,
+      "passed": true,
+      "ms": 2.52
+    },
+    {
+      "id": "cite:beijing-ritan-sun-rites",
+      "kind": "citation",
+      "group": "valid_catalog_citations",
+      "expectedCitationCount": 1,
+      "validCitationCount": 1,
+      "passed": true,
+      "ms": 2.56
+    },
+    {
+      "id": "cite:beijing-sesame-pastries",
+      "kind": "citation",
+      "group": "valid_catalog_citations",
+      "expectedCitationCount": 1,
+      "validCitationCount": 1,
+      "passed": true,
+      "ms": 3.02
+    },
+    {
+      "id": "cite:beijing-xiazhi-earth-rites",
+      "kind": "citation",
+      "group": "valid_catalog_citations",
+      "expectedCitationCount": 1,
+      "validCitationCount": 1,
+      "passed": true,
+      "ms": 2.66
+    },
+    {
+      "id": "cite:beijing-xiazhi-noodles",
+      "kind": "citation",
+      "group": "valid_catalog_citations",
+      "expectedCitationCount": 1,
+      "validCitationCount": 1,
+      "passed": true,
+      "ms": 2.54
+    },
+    {
+      "id": "cite:beijing-yuetan-moon-rites",
+      "kind": "citation",
+      "group": "valid_catalog_citations",
+      "expectedCitationCount": 1,
+      "validCitationCount": 1,
+      "passed": true,
+      "ms": 2.45
+    },
+    {
+      "id": "cite:chagan-dongzhi-winter-fishing",
+      "kind": "citation",
+      "group": "valid_catalog_citations",
+      "expectedCitationCount": 1,
+      "validCitationCount": 1,
+      "passed": true,
+      "ms": 2.75
+    },
+    {
+      "id": "cite:changxing-light-snow-wine",
+      "kind": "citation",
+      "group": "valid_catalog_citations",
+      "expectedCitationCount": 1,
+      "validCitationCount": 1,
+      "passed": true,
+      "ms": 2.55
+    },
+    {
+      "id": "cite:chaoshan-lidong-sugarcane",
+      "kind": "citation",
+      "group": "valid_catalog_citations",
+      "expectedCitationCount": 1,
+      "validCitationCount": 1,
+      "passed": true,
+      "ms": 2.39
+    },
+    {
+      "id": "cite:chiayi-xiaoxue-dried-fish",
+      "kind": "citation",
+      "group": "valid_catalog_citations",
+      "expectedCitationCount": 1,
+      "validCitationCount": 1,
+      "passed": true,
+      "ms": 2.34
+    },
+    {
+      "id": "cite:dujiangyan-qingming-water-release",
+      "kind": "citation",
+      "group": "valid_catalog_citations",
+      "expectedCitationCount": 1,
+      "validCitationCount": 1,
+      "passed": true,
+      "ms": 3.04
+    },
+    {
+      "id": "cite:foshan-dahan-sticky-rice",
+      "kind": "citation",
+      "group": "valid_catalog_citations",
+      "expectedCitationCount": 1,
+      "validCitationCount": 1,
+      "passed": true,
+      "ms": 6.58
+    },
+    {
+      "id": "cite:fuping-dried-persimmons",
+      "kind": "citation",
+      "group": "valid_catalog_citations",
+      "expectedCitationCount": 1,
+      "validCitationCount": 1,
+      "passed": true,
+      "ms": 2.37
+    },
+    {
+      "id": "cite:fuzhou-longan-and-porridge",
+      "kind": "citation",
+      "group": "valid_catalog_citations",
+      "expectedCitationCount": 1,
+      "validCitationCount": 1,
+      "passed": true,
+      "ms": 2.87
+    },
+    {
+      "id": "cite:fuzhou-xiazhi-guobianhu",
+      "kind": "citation",
+      "group": "valid_catalog_citations",
+      "expectedCitationCount": 1,
+      "validCitationCount": 1,
+      "passed": true,
+      "ms": 2.72
+    },
+    {
+      "id": "cite:gannan-jingzhe-fried-seeds",
+      "kind": "citation",
+      "group": "valid_catalog_citations",
+      "expectedCitationCount": 1,
+      "validCitationCount": 1,
+      "passed": true,
+      "ms": 2.46
+    },
+    {
+      "id": "cite:guangdong-dashu-grass-jelly",
+      "kind": "citation",
+      "group": "valid_catalog_citations",
+      "expectedCitationCount": 1,
+      "validCitationCount": 1,
+      "passed": true,
+      "ms": 2.41
+    },
+    {
+      "id": "cite:guanghan-baobao-festival",
+      "kind": "citation",
+      "group": "valid_catalog_citations",
+      "expectedCitationCount": 1,
+      "validCitationCount": 1,
+      "passed": true,
+      "ms": 2.76
+    },
+    {
+      "id": "cite:guangzhou-chushu-herbal-tea",
+      "kind": "citation",
+      "group": "valid_catalog_citations",
+      "expectedCitationCount": 1,
+      "validCitationCount": 1,
+      "passed": true,
+      "ms": 4.13
+    },
+    {
+      "id": "cite:guangzhou-sticky-rice-breakfast",
+      "kind": "citation",
+      "group": "valid_catalog_citations",
+      "expectedCitationCount": 1,
+      "validCitationCount": 1,
+      "passed": true,
+      "ms": 3.09
+    },
+    {
+      "id": "cite:guanzhong-xiaoman-wheat-visits",
+      "kind": "citation",
+      "group": "valid_catalog_citations",
+      "expectedCitationCount": 1,
+      "validCitationCount": 1,
+      "passed": true,
+      "ms": 2.92
+    },
+    {
+      "id": "cite:haikou-lichun-museum-night",
+      "kind": "citation",
+      "group": "valid_catalog_citations",
+      "expectedCitationCount": 1,
+      "validCitationCount": 1,
+      "passed": true,
+      "ms": 3
+    },
+    {
+      "id": "cite:haining-waterwheel-irrigation",
+      "kind": "citation",
+      "group": "valid_catalog_citations",
+      "expectedCitationCount": 1,
+      "validCitationCount": 1,
+      "passed": true,
+      "ms": 2.33
+    },
+    {
+      "id": "cite:hangzhou-banshan-summer-rites",
+      "kind": "citation",
+      "group": "valid_catalog_citations",
+      "expectedCitationCount": 1,
+      "validCitationCount": 1,
+      "passed": true,
+      "ms": 2.58
+    },
+    {
+      "id": "cite:hangzhou-dark-glutinous-rice",
+      "kind": "citation",
+      "group": "valid_catalog_citations",
+      "expectedCitationCount": 1,
+      "validCitationCount": 1,
+      "passed": true,
+      "ms": 2.28
+    },
+    {
+      "id": "cite:hefeng-guyu-wuli-tea-harvest",
+      "kind": "citation",
+      "group": "valid_catalog_citations",
+      "expectedCitationCount": 1,
+      "validCitationCount": 1,
+      "passed": true,
+      "ms": 3.04
+    },
+    {
+      "id": "cite:hong-kong-ngo-keng-kiu-ritual",
+      "kind": "citation",
+      "group": "valid_catalog_citations",
+      "expectedCitationCount": 1,
+      "validCitationCount": 1,
+      "passed": true,
+      "ms": 2.35
+    },
+    {
+      "id": "cite:honghe-guyu-kaiyangmen",
+      "kind": "citation",
+      "group": "valid_catalog_citations",
+      "expectedCitationCount": 1,
+      "validCitationCount": 1,
+      "passed": true,
+      "ms": 2.23
+    },
+    {
+      "id": "cite:hongjiang-chunfen-egg-standing",
+      "kind": "citation",
+      "group": "valid_catalog_citations",
+      "expectedCitationCount": 1,
+      "validCitationCount": 1,
+      "passed": true,
+      "ms": 2.19
+    },
+    {
+      "id": "cite:huaian-changyu-feast",
+      "kind": "citation",
+      "group": "valid_catalog_citations",
+      "expectedCitationCount": 1,
+      "validCitationCount": 1,
+      "passed": true,
+      "ms": 2.21
+    },
+    {
+      "id": "cite:hualong-qiufen-highland-barley",
+      "kind": "citation",
+      "group": "valid_catalog_citations",
+      "expectedCitationCount": 1,
+      "validCitationCount": 1,
+      "passed": true,
+      "ms": 2.93
+    },
+    {
+      "id": "cite:huangling-harvest-drying",
+      "kind": "citation",
+      "group": "valid_catalog_citations",
+      "expectedCitationCount": 1,
+      "validCitationCount": 1,
+      "passed": true,
+      "ms": 3.24
+    },
+    {
+      "id": "cite:jiangnan-mangzhong-flower-farewell",
+      "kind": "citation",
+      "group": "valid_catalog_citations",
+      "expectedCitationCount": 1,
+      "validCitationCount": 1,
+      "passed": true,
+      "ms": 2.99
+    },
+    {
+      "id": "cite:jiaojiang-summer-boat",
+      "kind": "citation",
+      "group": "valid_catalog_citations",
+      "expectedCitationCount": 1,
+      "validCitationCount": 1,
+      "passed": true,
+      "ms": 2.67
+    },
+    {
+      "id": "cite:jiexiu-qingming-hanshi",
+      "kind": "citation",
+      "group": "valid_catalog_citations",
+      "expectedCitationCount": 1,
+      "validCitationCount": 1,
+      "passed": true,
+      "ms": 2.51
+    },
+    {
+      "id": "cite:jixi-anmiao-festival",
+      "kind": "citation",
+      "group": "valid_catalog_citations",
+      "expectedCitationCount": 1,
+      "validCitationCount": 1,
+      "passed": true,
+      "ms": 9.47
+    },
+    {
+      "id": "cite:lhasa-najin-qiufen-barley-celebration",
+      "kind": "citation",
+      "group": "valid_catalog_citations",
+      "expectedCitationCount": 1,
+      "validCitationCount": 1,
+      "passed": true,
+      "ms": 2.47
+    },
+    {
+      "id": "cite:lingnan-qiufen-autumn-soup",
+      "kind": "citation",
+      "group": "valid_catalog_citations",
+      "expectedCitationCount": 1,
+      "validCitationCount": 1,
+      "passed": true,
+      "ms": 2.26
+    },
+    {
+      "id": "cite:longshan-tujia-paotang",
+      "kind": "citation",
+      "group": "valid_catalog_citations",
+      "expectedCitationCount": 1,
+      "validCitationCount": 1,
+      "passed": true,
+      "ms": 2.38
+    },
+    {
+      "id": "cite:lubei-daxue-sweet-potato-porridge",
+      "kind": "citation",
+      "group": "valid_catalog_citations",
+      "expectedCitationCount": 1,
+      "validCitationCount": 1,
+      "passed": true,
+      "ms": 2.06
+    },
+    {
+      "id": "cite:macao-dongzhi-family-reunion",
+      "kind": "citation",
+      "group": "valid_catalog_citations",
+      "expectedCitationCount": 1,
+      "validCitationCount": 1,
+      "passed": true,
+      "ms": 3.16
+    },
+    {
+      "id": "cite:meiyuan-ploughing-festival",
+      "kind": "citation",
+      "group": "valid_catalog_citations",
+      "expectedCitationCount": 1,
+      "validCitationCount": 1,
+      "passed": true,
+      "ms": 3.55
+    },
+    {
+      "id": "cite:minnan-weiya-year-end-rite",
+      "kind": "citation",
+      "group": "valid_catalog_citations",
+      "expectedCitationCount": 1,
+      "validCitationCount": 1,
+      "passed": true,
+      "ms": 2.13
+    },
+    {
+      "id": "cite:mohe-xiazhi-white-night",
+      "kind": "citation",
+      "group": "valid_catalog_citations",
+      "expectedCitationCount": 1,
+      "validCitationCount": 1,
+      "passed": true,
+      "ms": 2.16
+    },
+    {
+      "id": "cite:nanjing-autumn-duck-sharing",
+      "kind": "citation",
+      "group": "valid_catalog_citations",
+      "expectedCitationCount": 1,
+      "validCitationCount": 1,
+      "passed": true,
+      "ms": 2.62
+    },
+    {
+      "id": "cite:nanjing-autumn-watermelon",
+      "kind": "citation",
+      "group": "valid_catalog_citations",
+      "expectedCitationCount": 1,
+      "validCitationCount": 1,
+      "passed": true,
+      "ms": 3.15
+    },
+    {
+      "id": "cite:nanjing-bailu-autumn-tea",
+      "kind": "citation",
+      "group": "valid_catalog_citations",
+      "expectedCitationCount": 1,
+      "validCitationCount": 1,
+      "passed": true,
+      "ms": 2.83
+    },
+    {
+      "id": "cite:nanjing-daxue-radish-balls",
+      "kind": "citation",
+      "group": "valid_catalog_citations",
+      "expectedCitationCount": 1,
+      "validCitationCount": 1,
+      "passed": true,
+      "ms": 3.16
+    },
+    {
+      "id": "cite:nanjing-eel-and-new-rice",
+      "kind": "citation",
+      "group": "valid_catalog_citations",
+      "expectedCitationCount": 1,
+      "validCitationCount": 1,
+      "passed": true,
+      "ms": 2.45
+    },
+    {
+      "id": "cite:nanjing-lixia-egg-fighting",
+      "kind": "citation",
+      "group": "valid_catalog_citations",
+      "expectedCitationCount": 1,
+      "validCitationCount": 1,
+      "passed": true,
+      "ms": 2.17
+    },
+    {
+      "id": "cite:nanjing-winter-cured-meat",
+      "kind": "citation",
+      "group": "valid_catalog_citations",
+      "expectedCitationCount": 1,
+      "validCitationCount": 1,
+      "passed": true,
+      "ms": 2.06
+    },
+    {
+      "id": "cite:nanjing-winter-vegetable-rice",
+      "kind": "citation",
+      "group": "valid_catalog_citations",
+      "expectedCitationCount": 1,
+      "validCitationCount": 1,
+      "passed": true,
+      "ms": 2.12
+    },
+    {
+      "id": "cite:nanjing-xiaohan-plum-viewing",
+      "kind": "citation",
+      "group": "valid_catalog_citations",
+      "expectedCitationCount": 1,
+      "validCitationCount": 1,
+      "passed": true,
+      "ms": 2.33
+    },
+    {
+      "id": "cite:nantong-qingming-banyao-kites",
+      "kind": "citation",
+      "group": "valid_catalog_citations",
+      "expectedCitationCount": 1,
+      "validCitationCount": 1,
+      "passed": true,
+      "ms": 2.57
+    },
+    {
+      "id": "cite:neixiang-lichun-spring-ox",
+      "kind": "citation",
+      "group": "valid_catalog_citations",
+      "expectedCitationCount": 1,
+      "validCitationCount": 1,
+      "passed": true,
+      "ms": 2.12
+    },
+    {
+      "id": "cite:panjin-qiufen-harvest-festival",
+      "kind": "citation",
+      "group": "valid_catalog_citations",
+      "expectedCitationCount": 1,
+      "validCitationCount": 1,
+      "passed": true,
+      "ms": 2.02
+    },
+    {
+      "id": "cite:putian-summer-lychees",
+      "kind": "citation",
+      "group": "valid_catalog_citations",
+      "expectedCitationCount": 1,
+      "validCitationCount": 1,
+      "passed": true,
+      "ms": 2.04
+    },
+    {
+      "id": "cite:quanzhou-shuangjiang-persimmons",
+      "kind": "citation",
+      "group": "valid_catalog_citations",
+      "expectedCitationCount": 1,
+      "validCitationCount": 1,
+      "passed": true,
+      "ms": 2.06
+    },
+    {
+      "id": "cite:quzhou-jiuhua-spring-rites",
+      "kind": "citation",
+      "group": "valid_catalog_citations",
+      "expectedCitationCount": 1,
+      "validCitationCount": 1,
+      "passed": true,
+      "ms": 2.04
+    },
+    {
+      "id": "cite:rongchang-dongzhi-lamb-soup-festival",
+      "kind": "citation",
+      "group": "valid_catalog_citations",
+      "expectedCitationCount": 1,
+      "validCitationCount": 1,
+      "passed": true,
+      "ms": 2
+    },
+    {
+      "id": "cite:rongcheng-fishers-sea-rites",
+      "kind": "citation",
+      "group": "valid_catalog_citations",
+      "expectedCitationCount": 1,
+      "validCitationCount": 1,
+      "passed": true,
+      "ms": 2.2
+    },
+    {
+      "id": "cite:sanmen-jidong",
+      "kind": "citation",
+      "group": "valid_catalog_citations",
+      "expectedCitationCount": 1,
+      "validCitationCount": 1,
+      "passed": true,
+      "ms": 6.1
+    },
+    {
+      "id": "cite:shanghai-qingming-qingtuan",
+      "kind": "citation",
+      "group": "valid_catalog_citations",
+      "expectedCitationCount": 1,
+      "validCitationCount": 1,
+      "passed": true,
+      "ms": 3.18
+    },
+    {
+      "id": "cite:shaoxing-guyu-yu-rites",
+      "kind": "citation",
+      "group": "valid_catalog_citations",
+      "expectedCitationCount": 1,
+      "validCitationCount": 1,
+      "passed": true,
+      "ms": 3.09
+    },
+    {
+      "id": "cite:shaoxing-huangjiu-winter-brewing",
+      "kind": "citation",
+      "group": "valid_catalog_citations",
+      "expectedCitationCount": 1,
+      "validCitationCount": 1,
+      "passed": true,
+      "ms": 3.94
+    },
+    {
+      "id": "cite:shaoxing-zuo-xiazhi",
+      "kind": "citation",
+      "group": "valid_catalog_citations",
+      "expectedCitationCount": 1,
+      "validCitationCount": 1,
+      "passed": true,
+      "ms": 2.44
+    },
+    {
+      "id": "cite:shengze-silkworm-temple-opera",
+      "kind": "citation",
+      "group": "valid_catalog_citations",
+      "expectedCitationCount": 1,
+      "validCitationCount": 1,
+      "passed": true,
+      "ms": 2.07
+    },
+    {
+      "id": "cite:shiqian-lichun-saying-spring",
+      "kind": "citation",
+      "group": "valid_catalog_citations",
+      "expectedCitationCount": 1,
+      "validCitationCount": 1,
+      "passed": true,
+      "ms": 1.97
+    },
+    {
+      "id": "cite:south-china-yushui-rice-divination",
+      "kind": "citation",
+      "group": "valid_catalog_citations",
+      "expectedCitationCount": 1,
+      "validCitationCount": 1,
+      "passed": true,
+      "ms": 1.97
+    },
+    {
+      "id": "cite:suzhou-dongzhi-winter-wine",
+      "kind": "citation",
+      "group": "valid_catalog_citations",
+      "expectedCitationCount": 1,
+      "validCitationCount": 1,
+      "passed": true,
+      "ms": 1.96
+    },
+    {
+      "id": "cite:suzhou-qiufen-autumn-ox",
+      "kind": "citation",
+      "group": "valid_catalog_citations",
+      "expectedCitationCount": 1,
+      "validCitationCount": 1,
+      "passed": true,
+      "ms": 3.92
+    },
+    {
+      "id": "cite:taihu-yuwang-worship",
+      "kind": "citation",
+      "group": "valid_catalog_citations",
+      "expectedCitationCount": 1,
+      "validCitationCount": 1,
+      "passed": true,
+      "ms": 3.01
+    },
+    {
+      "id": "cite:tianjin-jingzhe-pears",
+      "kind": "citation",
+      "group": "valid_catalog_citations",
+      "expectedCitationCount": 1,
+      "validCitationCount": 1,
+      "passed": true,
+      "ms": 2.23
+    },
+    {
+      "id": "cite:tianjin-yellow-bud-cabbage",
+      "kind": "citation",
+      "group": "valid_catalog_citations",
+      "expectedCitationCount": 1,
+      "validCitationCount": 1,
+      "passed": true,
+      "ms": 2.11
+    },
+    {
+      "id": "cite:tianshui-maiji-qiufen-huaniu-apples",
+      "kind": "citation",
+      "group": "valid_catalog_citations",
+      "expectedCitationCount": 1,
+      "validCitationCount": 1,
+      "passed": true,
+      "ms": 2.03
+    },
+    {
+      "id": "cite:tongxiang-heshan-qingming-dinner",
+      "kind": "citation",
+      "group": "valid_catalog_citations",
+      "expectedCitationCount": 1,
+      "validCitationCount": 1,
+      "passed": true,
+      "ms": 2.01
+    },
+    {
+      "id": "cite:ulanhada-qiufen-harvest-opening",
+      "kind": "citation",
+      "group": "valid_catalog_citations",
+      "expectedCitationCount": 1,
+      "validCitationCount": 1,
+      "passed": true,
+      "ms": 1.97
+    },
+    {
+      "id": "cite:urumqi-dongzhi-dawan-dumplings",
+      "kind": "citation",
+      "group": "valid_catalog_citations",
+      "expectedCitationCount": 1,
+      "validCitationCount": 1,
+      "passed": true,
+      "ms": 1.98
+    },
+    {
+      "id": "cite:weixian-mangzhong-wheat-harvest",
+      "kind": "citation",
+      "group": "valid_catalog_citations",
+      "expectedCitationCount": 1,
+      "validCitationCount": 1,
+      "passed": true,
+      "ms": 2.9
+    },
+    {
+      "id": "cite:western-sichuan-rainwater-family-visits",
+      "kind": "citation",
+      "group": "valid_catalog_citations",
+      "expectedCitationCount": 1,
+      "validCitationCount": 1,
+      "passed": true,
+      "ms": 2.31
+    },
+    {
+      "id": "cite:xiangshan-chushu-fishing-festival",
+      "kind": "citation",
+      "group": "valid_catalog_citations",
+      "expectedCitationCount": 1,
+      "validCitationCount": 1,
+      "passed": true,
+      "ms": 3.47
+    },
+    {
+      "id": "cite:xinghua-hanlu-chrysanthemums",
+      "kind": "citation",
+      "group": "valid_catalog_citations",
+      "expectedCitationCount": 1,
+      "validCitationCount": 1,
+      "passed": true,
+      "ms": 3.29
+    },
+    {
+      "id": "cite:xuzhou-xiaoshu-lamb-custom",
+      "kind": "citation",
+      "group": "valid_catalog_citations",
+      "expectedCitationCount": 1,
+      "validCitationCount": 1,
+      "passed": true,
+      "ms": 2.96
+    },
+    {
+      "id": "cite:yinchuan-dongzhi-lamb-soup",
+      "kind": "citation",
+      "group": "valid_catalog_citations",
+      "expectedCitationCount": 1,
+      "validCitationCount": 1,
+      "passed": true,
+      "ms": 2.65
+    },
+    {
+      "id": "cite:yizheng-pickled-winter-greens",
+      "kind": "citation",
+      "group": "valid_catalog_citations",
+      "expectedCitationCount": 1,
+      "validCitationCount": 1,
+      "passed": true,
+      "ms": 2.43
+    },
+    {
+      "id": "cite:zhangzhou-shuangjiang-taro",
+      "kind": "citation",
+      "group": "valid_catalog_citations",
+      "expectedCitationCount": 1,
+      "validCitationCount": 1,
+      "passed": true,
+      "ms": 2.47
+    },
+    {
+      "id": "cite:zixing-bailu-rice-wine",
+      "kind": "citation",
+      "group": "valid_catalog_citations",
+      "expectedCitationCount": 1,
+      "validCitationCount": 1,
+      "passed": true,
+      "ms": 3.84
+    },
+    {
+      "id": "out-of-range",
+      "kind": "citation",
+      "group": "invalid_evidence_rejection",
+      "expectedRejection": true,
+      "correctlyRejected": true,
+      "passed": true,
+      "ms": 6.39
+    },
+    {
+      "id": "malformed-citation",
+      "kind": "citation",
+      "group": "invalid_evidence_rejection",
+      "expectedRejection": true,
+      "correctlyRejected": true,
+      "passed": true,
+      "ms": 1.7
+    },
+    {
+      "id": "unretrieved-live-source",
+      "kind": "citation",
+      "group": "invalid_evidence_rejection",
+      "expectedRejection": true,
+      "correctlyRejected": true,
+      "passed": true,
+      "ms": 2.45
+    },
+    {
+      "id": "invented-url",
+      "kind": "citation",
+      "group": "invalid_evidence_rejection",
+      "expectedRejection": true,
+      "correctlyRejected": true,
+      "passed": true,
+      "ms": 2.56
+    },
+    {
+      "id": "wrong-case-title-citation",
+      "kind": "citation",
+      "group": "invalid_evidence_rejection",
+      "expectedRejection": true,
+      "correctlyRejected": true,
+      "passed": true,
+      "ms": 3.9
+    },
+    {
+      "id": "forged-case-name",
+      "kind": "citation",
+      "group": "invalid_evidence_rejection",
+      "expectedRejection": true,
+      "correctlyRejected": true,
+      "passed": true,
+      "ms": 2.12
+    },
+    {
+      "id": "forged-term",
+      "kind": "citation",
+      "group": "invalid_evidence_rejection",
+      "expectedRejection": true,
+      "correctlyRejected": true,
+      "passed": true,
+      "ms": 2.68
+    },
+    {
+      "id": "forged-province",
+      "kind": "citation",
+      "group": "invalid_evidence_rejection",
+      "expectedRejection": true,
+      "correctlyRejected": true,
+      "passed": true,
+      "ms": 1.82
+    },
+    {
+      "id": "forged-source",
+      "kind": "citation",
+      "group": "invalid_evidence_rejection",
+      "expectedRejection": true,
+      "correctlyRejected": true,
+      "passed": true,
+      "ms": 2.17
+    },
+    {
+      "id": "pending-evidence:huangling-flower-buns",
+      "kind": "citation",
+      "group": "invalid_evidence_rejection",
+      "expectedRejection": true,
+      "correctlyRejected": true,
+      "passed": true,
+      "ms": 2.42
+    },
+    {
+      "id": "pending-evidence:xinzheng-jujube-harvest",
+      "kind": "citation",
+      "group": "invalid_evidence_rejection",
+      "expectedRejection": true,
+      "correctlyRejected": true,
+      "passed": true,
+      "ms": 4.8
+    },
+    {
+      "id": "ordinary-without-citation",
+      "kind": "citation",
+      "group": "general_knowledge",
+      "passed": true,
+      "ms": 4.58
+    },
+    {
+      "id": "actual-search-record-association",
+      "kind": "citation",
+      "group": "web_citation_association",
+      "expectedCitationCount": 1,
+      "validCitationCount": 1,
+      "passed": true,
+      "ms": 3.98
+    },
+    {
+      "id": "search-failed-cannot-cite",
+      "kind": "citation",
+      "group": "web_citation_association",
+      "expectedRejection": true,
+      "passed": true,
+      "ms": 2.25
+    },
+    {
+      "id": "six-tool:search_cultural_cases",
+      "kind": "tool",
+      "group": "six_tool_real_execution",
+      "tool": "search_cultural_cases",
+      "passed": true,
+      "ms": 2.69
+    },
+    {
+      "id": "six-tool:compare_cultural_cases",
+      "kind": "tool",
+      "group": "six_tool_real_execution",
+      "tool": "compare_cultural_cases",
+      "passed": true,
+      "ms": 1.79
+    },
+    {
+      "id": "six-tool:show_cultural_map",
+      "kind": "tool",
+      "group": "six_tool_real_execution",
+      "tool": "show_cultural_map",
+      "passed": true,
+      "ms": 5.08
+    },
+    {
+      "id": "six-tool:highlight_regions",
+      "kind": "tool",
+      "group": "six_tool_real_execution",
+      "tool": "highlight_regions",
+      "passed": true,
+      "ms": 1.42
+    },
+    {
+      "id": "six-tool:open_cultural_case",
+      "kind": "tool",
+      "group": "six_tool_real_execution",
+      "tool": "open_cultural_case",
+      "passed": true,
+      "ms": 1.19
+    },
+    {
+      "id": "map-to-studio-continuity",
+      "kind": "tool",
+      "group": "map_studio_continuity",
+      "passed": true,
+      "ms": 0.62
+    },
+    {
+      "id": "open-reject:not-a-case",
+      "kind": "tool",
+      "group": "invalid_case_rejection",
+      "expectedRejection": true,
+      "passed": true,
+      "ms": 0.32
+    },
+    {
+      "id": "open-reject:../private",
+      "kind": "tool",
+      "group": "invalid_case_rejection",
+      "expectedRejection": true,
+      "passed": true,
+      "ms": 0.21
+    },
+    {
+      "id": "open-reject:huangling-flower-buns",
+      "kind": "tool",
+      "group": "invalid_case_rejection",
+      "expectedRejection": true,
+      "passed": true,
+      "ms": 0.22
+    },
+    {
+      "id": "open-reject:xinzheng-jujube-harvest",
+      "kind": "tool",
+      "group": "invalid_case_rejection",
+      "expectedRejection": true,
+      "passed": true,
+      "ms": 0.11
+    },
+    {
+      "id": "uncovered-map-region",
+      "kind": "tool",
+      "group": "invalid_map_rejection",
+      "expectedRejection": true,
+      "passed": true,
+      "ms": 0.71
+    },
+    {
+      "id": "unknown-map-action",
+      "kind": "tool",
+      "group": "invalid_map_rejection",
+      "expectedRejection": true,
+      "passed": true,
+      "ms": 0.38
+    },
+    {
+      "id": "strict-context-pending",
+      "group": "request_validation",
+      "expectedRejection": true,
+      "passed": true,
+      "ms": 6.2
+    },
+    {
+      "id": "duplicate-request",
+      "group": "request_deduplication",
+      "expectedRejection": true,
+      "passed": true,
+      "ms": 4.88
+    },
+    {
+      "id": "caller-timeout",
+      "group": "isolated_runner_failures",
+      "expectedRejection": true,
+      "passed": true,
+      "ms": 9.06
+    },
+    {
+      "id": "cancel-final-response",
+      "group": "isolated_runner_failures",
+      "expectedRejection": true,
+      "passed": true,
+      "ms": 0.6
+    },
+    {
+      "id": "tool-failure-event",
+      "group": "isolated_runner_failures",
+      "expectedRejection": true,
+      "passed": true,
+      "ms": 2.55
+    }
+  ],
+  "data": {
+    "verified": 97,
+    "pending": 2,
+    "normalizedSha256": "a8ff3f3e62bd1c32239a41067b1a95e3d7cabbfd3d79339513af1be59285766b",
+    "expectedCatalog": {
+      "verified": 97,
+      "pending": 2
+    }
+  },
+  "summary": {
+    "sampleCount": 271,
+    "passed": 271,
+    "failed": 0,
+    "retrieval": {
+      "samples": 112,
+      "hitAt1": 1,
+      "allExpectedHitAt6": 1,
+      "emptySamples": 7,
+      "emptyCorrect": 7
+    },
+    "citations": {
+      "scope": "Entity, identifier and source/citation association checks only; not semantic factual accuracy. General answers with no citations are excluded from the denominator.",
+      "acceptedSamples": 98,
+      "expectedCitationMentions": 98,
+      "validCitationMentions": 98,
+      "associationValidityRate": 1,
+      "rejectedInvalidSamples": 12
+    },
+    "rejection": {
+      "samples": 30,
+      "correctlyRejected": 30
+    },
+    "tools": {
+      "scope": "Deterministic local-tool check samples, not model tool-selection quality",
+      "checkSamples": 36,
+      "checkPassed": 36,
+      "uniqueTools": [
+        "get_solar_term_info",
+        "search_cultural_cases",
+        "compare_cultural_cases",
+        "show_cultural_map",
+        "highlight_regions",
+        "open_cultural_case"
+      ],
+      "executionSamples": 29,
+      "successfulExecutionSamples": 29,
+      "sampleSuccessRate": 1,
+      "expectedRejections": 6
+    },
+    "latencyMs": {
+      "median": 2.07,
+      "p95": 5.08,
+      "total": 664.89
+    },
+    "failures": []
+  },
+  "passed": true
+}

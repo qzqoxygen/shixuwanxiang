@@ -1,0 +1,568 @@
+{
+  "testedAt": "2026-11-15T08:38:00.571Z",
+  "origin": "http://127.0.0.1:3116",
+  "commit": "e7f102227fd0ad454784cb384722f2887d818c52",
+  "workingTreeDirty": true,
+  "runnerSha256": "3e8e3eb019c6b7fe4e6848e1af990906a3164a4359887a19b9d3e6555206b991",
+  "localBuildId": "r2Ako1tuXEwmpEnKwdkVj",
+  "buildIdMeaning": "Local .next build only; not proof of a deployed revision",
+  "method": "Real Chrome and real website/DeepSeek APIs, no request interception or automatic retries; mobile viewport is not a physical device",
+  "pages": [
+    {
+      "path": "/",
+      "status": 200,
+      "horizontalOverflow": false
+    },
+    {
+      "path": "/seasons",
+      "status": 200,
+      "horizontalOverflow": false
+    },
+    {
+      "path": "/explore",
+      "status": 200,
+      "horizontalOverflow": false
+    },
+    {
+      "path": "/studio",
+      "status": 200,
+      "horizontalOverflow": false
+    },
+    {
+      "path": "/about",
+      "status": 200,
+      "horizontalOverflow": false
+    },
+    {
+      "path": "/visit",
+      "status": 200,
+      "horizontalOverflow": false
+    }
+  ],
+  "pageErrors": [],
+  "failedResources": [],
+  "passed": true,
+  "dataBoundary": {
+    "verified": 97,
+    "pendingHidden": 2
+  },
+  "seasonsNavigation": true,
+  "complexResponse": {
+    "version": "1.0",
+    "reply": "冬至时太阳直射南回归线附近，北半球白昼最短；南半球则相反。冬至并不等于一年最冷的一天，民间常从这一天开始“数九”计寒。这些是天文与历法常识，各地实际气候还需看当地天气。\n\n就本站目前已核验的案例看，江苏与浙江的冬至文化各有侧重：\n\n江苏苏州（姑苏）以饮食习俗见长。冬至夜饭桌上有带桂花香的米酒“冬酿酒”，传统上可配卤牛肉、卤羊肉等菜肴[案例1]。它强调的是节令饮食与家庭餐桌。\n\n浙江台州三门县亭旁镇杨家村则以祭祀和敬老活动为特色。人们冬至时拜冬祭祖，并为村中老人演祝寿戏、设宴；杨家村的活动从冬至前夕开始[案例2]。它更突出宗族祭祀与村落公共礼俗。\n\n共同点是都把冬至作为重要的节令节点，用饮食或仪式凝聚家庭、邻里；差异在于江苏案例偏节令饮食，浙江案例偏祭祖敬老。需要说明，这只是本次已核验案例的比较，不能代表两省全部做法；其他地区习俗尚未核实。\n\n已准备地图操作，请点击“在地图中查看”后应用：将显示冬至地图，并高亮江苏、浙江两省。三门祭冬的案例卡也已准备打开，原文来源为中国非物质文化遗产网《农历二十四节气（三门祭冬）》及《冬至阳生春又来——二十四节气之冬至》[案例2]。\n\n文化案例来源（本地已核验资料，并非本轮联网结果）\n[案例1] 姑苏冬至喝冬酿酒（江苏省·苏州市（姑苏））\n冬至阳生春又来——二十四节气之冬至｜中国非物质文化遗产网\nhttps://www.ihchina.cn/Article/Index/detail?id=9743\n［传统文化·节气］冬至开启“三九歌”｜中国农业大学新闻网\nhttps://news.cau.edu.cn/zhxwnew/601643.htm\n[案例2] 三门祭冬（浙江省·台州市三门县亭旁镇杨家村）\n农历二十四节气（三门祭冬）｜中国非物质文化遗产网\nhttps://www.ihchina.cn/project_details/15063.html\n冬至阳生春又来——二十四节气之冬至｜中国非物质文化遗产网\nhttps://www.ihchina.cn/Article/Index/detail?id=9743",
+    "answer": "冬至时太阳直射南回归线附近，北半球白昼最短；南半球则相反。冬至并不等于一年最冷的一天，民间常从这一天开始“数九”计寒。这些是天文与历法常识，各地实际气候还需看当地天气。\n\n就本站目前已核验的案例看，江苏与浙江的冬至文化各有侧重：\n\n江苏苏州（姑苏）以饮食习俗见长。冬至夜饭桌上有带桂花香的米酒“冬酿酒”，传统上可配卤牛肉、卤羊肉等菜肴[案例1]。它强调的是节令饮食与家庭餐桌。\n\n浙江台州三门县亭旁镇杨家村则以祭祀和敬老活动为特色。人们冬至时拜冬祭祖，并为村中老人演祝寿戏、设宴；杨家村的活动从冬至前夕开始[案例2]。它更突出宗族祭祀与村落公共礼俗。\n\n共同点是都把冬至作为重要的节令节点，用饮食或仪式凝聚家庭、邻里；差异在于江苏案例偏节令饮食，浙江案例偏祭祖敬老。需要说明，这只是本次已核验案例的比较，不能代表两省全部做法；其他地区习俗尚未核实。\n\n已准备地图操作，请点击“在地图中查看”后应用：将显示冬至地图，并高亮江苏、浙江两省。三门祭冬的案例卡也已准备打开，原文来源为中国非物质文化遗产网《农历二十四节气（三门祭冬）》及《冬至阳生春又来——二十四节气之冬至》[案例2]。\n\n文化案例来源（本地已核验资料，并非本轮联网结果）\n[案例1] 姑苏冬至喝冬酿酒（江苏省·苏州市（姑苏））\n冬至阳生春又来——二十四节气之冬至｜中国非物质文化遗产网\nhttps://www.ihchina.cn/Article/Index/detail?id=9743\n［传统文化·节气］冬至开启“三九歌”｜中国农业大学新闻网\nhttps://news.cau.edu.cn/zhxwnew/601643.htm\n[案例2] 三门祭冬（浙江省·台州市三门县亭旁镇杨家村）\n农历二十四节气（三门祭冬）｜中国非物质文化遗产网\nhttps://www.ihchina.cn/project_details/15063.html\n冬至阳生春又来——二十四节气之冬至｜中国非物质文化遗产网\nhttps://www.ihchina.cn/Article/Index/detail?id=9743",
+    "truncated": false,
+    "mapActions": [
+      {
+        "type": "SET_SOLAR_TERM",
+        "payload": {
+          "solarTermId": "dongzhi"
+        }
+      },
+      {
+        "type": "HIGHLIGHT_PROVINCES",
+        "payload": {
+          "provinceCodes": [
+            "320000",
+            "330000"
+          ]
+        }
+      },
+      {
+        "type": "OPEN_CULTURAL_CASE",
+        "payload": {
+          "caseId": "sanmen-jidong"
+        }
+      }
+    ],
+    "references": [
+      {
+        "title": "冬至阳生春又来——二十四节气之冬至",
+        "url": "https://www.ihchina.cn/Article/Index/detail?id=9743",
+        "publisher": "中国非物质文化遗产网",
+        "caseId": "suzhou-dongzhi-winter-wine",
+        "caseTitle": "姑苏冬至喝冬酿酒"
+      },
+      {
+        "title": "［传统文化·节气］冬至开启“三九歌”",
+        "url": "https://news.cau.edu.cn/zhxwnew/601643.htm",
+        "publisher": "中国农业大学新闻网",
+        "caseId": "suzhou-dongzhi-winter-wine",
+        "caseTitle": "姑苏冬至喝冬酿酒"
+      },
+      {
+        "title": "农历二十四节气（三门祭冬）",
+        "url": "https://www.ihchina.cn/project_details/15063.html",
+        "publisher": "中国非物质文化遗产网",
+        "caseId": "sanmen-jidong",
+        "caseTitle": "三门祭冬"
+      },
+      {
+        "title": "冬至阳生春又来——二十四节气之冬至",
+        "url": "https://www.ihchina.cn/Article/Index/detail?id=9743",
+        "publisher": "中国非物质文化遗产网",
+        "caseId": "sanmen-jidong",
+        "caseTitle": "三门祭冬"
+      }
+    ],
+    "toolEvents": [
+      {
+        "toolCallId": "call_00_F8sr92kol3Ie0E4FJyoa9608",
+        "toolName": "get_solar_term_info",
+        "status": "success"
+      },
+      {
+        "toolCallId": "call_01_WHeNJOIz6uNXlZ9fgOfO6296",
+        "toolName": "compare_cultural_cases",
+        "status": "success"
+      },
+      {
+        "toolCallId": "call_02_JSGFBkSwfXkiWmtm8NyW7862",
+        "toolName": "show_cultural_map",
+        "status": "success"
+      },
+      {
+        "toolCallId": "call_00_SRxSbLZHjtisZAwOG1HT0019",
+        "toolName": "highlight_regions",
+        "status": "success"
+      },
+      {
+        "toolCallId": "call_01_awqtkiR8nBeZSfvUdsIv0048",
+        "toolName": "open_cultural_case",
+        "status": "success"
+      }
+    ],
+    "answerText": "冬至时太阳直射南回归线附近，北半球白昼最短；南半球则相反。冬至并不等于一年最冷的一天，民间常从这一天开始“数九”计寒。这些是天文与历法常识，各地实际气候还需看当地天气。\n\n就本站目前已核验的案例看，江苏与浙江的冬至文化各有侧重：\n\n江苏苏州（姑苏）以饮食习俗见长。冬至夜饭桌上有带桂花香的米酒“冬酿酒”，传统上可配卤牛肉、卤羊肉等菜肴[案例1]。它强调的是节令饮食与家庭餐桌。\n\n浙江台州三门县亭旁镇杨家村则以祭祀和敬老活动为特色。人们冬至时拜冬祭祖，并为村中老人演祝寿戏、设宴；杨家村的活动从冬至前夕开始[案例2]。它更突出宗族祭祀与村落公共礼俗。\n\n共同点是都把冬至作为重要的节令节点，用饮食或仪式凝聚家庭、邻里；差异在于江苏案例偏节令饮食，浙江案例偏祭祖敬老。需要说明，这只是本次已核验案例的比较，不能代表两省全部做法；其他地区习俗尚未核实。\n\n已准备地图操作，请点击“在地图中查看”后应用：将显示冬至地图，并高亮江苏、浙江两省。三门祭冬的案例卡也已准备打开，原文来源为中国非物质文化遗产网《农历二十四节气（三门祭冬）》及《冬至阳生春又来——二十四节气之冬至》[案例2]。",
+    "caseReferences": [
+      {
+        "citation": 1,
+        "caseId": "suzhou-dongzhi-winter-wine",
+        "title": "姑苏冬至喝冬酿酒",
+        "solarTermId": "dongzhi",
+        "provinceCode": "320000",
+        "provinceName": "江苏省",
+        "regionName": "苏州市（姑苏）",
+        "sources": [
+          {
+            "title": "冬至阳生春又来——二十四节气之冬至",
+            "url": "https://www.ihchina.cn/Article/Index/detail?id=9743",
+            "publisher": "中国非物质文化遗产网"
+          },
+          {
+            "title": "［传统文化·节气］冬至开启“三九歌”",
+            "url": "https://news.cau.edu.cn/zhxwnew/601643.htm",
+            "publisher": "中国农业大学新闻网"
+          }
+        ]
+      },
+      {
+        "citation": 2,
+        "caseId": "sanmen-jidong",
+        "title": "三门祭冬",
+        "solarTermId": "dongzhi",
+        "provinceCode": "330000",
+        "provinceName": "浙江省",
+        "regionName": "台州市三门县亭旁镇杨家村",
+        "sources": [
+          {
+            "title": "农历二十四节气（三门祭冬）",
+            "url": "https://www.ihchina.cn/project_details/15063.html",
+            "publisher": "中国非物质文化遗产网"
+          },
+          {
+            "title": "冬至阳生春又来——二十四节气之冬至",
+            "url": "https://www.ihchina.cn/Article/Index/detail?id=9743",
+            "publisher": "中国非物质文化遗产网"
+          }
+        ]
+      }
+    ],
+    "caseLookup": {
+      "matchedTitles": [
+        "姑苏冬至喝冬酿酒",
+        "三门祭冬"
+      ]
+    },
+    "evidence": {
+      "method": "local_knowledge_retrieval",
+      "kinds": [
+        "local_verified",
+        "general_knowledge",
+        "insufficient_evidence"
+      ],
+      "localCases": [
+        {
+          "citation": 1,
+          "caseId": "suzhou-dongzhi-winter-wine",
+          "title": "姑苏冬至喝冬酿酒",
+          "solarTermIds": [
+            "dongzhi"
+          ],
+          "provinceCode": "320000",
+          "provinceName": "江苏省",
+          "regionName": "苏州市（姑苏）",
+          "sources": [
+            {
+              "title": "冬至阳生春又来——二十四节气之冬至",
+              "url": "https://www.ihchina.cn/Article/Index/detail?id=9743",
+              "publisher": "中国非物质文化遗产网"
+            },
+            {
+              "title": "［传统文化·节气］冬至开启“三九歌”",
+              "url": "https://news.cau.edu.cn/zhxwnew/601643.htm",
+              "publisher": "中国农业大学新闻网"
+            }
+          ],
+          "cited": true
+        },
+        {
+          "citation": 2,
+          "caseId": "sanmen-jidong",
+          "title": "三门祭冬",
+          "solarTermIds": [
+            "dongzhi"
+          ],
+          "provinceCode": "330000",
+          "provinceName": "浙江省",
+          "regionName": "台州市三门县亭旁镇杨家村",
+          "sources": [
+            {
+              "title": "农历二十四节气（三门祭冬）",
+              "url": "https://www.ihchina.cn/project_details/15063.html",
+              "publisher": "中国非物质文化遗产网"
+            },
+            {
+              "title": "冬至阳生春又来——二十四节气之冬至",
+              "url": "https://www.ihchina.cn/Article/Index/detail?id=9743",
+              "publisher": "中国非物质文化遗产网"
+            }
+          ],
+          "cited": true
+        }
+      ],
+      "webSources": [],
+      "searchStatus": "not_requested",
+      "checks": {
+        "entityFields": true,
+        "citationLinks": true,
+        "statementTruth": false,
+        "localCitationCount": 3,
+        "webCitationCount": 0
+      },
+      "limitation": "仅校验实体、归属与引用关联；模型解释未经逐句事实核验。"
+    },
+    "retrievalDiagnostics": [
+      {
+        "strategy": "comparison",
+        "solarTermIds": [
+          "dongzhi"
+        ],
+        "provinceCodes": [
+          "320000",
+          "330000"
+        ],
+        "regions": [],
+        "normalizedTerms": [],
+        "matchedAliases": [],
+        "candidateCount": 2,
+        "matchedCount": 2,
+        "matchedIds": [
+          "suzhou-dongzhi-winter-wine",
+          "sanmen-jidong"
+        ],
+        "scores": [
+          {
+            "caseId": "suzhou-dongzhi-winter-wine",
+            "score": 0,
+            "matchedFields": [
+              "filters"
+            ]
+          },
+          {
+            "caseId": "sanmen-jidong",
+            "score": 0,
+            "matchedFields": [
+              "filters"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "evidenceExplanationVisible": true,
+  "atomicMapApplied": true,
+  "studioResponse": {
+    "suggestions": [
+      {
+        "title": "杨家村冬至夜",
+        "line": "亭旁镇杨家村的冬至从前夕忙起，祭冬祖、演祝寿戏，也给村里老人留一席热菜。"
+      },
+      {
+        "title": "戏台暖老人",
+        "line": "三门杨家村冬至前后搭台唱祝寿戏，台下坐的是村中老人，碗筷声混着锣鼓点。"
+      },
+      {
+        "title": "冬至拜冬记",
+        "line": "浙江三门亭旁杨家村人冬至拜冬祭祖，戏台上的祝寿戏是给老人们备下的。"
+      }
+    ],
+    "references": [
+      {
+        "caseId": "sanmen-jidong",
+        "title": "三门祭冬",
+        "provinceName": "浙江省",
+        "regionName": "台州市三门县亭旁镇杨家村",
+        "sources": [
+          {
+            "title": "农历二十四节气（三门祭冬）",
+            "url": "https://www.ihchina.cn/project_details/15063.html",
+            "publisher": "中国非物质文化遗产网"
+          },
+          {
+            "title": "冬至阳生春又来——二十四节气之冬至",
+            "url": "https://www.ihchina.cn/Article/Index/detail?id=9743",
+            "publisher": "中国非物质文化遗产网"
+          }
+        ]
+      }
+    ]
+  },
+  "caseToStudioGenerated": true,
+  "staleResponse": {
+    "version": "1.0",
+    "reply": "江苏和浙江的冬至习俗，都围绕“过冬至”寄托团圆、敬祖与祝福，但表现方式不同。\n\n江苏苏州（姑苏）的例子是冬至夜喝冬酿酒。它是带桂花香的米酒，传统上可配卤牛肉、卤羊肉等菜肴，属于节令饮食习俗[案例1]。\n\n浙江台州三门县亭旁镇杨家村等地则保留祭冬习俗：冬至时节拜冬祭祖，也为村中老人演祝寿戏、设宴；杨家村的活动从冬至前夕开始[案例2]。\n\n两者共同点在于都以冬至为节期、重视家庭与乡邻；差异在于江苏案例突出节令饮食，浙江案例突出祭祖和敬老仪式。需要说明，这些只是本次已核验的案例，不能代表两省所有地方的做法[案例1][案例2]。\n\n已准备地图操作，请点击『在地图中查看』后应用；届时江苏、浙江两省高亮，并打开三门祭冬案例。\n\n文化案例来源（本地已核验资料，并非本轮联网结果）\n[案例1] 姑苏冬至喝冬酿酒（江苏省·苏州市（姑苏））\n冬至阳生春又来——二十四节气之冬至｜中国非物质文化遗产网\nhttps://www.ihchina.cn/Article/Index/detail?id=9743\n［传统文化·节气］冬至开启“三九歌”｜中国农业大学新闻网\nhttps://news.cau.edu.cn/zhxwnew/601643.htm\n[案例2] 三门祭冬（浙江省·台州市三门县亭旁镇杨家村）\n农历二十四节气（三门祭冬）｜中国非物质文化遗产网\nhttps://www.ihchina.cn/project_details/15063.html\n冬至阳生春又来——二十四节气之冬至｜中国非物质文化遗产网\nhttps://www.ihchina.cn/Article/Index/detail?id=9743",
+    "answer": "江苏和浙江的冬至习俗，都围绕“过冬至”寄托团圆、敬祖与祝福，但表现方式不同。\n\n江苏苏州（姑苏）的例子是冬至夜喝冬酿酒。它是带桂花香的米酒，传统上可配卤牛肉、卤羊肉等菜肴，属于节令饮食习俗[案例1]。\n\n浙江台州三门县亭旁镇杨家村等地则保留祭冬习俗：冬至时节拜冬祭祖，也为村中老人演祝寿戏、设宴；杨家村的活动从冬至前夕开始[案例2]。\n\n两者共同点在于都以冬至为节期、重视家庭与乡邻；差异在于江苏案例突出节令饮食，浙江案例突出祭祖和敬老仪式。需要说明，这些只是本次已核验的案例，不能代表两省所有地方的做法[案例1][案例2]。\n\n已准备地图操作，请点击『在地图中查看』后应用；届时江苏、浙江两省高亮，并打开三门祭冬案例。\n\n文化案例来源（本地已核验资料，并非本轮联网结果）\n[案例1] 姑苏冬至喝冬酿酒（江苏省·苏州市（姑苏））\n冬至阳生春又来——二十四节气之冬至｜中国非物质文化遗产网\nhttps://www.ihchina.cn/Article/Index/detail?id=9743\n［传统文化·节气］冬至开启“三九歌”｜中国农业大学新闻网\nhttps://news.cau.edu.cn/zhxwnew/601643.htm\n[案例2] 三门祭冬（浙江省·台州市三门县亭旁镇杨家村）\n农历二十四节气（三门祭冬）｜中国非物质文化遗产网\nhttps://www.ihchina.cn/project_details/15063.html\n冬至阳生春又来——二十四节气之冬至｜中国非物质文化遗产网\nhttps://www.ihchina.cn/Article/Index/detail?id=9743",
+    "truncated": false,
+    "mapActions": [
+      {
+        "type": "SET_SOLAR_TERM",
+        "payload": {
+          "solarTermId": "dongzhi"
+        }
+      },
+      {
+        "type": "HIGHLIGHT_PROVINCES",
+        "payload": {
+          "provinceCodes": [
+            "320000",
+            "330000"
+          ]
+        }
+      },
+      {
+        "type": "OPEN_CULTURAL_CASE",
+        "payload": {
+          "caseId": "sanmen-jidong"
+        }
+      }
+    ],
+    "references": [
+      {
+        "title": "冬至阳生春又来——二十四节气之冬至",
+        "url": "https://www.ihchina.cn/Article/Index/detail?id=9743",
+        "publisher": "中国非物质文化遗产网",
+        "caseId": "suzhou-dongzhi-winter-wine",
+        "caseTitle": "姑苏冬至喝冬酿酒"
+      },
+      {
+        "title": "［传统文化·节气］冬至开启“三九歌”",
+        "url": "https://news.cau.edu.cn/zhxwnew/601643.htm",
+        "publisher": "中国农业大学新闻网",
+        "caseId": "suzhou-dongzhi-winter-wine",
+        "caseTitle": "姑苏冬至喝冬酿酒"
+      },
+      {
+        "title": "农历二十四节气（三门祭冬）",
+        "url": "https://www.ihchina.cn/project_details/15063.html",
+        "publisher": "中国非物质文化遗产网",
+        "caseId": "sanmen-jidong",
+        "caseTitle": "三门祭冬"
+      },
+      {
+        "title": "冬至阳生春又来——二十四节气之冬至",
+        "url": "https://www.ihchina.cn/Article/Index/detail?id=9743",
+        "publisher": "中国非物质文化遗产网",
+        "caseId": "sanmen-jidong",
+        "caseTitle": "三门祭冬"
+      }
+    ],
+    "toolEvents": [
+      {
+        "toolCallId": "call_00_xP5FsIPUc97A7ddlnJ3V1155",
+        "toolName": "compare_cultural_cases",
+        "status": "success"
+      },
+      {
+        "toolCallId": "call_01_hiplFn45kC81SmEQQloF9084",
+        "toolName": "show_cultural_map",
+        "status": "success"
+      },
+      {
+        "toolCallId": "call_00_6cj53aFXTlsZpIcqzNNb2795",
+        "toolName": "highlight_regions",
+        "status": "success"
+      },
+      {
+        "toolCallId": "call_01_ayBBvZ32s4QolSFIoqCo9720",
+        "toolName": "open_cultural_case",
+        "status": "success"
+      }
+    ],
+    "answerText": "江苏和浙江的冬至习俗，都围绕“过冬至”寄托团圆、敬祖与祝福，但表现方式不同。\n\n江苏苏州（姑苏）的例子是冬至夜喝冬酿酒。它是带桂花香的米酒，传统上可配卤牛肉、卤羊肉等菜肴，属于节令饮食习俗[案例1]。\n\n浙江台州三门县亭旁镇杨家村等地则保留祭冬习俗：冬至时节拜冬祭祖，也为村中老人演祝寿戏、设宴；杨家村的活动从冬至前夕开始[案例2]。\n\n两者共同点在于都以冬至为节期、重视家庭与乡邻；差异在于江苏案例突出节令饮食，浙江案例突出祭祖和敬老仪式。需要说明，这些只是本次已核验的案例，不能代表两省所有地方的做法[案例1][案例2]。\n\n已准备地图操作，请点击『在地图中查看』后应用；届时江苏、浙江两省高亮，并打开三门祭冬案例。",
+    "caseReferences": [
+      {
+        "citation": 1,
+        "caseId": "suzhou-dongzhi-winter-wine",
+        "title": "姑苏冬至喝冬酿酒",
+        "solarTermId": "dongzhi",
+        "provinceCode": "320000",
+        "provinceName": "江苏省",
+        "regionName": "苏州市（姑苏）",
+        "sources": [
+          {
+            "title": "冬至阳生春又来——二十四节气之冬至",
+            "url": "https://www.ihchina.cn/Article/Index/detail?id=9743",
+            "publisher": "中国非物质文化遗产网"
+          },
+          {
+            "title": "［传统文化·节气］冬至开启“三九歌”",
+            "url": "https://news.cau.edu.cn/zhxwnew/601643.htm",
+            "publisher": "中国农业大学新闻网"
+          }
+        ]
+      },
+      {
+        "citation": 2,
+        "caseId": "sanmen-jidong",
+        "title": "三门祭冬",
+        "solarTermId": "dongzhi",
+        "provinceCode": "330000",
+        "provinceName": "浙江省",
+        "regionName": "台州市三门县亭旁镇杨家村",
+        "sources": [
+          {
+            "title": "农历二十四节气（三门祭冬）",
+            "url": "https://www.ihchina.cn/project_details/15063.html",
+            "publisher": "中国非物质文化遗产网"
+          },
+          {
+            "title": "冬至阳生春又来——二十四节气之冬至",
+            "url": "https://www.ihchina.cn/Article/Index/detail?id=9743",
+            "publisher": "中国非物质文化遗产网"
+          }
+        ]
+      }
+    ],
+    "caseLookup": {
+      "matchedTitles": [
+        "姑苏冬至喝冬酿酒",
+        "三门祭冬"
+      ]
+    },
+    "evidence": {
+      "method": "local_knowledge_retrieval",
+      "kinds": [
+        "local_verified",
+        "general_knowledge"
+      ],
+      "localCases": [
+        {
+          "citation": 1,
+          "caseId": "suzhou-dongzhi-winter-wine",
+          "title": "姑苏冬至喝冬酿酒",
+          "solarTermIds": [
+            "dongzhi"
+          ],
+          "provinceCode": "320000",
+          "provinceName": "江苏省",
+          "regionName": "苏州市（姑苏）",
+          "sources": [
+            {
+              "title": "冬至阳生春又来——二十四节气之冬至",
+              "url": "https://www.ihchina.cn/Article/Index/detail?id=9743",
+              "publisher": "中国非物质文化遗产网"
+            },
+            {
+              "title": "［传统文化·节气］冬至开启“三九歌”",
+              "url": "https://news.cau.edu.cn/zhxwnew/601643.htm",
+              "publisher": "中国农业大学新闻网"
+            }
+          ],
+          "cited": true
+        },
+        {
+          "citation": 2,
+          "caseId": "sanmen-jidong",
+          "title": "三门祭冬",
+          "solarTermIds": [
+            "dongzhi"
+          ],
+          "provinceCode": "330000",
+          "provinceName": "浙江省",
+          "regionName": "台州市三门县亭旁镇杨家村",
+          "sources": [
+            {
+              "title": "农历二十四节气（三门祭冬）",
+              "url": "https://www.ihchina.cn/project_details/15063.html",
+              "publisher": "中国非物质文化遗产网"
+            },
+            {
+              "title": "冬至阳生春又来——二十四节气之冬至",
+              "url": "https://www.ihchina.cn/Article/Index/detail?id=9743",
+              "publisher": "中国非物质文化遗产网"
+            }
+          ],
+          "cited": true
+        }
+      ],
+      "webSources": [],
+      "searchStatus": "not_requested",
+      "checks": {
+        "entityFields": true,
+        "citationLinks": true,
+        "statementTruth": false,
+        "localCitationCount": 4,
+        "webCitationCount": 0
+      },
+      "limitation": "仅校验实体、归属与引用关联；模型解释未经逐句事实核验。"
+    },
+    "retrievalDiagnostics": [
+      {
+        "strategy": "comparison",
+        "solarTermIds": [
+          "dongzhi"
+        ],
+        "provinceCodes": [
+          "320000",
+          "330000"
+        ],
+        "regions": [],
+        "normalizedTerms": [],
+        "matchedAliases": [],
+        "candidateCount": 2,
+        "matchedCount": 2,
+        "matchedIds": [
+          "suzhou-dongzhi-winter-wine",
+          "sanmen-jidong"
+        ],
+        "scores": [
+          {
+            "caseId": "suzhou-dongzhi-winter-wine",
+            "score": 0,
+            "matchedFields": [
+              "filters"
+            ]
+          },
+          {
+            "caseId": "sanmen-jidong",
+            "score": 0,
+            "matchedFields": [
+              "filters"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "staleActionsRejected": true
+}

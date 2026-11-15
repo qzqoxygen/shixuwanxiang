@@ -1,0 +1,119 @@
+{
+  "testedAt": "2026-11-15T08:41:32.751Z",
+  "method": "Final production build: real Chrome navigation and viewport checks only; no model request, no response interception",
+  "localBuildId": "EFoXkvORv3R8_VAmzZhLe",
+  "commit": "e7f102227fd0ad454784cb384722f2887d818c52",
+  "workingTreeDirty": true,
+  "pages": [
+    {
+      "route": "/",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "status": 200,
+      "horizontalOverflow": false
+    },
+    {
+      "route": "/seasons",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "status": 200,
+      "horizontalOverflow": false
+    },
+    {
+      "route": "/explore",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "status": 200,
+      "horizontalOverflow": false
+    },
+    {
+      "route": "/studio",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "status": 200,
+      "horizontalOverflow": false
+    },
+    {
+      "route": "/visit",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "status": 200,
+      "horizontalOverflow": false
+    },
+    {
+      "route": "/about",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "status": 200,
+      "horizontalOverflow": false
+    },
+    {
+      "route": "/",
+      "viewport": {
+        "width": 393,
+        "height": 851
+      },
+      "status": 200,
+      "horizontalOverflow": false
+    },
+    {
+      "route": "/seasons",
+      "viewport": {
+        "width": 393,
+        "height": 851
+      },
+      "status": 200,
+      "horizontalOverflow": false
+    },
+    {
+      "route": "/explore",
+      "viewport": {
+        "width": 393,
+        "height": 851
+      },
+      "status": 200,
+      "horizontalOverflow": false
+    },
+    {
+      "route": "/studio",
+      "viewport": {
+        "width": 393,
+        "height": 851
+      },
+      "status": 200,
+      "horizontalOverflow": false
+    },
+    {
+      "route": "/visit",
+      "viewport": {
+        "width": 393,
+        "height": 851
+      },
+      "status": 200,
+      "horizontalOverflow": false
+    },
+    {
+      "route": "/about",
+      "viewport": {
+        "width": 393,
+        "height": 851
+      },
+      "status": 200,
+      "horizontalOverflow": false
+    }
+  ],
+  "errors": [],
+  "passed": true
+}

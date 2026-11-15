@@ -1,5 +1,7 @@
 import { z } from "zod";
 import { CulturalCaseIdSchema, CulturalSourceSchema, ProvinceCodeSchema, SolarTermIdSchema, ChatCaseLookupSchema, ChatCaseReferencesSchema } from "./cultural-case";
+import { AnswerEvidenceSchema } from "./ai-evidence";
+import { RetrievalDiagnosticSchema } from "./retrieval";
 
 export const ChatContextSchema = z.strictObject({
   solarTermId: SolarTermIdSchema.nullable(),
@@ -25,7 +27,7 @@ export const MapActionsSchema = z.array(MapActionSchema).max(8);
 export type MapAction = z.infer<typeof MapActionSchema>;
 
 export const ToolErrorCodeSchema = z.enum(["INVALID_TOOL_ARGUMENTS", "UNKNOWN_TOOL", "MAP_CONTEXT_REQUIRED", "CASE_NOT_FOUND", "CASE_CONTEXT_MISMATCH", "REGION_HAS_NO_CASES", "TOOL_TIMEOUT", "TOOL_RESULT_TOO_LARGE", "TOOL_FAILED"]);
-const toolIdentity = { toolCallId: z.string().min(1).max(200), toolName: z.string().min(1).max(64) };
+const toolIdentity = { toolCallId: z.string().min(1).max(200), toolName: z.string().min(1).max(64), reused: z.literal(true).optional() };
 export const ToolEventSchema = z.discriminatedUnion("status", [
   z.strictObject({ ...toolIdentity, status: z.literal("success") }),
   z.strictObject({ ...toolIdentity, status: z.literal("error"), error: z.strictObject({ code: ToolErrorCodeSchema, message: z.string().min(1).max(300) }) }),
@@ -36,6 +38,7 @@ export const ChatRequestV1Schema = z.strictObject({
   version: z.literal("1.0"),
   messages: z.array(z.strictObject({ role: z.enum(["user", "assistant"]), content: z.string() })).min(1).max(11),
   context: ChatContextSchema,
+  includeEvidence: z.boolean().optional(),
 });
 export const ChatSuccessV1Schema = z.strictObject({
   version: z.literal("1.0"),
@@ -49,5 +52,7 @@ export const ChatSuccessV1Schema = z.strictObject({
   caseReferences: ChatCaseReferencesSchema.optional(),
   caseLookup: ChatCaseLookupSchema.optional(),
   noLocalCaseMatch: z.boolean().optional(),
+  evidence: AnswerEvidenceSchema.optional(),
+  retrievalDiagnostics: z.array(RetrievalDiagnosticSchema).max(8).optional(),
 });
 export type ChatSuccessV1 = z.infer<typeof ChatSuccessV1Schema>;

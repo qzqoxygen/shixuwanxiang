@@ -1,0 +1,712 @@
+{
+  "version": "1.0",
+  "mode": "real-model",
+  "testedAt": "2026-11-15T03:33:16.049Z",
+  "commit": "f5d561cb7d7a810f76042ad7ff5422e6ecc9a522",
+  "workingTreeDirty": true,
+  "fixtureSha256": "146f4ee7b8cee9cf97c321bc2171737e16c41dd25c62a24311eec02681994025",
+  "method": "Real HTTP requests to the running app; no mocked model/search or automatic retries",
+  "samples": [
+    {
+      "id": "ordinary",
+      "group": "real_model",
+      "kind": "real_model",
+      "question": "冬至为什么不一定最冷？请简短说明，不要引用未经检索的来源。",
+      "status": 200,
+      "response": {
+        "version": "1.0",
+        "reply": "冬至不是最冷的日子，关键在“热量收支有滞后”。\n\n冬至这天，北半球白昼最短、正午太阳高度最低，接收的太阳辐射最少[1][5]。但地面和大气此前已储存了不少热量，还能继续补充，所以气温不会立刻跌到最低[1][2]。冬至之后白昼虽渐长，可每天接收的辐射仍少于散失的热量，热量继续“入不敷出”，气温还要再降一段，直到收支大致持平才最冷，大体对应“三九天”[3][5]。我国除少数海岛和海滨局部地区外，1月通常是最冷的月份，所以民间有“冬至不过不冷”之说[1]。\n\n同理，夏至也往往不是最热的时候，最热多出现在“三伏”[3]。\n\n要注意两点：这是北半球的情况，南半球季节相反；节气是天文节点，不等于各地实际气候，各地最冷时段也有差异[2]。\n\n参考来源（检索于 2026-11-15 11:33:17（北京时间））\n[1] 二十四节气·冬至-中国气象网\nhttps://www.cma.gov.cn/ztbd/2023zt/24jq/dz/index.html\n[5] 朱定真：阴极阳生冬至启新\nhttp://www.qxkp.net/mjjkp/kpzj/zdz/zjsd/202604/t20260416_7736442.html\n[2] 冬至是全年最冷的一天吗？\nhttps://www.peopleapp.com/rmharticle/30025870004\n[3] 为什么他们射的箭拐着弯就到隔壁人脑袋上了！？| No. 501 - 7\nhttps://news.qq.com/rain/a/20260227A03NJY00?suid=&media_id=#1",
+        "answer": "冬至不是最冷的日子，关键在“热量收支有滞后”。\n\n冬至这天，北半球白昼最短、正午太阳高度最低，接收的太阳辐射最少[1][5]。但地面和大气此前已储存了不少热量，还能继续补充，所以气温不会立刻跌到最低[1][2]。冬至之后白昼虽渐长，可每天接收的辐射仍少于散失的热量，热量继续“入不敷出”，气温还要再降一段，直到收支大致持平才最冷，大体对应“三九天”[3][5]。我国除少数海岛和海滨局部地区外，1月通常是最冷的月份，所以民间有“冬至不过不冷”之说[1]。\n\n同理，夏至也往往不是最热的时候，最热多出现在“三伏”[3]。\n\n要注意两点：这是北半球的情况，南半球季节相反；节气是天文节点，不等于各地实际气候，各地最冷时段也有差异[2]。\n\n参考来源（检索于 2026-11-15 11:33:17（北京时间））\n[1] 二十四节气·冬至-中国气象网\nhttps://www.cma.gov.cn/ztbd/2023zt/24jq/dz/index.html\n[5] 朱定真：阴极阳生冬至启新\nhttp://www.qxkp.net/mjjkp/kpzj/zdz/zjsd/202604/t20260416_7736442.html\n[2] 冬至是全年最冷的一天吗？\nhttps://www.peopleapp.com/rmharticle/30025870004\n[3] 为什么他们射的箭拐着弯就到隔壁人脑袋上了！？| No. 501 - 7\nhttps://news.qq.com/rain/a/20260227A03NJY00?suid=&media_id=#1",
+        "truncated": false,
+        "mapActions": [],
+        "references": [],
+        "toolEvents": [],
+        "evidence": {
+          "method": "local_knowledge_retrieval",
+          "kinds": [
+            "live_search",
+            "general_knowledge"
+          ],
+          "localCases": [],
+          "webSources": [
+            {
+              "citation": 1,
+              "title": "二十四节气·冬至-中国气象网",
+              "url": "https://www.cma.gov.cn/ztbd/2023zt/24jq/dz/index.html",
+              "cited": true
+            },
+            {
+              "citation": 2,
+              "title": "冬至是全年最冷的一天吗？",
+              "url": "https://www.peopleapp.com/rmharticle/30025870004",
+              "cited": true
+            },
+            {
+              "citation": 3,
+              "title": "为什么他们射的箭拐着弯就到隔壁人脑袋上了！？| No. 501 - 7",
+              "url": "https://news.qq.com/rain/a/20260227A03NJY00?suid=&media_id=#1",
+              "cited": true
+            },
+            {
+              "citation": 4,
+              "title": "为什么他们射的箭拐着弯就到隔壁人脑袋上了！？| No. 501 - 为什么他们射的箭拐着弯就到隔壁人脑袋上了！？| No. 501",
+              "url": "https://www.163.com/dy/article/KMP96TIS0511C4OP.html?spss=dy_author#1",
+              "cited": false
+            },
+            {
+              "citation": 5,
+              "title": "朱定真：阴极阳生冬至启新",
+              "url": "http://www.qxkp.net/mjjkp/kpzj/zdz/zjsd/202604/t20260416_7736442.html",
+              "cited": true
+            }
+          ],
+          "searchStatus": "available",
+          "checks": {
+            "entityFields": true,
+            "citationLinks": true,
+            "statementTruth": false,
+            "localCitationCount": 0,
+            "webCitationCount": 9
+          },
+          "limitation": "仅校验实体、归属与引用关联；模型解释未经逐句事实核验。"
+        },
+        "retrievalDiagnostics": []
+      },
+      "retrievedIds": [],
+      "successfulTools": [],
+      "reusedTools": [],
+      "passed": true,
+      "ms": 3876.13
+    },
+    {
+      "id": "alias",
+      "group": "real_model",
+      "kind": "real_model",
+      "question": "请查本站已核验案例，介绍沪上清明青团和相关来源。",
+      "status": 200,
+      "response": {
+        "version": "1.0",
+        "reply": "本站已核验的上海清明青团案例是“上海清明吃青团”[案例1]。\n\n该案例记载：上海的清明节令食品中有青团；一种传统做法是用草汁和糯米做成绿色外皮，包入豆沙或枣泥，垫上芦叶蒸熟[案例1]。上海人家在清明时节做青团、吃青团[案例1]。\n\n来源：中国非物质文化遗产网《梨花落后清明——二十四节气之清明》[案例1]。\n\n需要说明的是，这是对上海清明青团习俗的归档介绍，不能据此证明今年某家店、某个活动的最新安排。青团的具体用料和口味各地、各家可能不同，案例只记录了其中一种传统做法[案例1]。\n\n点击地图中的“在清明节令案例中查看”，即可在地图中打开该案例。\n\n文化案例来源（本地已核验资料，并非本轮联网结果）\n[案例1] 上海清明吃青团（上海市·上海市）\n梨花落后清明——二十四节气之清明｜中国非物质文化遗产网\nhttps://www.ihchina.cn/Article/Index/detail?id=10041",
+        "answer": "本站已核验的上海清明青团案例是“上海清明吃青团”[案例1]。\n\n该案例记载：上海的清明节令食品中有青团；一种传统做法是用草汁和糯米做成绿色外皮，包入豆沙或枣泥，垫上芦叶蒸熟[案例1]。上海人家在清明时节做青团、吃青团[案例1]。\n\n来源：中国非物质文化遗产网《梨花落后清明——二十四节气之清明》[案例1]。\n\n需要说明的是，这是对上海清明青团习俗的归档介绍，不能据此证明今年某家店、某个活动的最新安排。青团的具体用料和口味各地、各家可能不同，案例只记录了其中一种传统做法[案例1]。\n\n点击地图中的“在清明节令案例中查看”，即可在地图中打开该案例。\n\n文化案例来源（本地已核验资料，并非本轮联网结果）\n[案例1] 上海清明吃青团（上海市·上海市）\n梨花落后清明——二十四节气之清明｜中国非物质文化遗产网\nhttps://www.ihchina.cn/Article/Index/detail?id=10041",
+        "truncated": false,
+        "mapActions": [
+          {
+            "type": "SET_SOLAR_TERM",
+            "payload": {
+              "solarTermId": "qingming"
+            }
+          },
+          {
+            "type": "OPEN_CULTURAL_CASE",
+            "payload": {
+              "caseId": "shanghai-qingming-qingtuan"
+            }
+          }
+        ],
+        "references": [
+          {
+            "title": "梨花落后清明——二十四节气之清明",
+            "url": "https://www.ihchina.cn/Article/Index/detail?id=10041",
+            "publisher": "中国非物质文化遗产网",
+            "caseId": "shanghai-qingming-qingtuan",
+            "caseTitle": "上海清明吃青团"
+          }
+        ],
+        "toolEvents": [
+          {
+            "toolCallId": "call_00_Sp72OoK0MBfLPd2Dkzfj1599",
+            "toolName": "search_cultural_cases",
+            "status": "success"
+          },
+          {
+            "toolCallId": "call_00_ueLTs3Knrt97dLjEhea46377",
+            "toolName": "show_cultural_map",
+            "status": "success"
+          },
+          {
+            "toolCallId": "call_01_sb1VBVAvc5YPHoMbgDmY4078",
+            "toolName": "open_cultural_case",
+            "status": "success"
+          }
+        ],
+        "answerText": "本站已核验的上海清明青团案例是“上海清明吃青团”[案例1]。\n\n该案例记载：上海的清明节令食品中有青团；一种传统做法是用草汁和糯米做成绿色外皮，包入豆沙或枣泥，垫上芦叶蒸熟[案例1]。上海人家在清明时节做青团、吃青团[案例1]。\n\n来源：中国非物质文化遗产网《梨花落后清明——二十四节气之清明》[案例1]。\n\n需要说明的是，这是对上海清明青团习俗的归档介绍，不能据此证明今年某家店、某个活动的最新安排。青团的具体用料和口味各地、各家可能不同，案例只记录了其中一种传统做法[案例1]。\n\n点击地图中的“在清明节令案例中查看”，即可在地图中打开该案例。",
+        "caseReferences": [
+          {
+            "citation": 1,
+            "caseId": "shanghai-qingming-qingtuan",
+            "title": "上海清明吃青团",
+            "solarTermId": "qingming",
+            "provinceCode": "310000",
+            "provinceName": "上海市",
+            "regionName": "上海市",
+            "sources": [
+              {
+                "title": "梨花落后清明——二十四节气之清明",
+                "url": "https://www.ihchina.cn/Article/Index/detail?id=10041",
+                "publisher": "中国非物质文化遗产网"
+              }
+            ]
+          }
+        ],
+        "caseLookup": {
+          "matchedTitles": [
+            "上海清明吃青团"
+          ]
+        },
+        "evidence": {
+          "method": "local_knowledge_retrieval",
+          "kinds": [
+            "local_verified",
+            "general_knowledge"
+          ],
+          "localCases": [
+            {
+              "citation": 1,
+              "caseId": "shanghai-qingming-qingtuan",
+              "title": "上海清明吃青团",
+              "solarTermIds": [
+                "qingming"
+              ],
+              "provinceCode": "310000",
+              "provinceName": "上海市",
+              "regionName": "上海市",
+              "sources": [
+                {
+                  "title": "梨花落后清明——二十四节气之清明",
+                  "url": "https://www.ihchina.cn/Article/Index/detail?id=10041",
+                  "publisher": "中国非物质文化遗产网"
+                }
+              ],
+              "cited": true
+            }
+          ],
+          "webSources": [],
+          "searchStatus": "not_requested",
+          "checks": {
+            "entityFields": true,
+            "citationLinks": true,
+            "statementTruth": false,
+            "localCitationCount": 5,
+            "webCitationCount": 0
+          },
+          "limitation": "仅校验实体、归属与引用关联；模型解释未经逐句事实核验。"
+        },
+        "retrievalDiagnostics": [
+          {
+            "strategy": "ranked",
+            "solarTermIds": [
+              "qingming"
+            ],
+            "provinceCodes": [
+              "310000"
+            ],
+            "regions": [],
+            "normalizedTerms": [
+              "青团"
+            ],
+            "matchedAliases": [],
+            "candidateCount": 1,
+            "matchedCount": 1,
+            "matchedIds": [
+              "shanghai-qingming-qingtuan"
+            ],
+            "scores": [
+              {
+                "caseId": "shanghai-qingming-qingtuan",
+                "score": 4,
+                "matchedFields": [
+                  "title"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "retrievedIds": [
+        "shanghai-qingming-qingtuan"
+      ],
+      "successfulTools": [
+        "search_cultural_cases",
+        "show_cultural_map",
+        "open_cultural_case"
+      ],
+      "reusedTools": [],
+      "passed": true,
+      "ms": 4224.88
+    },
+    {
+      "id": "complex",
+      "group": "real_model",
+      "kind": "real_model",
+      "question": "请比较江苏和浙江冬至的已核验文化特点和资料来源，展示冬至文化地图，高亮江苏浙江，并打开三门祭冬，方便继续做节气卡。请实际使用相应工具。",
+      "status": 200,
+      "response": {
+        "version": "1.0",
+        "reply": "已在文化地图中切换到冬至，并高亮江苏、浙江；三门祭冬的案例也已打开，可在地图查看。以下是本站已核验案例的比较。\n\n冬至基础：太阳直射南回归线附近，北半球白昼最短，南半球相反；冬至不一定最冷。民间从冬至起“数九”。\n\n江苏：苏州（姑苏）冬至夜有喝冬酿酒的习惯，这是带桂花香的米酒，传统上可配卤牛肉、卤羊肉等菜肴[案例1]。它侧重节令饮食与家庭餐桌。\n\n浙江：台州三门县亭旁镇杨家村等村落保留“祭冬”习俗，在冬至时节拜冬祭祖，并为村中老人演祝寿戏、设宴[案例2]。杨家村活动从冬至前夕开始，侧重祭祖、敬老与村落公共活动。\n\n共同点是都以冬至为节期、都与地方生活紧密相连；差异在于江苏案例呈现饮食节令，浙江案例呈现祭祖敬老仪俗。以上只代表已核验案例，不代表两省仅有这些做法；其他地区习俗尚未核实。\n\n来源均为中国非物质文化遗产网等公开资料[案例1][案例2]。地图与高亮为待你点击「在地图中查看」的操作提示。\n\n文化案例来源（本地已核验资料，并非本轮联网结果）\n[案例1] 姑苏冬至喝冬酿酒（江苏省·苏州市（姑苏））\n冬至阳生春又来——二十四节气之冬至｜中国非物质文化遗产网\nhttps://www.ihchina.cn/Article/Index/detail?id=9743\n［传统文化·节气］冬至开启“三九歌”｜中国农业大学新闻网\nhttps://news.cau.edu.cn/zhxwnew/601643.htm\n[案例2] 三门祭冬（浙江省·台州市三门县亭旁镇杨家村）\n农历二十四节气（三门祭冬）｜中国非物质文化遗产网\nhttps://www.ihchina.cn/project_details/15063.html\n冬至阳生春又来——二十四节气之冬至｜中国非物质文化遗产网\nhttps://www.ihchina.cn/Article/Index/detail?id=9743",
+        "answer": "已在文化地图中切换到冬至，并高亮江苏、浙江；三门祭冬的案例也已打开，可在地图查看。以下是本站已核验案例的比较。\n\n冬至基础：太阳直射南回归线附近，北半球白昼最短，南半球相反；冬至不一定最冷。民间从冬至起“数九”。\n\n江苏：苏州（姑苏）冬至夜有喝冬酿酒的习惯，这是带桂花香的米酒，传统上可配卤牛肉、卤羊肉等菜肴[案例1]。它侧重节令饮食与家庭餐桌。\n\n浙江：台州三门县亭旁镇杨家村等村落保留“祭冬”习俗，在冬至时节拜冬祭祖，并为村中老人演祝寿戏、设宴[案例2]。杨家村活动从冬至前夕开始，侧重祭祖、敬老与村落公共活动。\n\n共同点是都以冬至为节期、都与地方生活紧密相连；差异在于江苏案例呈现饮食节令，浙江案例呈现祭祖敬老仪俗。以上只代表已核验案例，不代表两省仅有这些做法；其他地区习俗尚未核实。\n\n来源均为中国非物质文化遗产网等公开资料[案例1][案例2]。地图与高亮为待你点击「在地图中查看」的操作提示。\n\n文化案例来源（本地已核验资料，并非本轮联网结果）\n[案例1] 姑苏冬至喝冬酿酒（江苏省·苏州市（姑苏））\n冬至阳生春又来——二十四节气之冬至｜中国非物质文化遗产网\nhttps://www.ihchina.cn/Article/Index/detail?id=9743\n［传统文化·节气］冬至开启“三九歌”｜中国农业大学新闻网\nhttps://news.cau.edu.cn/zhxwnew/601643.htm\n[案例2] 三门祭冬（浙江省·台州市三门县亭旁镇杨家村）\n农历二十四节气（三门祭冬）｜中国非物质文化遗产网\nhttps://www.ihchina.cn/project_details/15063.html\n冬至阳生春又来——二十四节气之冬至｜中国非物质文化遗产网\nhttps://www.ihchina.cn/Article/Index/detail?id=9743",
+        "truncated": false,
+        "mapActions": [
+          {
+            "type": "SET_SOLAR_TERM",
+            "payload": {
+              "solarTermId": "dongzhi"
+            }
+          },
+          {
+            "type": "HIGHLIGHT_PROVINCES",
+            "payload": {
+              "provinceCodes": [
+                "320000",
+                "330000"
+              ]
+            }
+          },
+          {
+            "type": "OPEN_CULTURAL_CASE",
+            "payload": {
+              "caseId": "sanmen-jidong"
+            }
+          }
+        ],
+        "references": [
+          {
+            "title": "冬至阳生春又来——二十四节气之冬至",
+            "url": "https://www.ihchina.cn/Article/Index/detail?id=9743",
+            "publisher": "中国非物质文化遗产网",
+            "caseId": "suzhou-dongzhi-winter-wine",
+            "caseTitle": "姑苏冬至喝冬酿酒"
+          },
+          {
+            "title": "［传统文化·节气］冬至开启“三九歌”",
+            "url": "https://news.cau.edu.cn/zhxwnew/601643.htm",
+            "publisher": "中国农业大学新闻网",
+            "caseId": "suzhou-dongzhi-winter-wine",
+            "caseTitle": "姑苏冬至喝冬酿酒"
+          },
+          {
+            "title": "农历二十四节气（三门祭冬）",
+            "url": "https://www.ihchina.cn/project_details/15063.html",
+            "publisher": "中国非物质文化遗产网",
+            "caseId": "sanmen-jidong",
+            "caseTitle": "三门祭冬"
+          },
+          {
+            "title": "冬至阳生春又来——二十四节气之冬至",
+            "url": "https://www.ihchina.cn/Article/Index/detail?id=9743",
+            "publisher": "中国非物质文化遗产网",
+            "caseId": "sanmen-jidong",
+            "caseTitle": "三门祭冬"
+          }
+        ],
+        "toolEvents": [
+          {
+            "toolCallId": "call_00_RIXEFp6FLqU8oiCmBAm06945",
+            "toolName": "compare_cultural_cases",
+            "status": "success"
+          },
+          {
+            "toolCallId": "call_01_RSKUDZCG4Av7dD6BKknL7236",
+            "toolName": "show_cultural_map",
+            "status": "success"
+          },
+          {
+            "toolCallId": "call_02_4Nmsx2NEtdXX0wKgBkGG2490",
+            "toolName": "get_solar_term_info",
+            "status": "success"
+          },
+          {
+            "toolCallId": "call_00_P2oabRLmYl0RBTALJ9F09056",
+            "toolName": "highlight_regions",
+            "status": "success"
+          },
+          {
+            "toolCallId": "call_01_dqCAqFv2NkUnnWE6lSCY8541",
+            "toolName": "open_cultural_case",
+            "status": "success"
+          }
+        ],
+        "answerText": "已在文化地图中切换到冬至，并高亮江苏、浙江；三门祭冬的案例也已打开，可在地图查看。以下是本站已核验案例的比较。\n\n冬至基础：太阳直射南回归线附近，北半球白昼最短，南半球相反；冬至不一定最冷。民间从冬至起“数九”。\n\n江苏：苏州（姑苏）冬至夜有喝冬酿酒的习惯，这是带桂花香的米酒，传统上可配卤牛肉、卤羊肉等菜肴[案例1]。它侧重节令饮食与家庭餐桌。\n\n浙江：台州三门县亭旁镇杨家村等村落保留“祭冬”习俗，在冬至时节拜冬祭祖，并为村中老人演祝寿戏、设宴[案例2]。杨家村活动从冬至前夕开始，侧重祭祖、敬老与村落公共活动。\n\n共同点是都以冬至为节期、都与地方生活紧密相连；差异在于江苏案例呈现饮食节令，浙江案例呈现祭祖敬老仪俗。以上只代表已核验案例，不代表两省仅有这些做法；其他地区习俗尚未核实。\n\n来源均为中国非物质文化遗产网等公开资料[案例1][案例2]。地图与高亮为待你点击「在地图中查看」的操作提示。",
+        "caseReferences": [
+          {
+            "citation": 1,
+            "caseId": "suzhou-dongzhi-winter-wine",
+            "title": "姑苏冬至喝冬酿酒",
+            "solarTermId": "dongzhi",
+            "provinceCode": "320000",
+            "provinceName": "江苏省",
+            "regionName": "苏州市（姑苏）",
+            "sources": [
+              {
+                "title": "冬至阳生春又来——二十四节气之冬至",
+                "url": "https://www.ihchina.cn/Article/Index/detail?id=9743",
+                "publisher": "中国非物质文化遗产网"
+              },
+              {
+                "title": "［传统文化·节气］冬至开启“三九歌”",
+                "url": "https://news.cau.edu.cn/zhxwnew/601643.htm",
+                "publisher": "中国农业大学新闻网"
+              }
+            ]
+          },
+          {
+            "citation": 2,
+            "caseId": "sanmen-jidong",
+            "title": "三门祭冬",
+            "solarTermId": "dongzhi",
+            "provinceCode": "330000",
+            "provinceName": "浙江省",
+            "regionName": "台州市三门县亭旁镇杨家村",
+            "sources": [
+              {
+                "title": "农历二十四节气（三门祭冬）",
+                "url": "https://www.ihchina.cn/project_details/15063.html",
+                "publisher": "中国非物质文化遗产网"
+              },
+              {
+                "title": "冬至阳生春又来——二十四节气之冬至",
+                "url": "https://www.ihchina.cn/Article/Index/detail?id=9743",
+                "publisher": "中国非物质文化遗产网"
+              }
+            ]
+          }
+        ],
+        "caseLookup": {
+          "matchedTitles": [
+            "姑苏冬至喝冬酿酒",
+            "三门祭冬"
+          ]
+        },
+        "evidence": {
+          "method": "local_knowledge_retrieval",
+          "kinds": [
+            "local_verified",
+            "general_knowledge",
+            "insufficient_evidence"
+          ],
+          "localCases": [
+            {
+              "citation": 1,
+              "caseId": "suzhou-dongzhi-winter-wine",
+              "title": "姑苏冬至喝冬酿酒",
+              "solarTermIds": [
+                "dongzhi"
+              ],
+              "provinceCode": "320000",
+              "provinceName": "江苏省",
+              "regionName": "苏州市（姑苏）",
+              "sources": [
+                {
+                  "title": "冬至阳生春又来——二十四节气之冬至",
+                  "url": "https://www.ihchina.cn/Article/Index/detail?id=9743",
+                  "publisher": "中国非物质文化遗产网"
+                },
+                {
+                  "title": "［传统文化·节气］冬至开启“三九歌”",
+                  "url": "https://news.cau.edu.cn/zhxwnew/601643.htm",
+                  "publisher": "中国农业大学新闻网"
+                }
+              ],
+              "cited": true
+            },
+            {
+              "citation": 2,
+              "caseId": "sanmen-jidong",
+              "title": "三门祭冬",
+              "solarTermIds": [
+                "dongzhi"
+              ],
+              "provinceCode": "330000",
+              "provinceName": "浙江省",
+              "regionName": "台州市三门县亭旁镇杨家村",
+              "sources": [
+                {
+                  "title": "农历二十四节气（三门祭冬）",
+                  "url": "https://www.ihchina.cn/project_details/15063.html",
+                  "publisher": "中国非物质文化遗产网"
+                },
+                {
+                  "title": "冬至阳生春又来——二十四节气之冬至",
+                  "url": "https://www.ihchina.cn/Article/Index/detail?id=9743",
+                  "publisher": "中国非物质文化遗产网"
+                }
+              ],
+              "cited": true
+            }
+          ],
+          "webSources": [],
+          "searchStatus": "not_requested",
+          "checks": {
+            "entityFields": true,
+            "citationLinks": true,
+            "statementTruth": false,
+            "localCitationCount": 4,
+            "webCitationCount": 0
+          },
+          "limitation": "仅校验实体、归属与引用关联；模型解释未经逐句事实核验。"
+        },
+        "retrievalDiagnostics": [
+          {
+            "strategy": "comparison",
+            "solarTermIds": [
+              "dongzhi"
+            ],
+            "provinceCodes": [
+              "320000",
+              "330000"
+            ],
+            "regions": [],
+            "normalizedTerms": [],
+            "matchedAliases": [],
+            "candidateCount": 2,
+            "matchedCount": 2,
+            "matchedIds": [
+              "suzhou-dongzhi-winter-wine",
+              "sanmen-jidong"
+            ],
+            "scores": [
+              {
+                "caseId": "suzhou-dongzhi-winter-wine",
+                "score": 0,
+                "matchedFields": [
+                  "filters"
+                ]
+              },
+              {
+                "caseId": "sanmen-jidong",
+                "score": 0,
+                "matchedFields": [
+                  "filters"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "retrievedIds": [
+        "suzhou-dongzhi-winter-wine",
+        "sanmen-jidong"
+      ],
+      "successfulTools": [
+        "compare_cultural_cases",
+        "show_cultural_map",
+        "get_solar_term_info",
+        "highlight_regions",
+        "open_cultural_case"
+      ],
+      "reusedTools": [],
+      "passed": true,
+      "ms": 5106.63
+    },
+    {
+      "id": "follow-up",
+      "group": "real_model",
+      "kind": "real_model",
+      "question": "那只看饮食类，继续比较这两个地区，并给出本轮已核实来源。",
+      "status": 502,
+      "response": {
+        "version": "1.0",
+        "answer": null,
+        "truncated": false,
+        "error": {
+          "code": "UNVERIFIED_ANSWER",
+          "message": "本轮没有可核实的联网资料，暂时无法确认该信息。"
+        }
+      },
+      "passed": false,
+      "error": "UNVERIFIED_ANSWER\n\n502 !== 200\n",
+      "ms": 3709.98
+    },
+    {
+      "id": "unmatched",
+      "group": "real_model",
+      "kind": "real_model",
+      "question": "请核对本站江苏冬至的量子祭龙王案例，没有已核验资料就明确说明，不能用别的案例替代。",
+      "status": 200,
+      "response": {
+        "version": "1.0",
+        "reply": "我按“冬至、江苏、祭龙王”检索了本站文化案例，没有查到匹配记录，因此无法核对或确认所谓“江苏冬至量子祭龙王”案例。本站未收录该案例，也不能用其他地区或其他节气的案例代替。如果你还有其他已核验的本地案例编号，可以告诉我，我再帮你查。",
+        "answer": "我按“冬至、江苏、祭龙王”检索了本站文化案例，没有查到匹配记录，因此无法核对或确认所谓“江苏冬至量子祭龙王”案例。本站未收录该案例，也不能用其他地区或其他节气的案例代替。如果你还有其他已核验的本地案例编号，可以告诉我，我再帮你查。",
+        "truncated": false,
+        "mapActions": [],
+        "references": [],
+        "toolEvents": [
+          {
+            "toolCallId": "call_00_XHeeyauJXpjU6apQHOhY0872",
+            "toolName": "compare_cultural_cases",
+            "status": "error",
+            "error": {
+              "code": "INVALID_TOOL_ARGUMENTS",
+              "message": "工具参数无效，请使用合法节气、地区和筛选条件。"
+            }
+          },
+          {
+            "toolCallId": "call_00_i4Zx3ZzoBYNgTHgKoZ984716",
+            "toolName": "search_cultural_cases",
+            "status": "success"
+          }
+        ],
+        "caseLookup": {
+          "matchedTitles": []
+        },
+        "noLocalCaseMatch": true,
+        "evidence": {
+          "method": "local_knowledge_retrieval",
+          "kinds": [
+            "general_knowledge"
+          ],
+          "localCases": [],
+          "webSources": [],
+          "searchStatus": "not_requested",
+          "checks": {
+            "entityFields": true,
+            "citationLinks": true,
+            "statementTruth": false,
+            "localCitationCount": 0,
+            "webCitationCount": 0
+          },
+          "limitation": "仅校验实体、归属与引用关联；模型解释未经逐句事实核验。"
+        },
+        "retrievalDiagnostics": [
+          {
+            "strategy": "filters_only",
+            "solarTermIds": [
+              "dongzhi"
+            ],
+            "provinceCodes": [
+              "320000"
+            ],
+            "regions": [],
+            "normalizedTerms": [
+              "祭龙王"
+            ],
+            "matchedAliases": [],
+            "candidateCount": 0,
+            "matchedCount": 0,
+            "matchedIds": [],
+            "scores": [],
+            "noMatchReason": "no_public_match"
+          }
+        ]
+      },
+      "retrievedIds": [],
+      "successfulTools": [
+        "search_cultural_cases"
+      ],
+      "reusedTools": [],
+      "passed": true,
+      "ms": 3095.96
+    },
+    {
+      "id": "live-search",
+      "group": "real_live_search",
+      "kind": "real_model",
+      "question": "请联网查香港天文台在哪里公布二十四节气时刻，给出本轮实际检索来源，不要推测具体交节时分。",
+      "status": 200,
+      "response": {
+        "version": "1.0",
+        "reply": "本轮确实检索到香港天文台的资料，来源如下：\n\n香港天文台在天文台网站设有「二十四节气的日期及时间资料」页面，可按年份查列各节气的日期与时刻[1][2]。该页面提供繁体中文和简体中文两个版本[1][2]。\n\n页面注明两点计算与时间说明：节气天文资料根据英国皇家航海历书局及美国海军天文气象台提供的天文数据计算；所列为香港时间，即协调世界时加8小时[1][2]。\n\n关于具体交节时分：本轮资料中的节气时刻表没有标明所属年份，因此我不据此给出任何一年的具体交节时间，也不做推测。你若需要某一年的准确时刻，请在天文台该页面选定年份后查看[1][2]。\n\n补充一点区分：天文台另有介绍二十四节气概念的资料，把节气解释为太阳在黄道上近乎均匀分布的24个位置的时刻[3]；这属于天文定义，与各地的实际天气冷暖不是一回事。\n\n参考来源（检索于 2026-11-15 11:33:36（北京时间））\n[1] 二十四節氣的日期及時間資料\nhttps://www.hko.gov.hk/tc/gts/astronomy/Solar_Term.htm\n[2] 二十四节气的日期及时间资料\nhttps://www.hko.gov.hk/sc/gts/astronomy/Solar_Term.htm\n[3] 二十四節氣 24 Solar Terms\nhttps://www.hko.gov.hk/tc/gts/astron2022/files/2022SolarTerms24.pdf#1#1#1",
+        "answer": "本轮确实检索到香港天文台的资料，来源如下：\n\n香港天文台在天文台网站设有「二十四节气的日期及时间资料」页面，可按年份查列各节气的日期与时刻[1][2]。该页面提供繁体中文和简体中文两个版本[1][2]。\n\n页面注明两点计算与时间说明：节气天文资料根据英国皇家航海历书局及美国海军天文气象台提供的天文数据计算；所列为香港时间，即协调世界时加8小时[1][2]。\n\n关于具体交节时分：本轮资料中的节气时刻表没有标明所属年份，因此我不据此给出任何一年的具体交节时间，也不做推测。你若需要某一年的准确时刻，请在天文台该页面选定年份后查看[1][2]。\n\n补充一点区分：天文台另有介绍二十四节气概念的资料，把节气解释为太阳在黄道上近乎均匀分布的24个位置的时刻[3]；这属于天文定义，与各地的实际天气冷暖不是一回事。\n\n参考来源（检索于 2026-11-15 11:33:36（北京时间））\n[1] 二十四節氣的日期及時間資料\nhttps://www.hko.gov.hk/tc/gts/astronomy/Solar_Term.htm\n[2] 二十四节气的日期及时间资料\nhttps://www.hko.gov.hk/sc/gts/astronomy/Solar_Term.htm\n[3] 二十四節氣 24 Solar Terms\nhttps://www.hko.gov.hk/tc/gts/astron2022/files/2022SolarTerms24.pdf#1#1#1",
+        "truncated": false,
+        "mapActions": [],
+        "references": [],
+        "toolEvents": [],
+        "evidence": {
+          "method": "local_knowledge_retrieval",
+          "kinds": [
+            "live_search",
+            "general_knowledge"
+          ],
+          "localCases": [],
+          "webSources": [
+            {
+              "citation": 1,
+              "title": "二十四節氣的日期及時間資料",
+              "url": "https://www.hko.gov.hk/tc/gts/astronomy/Solar_Term.htm",
+              "cited": true
+            },
+            {
+              "citation": 2,
+              "title": "二十四节气的日期及时间资料",
+              "url": "https://www.hko.gov.hk/sc/gts/astronomy/Solar_Term.htm",
+              "cited": true
+            },
+            {
+              "citation": 3,
+              "title": "二十四節氣 24 Solar Terms",
+              "url": "https://www.hko.gov.hk/tc/gts/astron2022/files/2022SolarTerms24.pdf#1#1#1",
+              "cited": true
+            },
+            {
+              "citation": 4,
+              "title": "香港天文台",
+              "url": "https://www.hko.gov.hk/tc/abouthko/files/chko_2023_tc.pdf#1#1#1",
+              "cited": false
+            },
+            {
+              "citation": 5,
+              "title": "香港天文台",
+              "url": "https://www.hko.gov.hk/sc/abouthko/annual_open_data_plan/doc/files/HKO%20Annual%20Open%20Data%20Plan%202023_25_sc_v2.0.pdf#1#1#1",
+              "cited": false
+            }
+          ],
+          "searchStatus": "available",
+          "checks": {
+            "entityFields": true,
+            "citationLinks": true,
+            "statementTruth": false,
+            "localCitationCount": 0,
+            "webCitationCount": 9
+          },
+          "limitation": "仅校验实体、归属与引用关联；模型解释未经逐句事实核验。"
+        },
+        "retrievalDiagnostics": []
+      },
+      "retrievedIds": [],
+      "successfulTools": [],
+      "reusedTools": [],
+      "passed": true,
+      "ms": 2769.66
+    }
+  ],
+  "origin": "http://127.0.0.1:3116",
+  "liveSelection": [
+    "ordinary",
+    "alias",
+    "complex",
+    "follow-up",
+    "unmatched",
+    "live-search"
+  ],
+  "passed": false,
+  "summary": {
+    "sampleCount": 6,
+    "passed": 5,
+    "failed": 1,
+    "retrieval": {
+      "expectedSamples": 3,
+      "matchingSamples": 2
+    },
+    "citations": {
+      "scope": "Programmatic source/entity consistency; model explanations are not semantically certified. No-citation answers excluded.",
+      "actualMentions": 27,
+      "validMentions": 27,
+      "associationValidityRate": 1
+    },
+    "tools": {
+      "executed": 10,
+      "successfulExecutions": 9,
+      "reusedResults": 0
+    },
+    "latencyMs": {
+      "median": 3709.98,
+      "p95": 5106.63
+    },
+    "failures": [
+      {
+        "id": "follow-up",
+        "status": 502,
+        "error": "UNVERIFIED_ANSWER\n\n502 !== 200\n"
+      }
+    ]
+  }
+}

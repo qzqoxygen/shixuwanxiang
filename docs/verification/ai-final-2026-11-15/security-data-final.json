@@ -1,0 +1,12 @@
+{
+  "testedAt": "2026-11-15T08:42:22.021Z",
+  "secretValuesChecked": 5,
+  "repositoryFilesChecked": 394,
+  "clientBuildFilesChecked": 27,
+  "leakPaths": [],
+  "culturalDataEqualsMain": true,
+  "original79RecordsUnchanged": true,
+  "verified": 97,
+  "pending": 2,
+  "envFileIgnored": true
+}

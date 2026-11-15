@@ -38,6 +38,8 @@
 
 ## AI 技术与创新点
 
+赛前升级增加中文俗称与多轮联合检索、程序化实体/引用关联校验、可展开的回答依据，以及可重复评测。采用基于本地知识库的检索增强生成，未使用向量数据库；依据区分本地已核验案例、本轮联网与模型解释，不将引用有效当成逐句事实正确。实现、真实指标和失败记录见[AI 技术与评测说明](docs/AI_TECHNICAL_EVALUATION_2026-11-15.md)。
+
 - **模型接入。** Next.js 服务端调用 DeepSeek 官方 API，当前配置为 `deepseek-flash`。四时补充、案例探访、地图问答和造物灵感各有自己的上下文和输出规则。造物用结构化输出生成标题和短句，校验后提供给用户选用。
 - **检索与来源。** 本地案例库收录 97 条已核验记录，覆盖全部 24 个节气。34 个省级地区各有至少一条可查案例。案例链接保留原文入口。节气探访在匹配资料不足时尝试补查，区分本站案例、联网记录、相关线索和暂无可核实资料。个人记忆可以用于创作，保留个人叙述的属性。
 - **工具调用与地图联动。** 知时问答可调用六项业务工具，包括节气信息、案例查询、跨地区比较、地图展示、省份高亮和打开案例。回答显示工具执行记录。用户点击「在地图中查看」后，前端校验操作并成批应用，过期结果会被拒绝。
@@ -59,6 +61,7 @@ npx tsc --noEmit
 npm run lint
 npm test
 npm run build
+npm run eval:ai
 ```
 
 正式站由 Netlify 关联 GitHub 的 `main` 自动构建。构建参数见 [netlify.toml](netlify.toml)。
@@ -67,6 +70,7 @@ npm run build
 
 - `app/` 是 Next.js App Router 页面及服务端 API。核心交互组件在 `components/`，模型接入、工具执行和案例查询在 `lib/`。案例运行数据见 [案例库](data/cultural-cases/cases.json)。
 - [Agent V1 联调](docs/integration/agent-v1.md) · [前后端接口协议](docs/contracts/v1.0.md) · [案例接口联调](docs/integration/cultural-cases.md)
+- [AI 技术与评测](docs/AI_TECHNICAL_EVALUATION_2026-11-15.md) · [本轮验收证据](docs/verification/ai-final-2026-11-15/README.md)。默认 `eval:ai` 不调用模型；`--live` 才消耗真实额度。
 - [案例入库与核验记录](docs/cultural-sources/2026-11-12/report.md) · [书册照片来源](public/images/solar-terms/SOURCES.md) · [地图数据说明](data/maps/README.md) · [字体许可](public/fonts/README.md)
 - [UNESCO 二十四节气介绍](https://ich.unesco.org/en/RL/00647) · [香港天文台二十四节气](https://www.hko.gov.hk/tc/gts/time/24solarterms.htm)
 - [历次项目盘点](docs/PROJECT_STATUS.md) · [早期交接记录](https://github.com/qzqoxygen/shixu-ai/blob/f5d561cb7d7a810f76042ad7ff5422e6ecc9a522/README.md)
