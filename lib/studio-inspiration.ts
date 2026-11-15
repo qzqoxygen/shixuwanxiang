@@ -16,8 +16,8 @@ export type StudioSuggestion = { title: string; line: string };
 export type StudioReference = { caseId: string; title: string; provinceName: string; regionName: string; sources: CulturalSource[] };
 export type StudioCaseSeed = Pick<StudioReference, "caseId" | "title" | "provinceName" | "regionName"> & { solarTermId: SolarTermId };
 
-export function studioCaseHref({ caseId, solarTermId }: Pick<StudioCaseSeed, "caseId" | "solarTermId">) {
-  return `/studio?${new URLSearchParams({ caseId, solarTermId })}`;
+export function studioCaseHref({ caseId, solarTermId }: Pick<StudioCaseSeed, "caseId" | "solarTermId">, params?: Record<string, string>) {
+  return `/studio?${new URLSearchParams({ ...params, caseId, solarTermId })}`;
 }
 
 export function isStudioFormat(value: string | null): value is StudioFormat {

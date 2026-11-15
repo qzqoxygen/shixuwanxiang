@@ -1,0 +1,17 @@
+.site-header nav.site-nav { gap: clamp(6px, 1vw, 12px); }
+
+.site-header .site-nav a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 12px clamp(8px, 1.5vw, 18px);
+  white-space: nowrap;
+}
+
+.site-header .site-nav a[href="/visit"] { --nav-accent: #367b70; }
+
+@media (max-width: 640px) {
+  .site-header nav.site-nav { gap: 0; }
+  .site-header .site-nav a { padding-inline: clamp(4px, calc((100vw - 280px) / 12), 14px); }
+}

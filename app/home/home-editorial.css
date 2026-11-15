@@ -385,6 +385,19 @@
 
 .home-chapter-link:focus-visible { outline: 2px solid var(--chapter-accent); outline-offset: 4px; }
 
+.home-chapter-copy .home-chapter-example {
+  margin-top: .65em;
+  font-size: clamp(14px, 1.1vw, 16px);
+  line-height: 1.65;
+}
+
+.home-chapter-copy .home-visit-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  margin: .25em 0 0;
+}
+
 .home-chapter-seasons .home-chapter-body {
   grid-template-columns: minmax(0, 1fr) minmax(0, 1.52fr);
   grid-template-areas: "copy art";

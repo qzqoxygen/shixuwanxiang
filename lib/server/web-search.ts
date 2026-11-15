@@ -2,7 +2,7 @@ import { isIP } from "node:net";
 import { z } from "zod";
 import type { ChatMessage } from "../chat";
 
-export type WebSource = { title: string; url: string; content: string };
+export type WebSource = { title: string; url: string; content: string; snippet?: string };
 export type SearchContext = { query: string; retrievedAt: string; sources: WebSource[] };
 
 export class SearchError extends Error {
@@ -55,13 +55,19 @@ const resultSchema = z.object({
   snippet: z.string().trim().optional(),
 });
 
-function authority(source: WebSource): number {
+function isAuthoritativeWebSource(source: WebSource): boolean {
   const host = new URL(source.url).hostname;
   return /\.(gov\.cn|gov\.hk|edu\.cn|ac\.cn)$/u.test(host) ||
-    ["ihchina.cn", "news.cn", "xinhuanet.com", "cctv.com", "people.com.cn"].some((domain) => host === domain || host.endsWith("." + domain)) ? 1 : 0;
+    ["ihchina.cn", "news.cn", "xinhuanet.com", "cctv.com", "people.com.cn"].some((domain) => host === domain || host.endsWith("." + domain));
 }
 
-export async function searchWeb(query: string, signal: AbortSignal): Promise<WebSource[]> {
+export function isVisitWebSource(source: WebSource): boolean {
+  const host = new URL(source.url).hostname;
+  return isAuthoritativeWebSource(source) ||
+    ["cnr.cn", "cnnb.com.cn", "sxdaily.com.cn", "ylrb.com", "dailyqd.com", "qtv.com.cn", "chinanews.com.cn"].some(domain => host === domain || host.endsWith("." + domain));
+}
+
+export async function searchWeb(query: string, signal: AbortSignal, accept?: (source: WebSource) => boolean): Promise<WebSource[]> {
   signal.throwIfAborted();
   const apiKey = process.env.DEEPSEEK_API_KEY?.trim();
   if (!apiKey) throw new SearchError("SEARCH_KEY_MISSING", "尚未配置联网检索服务。");
@@ -92,9 +98,12 @@ export async function searchWeb(query: string, signal: AbortSignal): Promise<Web
       const host = new URL(parsed.data.url).hostname;
       if (requestedSite && host !== requestedSite && !host.endsWith("." + requestedSite)) continue;
       const content = parsed.data.summary || parsed.data.snippet;
-      if (content) sources.push({ title: parsed.data.title.slice(0, 200), url: parsed.data.url, content: content.slice(0, 1600) });
+      if (!content) continue;
+      const source = { title: parsed.data.title.slice(0, 200), url: parsed.data.url, content: content.slice(0, 1600) };
+      const evidence = accept && parsed.data.snippet ? { ...source, snippet: parsed.data.snippet.slice(0, 500) } : source;
+      if (!accept || accept(evidence)) sources.push(evidence);
     }
-    const selected = sources.sort((a, b) => authority(b) - authority(a)).slice(0, 5);
+    const selected = sources.sort((a, b) => Number(isAuthoritativeWebSource(b)) - Number(isAuthoritativeWebSource(a))).slice(0, 5);
     if (!selected.length) throw new SearchError("SEARCH_EMPTY", "未检索到可核实的资料，本次无法确认实时信息，请补充地点、年份或活动名称。");
     return selected;
   } catch (error) {

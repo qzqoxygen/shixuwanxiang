@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useRef, type CSSProperties } from "react";
 
+import { pondImages } from "./garden-seasons";
 import { usePondWater } from "./use-pond-water";
 
 const waterline = [
@@ -10,7 +11,7 @@ const waterline = [
   [.94, .63], [.85, .79], [.78, 1], [0, 1],
 ] as const;
 
-const pondSource = "/images/home/spring-pond-close.webp";
+const [pondSource] = pondImages.spring;
 const petals = [
   { x: 79, y: 4, drift: -26, fall: 73, duration: 9.8, delay: -3.2, near: true },
   { x: 93, y: 10, drift: -23, fall: 80, duration: 10.6, delay: -7.1, near: true },

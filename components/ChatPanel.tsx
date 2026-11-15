@@ -8,6 +8,8 @@ import { ChatSuccessV1Schema, type MapAction, type ToolEvent } from "@/lib/contr
 import { useProvinces } from "./cultural-map/ProvinceInteraction";
 import { SOLAR_TERMS } from "@/lib/solar-terms";
 import { studioCaseHref } from "@/lib/studio-inspiration";
+import type { VisitQuery } from "@/lib/solar-visit";
+import { visitLinkParams } from "@/lib/visit-links";
 import "./ChatPanel.css";
 
 type DisplayMessage = ChatMessage & {
@@ -34,7 +36,9 @@ function linkedText(content: string) {
       : part);
 }
 
-function CaseReferences({ references, onShowOnMap }: { references: ChatCaseReference[]; onShowOnMap: (reference: ChatCaseReference) => void }) {
+function CaseReferences({ references, onShowOnMap, visitOrigin }: {
+  references: ChatCaseReference[]; onShowOnMap: (reference: ChatCaseReference) => void; visitOrigin?: VisitQuery;
+}) {
   const groups = [...new Set(references.map(item => item.provinceCode))].map(code => references.filter(item => item.provinceCode === code));
   return <div className="chat-case-references">
     <p className="chat-case-heading">{groups.length > 1 ? "地区文化对照 · 已核验案例与来源" : "已核验文化案例"}</p>
@@ -56,7 +60,7 @@ function CaseReferences({ references, onShowOnMap }: { references: ChatCaseRefer
             <a className="chat-case-original" href={primarySource.url} target="_blank" rel="noopener noreferrer" aria-label={`查看原文：${primarySource.title}`} title={primarySource.title}>
               查看原文
             </a>
-            <Link className="chat-case-create" href={studioCaseHref(reference)} prefetch={false} aria-label={`用这个案例做节气卡：${reference.title}`}>
+            <Link className="chat-case-create" href={studioCaseHref(reference, visitOrigin ? visitLinkParams(visitOrigin) : undefined)} prefetch={false} aria-label={`用这个案例做节气卡：${reference.title}`}>
               做节气卡
             </Link>
           </div>
@@ -109,9 +113,10 @@ function MapActionsPreview({ actions, expectedRevision, currentRevision, onApply
   </div>;
 }
 
-export default function ChatPanel({ onShowOnMap, onApplyMapActions }: {
+export default function ChatPanel({ onShowOnMap, onApplyMapActions, visitOrigin }: {
   onShowOnMap: (reference?: ChatCaseReference) => void;
   onApplyMapActions: (actions: MapAction[], revision: number, signal: AbortSignal) => Promise<void>;
+  visitOrigin?: VisitQuery;
 }) {
   const { revision, getMapRevision, getChatContext, invalidateMapRevision } = useProvinces();
   const [messages, setMessages] = useState<DisplayMessage[]>([]);
@@ -209,7 +214,7 @@ export default function ChatPanel({ onShowOnMap, onApplyMapActions }: {
             </details>}
             <div className="chat-message-text">{message.role === "assistant" ? linkedText(message.answerText ?? message.content) : message.content}</div>
             {message.truncated && <p className="chat-small">回答已达到长度上限，可追问“请继续”。</p>}
-            {message.caseReferences && <CaseReferences references={message.caseReferences} onShowOnMap={onShowOnMap} />}
+            {message.caseReferences && <CaseReferences references={message.caseReferences} onShowOnMap={onShowOnMap} visitOrigin={visitOrigin} />}
             {Boolean(message.mapActions?.length) && <MapActionsPreview actions={message.mapActions!} expectedRevision={message.mapRevision!} currentRevision={revision} onApply={onApplyMapActions} />}
             {message.noLocalCaseMatch && <div className="chat-case-empty">
               <p>{message.caseLookup ? "已查询案例库，暂未找到匹配的已核验案例。" : "本站暂未找到匹配的已核验案例。"}</p>

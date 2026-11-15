@@ -2,10 +2,11 @@
 
 import Image from "next/image";
 import { useRef } from "react";
+import { pondImages } from "./garden-seasons";
 import { usePondWater } from "./use-pond-water";
 
 const waterline = [[0, .48], [.89, .49], [.96, .56], [1, .59], [1, 1], [0, 1]] as const;
-const lotusSource = "/images/home/summer-pond-lotus-grove.webp";
+const [pondSource, lotusSource] = pondImages.summer;
 
 export default function SummerPond({ active }: { active: boolean }) {
   const imageRef = useRef<HTMLImageElement>(null);
@@ -15,7 +16,7 @@ export default function SummerPond({ active }: { active: boolean }) {
 
   return (
     <div className="spring-pond summer-pond" data-active={active}>
-      <Image ref={imageRef} src="/images/home/summer-pond-close.webp" fill alt="" unoptimized loading="eager" fetchPriority="low" />
+      <Image ref={imageRef} src={pondSource} fill alt="" unoptimized loading="eager" fetchPriority="low" />
       <canvas ref={waterRef} className="spring-pond-water" width={768} height={512} />
       <div className="summer-pond-plants">
         <div className="summer-lotus-cluster">

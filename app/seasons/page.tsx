@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import InkLandscape from "@/components/InkLandscape";
 import SolarTermsExplorer from "@/components/SolarTermsExplorer";
 import { getSeasonGuide, type GuideCaseSources } from "@/lib/season-guides";
 import { SOLAR_TERMS } from "@/lib/solar-terms";
 import { studioCaseForTerm } from "@/lib/server/cultural-case-context";
+import { SolarTermIdSchema } from "@/lib/contracts/cultural-case";
+import { readVisitOrigin } from "@/lib/visit-links";
 import "./seasons.css";
 import "./book.css";
 import "./reading-room.css";
@@ -12,16 +15,27 @@ import "./finishing.css";
 import "./vignette.css";
 import "./guide.css";
 export const metadata: Metadata = { title: "四时" };
-export default function SeasonsPage() {
+type SearchParams = Promise<Record<string, string | string[] | undefined>>;
+
+async function SelectedBook({ searchParams }: { searchParams: SearchParams }) {
+  const params = await searchParams;
+  const { data: term } = SolarTermIdSchema.safeParse(params.solarTermId);
+  const origin = readVisitOrigin(params);
   const caseSources: GuideCaseSources = {};
   for (const { id } of SOLAR_TERMS) {
     const item = studioCaseForTerm(getSeasonGuide(id).caseId, id);
     if (item) caseSources[id] = { title: item.title, url: item.sources[0].url };
   }
+  return <SolarTermsExplorer key={term} caseSources={caseSources} initialTerm={term} visitOrigin={origin} />;
+}
+
+export default function SeasonsPage({ searchParams }: { searchParams: SearchParams }) {
   return <div className="seasons-page seasons-reading-room">
     <InkLandscape />
     <h1 className="seasons-sr-only">四时：二十四节气风物册</h1>
-    <SolarTermsExplorer caseSources={caseSources} />
+    <Suspense fallback={<p className="muted" role="status">正在翻开四时风物册…</p>}>
+      <SelectedBook searchParams={searchParams} />
+    </Suspense>
     <aside className="seasons-source">
       <span className="seasons-source-mark" aria-hidden="true">记</span>
       <p>

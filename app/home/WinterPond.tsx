@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useRef, type CSSProperties } from "react";
 
+import { pondImages } from "./garden-seasons";
 import { usePondWater } from "./use-pond-water";
 
 const waterline = [
@@ -36,7 +37,7 @@ export default function WinterPond({ active }: { active: boolean }) {
 
   return (
     <div className="spring-pond winter-pond" data-active={active}>
-      <Image ref={imageRef} src="/images/home/winter-pond-close.webp" fill alt="" unoptimized loading="eager" fetchPriority="low" />
+      <Image ref={imageRef} src={pondImages.winter[0]} fill alt="" unoptimized loading="eager" fetchPriority="low" />
       <canvas ref={waterRef} className="spring-pond-water" width={768} height={512} />
       {active && (
         <div className="spring-pond-air winter-pond-air">

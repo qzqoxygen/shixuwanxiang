@@ -108,8 +108,9 @@ export default function HomeEditorial() {
             <figcaption><strong>立春 · 风物册书页</strong></figcaption>
           </figure>
           <div className="home-chapter-copy">
-            <p>从立春翻到大寒。一页读节气，一页看风物，也读一则当季的小识。</p>
+            <p>从立春翻到大寒，读节气、看风物。点「AI 再讲一点」，实时生成当前节气的补充讲解。</p>
             <Link className="home-chapter-link" href="/seasons">翻开风物册</Link>
+            <p className="home-chapter-example">试试切换「讲给小朋友」，用更通俗的方式读懂节气。</p>
           </div>
         </div>
       </section>
@@ -128,8 +129,10 @@ export default function HomeEditorial() {
           <div className="home-chapter-copy">
             <h3 className="home-chapter-case">春分 · 日坛祭日</h3>
             <p>明清时，朝廷在春分这天到日坛祭日。<a className="home-term-source" href="https://yllhj.beijing.gov.cn/ztxx/lhysh/st/202304/t20230411_3003938.shtml" target="_blank" rel="noreferrer">史料出处<span className="sr-only">（新窗口打开）</span></a></p>
-            <p>你可以按节气和地区查找各地的习俗与故事。</p>
-            <Link className="home-chapter-link" href="/explore?solarTermId=chunfen&provinceCode=110000">去知时看故事</Link>
+            <p>向 AI 提问，查找有出处的地方习俗与故事。</p>
+            <Link className="home-chapter-link" href="/explore?solarTermId=chunfen&provinceCode=110000" prefetch={false}>问节气，查出处</Link>
+            <p className="home-chapter-example">试试问「江苏和浙江的冬至习俗有什么不同？」</p>
+            <Link className="home-term-source home-visit-link" href="/visit">节气探访 · 问问家乡怎么过节气</Link>
           </div>
         </div>
       </section>
@@ -143,8 +146,9 @@ export default function HomeEditorial() {
             <Image className="home-studio-card" src="/images/home/editorial-lotus-card.webp" alt="小暑节气卡《荷风》，画着荷花和水纹" width={480} height={600} sizes="(max-width: 640px) 34vw, (max-width: 1400px) 20vw, 250px" />
           </div>
           <div className="home-chapter-copy">
-            <p>挑一个节气，换底色、贴图、写几句话，把它做成自己的节气卡、书签或画报。</p>
+            <p>挑一个节气，让 AI 生成标题和短句。选用后填入作品，再配上喜欢的底色和贴纸。</p>
             <Link className="home-chapter-link" href="/studio">做一张节气卡</Link>
+            <p className="home-chapter-example">也可以从「知时」带一条地方风物案例来做节气卡。</p>
           </div>
         </div>
       </section>

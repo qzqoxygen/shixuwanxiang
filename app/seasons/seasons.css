@@ -7,7 +7,7 @@ body:has(.seasons-page:not([style*="display: none"])) {
 body:has(.seasons-page:not([style*="display: none"])) .page-shell { position: relative; isolation: isolate; max-width: 1600px; padding-inline: 32px; }
 body:has(.seasons-page:not([style*="display: none"])) .site-header { min-height: 86px; border-color: #b69a5c40; }
 body:has(.seasons-page:not([style*="display: none"])) .brand { color: #365e63; }
-body:has(.seasons-page:not([style*="display: none"])) .site-header nav a[aria-current="page"] { color: #366c75; border-color: var(--seasons-gold); background: linear-gradient(transparent, #dde8dc70); }
+body:has(.seasons-page:not([style*="display: none"])) .site-header nav a[aria-current="page"] { color: #366c75; background: linear-gradient(transparent, #dde8dc70); }
 .seasons-page { position: relative; padding: 0 14px 12px; }
 .seasons-page button { cursor: pointer; -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
 .seasons-page button:disabled { cursor: default; }

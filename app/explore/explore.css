@@ -5,7 +5,7 @@ body:has(.explore-page) .page-shell { max-width: 1440px; padding: 0 32px; }
 body:has(.explore-page) .page-shell { position: relative; z-index: 1; }
 body:has(.explore-page) .site-header { min-height: 86px; border-color: #b69a5c40; }
 body:has(.explore-page) .brand { color: #365e63; }
-body:has(.explore-page) .site-header nav a[aria-current="page"] { color: #366c75; border-color: #b69a5c; background: linear-gradient(transparent, #dde8dc70); }
+body:has(.explore-page) .site-header nav a[aria-current="page"] { color: #366c75; background: linear-gradient(transparent, #dde8dc70); }
 .explore-page .explore-intro { position: relative; display: flex; justify-content: space-between; align-items: center; gap: 24px; margin: 0 0 14px; padding: 10px 14px; min-height: 104px; }
 .explore-page .explore-intro::after {
   content: "";

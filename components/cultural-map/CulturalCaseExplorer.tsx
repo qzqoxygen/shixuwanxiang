@@ -5,6 +5,7 @@ import { useCallback, useEffect, useId, useRef } from "react";
 import { fetchCaseDetail, fetchCaseList } from "@/lib/cultural-case-client";
 import { CASE_PAGE_SIZE } from "@/lib/explore-selection";
 import { studioCaseHref } from "@/lib/studio-inspiration";
+import { visitHref, visitLinkParams } from "@/lib/visit-links";
 import { SEASONS, SOLAR_TERMS, type SolarTermId } from "@/lib/solar-terms";
 import type { CaseListQuery, VerifiedCulturalCase } from "@/lib/contracts/cultural-case";
 import { useProvinces } from "./ProvinceInteraction";
@@ -81,7 +82,7 @@ function CaseResults({ query }: { query: CaseListQuery }) {
 }
 
 function CaseDetail({ caseId }: { caseId: string }) {
-  const { selection, dispatch } = useProvinces();
+  const { selection, dispatch, visitOrigin } = useProvinces();
   const headingRef = useRef<HTMLHeadingElement>(null);
   const load = useCallback(async (signal: AbortSignal) => {
     const item = await fetchCaseDetail(caseId, signal);
@@ -101,9 +102,13 @@ function CaseDetail({ caseId }: { caseId: string }) {
     {resource.status === "loading" && <CaseLoading detail />}
     {resource.status === "error" && <RequestError message={resource.message} retry={retry} />}
     {resource.status === "success" && <>
-      <Link className="case-studio-link" href={studioCaseHref({ caseId, solarTermId: selection.solarTermId ?? resource.data.solarTermIds[0] })} prefetch={false}>
+      <Link className="case-studio-link" href={studioCaseHref(
+        { caseId, solarTermId: selection.solarTermId ?? resource.data.solarTermIds[0] },
+        visitOrigin ? visitLinkParams(visitOrigin) : undefined,
+      )} prefetch={false}>
         用这个案例做节气卡
       </Link>
+      {visitOrigin && <Link className="case-studio-link" href={visitHref(visitOrigin)} prefetch={false}>返回节气探访</Link>}
       <CulturalCaseContent item={resource.data} />
     </>}
   </section>;

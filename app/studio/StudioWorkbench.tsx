@@ -1,11 +1,14 @@
 "use client";
 
 import Image from "next/image";
-import { useRef, useState, type CSSProperties, type FocusEvent, type KeyboardEvent, type PointerEvent } from "react";
+import Link from "next/link";
+import { useRef, useState, useSyncExternalStore, type CSSProperties, type FocusEvent, type KeyboardEvent, type PointerEvent } from "react";
 import { SEASONS, SOLAR_TERMS, type Season } from "@/lib/solar-terms";
 import { STUDIO_CALENDAR_YEAR, STUDIO_LUNAR_DATES } from "@/lib/studio-lunar-dates";
 import { parseStudioDraft, STUDIO_DECORATIONS as decorations, STUDIO_PALETTES as palettes, type StudioDraft, type StudioPlacement } from "@/lib/studio-draft";
 import { STUDIO_FORMATS, STUDIO_LINE_LIMIT, STUDIO_TITLE_LIMIT, type StudioCaseSeed } from "@/lib/studio-inspiration";
+import { VisitMemoryCardSchema, VisitWebSeedSchema, type VisitQuery, type VisitWebSeed } from "@/lib/solar-visit";
+import { visitHref, visitMemoryKeys, visitWebKey } from "@/lib/visit-links";
 import stickerCatalog from "@/public/images/studio-stickers/manifest.json";
 import { renderPosterPng } from "./export-poster";
 import StudioInspiration from "./StudioInspiration";
@@ -143,25 +146,59 @@ export function StudioLoading() {
   </section>;
 }
 
-export default function StudioWorkbench({ seed, invalidCase }: { seed?: StudioCaseSeed; invalidCase: boolean }) {
-  const snapshot = useInitialStudioDraft();
-  if (snapshot === undefined) return <StudioLoading />;
-  return <StudioEditor initialDraft={parseStudioDraft(snapshot)} seed={seed} invalidCase={invalidCase} />;
+export default function StudioWorkbench({ seed, invalidCase, memoryMode, webMode, visitOrigin }: {
+  seed?: StudioCaseSeed; invalidCase: boolean; memoryMode?: boolean; webMode?: boolean; visitOrigin?: VisitQuery;
+}) {
+  const keys = visitMemoryKeys(visitOrigin);
+  const memorySnapshot = useSyncExternalStore(
+    () => () => {},
+    () => { try { return memoryMode ? window.sessionStorage.getItem(keys.card) : null; } catch { return null; } },
+    () => undefined,
+  );
+  const memory = (() => {
+    try { return memorySnapshot ? VisitMemoryCardSchema.safeParse(JSON.parse(memorySnapshot)).data : undefined; }
+    catch { return undefined; }
+  })();
+  const webKey = webMode && visitOrigin ? visitWebKey(visitOrigin) : undefined;
+  const webSnapshot = useSyncExternalStore(
+    () => () => {},
+    () => { try { return webKey ? window.sessionStorage.getItem(webKey) : null; } catch { return null; } },
+    () => undefined,
+  );
+  const webSeed = (() => {
+    try { return webSnapshot ? VisitWebSeedSchema.safeParse(JSON.parse(webSnapshot)).data : undefined; }
+    catch { return undefined; }
+  })();
+  const sessionDraftKey = memory ? keys.draft : webSeed && webKey ? `${webKey}:draft:${webSeed.evidence.proof}` : undefined;
+  const snapshot = useInitialStudioDraft(sessionDraftKey);
+  if (snapshot === undefined || memorySnapshot === undefined || webSnapshot === undefined) return <StudioLoading />;
+  return <StudioEditor initialDraft={parseStudioDraft(snapshot)} seed={seed} invalidCase={invalidCase} memory={memory}
+    webSeed={webSeed} missingWebSource={webMode && !webSeed} visitOrigin={visitOrigin} sessionDraftKey={sessionDraftKey} />;
 }
 
-function StudioEditor({ initialDraft, seed, invalidCase }: { initialDraft: StudioDraft | null; seed?: StudioCaseSeed; invalidCase: boolean }) {
-  const seedTermIndex = seed ? SOLAR_TERMS.findIndex(({ id }) => id === seed.solarTermId) : 4;
+function StudioEditor({ initialDraft, seed, invalidCase, memory, webSeed, missingWebSource, visitOrigin, sessionDraftKey }: {
+  initialDraft: StudioDraft | null;
+  seed?: StudioCaseSeed;
+  invalidCase: boolean;
+  memory?: ReturnType<typeof VisitMemoryCardSchema.parse>;
+  visitOrigin?: VisitQuery;
+  webSeed?: VisitWebSeed;
+  missingWebSource?: boolean;
+  sessionDraftKey?: string;
+}) {
+  const seedTerm = seed?.solarTermId ?? memory?.solarTermId ?? webSeed?.query.solarTermId;
+  const seedTermIndex = seedTerm ? SOLAR_TERMS.findIndex(({ id }) => id === seedTerm) : 4;
   const [caseState, setCaseState] = useState(() => seed && initialDraft && initialDraft.termId !== seed.solarTermId ? "pending" : "accepted");
   const [activeTab, setActiveTab] = useState<EditorTab>(() =>
-    seed && (!initialDraft || initialDraft.termId === seed.solarTermId) ? "writing" : "layout"
+    memory || webSeed || (seed && (!initialDraft || initialDraft.termId === seed.solarTermId)) ? "writing" : "layout"
   );
   const [termIndex, setTermIndex] = useState(() => initialDraft ? SOLAR_TERMS.findIndex(({ id }) => id === initialDraft.termId) : seedTermIndex);
   const [termSeason, setTermSeason] = useState<Season | null>(null);
   const [templateIndex, setTemplateIndex] = useState(() => initialDraft ? templates.findIndex(({ id }) => id === initialDraft.templateId) : 0);
   const [paletteIndex, setPaletteIndex] = useState(() => initialDraft ? palettes.findIndex(({ id }) => id === initialDraft.paletteId) : 0);
   const [decoration, setDecoration] = useState(initialDraft?.decoration ?? "template");
-  const [customTitle, setCustomTitle] = useState<string | null>(initialDraft?.title ?? null);
-  const [customLine, setCustomLine] = useState<string | null>(initialDraft?.line ?? null);
+  const [customTitle, setCustomTitle] = useState<string | null>(initialDraft ? initialDraft.title : memory?.title ?? null);
+  const [customLine, setCustomLine] = useState<string | null>(initialDraft ? initialDraft.line : memory?.line ?? null);
   const [datePlacement, setDatePlacement] = useState<PlacedDate | null>(() => initialDraft?.date ? { ...initialDraft.date, id: "date" } : null);
   const [filter, setFilter] = useState<string | null>(null);
   const [saveStatus, setSaveStatus] = useState<"idle" | "saving" | "ready" | "error">("idle");
@@ -185,6 +222,7 @@ function StudioEditor({ initialDraft, seed, invalidCase }: { initialDraft: Studi
   const lunarDateLabel = `${STUDIO_CALENDAR_YEAR} 年${term.name}对应的农历日期：${lunarDate}`;
   const termPickerSeason = termSeason ?? term.season;
   const activeCase = caseState === "accepted" && seed?.solarTermId === term.id ? seed : undefined;
+  const activeWebSeed = webSeed?.query.solarTermId === term.id ? webSeed : undefined;
   const season = SEASONS[Math.floor(termIndex / 6)];
   const template = templates[templateIndex];
   const bookmark = template.id === "bookmark";
@@ -212,7 +250,7 @@ function StudioEditor({ initialDraft, seed, invalidCase }: { initialDraft: Studi
     line: customLine,
     date: datePlacement,
     stickers: stickers.map(({ asset, mirrored, ...placement }) => ({ ...placement, assetId: asset.id, mirrored: Boolean(mirrored) })),
-  }, initialDraft !== null);
+  }, initialDraft !== null, sessionDraftKey);
 
   function addSticker(asset: Asset, keyboard: boolean) {
     const id = nextStickerId.current++;
@@ -392,7 +430,7 @@ function StudioEditor({ initialDraft, seed, invalidCase }: { initialDraft: Studi
         <StudioBreeze />
         <div className="studio-heading-caption">
           <StudioTitle />
-          <p>把四时风物<wbr />做成一张节气卡</p>
+          <p>用 AI 灵感写标题和短句</p>
         </div>
         <div className="studio-actions">
           <span id="studio-preview-status" role="status" data-status={saveStatus}>
@@ -410,6 +448,9 @@ function StudioEditor({ initialDraft, seed, invalidCase }: { initialDraft: Studi
       <figure className="studio-preview">
         <figcaption className="studio-preview-caption">
           <h2>作品预览</h2>
+          <Link className="studio-visit-link" data-return={Boolean(visitOrigin)} prefetch={false} href={visitHref(visitOrigin ?? { solarTermId: term.id })}>
+            {visitOrigin ? "返回节气探访" : `探访${term.name}风物`}
+          </Link>
           <span className="studio-preview-format">{template.format}</span>
         </figcaption>
         <div
@@ -446,6 +487,7 @@ function StudioEditor({ initialDraft, seed, invalidCase }: { initialDraft: Studi
               <span>{title}</span><span className="studio-poster-seal" aria-hidden="true">{season.name}</span>
             </div>
             <p className="studio-poster-line">{line}</p>
+            {memory && <span className="studio-poster-memory">我的家乡记忆</span>}
             {placed.map((sticker) => (
               <button
                 type="button"
@@ -558,7 +600,8 @@ function StudioEditor({ initialDraft, seed, invalidCase }: { initialDraft: Studi
         </div>
         <div className="studio-fields" role="tabpanel" id="studio-panel-layout" aria-labelledby="studio-tab-layout" tabIndex={0} hidden={activeTab !== "layout"}>
           {invalidCase && <p className="studio-case-import" role="status">这则案例无法用于当前节气。你可以继续编辑，或回知时重新选一则。</p>}
-          {seed && caseState === "pending" && <div className="studio-case-import" role="group" aria-label="导入知时案例">
+          {missingWebSource && <p className="studio-case-import" role="status">当前标签页没有这条联网资料，请返回节气探访重新打开。</p>}
+          {seed && caseState === "pending" && <div className="studio-case-import" role="group" aria-label="导入文化案例">
             <strong>{seed.title}</strong>
             <p>将草稿节气切换到{SOLAR_TERMS[seedTermIndex].name}后，即可用这则案例生成灵感。草稿文字、版式和贴纸会保留。</p>
             <div>
@@ -605,13 +648,15 @@ function StudioEditor({ initialDraft, seed, invalidCase }: { initialDraft: Studi
         <div className="studio-fields" role="tabpanel" id="studio-panel-writing" aria-labelledby="studio-tab-writing" tabIndex={0} hidden={activeTab !== "writing"}>
           <fieldset className="studio-writing">
             <legend><span aria-hidden="true">一</span>卡片文字</legend>
-            <StudioInspiration
-              key={`${term.id}:${template.id}:${activeCase?.caseId ?? ""}`}
+            {memory ? <p>文案来自你在节气探访写下的个人经历，可在这里继续编辑。</p> : <StudioInspiration
+              key={`${term.id}:${template.id}:${activeCase?.caseId ?? activeWebSeed?.evidence.proof ?? ""}`}
               term={term}
               format={template.id}
               selectedCase={activeCase}
+              webSeed={activeWebSeed}
+              caseOrigin={visitOrigin ? "节气探访" : undefined}
               onApply={(field, value) => field === "title" ? setCustomTitle(value) : setCustomLine(value)}
-            />
+            />}
             <label>
               标题
               <input type="text" value={title} maxLength={STUDIO_TITLE_LIMIT} onChange={(event) => setCustomTitle(event.currentTarget.value)} />

@@ -1,10 +1,13 @@
 "use client";
 
+import Link from "next/link";
 import { createContext, useContext, useId, useRef, useState, type ReactNode } from "react";
 import { ProvinceCodeSchema, type ProvinceCode } from "@/lib/contracts/cultural-case";
 import { exploreSelectionReducer, INITIAL_EXPLORE_SELECTION, type ExploreSelection, type ExploreSelectionAction } from "@/lib/explore-selection";
 import { prepareChatMapActions, selectionMapState } from "@/lib/chat-map-client";
 import type { ChatContext, MapAction } from "@/lib/contracts/chat-api";
+import type { VisitQuery } from "@/lib/solar-visit";
+import { visitHref } from "@/lib/visit-links";
 import PaperLandscape from "./PaperLandscape";
 import { useProvinceCases, type ProvinceCases } from "./useProvinceCases";
 
@@ -20,6 +23,7 @@ export type ProvinceView = {
 
 type Interaction = {
   selection: ExploreSelection;
+  visitOrigin?: VisitQuery;
   dispatch: (action: ExploreSelectionAction) => void;
   revision: number;
   getMapRevision: () => number;
@@ -43,7 +47,9 @@ export function useProvinces() {
   return context;
 }
 
-export function ProvinceInteraction({ provinces, children, initialSelection = INITIAL_EXPLORE_SELECTION }: { provinces: ProvinceView[]; children: ReactNode; initialSelection?: ExploreSelection }) {
+export function ProvinceInteraction({ provinces, children, initialSelection = INITIAL_EXPLORE_SELECTION, visitOrigin }: {
+  provinces: ProvinceView[]; children: ReactNode; initialSelection?: ExploreSelection; visitOrigin?: VisitQuery;
+}) {
   const [view, setView] = useState({ selection: initialSelection, highlightedProvinceCodes: [] as ProvinceCode[], revision: 0 });
   const current = useRef(view);
   const { selection, highlightedProvinceCodes, revision } = view;
@@ -82,7 +88,7 @@ export function ProvinceInteraction({ provinces, children, initialSelection = IN
   const [hovered, setHovered] = useState<string | null>(null);
   const [focused, setFocused] = useState<string | null>(null);
   const { resource: matchingCases, retry: retryMatchingCases } = useProvinceCases(selection.solarTermId);
-  return <ProvinceContext.Provider value={{ provinces, selection, dispatch, revision, getMapRevision, getChatContext, invalidateMapRevision, highlightedProvinceCodes, applyAiMapActions, selected, raised: hovered ?? focused ?? selected, matchingCases, retryMatchingCases, setSelected, setHovered, setFocused }}>{children}</ProvinceContext.Provider>;
+  return <ProvinceContext.Provider value={{ provinces, selection, visitOrigin, dispatch, revision, getMapRevision, getChatContext, invalidateMapRevision, highlightedProvinceCodes, applyAiMapActions, selected, raised: hovered ?? focused ?? selected, matchingCases, retryMatchingCases, setSelected, setHovered, setFocused }}>{children}</ProvinceContext.Provider>;
 }
 
 export function ProvinceLayers() {
@@ -132,7 +138,7 @@ export function ProvinceLayers() {
 }
 
 export function ProvinceControls() {
-  const { provinces, selected, highlightedProvinceCodes, setSelected, setHovered, setFocused } = useProvinces();
+  const { provinces, selected, selection, visitOrigin, highlightedProvinceCodes, setSelected, setHovered, setFocused } = useProvinces();
   const inputId = useId();
   return <div className="province-controls">
     <div className="province-selection-row">
@@ -144,6 +150,11 @@ export function ProvinceControls() {
       <a className="province-case-link" href="#cultural-case-explorer">查看案例 </a>
     </div>
     {highlightedProvinceCodes.length > 0 && <p className="province-ai-highlight-note" role="status">AI 已标记：{highlightedProvinceCodes.map(code => provinces.find(province => province.id === code)?.shortName).join("、")}</p>}
+    <div className="province-visit-links">
+      {visitOrigin && <Link className="province-case-link" prefetch={false} href={visitHref(visitOrigin)}>返回节气探访</Link>}
+      {(!visitOrigin || selection.solarTermId !== visitOrigin.solarTermId || selection.provinceCode !== visitOrigin.provinceCode) &&
+        <Link className="province-case-link" prefetch={false} href={visitHref(selection)}>用当前筛选去探访</Link>}
+    </div>
     {provinces.some(province => province.scenery) && <p className="province-scenery-note">纸雕山水为装饰意象，不代表真实地形。</p>}
   </div>;
 }

@@ -1,14 +1,17 @@
 import { useEffect, useRef, useState } from "react";
+import type { VisitWebSeed } from "@/lib/solar-visit";
 import { readStudioReferences, readStudioSuggestions, type StudioCaseSeed, type StudioFormat, type StudioReference, type StudioSuggestion } from "@/lib/studio-inspiration";
 
 type Props = {
   term: { id: string; name: string };
   format: StudioFormat;
   selectedCase?: StudioCaseSeed;
+  caseOrigin?: string;
+  webSeed?: VisitWebSeed;
   onApply: (field: keyof StudioSuggestion, value: string) => void;
 };
 
-export default function StudioInspiration({ term, format, selectedCase, onApply }: Props) {
+export default function StudioInspiration({ term, format, selectedCase, caseOrigin = "知时", webSeed, onApply }: Props) {
   const request = useRef<AbortController | null>(null);
   const resultsPanel = useRef<HTMLDivElement>(null);
   const [loading, setLoading] = useState(false);
@@ -30,9 +33,14 @@ export default function StudioInspiration({ term, format, selectedCase, onApply 
     try {
       const query = new URLSearchParams({ term: term.id, format });
       if (selectedCase) query.set("caseId", selectedCase.caseId);
+      if (webSeed) query.set("source", "web");
       const response = await fetch(`/api/studio/inspiration?${query}`, {
         method: "POST",
-        headers: { "Idempotency-Key": crypto.getRandomValues(new Uint32Array(4)).join("-") },
+        headers: {
+          "Idempotency-Key": crypto.getRandomValues(new Uint32Array(4)).join("-"),
+          ...(webSeed ? { "Content-Type": "application/json" } : {}),
+        },
+        body: webSeed ? JSON.stringify(webSeed) : undefined,
         signal: AbortSignal.any([controller.signal, AbortSignal.timeout(60_000)]),
       });
       const body = await response.json();
@@ -70,9 +78,15 @@ export default function StudioInspiration({ term, format, selectedCase, onApply 
         </button>
       </div>
       {selectedCase && <p className="studio-inspiration-case">
-        <span>来自知时</span><strong>{selectedCase.title}</strong>
+        <span>来自{caseOrigin}</span><strong>{selectedCase.title}</strong>
         <small>{[...new Set([selectedCase.provinceName, selectedCase.regionName])].join(" · ")}</small>
       </p>}
+      {webSeed && <div className="studio-inspiration-case studio-web-reference">
+        <span>节气探访 · 联网资料</span>
+        <strong>{webSeed.evidence.title}</strong>
+        <small>{webSeed.evidence.quote}</small>
+        <a className="text-link" href={webSeed.evidence.url} target="_blank" rel="noreferrer">查看资料原文</a>
+      </div>}
       <p className="studio-inspiration-status" role="status">{status}</p>
       {suggestions.length > 0 && (
         <div ref={resultsPanel} className="studio-inspiration-results" role="region" aria-label="灵感结果" tabIndex={0}>

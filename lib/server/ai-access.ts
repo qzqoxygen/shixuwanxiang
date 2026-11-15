@@ -11,7 +11,7 @@ const clients = new Map<string, {
 const windowMs = 60_000;
 let nextCleanup = 0;
 
-export function beginAiRequest(request: Request, route: "chat" | "studio" | "season-guide", content: string):
+export function beginAiRequest(request: Request, route: "chat" | "studio" | "season-guide" | "visit" | "visit-memory", content: string):
   { status: number; code: string; message: string } | { finish(): void } {
   const now = Date.now();
   if (now >= nextCleanup) {

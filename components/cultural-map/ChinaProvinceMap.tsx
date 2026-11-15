@@ -5,6 +5,8 @@ import MapViewport from "./MapViewport";
 import { ProvinceControls, ProvinceInteraction, ProvinceLayers, type ProvinceView } from "./ProvinceInteraction";
 import CulturalCaseExplorer, { SolarTermFilter } from "./CulturalCaseExplorer";
 import { INITIAL_EXPLORE_SELECTION, type ExploreSelection } from "@/lib/explore-selection";
+import type { VisitQuery } from "@/lib/solar-visit";
+import { visitHref } from "@/lib/visit-links";
 import FloatingChat from "../FloatingChat";
 
 const features = mapData.features as unknown as ProvinceFeature[];
@@ -40,10 +42,13 @@ const provinceViews: ProvinceView[] = provinces.map(({ properties, geometry }) =
   return { id, name: properties.name!, shortName: provinceName(properties.name!), path: geometryToPath(geometry, mainProject), anchor, label: [anchor[0] + dx, anchor[1] + dy] };
 });
 
-export default function ChinaProvinceMap({ initialSelection = INITIAL_EXPLORE_SELECTION }: { initialSelection?: ExploreSelection }) {
+export default function ChinaProvinceMap({ initialSelection = INITIAL_EXPLORE_SELECTION, visitOrigin }: {
+  initialSelection?: ExploreSelection; visitOrigin?: VisitQuery;
+}) {
   return (
     <section className="culture-map-panel" aria-labelledby="culture-map-heading">
-      <ProvinceInteraction key={`${initialSelection.solarTermId}-${initialSelection.provinceCode}`} provinces={provinceViews} initialSelection={initialSelection}>
+      <ProvinceInteraction key={`${initialSelection.solarTermId}-${initialSelection.provinceCode}-${initialSelection.caseId}-${visitHref(visitOrigin)}`}
+        provinces={provinceViews} initialSelection={initialSelection} visitOrigin={visitOrigin}>
         <div className="culture-map-spread">
           <div className="culture-map-sheet">
             <header className="culture-map-header">

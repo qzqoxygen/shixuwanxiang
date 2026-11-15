@@ -7,3 +7,14 @@ export const chapters = {
 
 export type GardenSeason = keyof typeof chapters;
 export const gardenSeasons = Object.keys(chapters) as GardenSeason[];
+
+export function gardenImage(name: string) {
+  return `/images/home/${name}.webp`;
+}
+
+export const pondImages = {
+  spring: [gardenImage("spring-pond-close")],
+  summer: [gardenImage("summer-pond-close"), gardenImage("summer-pond-lotus-grove")],
+  autumn: [gardenImage("autumn-pond-close")],
+  winter: [gardenImage("winter-pond-close")],
+} as const satisfies Record<GardenSeason, readonly string[]>;
