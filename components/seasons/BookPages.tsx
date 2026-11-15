@@ -1,12 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import SeasonVignette from "./SeasonVignette";
 import { SEASONS, SOLAR_TERMS } from "@/lib/solar-terms";
 import { SOLAR_TERM_NOTES } from "@/lib/solar-term-notes";
 import { SOLAR_TERM_PHOTOS, type SolarTermPhoto } from "@/lib/solar-term-photos";
+import { seasonPhotoPreview } from "@/lib/season-photo-preview";
 
 const number = (value: number) => String(value).padStart(2, "0");
 
@@ -23,22 +23,34 @@ export function ReadingPage({ index, titleId }: { index: number; titleId?: strin
       <span>节气小识</span>
       <p>{SOLAR_TERM_NOTES[term.id]}</p>
     </div>
-    <div className="seasons-reading-links"><Link className="seasons-explore-link" href={`/explore?solarTermId=${term.id}`} aria-label={`去知时，寻访${term.name}风物`}>去知时<span className="book-wide-copy">，寻访山河风物</span> </Link><a className="seasons-article-link" href={photo.articleUrl} target="_blank" rel="noopener noreferrer">阅读<span className="book-wide-copy">{term.name}</span>专题 <span className="seasons-sr-only">（中国非遗网，新窗口打开）</span></a></div>
+    <div className="seasons-reading-links"><Link className="seasons-explore-link" href={`/explore?solarTermId=${term.id}`} prefetch={false} aria-label={`去知时，寻访${term.name}风物`}>去知时<span className="book-wide-copy">，寻访山河风物</span> </Link><a className="seasons-article-link" href={photo.articleUrl} target="_blank" rel="noopener noreferrer">阅读<span className="book-wide-copy">{term.name}</span>专题 <span className="seasons-sr-only">（中国非遗网，新窗口打开）</span></a></div>
     <span className="book-page-number" aria-label={`左页，第${index * 2 + 1}页`}>{number(index * 2 + 1)}</span>
   </article>;
 }
 
-// The prepared HD WebP assets are served directly to avoid another lossy encode.
 export function PhotoPage({ index, guide }: { index: number; guide: React.ReactNode }) {
   const term = SOLAR_TERMS[index];
   const photo: SolarTermPhoto = SOLAR_TERM_PHOTOS[term.id];
   const [failed, setFailed] = useState(false);
   const [loaded, setLoaded] = useState(false);
+  const preview = seasonPhotoPreview(photo.src);
+  const syncInitialImage = useCallback((image: HTMLImageElement | null) => {
+    if (!image?.complete || !image.currentSrc) return;
+    if (image.naturalWidth > 0) setLoaded(true);
+    else setFailed(true);
+  }, []);
   return <figure className="seasons-photo-card book-page" data-season={term.season}>
     <div className="seasons-photo-heading"><span>{term.name}影像</span><span>点图看大图</span></div>
     <div className="seasons-photo-mat"><div className="seasons-photo-frame" data-failed={failed} aria-busy={!loaded && !failed}>
       {!failed && !loaded && <span className="seasons-photo-loading" role="status">影像加载中</span>}
-      {failed ? <div className="seasons-photo-error" role="status"><span>照片暂未加载</span><a href={photo.sourceUrl} target="_blank" rel="noopener noreferrer">前往来源页查看 </a></div> : <a className="seasons-photo-open" href={photo.src} target="_blank" rel="noopener noreferrer" draggable={false} aria-label={`查看${term.name}高清大图（新窗口打开）`}><Image src={photo.src} alt={`${term.name}：${photo.caption}`} width={photo.width} height={photo.height} unoptimized loading="eager" draggable={false} onLoad={() => setLoaded(true)} onError={() => setFailed(true)} /></a>}
+      {failed ? <div className="seasons-photo-error" role="status"><span>照片暂未加载</span><a href={photo.sourceUrl} target="_blank" rel="noopener noreferrer">前往来源页查看 </a></div> :
+        <a className="seasons-photo-open" href={photo.src} target="_blank" rel="noopener noreferrer" draggable={false} aria-label={`查看${term.name}高清大图（新窗口打开）`}>
+          {/* The local WebP variants let the browser select a size without a runtime image transform. */}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img ref={syncInitialImage} sizes={preview.sizes} srcSet={preview.srcSet} src={preview.src}
+            alt={`${term.name}：${photo.caption}`} width={photo.width} height={photo.height} decoding="async" draggable={false}
+            onLoad={() => setLoaded(true)} onError={() => setFailed(true)} />
+        </a>}
     </div></div>
     <figcaption>
       <strong>{photo.caption}</strong>

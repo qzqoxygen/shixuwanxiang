@@ -9,6 +9,7 @@ import { SOLAR_TERMS, type SolarTermId } from "@/lib/solar-terms";
 import type { VisitQuery } from "@/lib/solar-visit";
 import { visitHref } from "@/lib/visit-links";
 import { SOLAR_TERM_PHOTOS } from "@/lib/solar-term-photos";
+import { seasonPhotoPreview } from "@/lib/season-photo-preview";
 import { getSeasonGuide, type GuideCaseSources, type GuideMode } from "@/lib/season-guides";
 import PhotoGuide from "@/components/seasons/PhotoGuide";
 
@@ -98,16 +99,28 @@ export default function SolarTermsExplorer({ caseSources, initialTerm, visitOrig
   useEffect(() => { dispatch({ type: "settle" }); }, [compact]);
 
   useEffect(() => {
-    for (const index of [book.requested - 1, book.requested, book.requested + 1]) {
-      const term = SOLAR_TERMS[index];
-      if (!term) continue;
-      const src = SOLAR_TERM_PHOTOS[term.id].src;
-      if (warmedImages.current.has(src)) continue;
-      warmedImages.current.add(src);
-      const image = new window.Image();
-      image.decoding = "async";
-      image.src = src;
+    let timer: number;
+    function warmAdjacentPhotos() {
+      timer = window.setTimeout(() => {
+        for (const index of [book.requested - 1, book.requested + 1]) {
+          const term = SOLAR_TERMS[index];
+          if (!term) continue;
+          const { src, srcSet, sizes } = seasonPhotoPreview(SOLAR_TERM_PHOTOS[term.id].src);
+          if (warmedImages.current.has(src)) continue;
+          warmedImages.current.add(src);
+          const image = new window.Image();
+          image.onerror = () => warmedImages.current.delete(src);
+          image.decoding = "async";
+          image.fetchPriority = "low";
+          image.sizes = sizes;
+          image.srcset = srcSet;
+          image.src = src;
+        }
+      }, 500);
     }
+    if (document.readyState === "complete") warmAdjacentPhotos();
+    else window.addEventListener("load", warmAdjacentPhotos, { once: true });
+    return () => { window.removeEventListener("load", warmAdjacentPhotos); window.clearTimeout(timer); };
   }, [book.requested]);
 
   function navigate(value: number, mode: "go" | "step" = "go", instant = false) {
@@ -156,7 +169,7 @@ export default function SolarTermsExplorer({ caseSources, initialTerm, visitOrig
           <path d="M106 50q16 1 34-1m76-10 19-1" strokeWidth=".65" />
         </g>
         <image className="seasons-toolbar-boat" href="/images/studio-stickers/small-wooden-boat.webp" x="112" y="7" width="57" height="57" />
-        <image className="seasons-toolbar-willow" href="/images/studio-stickers/willow.webp" x="193" y="0" width="58" height="58" opacity=".84" />
+        <image className="seasons-toolbar-willow" href="/images/seasons-ink/willow-toolbar.webp" x="193" y="0" width="58" height="58" opacity=".84" />
         <path className="seasons-toolbar-leaf" d="M185 25q-6-1-9-5 7 0 9 5Z" fill="#7e916b" />
       </svg>
       <div className="seasons-book-toolbar-actions"><button type="button" className="seasons-motion seasons-book-button" aria-pressed={!still} disabled={reduced} onClick={() => { setPaused(value => !value); dispatch({ type: "settle" }); }} aria-label="页面动效"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.4" aria-hidden="true">{still ? <path d="m5 3 7 5-7 5Z" /> : <path d="M5 3v10M11 3v10" />}</svg><span>{reduced ? "已减少动效" : paused ? "开启动效" : "暂停动效"}</span></button></div>

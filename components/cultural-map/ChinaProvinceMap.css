@@ -51,8 +51,8 @@
 .province-visual[data-ai-highlighted="true"] .province-tint { fill: #d7bc7e; opacity: .42; }
 .province-landscape { filter: drop-shadow(1px 3px 1px #364e3b33); }
 .province-target { cursor: pointer; outline: none; }
-.province-target > path, .province-target > rect { fill: transparent; stroke: none; pointer-events: all; }
-.province-target:focus-visible > path, .province-target:focus-visible > rect { stroke: #467a83; stroke-width: 2; stroke-dasharray: 4 3; vector-effect: non-scaling-stroke; }
+.province-target > use, .province-target > rect { fill: transparent; stroke: none; pointer-events: all; }
+.province-target:focus-visible > use, .province-target:focus-visible > rect { stroke: #467a83; stroke-width: 2; stroke-dasharray: 4 3; vector-effect: non-scaling-stroke; }
 .province-selection-row { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 8px; }
 .province-controls { margin: 10px 0 5px; }
 .province-selection-row label { color: #366c75; font: 16px KaiTi, SimSun, serif; }

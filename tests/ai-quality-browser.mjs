@@ -50,7 +50,8 @@ try {
   await page.goto(`${origin}/seasons`, { waitUntil: "networkidle" });
   await page.locator('.book-directory button[data-term-id="dongzhi"]').click();
   await page.waitForFunction(() => document.querySelector(".seasons-book")?.getAttribute("data-term-id") === "dongzhi");
-  assert.equal(new URL(await page.locator('.seasons-book-base .seasons-photo-open img').getAttribute("src"), origin).pathname, "/images/solar-terms/dongzhi-hd.webp");
+  await page.waitForFunction(() => /dongzhi-(720|1120)\.webp$/.test(document.querySelector(".seasons-book-base .seasons-photo-open img")?.currentSrc ?? ""));
+  assert.equal(await page.locator(".seasons-book-base .seasons-photo-open").getAttribute("href"), "/images/solar-terms/dongzhi-hd.webp");
   report.seasonsNavigation = true;
 
   await page.goto(`${origin}/explore`, { waitUntil: "networkidle" });

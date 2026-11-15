@@ -53,8 +53,9 @@ try {
   await page.goto(`${origin}/seasons`, { waitUntil: "networkidle" });
   await page.locator('.book-directory button[data-term-id="dongzhi"]').click();
   await page.waitForFunction(() => document.querySelector(".seasons-book")?.getAttribute("data-term-id") === "dongzhi");
-  const photoSource = await page.locator('.seasons-book-base .seasons-photo-open img').getAttribute("src");
-  assert.equal(new URL(photoSource, origin).pathname, "/images/solar-terms/dongzhi-hd.webp");
+  const winterPhoto = page.locator(".seasons-book-base .seasons-photo-open");
+  await page.waitForFunction(() => /dongzhi-(720|1120)\.webp$/.test(document.querySelector(".seasons-book-base .seasons-photo-open img")?.currentSrc ?? ""));
+  assert.equal(await winterPhoto.getAttribute("href"), "/images/solar-terms/dongzhi-hd.webp");
   report.seasonsNavigation = true;
 
   await page.goto(`${origin}/explore`, { waitUntil: "networkidle" });

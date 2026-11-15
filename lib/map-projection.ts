@@ -46,3 +46,6 @@ export function geometryToPath(geometry: MapGeometry, project: (point: MapPoint)
     return `${index === 0 ? "M" : "L"}${x.toFixed(2)},${y.toFixed(2)}`;
   }).join("") + "Z").join("")).join("");
 }
+
+export const projectMainMap = createMapProjection([73, 17, 136, 54], [-22, 10, 840, 510]);
+export const projectMapInset = createMapProjection([105, 2, 125, 25], [700, 376, 110, 150]);
